@@ -1,0 +1,76 @@
+Autor: Robson Vaamonde
+Site: www.procedimentosemti.com.br
+Facebook: facebook.com/ProcedimentosEmTI
+Facebook: facebook.com/BoraParaPratica
+YouTube: youtube.com/BoraParaPratica
+Data de criação: 31/05/2016
+Data de atualização: 26/09/2016
+Versão: 0.6
+Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
+Kernel >= 4.4.x
+
+26/09/2016	-	Atualização do script-00.sh acréscimo da opção apt-get autoremove, atualização do arquivo conf/smb.conf, script-01.sh até script-20.sh melhoria na documentação, início da criação do script-21.sh para finalização dos recursos de auditoria do SAMBA4, correção do agendamento do clean_reclyed, criação do arquivo LICENSE com a GPL v3. Robson Vaamonde
+
+14/08/2016	-	Atualização do script-02.sh, acrescimo das impressora cups-pdf e modificação do arquivo cupsd.conf, printers.conf e cups-pdf.conf. Robson Vaamonde
+
+10/08/2016	-	Atualização de todos os agendamento, colocação de linha no final e comentário. Robson Vaamonde
+
+09/08/2016	-	Correção do script-06.sh - comando samba-tool domain info, correção do script07.sh na linha 123, falta de aspas duplas, correção do script-17, falta do comando wc -l nas linhas 79 e 96, correção do script-18.sh caracter estranho na linha 98 e melhoria no script. Robson Vaamonde.
+
+08/08/2016	-	Atualização do script-14.sh, atualização dos arquivos group.local e members.group. Robson Vaamonde
+
+04/08/2016	-	Melhoria no laço de loop do script-16.sh, correção da falha de listar associação de grupos. Robson Vaamonde
+
+04/08/2016	-	Início da documentação de todos os comandos executados nos scripts, criação das linhas de comentário em cada comando para facilitar o aprendizado. Robson Vaamonde
+
+04/08/2016	-	Atualização dos scripts de criação de Grupos Global e Local, acrescimo do grupo DL ACL-PastaGestao-R. Robson Vaamonde
+
+04/08/2016	-	Criação do Log do script do samba_backup. Robson Vaamonde
+
+04/08/2016	-	Correção da localização do arquivo rsync_samba, caminho: DESTINO="/backup/pti.intra/rsync", criação do Log de sincronismo.  Robson Vaamonde
+
+03/08/2016	-	Criação do agendamento da limpeza da pasta lixeira no script-20.sh. Robson Vaamonde
+
+03/08/2016	-	Correção do script de associação de grupos. Robson Vaamonde
+
+02/08/2016	-	Criação do diretório Lixeira no script-14.sh. Robson Vaamonde
+
+02/08/2016	-	Correção de falha do NTP Server, comando hwclock, date e ntpdate para atulização correta da hora de máquina, sistema e sincronismo no script-01.sh. Robson Vaamonde
+
+02/08/2016	-	Atualização do arquivo smb.conf, correções de falha de permissões e de acesso as pastas, trabalhando com os comandos chmod e chgrp integrado com o Winbind. Robson Vaamonde
+
+01/08/2016	-	Criação do diretório /backup/pti.intra/bkp para o agendamento do Backupninja, mudança do script14.sh. Robson Vaamonde
+
+31/07/2016	-	Correção do script-20.sh, falha na volta do diretório do netdata após a instalação, remoção do diretório netdata. Robson Vaamonde
+
+30/07/2016	-	Atualização de todos os script para a versão 0.4. Robson Vaamonde
+
+29/07/2016	-	Acrescimo da opção: export DEBIAN_FRONTEND="noninteractive" no script-20.sh, correção das opções do postfix para o software Backupninja, criação dos scripts clean_public e rsync_samba, criação dos agendamento no /etc/cron.d/. Robson Vaamonde
+
+28/07/2016	-	Correção do script-18.sh, melhoria na criação da senha do usuário do wordpress. Robson Vaamonde
+
+28/07/2016	-	Correção de erros de EOF nos scripts de agendamento do /etc/cron.d/, espaços em brancos entre os *, teste com os comandos: tail -f /var/log/syslog | grep cron, run-parts --list /etc/cron.d. Robson Vaamonde
+
+27/07/2016	-	Criação do agendamento da limpeza do diretório /arquivos/pti.intra/publico no script-20.sh. Robson Vaamonde
+
+27/07/2016	-	Correção do script-18.sh, falha no comando passwd, digitado errado: password. Robson Vaamonde
+
+27/07/2016	-	Melhoria no script-14.sh, criação da arvore de diretórios. Robson Vaamonde
+
+27/07/2016	-	Melhoria nos scripts de criação de grupos, usuários e unidades organizacionais. Robson Vaamonde
+
+26/07/2016	-	Correção dos caminhos dos scripts do cron.d. Robson Vaamonde
+
+26/07/2016	-	Correção dos scripts do /etc/cron.d/ espaços em linhas no clamav, freshclam, sambadnsupdate é clamav-unofficial-sigs, confirmação: cat /var/log/syslog | grep cron. Robson Vaamonde
+
+24/07/2016	-	Testes das opções: apt-get -o Dpkg::Options::="--force-confold" upgrade -q -y --force-yes | apt-get -o Dpkg::Options::="--force-confold" dist-upgrade -q -y --force-yes nos script-00.sh até scripts-06.sh, objetivo de não solicitar confirmação de troca de arquivos. Robson Vaamonde
+
+24/07/2016	-	Correção dos script para utilização do apt-get upgrade ou dist-upgrade, quando existe a possibilidade de interação com o utilizador, acrescimo da linha: export DEBIAN_FRONTEND=noninteractive no início do script. Robson Vaamonde
+
+19/07/2016	-	Aumentado o tempo de inatividade do sshd_config linha 42: ClientAliveInterval 60 para ClientAliveInterval 180. Robson Vaamonde
+
+19/07/2016	-	Desativado da opção rndc-confgen -a do script-06.sh na linha 170, comando entrando em loop, analise de erro sendo feita. Robson Vaamonde
+
+19/07/2016	-	Correção dos arquivos hosts.allow e hosts.deny espaço em branco entre os comentários. Robson Vaamonde
+
+19/07/2016	-	Retirada do cabeçalho do arquivos issue.net, criação de espaços entre linhas para melhorar o script e a linha de autenticação. Robson Vaamonde

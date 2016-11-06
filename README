@@ -1,0 +1,350 @@
+Autor: Robson Vaamonde
+Site: www.procedimentosemti.com.br
+Facebook: facebook.com/ProcedimentosEmTI
+Facebook: facebook.com/BoraParaPratica
+YouTube: youtube.com/BoraParaPratica
+Data de criação: 31/05/2016
+Data de atualização: 26/09/2016
+Versão: 0.6
+Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
+Kernel >= 4.4.x
+
+Pasta doc:	Padronização de Partições e Diretórios.pdf
+			Padronização De Nomes de Host e Server.pdf
+
+Procedimento de utilização dos scripts de instalação e configuração do SAMBA4 no GNU/Linux Ubuntu Server 16.04 x64 LTS.
+Sequência: script-00.sh até script-20.sh, alguns scripts vão fazer o reboot automático do servidor.
+
+# Padronização da instalação do servidor: ptispo01dc01
+# Criação da estrutura de discos
+/dev/sda	- OS	-	 8GB	RAID1	LVM
+/dev/sdb	- OS	-	 8GB	RAID1	LVM
+/dev/sdc	- Files	-	10GB	RAID1	LVM
+/dev/sdd	- Files	-	10GB	RAID1	LVM
+/dev/sde	- Bkp	-	15GB	SRAID	LVM
+
+# Criação da estrutura do LVM
+Grupos LVM:
+root		/			-	4.0GB		-	Ext4	-	Defaults,Barrier=1
+			/tmp		-	512MB		-	Ext4	-	Noexec, Nosuid, Nodev
+			/swap		-	512MB		-	Swap
+			/var		-	3.0GB		-	Ext4	-	Defaults,Barrier=1
+files		/arquivos	-	 10GB		-	Ext4	-	Defaults,Barrier=1,Grpquota,Usrquota
+bkp			/backup		-	 15GB		-	Ext4	-	Defaults,Barrier=1
+
+# Padronização da raiz de diretórios:
+/arquivos
+		/pti.intra
+				/publica		Letra: P: (quota de disco);
+				/sistema		Letra: S:
+				/gestao			Letra: G:
+				/usuarios		Letra: U: (quota de disco);
+						/perfil
+								/documentos
+/backup
+		/pti.intra
+				/samba-ad-dc
+				/backup
+				/rsync
+					/sistema
+					/gestao
+					/usuarios
+					/backup
+
+Script-00.sh: Script responsavél por fazer as atualização do sistema
+# Instalação dos pacotes principais para a primeira etapa, indicado para a distribuição GNU/Linux Ubuntu Server 16.04 LTS x64
+#
+# Atualização das listas do Apt-Get
+# Atualização dos Aplicativos Instalados
+# Atualização da Distribuição Ubuntu Server (Kernel)
+# Auto-Limpeza do Apt-Get
+# Limpando o repositório Local do Apt-Get
+
+Script-01.sh: Script responsável por instalar as dependências de rede, configurações do Kerberos e FSTAB
+# Instalação dos pacotes principais para a segunda etapa, indicado para a distribuição GNU/Linux Ubuntu Server 16.04 LTS x64
+#
+# NTP (Network Time Protocol) Servidor de Data/Hora
+# KRB5 (Kerberos) Protocolo de Autenticação Segura
+# NFS (Network File System) Protocolo de Transferência de Arquivos
+# ACL (Access Control List) Permissões de Arquivos e Diretórios
+# ATTR (Extended Attributes) Atributos Extendidos
+#
+# Após o reboot fazer as mudanças do arquivo /etc/fstab para suportar os recursos de ACL e XATTR EXT4
+#	vim /etc/fstab
+#	defaults,barrier=1
+#
+# Se tiver utilizando o sistema de arquivos BTRFS, deixar o padrão
+#	vim /etc/fstab
+#	defaults,subvol=@
+#
+# Após o reboot configurar o arquivo /etc/ntp.conf para atualizar data e hora dos servidores do NTP.br
+#	 mv /etc/ntp.conf /etc/ntp.conf.old
+#	 cp ntp.drift /etc/
+#	 cp ntp.conf /etc/
+#
+# Na instalação fazer a criação do REALM do Kerberos
+#	REALM: 	PTI.INTRA
+#	SERVER:	ptispo01dc01.pti.intra	
+#	ADMIN:	ptispo01dc01.pti.intra
+#	debconf-show krb5-config
+
+Script-02.sh: Script responsavél por instalar todos os pacotes para o servidor de arquivos SAMBA4 e recursos de Rede
+# Instalação dos pacotes principais para a terceira etapa, indicado para a distribuição GNU/Linux Ubuntu Server 16.04 LTS x64
+#
+# SAMBA4 (Server Message Block) Serviço de Armazenamento e Gerenciamento de Arquivos e Usuários
+# DNS (Domain Name System) Serviço de Domínio de Nomes
+# CUPS (Common Unix Printing System) Serviços de Impressão
+# DHCP (Dynamic Host Configuration Protocol) Configuração Dinâmica de Computadores
+# WINBIND Integração SAMBA + Linux
+# QUOTA Criação de Quotas de Discos
+#
+# Após o reboot fazer as mudanças do arquivo /etc/nsswitch.conf para suportar a autenticação via Winbind
+#	vim /etc/nsswitch.conf
+#	passwd:		files	compat	winbind
+#	group:		files	compat	winbind
+#	shadown:	files	compat	winbind
+#	hosts:		files 	dns   mdns4_minimal [NOTFOUND=return]
+#
+# Configurações de suporte a Quota, Acl e Xattr no rquivo /etc/fstab
+# Utilizar essas configuração apenas para o sistema de arquivos EXT4
+# Se tiver utilizando o BTRFS deixar o padrão
+#
+#	vim /etc/fstab
+#	defaults,barrier=1,grpquota,usrquota
+#
+# Comando para confirmar as modificações feitas no FSTAB
+#	tune2fs -l /dev/sda6 | grep "Default mount options:"
+#
+# Editando o arquivo /etc/hostname para acrescentar o FQDN
+#	vim /etc/hostname
+#	ptispo01dc01.pti.intra
+#
+# Editando o arquivo /etc/hosts
+#	vim /etc/hosts
+#	192.168.1.10	ptispo01dc01.pti.intra	ptispo01dc01
+#
+# Editando o arquivo /etc/defaults/grub
+#	GRUB_CMDLINE_LINUX_DEFAULT="net.ifnames=0" 
+#	update-grub
+#
+# Atualizando o ClamAV
+#	freshclam
+#	service clamav-daemon start
+#	service clamav-freshclam start
+
+Script-03.sh: Script responsavél pela instalação do Webmin
+# Instalação dos pacotes principais para a quarta etapa, indicado para a distribuição GNU/Linux Ubuntu Server 16.04 LTS x64
+#
+# Instalando as dependências para Webmin - WebAdmin
+# Baixando o Webmin do site Oficial (versão: 1.801)
+# Instalando o Webmin via dpkg
+# Porta padrão de acesso ao Webmin: https://SEU_ENDEREÇO_IP:10000
+
+Script-04.sh: Script responsável pela instalação do LAMP-SERVER
+# Instalação dos pacotes principais para a quinta etapa, indicado para a distribuição GNU/Linux Ubuntu Server 16.04 LTS x64
+#
+# APACHE (Apache HTTP Server) -Servidor de Hospedagem de Páginas web
+# MYSQL (SGBD) - Sistemas de Gerenciamento de Banco de Dados
+# PHP (Personal Home Page - PHP: Hypertext Preprocessor) - Linguagem de Programação Dinâmica para Web
+# PERL - Linguagem de programação multiplataforma
+# PYTHON - Linguagem de programação de alto nível
+# PhpMyAdmin - Aplicativo desenvolvido em PHP para administração do MySQL pela Internet
+# PhpLDAPAdmin - Aplicativo desenvlvido em PHP para administração do LDAP SAMBA4 pela Internet
+#
+# Configuração do MySQL
+#	será solicitado a senha do ROOT do MySQL
+#
+# Configuração do ProFTPD
+#	será solicitado o tipo de inicialização do sistema, escolha: standalone
+#
+# Configuração do PhpMyAdmin
+#	será solicitado o tipo do servidor web, escolha: apache2
+#	será solicitado para configurar a base de dados do PhpMyAdmin, escolha: yes
+#	será solicitado a senha do PhpMyAdmin, digite uma senha
+
+Script-05.sh: Script responsável pela configuração dos serviços de Rede
+# Configuração dos serviços da sexta etapa, indicado para a distribuição GNU/Linux Ubuntu Server 16.04 LTS x64
+#
+# Configuração do arquivo interfaces
+#	vim /etc/network/interfaces
+#
+# Configuração do Serviço de SSHD, arquivo sshd_config
+#	vim /etc/ssh/sshd_config
+#
+# Configuração dos arquivos hosts.allow e hosts.deny
+#	vim /etc/hosts.allow
+#	vim /etc/hosts.deny
+#
+# Configuração do Serviço de DHCPD, arquivo dhcpd.conf
+#	vim /etc/dhcp/dhcpd.conf
+
+Script-06.sh: Script responsável pela pormoção do Servidor SAMBA4 como Controlador de Domínio
+# Configuração dos serviços do SAMBA4 da sétima etapa, indicado para a distribuição GNU/Linux Ubuntu Server 16.04 LTS x64
+#
+# Opções do samba-tool domain provision
+#
+# --option=”interfaces=lo eth0″ --option=”bind interfaces only=yes” – Se seu controlador de domínios tem mais de uma interface de rede essa opção é obrigatória. Isso força o samba escutar e resolver corretamente o DNS para a interface da sua rede local;
+#
+# --option="allow dns updates = nonsecure and secure" --option="dns forwarder = 192.168.1.10"
+#
+# --option="winbind use default domain = yes" --option="winbind enum users  = yes" --option="winbind enum groups = yes" --option="winbind refresh tickets = yes" --option="winbind refresh tickets = rfc2307"
+#
+# --option="server signing = auto" --option="vfs objects = acl_xattr" --option="map acl inherit = yes" --option="store dos attibutes = yes" --option="client use spnego = no"
+#
+# --use-rfc2307 – O uso dessa opção ativa o Samba Active Directory para armazenar atributos posix. É também criado informações NIS (Network Information Service) no AD, permitindo a administração de UIDs/GIDs e outras funções Unix;
+#
+# --realm=PTI.INTRA – É onde setamos o domínio completo, no caso prefixo mais sufixo;
+#
+# --domain=PTI – Nessa opção, devemos setar apenas o prefixo do domínio;
+#
+# --dns-backend=BIND9_DLZ – Por padrão Samba4 utiliza o seu próprio DNS. Essa opção força o Samba4 utilizar o Bind como DNS Backend.
+#
+# --adminpass=’pti@2016’ – Aqui configuramos a senha do usuário “Administrator”, que será o administrador do sistema.
+#
+# Informações sobre tipos de DNS do SAMBA4
+#
+# SAMBA_INTERNAL	= Configurações de DNS interna no SAMBA4
+# BIND9_FLATFILE	= Configurações de DNS utilizando arquivos de configurações
+# BIND9_DLZ		 	= Configurações de DNS integrado no SAMBA4 é o BIND
+# NONE				= Sem configuração de DNS
+#
+# Informações sobre o FSMO Roles (Flexible Single Master Operation Roles)
+# 1. Schema Master (Mestre de Esquema);
+# 2. Domain Name Master (Mestre de Nomeação de Domínio);
+# 3. PDC Emulator (Emulador de Controlador de Domínio Primário);
+# 4. RID Master (Mestre ID Relativo - SID);
+# 5. Infra-Structure Master (Mestre de Infra-Estrutura);
+# 6. GC Global Catalog (Catalog Global).
+
+Script-07.sh: Script responsável pelo Troubleshooting dos serviços instalados de DNS
+# Troubleshooting dos serviços de rede da oitava etapa, indicado para a distribuição GNU/Linux Ubuntu Server 16.04 LTS x64
+#
+# Criação da Zona Reversa do DNS
+#
+# Atualização dos ponteiros do DNS
+#
+# Criação da atualização do DNS no CRON
+#
+# Permissões de Acesso a Disco e Impressoras
+#
+# SeDiskOperatorPrivilege
+# SePrintOperatorPrivilege
+#
+# Script de Integração do SAMBA4 com DNS e DHCP
+
+Script-08.sh: Script responsável por analisar todas as portas liberadas no servidor
+# Verificação das portas de serviços da nona etapa, indicado para a distribuição GNU/Linux Ubuntu Server 16.04 LTS x64
+#
+# Informações de Serviços de Rede integrado com o SAMBA4
+# SSH (Secure Shell - Porta padrão: TCP 22)
+# DNS (Domain Name System - Porta padrão: TCP/UDP 53 UDP 5353)
+# SMB (Server Message Block NetBIOS - Portas padrão: UDP 137, UDP 138 é TCP 139) 
+# RPC/ECM (Microsoft Remote Procedure Call - Porta padrão: TCP/UDP 111 é TCP 135)
+# CIFS (Common Internet File System - Porta padrão: TCP 445)
+# LDAP (Lightweight Directory Access Protocol - Porta padrão: TCP/UDP 389)
+# LDAPS (Lightweight Directory Access Protocol Secure - Porta padrão: TCP 636)
+# GC (Global Catalog - Portas padrão: TCP 3268 é TCP 3269)
+# Kerberos (Network Authentication Protocol - Portas padrão: TCP/UDP 88 é TCP/UDP 464)
+# NTP (Network Time Protocol - Porta padrão: UDP 123)
+# DHCP (Dynamic Host Configuration Protocol - Porta padrão: UDP 67)
+# CUPS (Common Unix Printing System - Porta padrão: UDP 631)
+# WEBMIN (Web-based System Configuration - Porta padrão: TCP/UDP 10000)
+# APACHE (Apache HTTP Server - Porta padrão: TCP 80)
+# MYSQL (Open-Source Relational Database Nanagement System - Porta padrão: TCP 3306)
+# FTP (File Transfer Protocol - Porta padrão: TCP 21)
+# NFS (Network File System - Porta padrão: TCP/UDP 2049)
+
+Script-09.sh: Script responsável pelo Troubleshooting dos Serviços de Rede e do SAMBA4
+# Utilização de vários comandos para a validação do Ambiente;
+# samba-tool
+# lsb_release é uname
+# smbclient
+# date e hwclock
+# kinit e klist
+# dig, host e nslookup
+# wbinfo e net
+# getent
+
+Script-10.sh: Script responsável pelo Troubleshooting dos Disco
+# Utilização de vários comandos para a validação do ambiente.
+# mdadm
+# pvdisplay, lvdisplay e vgdisplay
+# fdisk, tune2fs e df
+# mount e repquota
+
+Script-11.sh: Script responsável pelo Troubleshooting de Status dos Serviços de Rede
+# Utilização de vários comandos para analisar os status dos serviços
+# service
+# samba-ad-dc, smbd e nmbd
+
+Script-12.sh: Script responsável pelo Troubleshooting de ACL's e Atributos Extendidos
+# Utilização de vários comandos para testar o ambiente de ACL e ATTR
+# touch
+# getfacl e getfattr
+# setfacl e setfattr
+
+Script-13.sh: Script responsável pela Confguração do Agendamento de Backup do SAMBA4
+# Configuração do CRONTAB para o agendamento de Backup do SAMBA4
+# Utilização do Script de Backup feito pelo Tean do SAMBA4
+
+Script-14.sh: Script responsável pela Criação da Árvore de Diretórios
+# Criação da árvore de diretórios para o armazenamento das informações da empresa.
+# Utilização da partição /arquivos para a montagem da estrutura de diretórios
+# /arquivos/pti.intra
+#					/publico	= Pasta pública da rede;
+#					/gestao		= Pasta dos departamentos da rede;
+#					/sistema	= Pasta do sistema de gestão da rede;
+#					/usuarios	= Pasta dos usuários da rede;
+# /backup/pti.intra
+#					/rsync		= Pasta do sincronismo dos arquivos da rede;
+
+Script-15.sh: Script responsável pela Criação das Unidades Organizacionais
+# Criação da estrutura de Unidades Organizacionais.
+# Modificação da Base de Dados do SAMBA-4 utilizando comandos de LDAP
+# Base de Dados: /var/lib/samba/private/sam.ldb
+# Opções do changetype: add, modify ou delete
+
+Script-16.sh: Script responsável pela Criação dos Grupos Global e Domínio Local
+# Criação da estrutura de Grupos Globais e Domínio Local.
+# Utilizando do comando samba-tool para a criação
+# Utilizando arquivo de referência dos grupos
+# samba-tool group add
+# samba-tool group addmembers
+# samba-tool group list -v
+# Scope: Domain ou Global
+# Type: Security 
+
+Script-17.sh: Script responsável pela Criação dos Usuários
+# Criação da estrutura de Grupos Globais e Domínio Local.
+# Utilizando do comando samba-tool para a criação
+# Utilizando arquivo de referência dos grupos
+# samba-tool group add
+# samba-tool group addmembers
+# samba-tool group list -v
+
+Script-18.sh: Script responsável pela Instalação e Configuranção do Sistema de ERP
+# Instalação do Wordpress para simulação de Sistema de ERP
+# Criação de Base de Dados no MySQL
+# Criação de Registros CNAME no DNS
+# Criação do Virtual Host no Apache2
+# Configuração do ProFTPD
+
+Script-19.sh: Script responsável pela Configuração dos Compartilhamentos do SAMBA-4
+# Configuração dos compartilhamentos do SAMBA4
+# Recursos de Lixeira
+# Veto de arquivos
+# Ocultar arquivos e pastas
+# Auditoria
+# Impressoras
+
+Script-20.sh: Script responsável pelo Backup e Monitoramente do servidor
+# Configuranção do Rsync
+# Configuração do Backupninja
+# Configuração do Netdata
+# Configuração da Limpeza da Pasta Público
+
+Script-21.sh: Script responsável pela Configuração do Full Audit do SAMBA-4
+# Configuração da Auditoria de Arquivos do SAMBA-4
+# Configuração dos Recursos do Rsyslog
+
+Finalização de todos os scripts para o Level 2 do curso de SAMBA-4

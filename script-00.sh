@@ -5,8 +5,8 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 31/05/2016
-# Data de atualização: 14/08/2016
-# Versão: 0.5
+# Data de atualização: 26/09/2016
+# Versão: 0.6
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
@@ -40,17 +40,21 @@ then
 				then
 					 clear
 					 echo -e "Usuário é `whoami`, continuando a executar o Script-00.sh"
-					 echo -e "Atualização das listas do Apt-Get"
-					 echo -e "Atualização dos Aplicativos Instalados"
-					 echo -e "Atualização da Distribuição Ubuntu Server (Kernel)"
-					 echo -e "Auto-Limpeza do Apt-Get"
-					 echo -e "Limpando o repositório Local do Apt-Get (Cache)"
-					 echo -e "Após o término será reinicializado o Servidor"
+					 echo
+					 echo -e "01. Atualização das listas do Apt-Get"
+					 echo -e "02. Atualização dos Aplicativos Instalados"
+					 echo -e "03. Atualização da Distribuição Ubuntu Server (Kernel)"
+					 echo -e "04. Autoremoção dos Aplicativos do Apt-Get"
+					 echo -e "05. Limpando o repositório Local do Apt-Get (Cache)"
+					 echo
+					 echo -e "Após o término o Servidor será reinicializado"
 					 echo -e "Aguarde..."
+					 echo
 					 echo -e "Rodando o Script-00.sh em: `date`" > $LOG
 					 echo  ============================================================ >> $LOG
 					 echo -e "Atualizando as Listas do Apt-Get" >> $LOG
-					 #Exportando a variavel do Debian Frontend Noninteractive para não solicitar interação com o usuário
+					 echo -e "Atualizando as Listas do Apt-Get"
+					 #Exportando a variável do Debian Frontend Noninteractive para não solicitar interação com o usuário
 					 export DEBIAN_FRONTEND=noninteractive
 					 #Atualizando as listas do apt-get
 					 apt-get update &>> $LOG
@@ -59,7 +63,8 @@ then
 					 echo -e "Listas Atualizadas com Sucesso!!!" >> $LOG
 					 echo  ============================================================ >> $LOG
 
-					 echo -e "Atualizando o Sistema" >> $LOG
+					 echo -e "Atualização dos Aplicativos Instalados" >> $LOG
+					 echo -e "Atualização dos Aplicativos Instalados"
 					 echo  >> $LOG
 					 #Fazendo a atualização de todos os pacotes instalados no servidor
 					 apt-get -o Dpkg::Options::="--force-confold" upgrade -q -y --force-yes &>> $LOG
@@ -68,20 +73,33 @@ then
 					 echo -e "Sistema Atualizado com Sucesso!!!" >> $LOG
 					 echo  ============================================================ >> $LOG
 
-					 echo -e "Atualizando o Kernel" >> $LOG
+					 echo -e "Atualização da Distribuição Ubuntu Server (Kernel)" >> $LOG
+					 echo -e "Atualização da Distribuição Ubuntu Server (Kernel)"
 					 echo  >> $LOG
 					 echo -e "Kernel atual: `uname -r`" >> $LOG
-					 echo -e "Kernel atual: `uname -r`"
+					 echo -e "Versão do Kernel atual: `uname -r`"
 					 #Fazendo a atualização do Kernel
 					 apt-get -o Dpkg::Options::="--force-confold" dist-upgrade -q -y --force-yes &>> $LOG
 					 echo -e "Kernel Atualizado com Sucesso!!!"
-					 echo -e "Kernel Novo: `uname -r`"
+					 echo -e "Listando os Kernel instalados"
+					 #Listando as imagens dos Kernel instalados
+					 dpkg --list | grep linux-image
 					 echo
-					 echo -e "Kernel Novo: `uname -r`" >> $LOG
 					 echo -e "Kernel Atualizado com Sucesso!!!" >> $LOG
 					 echo ============================================================ >> $LOG
 
+					 echo -e "Autoremoção dos Aplicativos desnecessários" >> $LOG
+					 echo -e "Autoremoção dos Aplicativos desnecessários"
+					 #Removendo aplicativos que não estão sendo mais usados
+					 apt-get -y autoremove &>> $LOG
+					 echo -e "Remoção feita com Sucesso!!!"
+					 echo
+					 echo -e "Remoção feita com Sucesso!!!" >> $LOG
+					 echo ============================================================ >> $LOG
+					 echo >> $LOG
+					 
 					 echo -e "Limpando o Cache do Apt-Get" >> $LOG
+					 echo -e "Limpando o Cache do Apt-Get"
 					 #Limpando o diretório de cache do apt-get
 					 apt-get clean &>> $LOG
 					 echo -e "Cache Limpo com Sucesso!!!"
@@ -89,6 +107,7 @@ then
 					 echo -e "Cache Limpo com Sucesso!!!" >> $LOG
 					 echo ============================================================ >> $LOG
 					 echo >> $LOG
+					 
 					 echo -e "Fim do Script-00.sh em: `date`" >> $LOG
 
 					 echo
