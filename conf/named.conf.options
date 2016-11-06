@@ -1,0 +1,61 @@
+// Autor: Robson Vaamonde
+// Site: www.procedimentosemti.com.br
+// Facebook: facebook.com/ProcedimentosEmTI
+// Facebook: facebook.com/BoraParaPratica
+// YouTube: youtube.com/BoraParaPratica
+// Data de criação: 31/05/2016
+// Data de atualização: 30/07/2016
+// Versão: 0.4
+// Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
+// Kernel >= 4.4.x
+
+options {
+	directory "/var/cache/bind";
+
+	forwarders {
+		// Endereços IP dos DNS do Google para fazer o Forwarders
+		8.8.8.8;
+		8.8.4.4;
+	};
+	
+	// Alterado para yes, padrão no
+	auth-nxdomain yes;    # conform to RFC1035
+	datasize default;
+	version none;
+	server-id none;
+	
+	listen-on-v6 { any; };
+	
+	// Alterado para no, padrão auto
+	dnssec-validation no;
+	
+	// Configurações de integração SAMBA4 e DNS
+	dnssec-enable no;
+	
+	// Número da porta de conexão do DNS e Endereço IP liberados
+	listen-on port 53 { 
+		127.0.0.1; 
+		192.168.1.10; 
+	};
+	empty-zones-enable no;
+	
+	// Configurações das Chaves de atualização do DNS utilizadas pela SAMBA4
+	tkey-gssapi-keytab "/var/lib/samba/private/dns.keytab";
+	
+	allow-query {
+		any;
+	};
+	
+	allow-recursion {
+		any;
+	};
+	
+	allow-update {
+		any;
+	};
+	
+	allow-transfer {
+		none;
+	};
+		
+};

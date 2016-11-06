@@ -1,0 +1,209 @@
+dn: ou=pti.intra,dc=pti,dc=intra
+changetype: add
+objectClass: top
+objectClass: organizationalunit
+description: OU Raiz
+
+dn: ou=Gestao,ou=pti.intra,dc=pti,dc=intra
+changetype: add
+objectClass: top
+objectClass: organizationalunit
+description: OU Gestao
+
+dn: ou=Grupos,ou=Gestao,ou=pti.intra,dc=pti,dc=intra
+changetype: add
+objectClass: top
+objectClass: organizationalunit
+description: OU Gestao
+
+dn: ou=Vendas,ou=Gestao,ou=pti.intra,dc=pti,dc=intra
+changetype: add
+objectClass: top
+objectClass: organizationalunit
+description: OU Vendas
+
+dn: ou=Usuarios,ou=Vendas,ou=Gestao,ou=pti.intra,dc=pti,dc=intra
+changetype: add
+objectClass: top
+objectClass: organizationalunit
+description: OU Vendas Usuarios
+
+dn: ou=Grupos,ou=Vendas,ou=Gestao,ou=pti.intra,dc=pti,dc=intra
+changetype: add
+objectClass: top
+objectClass: organizationalunit
+description: OU Vendas Grupos
+
+dn: ou=Computadores,ou=Vendas,ou=Gestao,ou=pti.intra,dc=pti,dc=intra
+changetype: add
+objectClass: top
+objectClass: organizationalunit
+description: OU Vendas Computadores
+
+dn: ou=Compras,ou=Gestao,ou=pti.intra,dc=pti,dc=intra
+changetype: add
+objectClass: top
+objectClass: organizationalunit
+description: OU Compras
+
+dn: ou=Usuarios,ou=Compras,ou=Gestao,ou=pti.intra,dc=pti,dc=intra
+changetype: add
+objectClass: top
+objectClass: organizationalunit
+description: OU Compras Usuarios
+
+dn: ou=Grupos,ou=Compras,ou=Gestao,ou=pti.intra,dc=pti,dc=intra
+changetype: add
+objectClass: top
+objectClass: organizationalunit
+description: OU Compras Grupos
+
+dn: ou=Computadores,ou=Compras,ou=Gestao,ou=pti.intra,dc=pti,dc=intra
+changetype: add
+objectClass: top
+objectClass: organizationalunit
+description: OU Compras Computadores
+
+dn: ou=Desenvolvimento,ou=Gestao,ou=pti.intra,dc=pti,dc=intra
+changetype: add
+objectClass: top
+objectClass: organizationalunit
+description: OU Desenvolvimento
+
+dn: ou=Usuarios,ou=Desenvolvimento,ou=Gestao,ou=pti.intra,dc=pti,dc=intra
+changetype: add
+objectClass: top
+objectClass: organizationalunit
+description: OU Desenvolvimento Usuarios
+
+dn: ou=Grupos,ou=Desenvolvimento,ou=Gestao,ou=pti.intra,dc=pti,dc=intra
+changetype: add
+objectClass: top
+objectClass: organizationalunit
+description: OU Desenvolvimento Grupos
+
+dn: ou=Computadores,ou=Desenvolvimento,ou=Gestao,ou=pti.intra,dc=pti,dc=intra
+changetype: add
+objectClass: top
+objectClass: organizationalunit
+description: OU Desenvolvimento Computadores
+
+dn: ou=RH,ou=Gestao,ou=pti.intra,dc=pti,dc=intra
+changetype: add
+objectClass: top
+objectClass: organizationalunit
+description: OU RH
+
+dn: ou=Usuarios,ou=RH,ou=Gestao,ou=pti.intra,dc=pti,dc=intra
+changetype: add
+objectClass: top
+objectClass: organizationalunit
+description: OU RH Usuarios
+
+dn: ou=Grupos,ou=RH,ou=Gestao,ou=pti.intra,dc=pti,dc=intra
+changetype: add
+objectClass: top
+objectClass: organizationalunit
+description: OU RH Grupos
+
+dn: ou=Computadores,ou=RH,ou=Gestao,ou=pti.intra,dc=pti,dc=intra
+changetype: add
+objectClass: top
+objectClass: organizationalunit
+description: OU RH Computadores
+
+dn: ou=Gerencia,ou=Gestao,ou=pti.intra,dc=pti,dc=intra
+changetype: add
+objectClass: top
+objectClass: organizationalunit
+description: OU Gerencia
+
+dn: ou=Usuarios,ou=Gerencia,ou=Gestao,ou=pti.intra,dc=pti,dc=intra
+changetype: add
+objectClass: top
+objectClass: organizationalunit
+description: OU Gerencia Usuarios
+
+dn: ou=Grupos,ou=Gerencia,ou=Gestao,ou=pti.intra,dc=pti,dc=intra
+changetype: add
+objectClass: top
+objectClass: organizationalunit
+description: OU Gerencia Grupos
+
+dn: ou=Computadores,ou=Gerencia,ou=Gestao,ou=pti.intra,dc=pti,dc=intra
+changetype: add
+objectClass: top
+objectClass: organizationalunit
+description: OU Gerencia Computadores
+
+dn: ou=Diretoria,ou=Gestao,ou=pti.intra,dc=pti,dc=intra
+changetype: add
+objectClass: top
+objectClass: organizationalunit
+description: OU Diretoria
+
+dn: ou=Usuarios,ou=Diretoria,ou=Gestao,ou=pti.intra,dc=pti,dc=intra
+changetype: add
+objectClass: top
+objectClass: organizationalunit
+description: OU Diretoria Usuarios
+
+dn: ou=Grupos,ou=Diretoria,ou=Gestao,ou=pti.intra,dc=pti,dc=intra
+changetype: add
+objectClass: top
+objectClass: organizationalunit
+description: OU Diretoria Grupos
+
+dn: ou=Computadores,ou=Diretoria,ou=Gestao,ou=pti.intra,dc=pti,dc=intra
+changetype: add
+objectClass: top
+objectClass: organizationalunit
+description: OU Diretoria Computadores
+
+dn: ou=Publica,ou=pti.intra,dc=pti,dc=intra
+changetype: add
+objectClass: top
+objectClass: organizationalunit
+description: OU Pasta Publica
+
+dn: ou=Grupos,ou=Publica,ou=pti.intra,dc=pti,dc=intra
+changetype: add
+objectClass: top
+objectClass: organizationalunit
+description: OU Pasta Publica Grupos
+
+dn: ou=Sistema,ou=pti.intra,dc=pti,dc=intra
+changetype: add
+objectClass: top
+objectClass: organizationalunit
+description: OU Pasta Sistema
+
+dn: ou=Grupos,ou=Sistema,ou=pti.intra,dc=pti,dc=intra
+changetype: add
+objectClass: top
+objectClass: organizationalunit
+description: OU Pasta Sistema Grupos
+
+dn: ou=Usuarios,ou=pti.intra,dc=pti,dc=intra
+changetype: add
+objectClass: top
+objectClass: organizationalunit
+description: OU Pasta Usuarios
+
+dn: ou=Grupos,ou=Usuarios,ou=pti.intra,dc=pti,dc=intra
+changetype: add
+objectClass: top
+objectClass: organizationalunit
+description: OU Pasta Usuarios Grupos
+
+dn: ou=Backup,ou=pti.intra,dc=pti,dc=intra
+changetype: add
+objectClass: top
+objectClass: organizationalunit
+description: OU Pasta Backup
+
+dn: ou=Grupos,ou=Backup,ou=pti.intra,dc=pti,dc=intra
+changetype: add
+objectClass: top
+objectClass: organizationalunit
+description: OU Pasta Backup Grupos

@@ -1,0 +1,17 @@
+01: robson.vaamonde: 123@mudar:	--given-name=Robson: --surname=Vaamonde: --userou=OU=Usuarios,OU=Diretoria,OU=Gestao,OU=pti.intra:
+02: jefferson.costa: 123@mudar: --given-name=Jefferson: --surname=Costa: --userou=OU=Usuarios,OU=Diretoria,OU=Gestao,OU=pti.intra:
+03: jose.assis: 123@mudar: --given-name=Jose: --surname=Assis: --userou=OU=Usuarios,OU=Gerencia,OU=Gestao,OU=pti.intra:
+04: leandro.ramos: 123@mudar: --given-name=Leandro: --surname=Ramos: --userou=OU=Usuarios,OU=Vendas,OU=Gestao,OU=pti.intra:
+05: helio.cezarei: 123@mudar: --given-name=Helio: --surname=Cezarei: --userou=OU=Usuarios,OU=Vendas,OU=Gestao,OU=pti.intra:
+06: edilson.silva: 123@mudar: --given-name=Edilson: --surname=Silva: --userou=OU=Usuarios,OU=Desenvolvimento,OU=Gestao,OU=pti.intra:
+07: rogerio.sampaio: 123@mudar: --given-name=Rogerio: --surname=Sampaio: --userou=OU=Usuarios,OU=Desenvolvimento,OU=Gestao,OU=pti.intra:
+08: anderson.abreu: 123@mudar: --given-name=Anderson: --surname=Abreu: --userou=OU=Usuarios,OU=Desenvolvimento,OU=Gestao,OU=pti.intra:
+09: alef.carvalho: 123@mudar: --given-name=Alef: --surname=Carvalho: --userou=OU=Usuarios,OU=Desenvolvimento,OU=Gestao,OU=pti.intra:
+10: denis.novais: 123@mudar: --given-name=Denis: --surname=Novais: --userou=OU=Usuarios,OU=Desenvolvimento,OU=Gestao,OU=pti.intra:
+11: rafael.nonato: 123@mudar: --given-name=Rafael: --surname=Nonato: --userou=OU=Usuarios,OU=RH,OU=Gestao,OU=pti.intra:
+12: david.oliveira: 123@mudar: --given-name=David: --surname=Oliveira: --userou=OU=Usuarios,OU=Vendas,OU=Gestao,OU=pti.intra:
+13: marcos.lima: 123@mudar: --given-name=Marcos: --surname=Lima: --userou=OU=Usuarios,OU=Vendas,OU=Gestao,OU=pti.intra:
+14: adalto.nagabe: 123@mudar: --given-name=Adalto: --surname=Nagabe: --userou=OU=Usuarios,OU=Compras,OU=Gestao,OU=pti.intra:
+15: milton.santos: 123@mudar: --given-name=Milton: --surname=Santos: --userou=OU=Usuarios,OU=Compras,OU=Gestao,OU=pti.intra:
+16: franklin.portela: 123@mudar: --given-name=Franklin: --surname=Portela: --userou=OU=Usuarios,OU=Compras,OU=Gestao,OU=pti.intra:
+17: rivas.reis: 123@mudar: --given-name=Rivas: --surname=Reis: --userou=OU=Usuarios,OU=Compras,OU=Gestao,OU=pti.intra:

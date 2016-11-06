@@ -1,0 +1,12 @@
+01: ACL-PastaSistema-RW: GG-Sistema
+02: ACL-PastaPublico-RW: GG-Publico
+03: ACL-PastaUsuarios-RW: GG-Usuarios
+04: ACL-PastaGestao-RW: GG-Gestao
+04: ACL-PastaGestao-R: GG-Gestao
+05: ACL-PastaDesenvolvimento-RW: GG-Desenvolvimento
+06: ACL-PastaDiretoria-RW: GG-Diretoria
+07: ACL-PastaGerencia-RW: GG-Gerencia
+08: ACL-PastaCompras-RW: GG-Compras
+09: ACL-PastaVendas-RW: GG-Vendas
+10: ACL-PastaRH-RW: GG-RH
+11: ACL-PastaBackup-RW: GG-Backup

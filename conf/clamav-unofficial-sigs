@@ -1,0 +1,28 @@
+# Autor: Robson Vaamonde
+# Site: www.procedimentosemti.com.br
+# Facebook: facebook.com/ProcedimentosEmTI
+# Facebook: facebook.com/BoraParaPratica
+# YouTube: youtube.com/BoraParaPratica
+# Data de criação: 31/05/2016
+# Data de atualização: 09/08/2016
+# Versão: 0.4
+# Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
+# Kernel >= 4.4.x
+#
+# ClamAV Unofficial Signature Databases Update Cron File
+#
+# Author: Bill Landry <unofficialsigs@gmail.com>
+#
+# This cron file will execute the clamav-unofficial-sigs script that
+# currently supports updating third-party signature databases provided
+# by Sanesecurity, SecuriteInfo, MalwarePatrol, OITC, etc.
+#
+# The script is set to run hourly, at 45 minutes past the hour, and the 
+# script itself is set to randomize the actual execution time between
+# 60 - 600 seconds.  Adjust the cron start time, user account to run the
+# script under, and path information shown below to meet your own needs.
+#
+# Agendamento da atualização do ClamAV-UnOfficial Signature as 20:45hs, todos os dias
+45 20 * * * clamav [ -x /usr/sbin/clamav-unofficial-sigs ] && /usr/sbin/clamav-unofficial-sigs
+
+#Fim do agendamento, obrigatório ter uma linha no final para a execução correta.

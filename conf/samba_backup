@@ -1,0 +1,125 @@
+#!/bin/sh
+# Modificador por: Robson Vaamonde
+# Site: www.procedimentosemti.com.br
+# Facebook: facebook.com/ProcedimentosEmTI
+# Facebook: facebook.com/BoraParaPratica
+# YouTube: youtube.com/BoraParaPratica
+# Data de criação: 31/05/2016
+# Data de atualização: 04/08/2016
+# Versão: 0.4
+# Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
+# Kernel >= 4.4.x
+#
+# Copyright (C) Matthieu Patou <mat@matws.net> 2010-2011
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+# Revised 2013-09-25, Brian Martin, as follows:
+#    - Allow retention period ("DAYS") to be specified as a parameter.
+#    - Allow individual positional parameters to be left at the default
+#      by specifying "-"
+#    - Use IS0 8601 standard dates (yyyy-mm-dd instead of mmddyyyy).
+#    - Display tar exit codes when reporting errors.
+#    - Don't send error messages to /dev/null, so we know what failed.
+#    - Suppress useless tar "socket ignored" message.
+#    - Fix retention period bug when deleting old backups ($DAYS variable
+#      could be set, but was ignored).
+
+#Criação das variaveis para o backup
+FROMWHERE=/var/lib/samba
+WHERE=/backup/samba4
+DAYS=90				# Set default retention period.
+LOG=/var/log/samba/log.samba_backup
+
+
+if [ -n "$1" ] && [ "$1" = "-h" -o "$1" = "--usage" ]; then
+	echo "samba_backup [provisiondir] [destinationdir] [retpd]"
+	echo "Will backup your provision located in provisiondir to archive stored"
+	echo "in destinationdir for retpd days. Use - to leave an option unchanged."
+	echo "Default provisiondir: $FROMWHERE"
+	echo "Default destinationdir: $WHERE"
+	echo "Default destinationdir: $DAYS"
+	exit 0
+fi
+
+[ -n "$1" -a "$1" != "-" ]&&FROMWHERE=$1	# Use parm or default if "-".  Validate later.
+[ -n "$2" -a "$2" != "-" ]&&WHERE=$2		# Use parm or default if "-".  Validate later.
+[ -n "$3" -a "$3" -eq "$3" 2> /dev/null ]&&DAYS=$3	# Use parm or default if non-numeric (incl "-").
+
+#Criação da estrutura de LOG
+echo -e "Iniciando o Backup do SAMBA em: `date`" > $LOG
+echo >> $LOG
+
+# Atualização do diretório /etc/samba no caminho /var/lib/samba/etc
+# Melhoria da copia de arquivos com a opção -v e saida para o LOG
+cp -Rfv /etc/samba/* /var/lib/samba/etc/ >> $LOG
+
+# Diretórios que serão feitos os backups
+DIRS="private etc sysvol"
+
+#Number of days to keep the backup
+WHEN=`date +%Y-%m-%d`	# ISO 8601 standard date.
+
+if [ ! -d $WHERE ]; then
+	echo "Missing backup directory $WHERE" >> $LOG
+	exit 1
+fi
+
+if [ ! -d $FROMWHERE ]; then
+	echo "Missing or wrong provision directory $FROMWHERE" >> $LOG
+	exit 1
+fi
+
+cd $FROMWHERE
+for d in $DIRS;do
+	relativedirname=`find . -type d -name "$d" -prune`
+	n=`echo $d | sed 's/\//_/g'`
+	if [ "$d" = "private" ]; then
+		# Melhoria da remoção de arquivos com a opção -v e saida para o LOG
+		find $relativedirname -name "*.ldb.bak" -exec rm -v {} \; >> $LOG
+		for ldb in `find $relativedirname -name "*.ldb"`; do
+			tdbbackup $ldb
+			Status=$?	# Preserve $? for message, since [ alters it.
+			if [ $Status -ne 0 ]; then
+				echo "Error while backing up $ldb - status $Status" >> $LOG
+				exit 1
+			fi
+		done
+		# Run the backup.
+		#    --warning=no-file-ignored set to suppress "socket ignored" messages.
+		# Acrescimento da opção: -v e saida para o LOG
+		tar cjfv ${WHERE}/samba4_${n}.${WHEN}.tar.bz2  $relativedirname --exclude=\*.ldb --warning=no-file-ignored --transform 's/.ldb.bak$/.ldb/' >> $LOG
+		Status=$?	# Preserve $? for message, since [ alters it.
+		if [ $Status -ne 0 -a $Status -ne 1 ]; then	# Ignore 1 - private dir is always changing.
+			echo "Error while archiving ${WHERE}/samba4_${n}.${WHEN}.tar.bz2 - status = $Status" >> $LOG
+			exit 1
+		fi
+		# Melhoria da remoção de arquivos com a opção -v e saida para o LOG
+		find $relativedirname -name "*.ldb.bak" -exec rm -v {} \; >> $LOG
+	else
+		# Run the backup.
+		#    --warning=no-file-ignored set to suppress "socket ignored" messages.
+		# Acrescimento da opção: -v e saida para o LOG
+		tar cjfv ${WHERE}/${n}.${WHEN}.tar.bz2  $relativedirname --warning=no-file-ignored >> $LOG
+		Status=$?	# Preserve $? for message, since [ alters it.
+		if [ $Status -ne 0 ]; then
+			echo "Error while archiving ${WHERE}/${n}.${WHEN}.tar.bz2 - status = $Status" >> $LOG
+			exit 1
+		fi
+	fi
+done
+# Melhoria da remoção de arquivos com a opção -v e saida para o LOG
+find $WHERE -name "samba4_*bz2" -mtime +$DAYS -exec rm -v {} \; >> $LOG
+
+echo -e "Fim do Backup do SAMBA em: `date`" >> $LOG
