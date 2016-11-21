@@ -50,9 +50,9 @@ then
 					 echo -e "================================================================================="
 					 echo -e "                        Criação da estrutura de Grupos"
 					 echo -e "================================================================================="
-
+					 echo
 					 echo -e "Criação da estrutura de grupos Globais para o servidor: `hostname`"
-					 echo -e "Pressione <Enter> para editar o arquivo de Grupos Globais"
+					 echo -e "Pressione <Enter> para editar o arquivo: group.global"
 					 read
 					 #Editando o arquivo de grupos globais
 					 vim $GRUPOGLOBAL
@@ -62,7 +62,7 @@ then
 					 clear
 
 					 echo -e "Criação da estrutura de grupos Domínio Local para o servidor: `hostname`"
-					 echo -e "Pressione <Enter> para editar o arquivo de Grupos Globais"
+					 echo -e "Pressione <Enter> para editar o arquivo: group.local"
 					 read
 					 #Editando o arquivo de grupos domínio local
 					 vim $GRUPOLOCAL
@@ -72,7 +72,7 @@ then
 					 clear
 					 
 					 echo -e "Criação da estrutura de Membros de Grupos: `hostname`"
-					 echo -e "Pressione <Enter> para editar o arquivo de Members Group "
+					 echo -e "Pressione <Enter> para editar o arquivo: members.group"
 					 read
 					 #Editando o arquivo de membro de grupos globais e domínio local
 					 vim $MEMBERS
@@ -93,7 +93,7 @@ then
 					 echo
 					 echo -e "Total de Grupos Globais criados: `wc -l $GRUPOGLOBAL | cut -d ' ' -f1`"
 					 echo
-					 echo -e "Grupos criado com sucesso, pressione <Enter> para continuar com o script"
+					 echo -e "Grupos criado com sucesso!!!, pressione <Enter> para continuar com o script"
 					 read
 					 sleep 2
 					 clear
@@ -110,7 +110,7 @@ then
 					 echo
 					 echo -e "Total de Grupos Globais criados: `wc -l $GRUPOLOCAL | cut -d ' ' -f1`"
 					 echo
-					 echo -e "Grupos criado com sucesso, pressione <Enter> para continuar com o script"
+					 echo -e "Grupos criado com sucesso!!!, pressione <Enter> para continuar com o script"
 					 read
 					 sleep 2
 					 clear
@@ -127,7 +127,7 @@ then
 					 echo
 					 echo -e "Total de Grupos Associados: `wc -l $MEMBERS | cut -d ' ' -f1`"
 					 echo
-					 echo -e "Associação de grupos feita com sucesso, pressione <Enter> para continuar com o script"
+					 echo -e "Associação de grupos feita com sucesso!!!, pressione <Enter> para continuar com o script"
 					 read
 					 sleep 2
 					 clear
