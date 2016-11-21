@@ -47,9 +47,9 @@ then
 					 echo -e "================================================================================="
 					 echo -e "                        Criação Usuários do Sistema"
 					 echo -e "================================================================================="
-
+					 echo
 					 echo -e "Criação dos usuários no servidor: `hostname`"
-					 echo -e "Pressione <Enter> para editar o arquivo de usuarios"
+					 echo -e "Pressione <Enter> para editar o arquivo: usuarios.local"
 					 read
 					 #Editando o arquivo de usuários
 					 vim $USUARIOS
@@ -59,7 +59,7 @@ then
 					 clear
 
 					 echo -e "Criação dos grupos de usuários no servidor: `hostname`"
-					 echo -e "Pressione <Enter> para editar o arquivo de usuarios"
+					 echo -e "Pressione <Enter> para editar o arquivo: usuarios.group"
 					 read
 					 #Editando o arquivo de associação de usuários e seus grupos
 					 vim $USUARIOSGROUP
@@ -68,7 +68,7 @@ then
 					 sleep 2
 					 clear
 
-					 echo -e "Pressione <Enter> para criar os usuários"
+					 echo -e "Pressione <Enter> para criar os usuários no SAMBA4"
 					 read
 					 echo -e "Criação de Usuários no Sistema" >> $LOG
 					 #Utilizando o comando gawk (melhor que o cut) para listar o contéudo do arquivo usuarios.local
@@ -79,7 +79,7 @@ then
 					 echo >> $LOG
 					 echo -e "Total de usuários criados: `wc -l $USUARIOS | cut -d ' ' -f1`"
 					 echo
-					 echo -e "Usuários criados com sucesso, pressione <Enter> para continuar com o script"
+					 echo -e "Usuários criados com sucesso!!!, pressione <Enter> para continuar com o script"
 					 read
 					 sleep 2
 					 clear
@@ -95,12 +95,12 @@ then
 					 echo >> $LOG
 					 echo -e "Total de usuários criados: `wc -l $USUARIOSGROUP | cut -d ' ' -f1`"
 					 echo
-					 echo -e "Usuários associados com sucesso, pressione <Enter> para continuar com o script"
+					 echo -e "Usuários associados com sucesso!!!, pressione <Enter> para continuar com o script"
 					 read
 					 sleep 2
 					 clear
 
-					 echo -e "Pressione <Enter> para listar os Usuários"
+					 echo -e "Pressione <Enter> para listar os Usuários Criados"
 					 read
 					 #Listando todos os usuários da base de dados SAMBA-4
 					 samba-tool user list | less
