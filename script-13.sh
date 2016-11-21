@@ -54,7 +54,7 @@ then
 					 mkdir -v $BACKUP >> $LOG
 					 #Criando o diretório /etc dentro da localização dos arquivos de configuraçao do SAMBA-4
 					 mkdir -v /var/lib/samba/etc/ >> $LOG
-					 echo -e "Copia feita com sucesso, pressione <Enter> para continuando com o script"
+					 echo -e "Copia feita com sucesso!!!, pressione <Enter> para continuando com o script"
 					 read
 					 sleep 2
 					 clear
@@ -91,8 +91,7 @@ then
 					 cp -v conf/sambabackup /etc/cron.d/ >> $LOG
 					 #Editando o arquivo de agendamento do sambabackup
 					 vim /etc/cron.d/sambabackup +13
-					 echo -e "Arquivo editado com sucesso!!!"
-					 echo -e "Pressione <Enter> para continuar"	 
+					 echo -e "Arquivo editado com sucesso!!! Pressione <Enter> para continuar"	 
 					 read
 					 sleep 2
 					 clear	 
