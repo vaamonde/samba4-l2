@@ -198,8 +198,18 @@ then
 
 					 echo -e "Atualizando o FSTAB" >> $LOG
 					 echo -e "Editando o arquivo /etc/fstab para acrescentar as informações de ACL e XATTR"
-					 echo -e "Linha a ser editada no arquivo /etc/fstab" 
+					 echo -e "Informações de ACL e XATTR na Raiz e no diretório Var"
+					 echo 
+					 echo -e "Linhas a serem editadas no arquivo /etc/fstab" 
+					 #Listando a linha 8
 					 echo -e "`cat -n /etc/fstab | sed -n '8p'`"
+					 echo
+					 #Listando a linha 9
+					 echo -e "`cat -n /etc/fstab | sed -n '9p'`"
+					 echo
+					 #Listando a linha 12
+					 echo -e "`cat -n /etc/fstab | sed -n '12p'`"
+					 echo
 					 echo -e "Informações a serem acrescentadas depois de ext4: defaults,barrier=1"
 					 echo -e "Se tiver utilizando o BTRFS, deixar o padrão"
 					 echo -e "Pressione <Enter> para editar o arquivo"
@@ -230,11 +240,11 @@ then
 					 cp -v conf/krb5.conf /etc/krb5.conf >> $LOG
 					 #Editando o arquivo de configuração do Kerberos
 					 vim /etc/krb5.conf
-					 clear
 					 echo -e "Atualização feita com sucesso!!!" >> $LOG
 					 echo -e "KRB5.CONF atualizado com sucesso, pressione <Enter> para continuar com o script"
 					 read
 					 sleep 2
+					 clear
 					 echo ============================================================ >> $LOG
 
 					 echo -e "Fim do Script-01.sh em: `date`" >> $LOG
