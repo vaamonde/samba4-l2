@@ -102,7 +102,7 @@ then
 					 #Copiando o arquivo de configuração interfaces
 					 cp -v conf/interfaces /etc/network/interfaces >> $LOG
 					 #Editando o arquivo de configuração interfaces
-					 vim /etc/network/interfaces
+					 vim +23 /etc/network/interfaces
 					 echo -e "Atualização feita com sucesso!!!" >> $LOG
 					 echo -e "INTERFACES atualizado com sucesso, pressione <Enter> continuando com o script"
 					 read
@@ -122,7 +122,7 @@ then
 					 #Copiando o arquivo de configuração hosts.allow
 					 cp -v conf/hosts.allow /etc/hosts.allow >> $LOG
 					 #Editando o arquivo de configuração hosts.allow
-					 vim /etc/hosts.allow
+					 vim +24 /etc/hosts.allow
 					 echo -e "Atualização feita com sucesso!!!" >> $LOG
 					 echo -e "HOSTS.ALLOW atualizado com sucesso, pressione <Enter> para continuando com o script"
 					 read
@@ -142,7 +142,7 @@ then
 					 #Copiando o arquivo de configuração hosts.deny
 					 cp -v conf/hosts.deny /etc/hosts.deny >> $LOG
 					 #Editando o arquivo de confguração hosts.deny
-					 vim /etc/hosts.deny
+					 vim +32 /etc/hosts.deny
 					 echo -e "Atualização feita com sucesso!!!" >> $LOG
 					 echo -e "HOSTS.DENY atualizado com sucesso, pressione <Enter> para continuando com o script"
 					 read
@@ -151,7 +151,7 @@ then
 					 echo ============================================================ >> $LOG
 
 					 echo -e "Atualizando o arquivo SSHD_CONFIG" >> $LOG
-					 echo -e "Editando o arquivo /etc/ssh/sshd_config para acrescentar as informações de acesso remoto segura"
+					 echo -e "Editando o arquivo /etc/ssh/sshd_config para acrescentar as informações de acesso remoto seguro"
 					 echo -e "Pressione <Enter> para editar o arquivo"
 					 echo 
 					 read
