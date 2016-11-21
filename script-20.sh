@@ -73,7 +73,7 @@ then
 					 #Instalando o Backupninja
 					 apt-get -y install backupninja &>> $LOG
 					 echo -e "Instalação concluida com sucesso!!!" >> $LOG
-					 echo -e "Instalação do Backupninja feita com sucesso, pressione <Enter> para continuar"
+					 echo -e "Instalação do Backupninja feita com sucesso!!!, pressione <Enter> para continuar"
 					 sleep 2
 					 clear
 
@@ -138,7 +138,7 @@ then
 					 clear
 					 
 					 echo
-					 echo -e "Criando o agendamento de sincronismo"
+					 echo -e "Criando o agendamento do sincronismo de pastas"
 					 echo -e "Pressione <Enter> para editar o arquivo"
 					 read
 					 #Copiando o script do sincronismo do rsync do samba
