@@ -5,8 +5,8 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 31/05/2016
-# Data de atualização: 26/09/2016
-# Versão: 0.6
+# Data de atualização: 21/11/2016
+# Versão: 0.7
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
@@ -188,6 +188,12 @@ then
 					 cp -v /etc/mysql/mysql.conf.d/mysqld.cnf /etc/mysql/mysql.conf.d/mysqld.cnf.old
 					 #Editando o arquivo do mysqld.conf
 					 vim /etc/mysql/mysql.conf.d/mysqld.cnf +43
+					 #Permitindo o usuário Root acessar o servidor do MySQL remoto
+					 #Criando as variáveis para o MySQL
+					 USER="root"
+					 GRANTALL="GRANT ALL ON *.* TO root@'%' IDENTIFIED BY 'pti@2016';"
+					 #Alterando o Banco de Dados do MySQL
+					 mysql -u $USER -p$PASSWORD -e "$GRANTALL" mysql &>> $LOG
 					 #Reinicializando o serviço do MySQL Server
 					 sudo service mysql restart
 					 echo -e "MySQL configurado com sucesso, pressione <Enter> para continuar"
