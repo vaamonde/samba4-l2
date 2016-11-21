@@ -45,7 +45,7 @@ then
 					 echo -e "================================================================================="
 					 echo -e "                 Criação da estrutura de Unidades Organizacionais"
 					 echo -e "================================================================================="
-
+					 echo
 					 echo -e "Para criar unidades orgazinacionais no SAMBA-4 será necessário fazer alterações no"
 					 echo -e "arquivo sam.ldb localizado em: /var/lib/samba/private/sam.ldb"
 					 echo -e "Utilizando os comandos de manipulação de Base de Dados LDAP - ldbmodify"
@@ -55,7 +55,7 @@ then
 					 read
 					 #Editando o arquivo de Unidades Organizacionais
 					 vim $OULDIF
-					 echo -e "Arquivo editado com sucesso, pressione <Enter> para continuar com o script"
+					 echo -e "Arquivo editado com sucesso!!!, pressione <Enter> para continuar com o script"
 					 read
 					 sleep 2
 					 clear
@@ -68,7 +68,7 @@ then
 					 ldbmodify -H $SAMBA4LDB $OULDIF &>> $LOG
 					 echo -e "Total de OU's criadas: `cat $OULDIF | sort | grep top | uniq -c`"
 					 echo
-					 echo -e "Criação feita com sucesso, pressione <Enter> para continuar"
+					 echo -e "Criação feita com sucesso!!!, pressione <Enter> para continuar"
 					 read
 					 sleep 2
 					 clear
