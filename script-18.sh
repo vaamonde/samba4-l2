@@ -65,7 +65,7 @@ then
 					 echo
 					 samba-tool dns query $FQDN $ZONE @ ALL -U $ADMIN --password=$PASSWORD | grep 'Name=[wfsm]'
 					 echo
-					 echo -e "Criação feita com sucesso, pressione <Enter> para continuar com o script"
+					 echo -e "Criação feita com sucesso!!!, pressione <Enter> para continuar com o script"
 					 read
 					 sleep 2
 					 clear
@@ -88,7 +88,7 @@ then
 					 #Removendo o arquivo de download zipado do Wordpress
 					 rm -v latest.zip >> $LOG
 					 echo
-					 echo -e "Instalação Básica do Wordpress feita com sucesso, pressione <Enter> para continuar"
+					 echo -e "Instalação Básica do Wordpress feita com sucesso!!!, pressione <Enter> para continuar"
 					 read
 					 sleep 2
 					 clear
@@ -118,7 +118,7 @@ then
 					 #Listando a Base de Dados criada do Wordpress
 					 mysql -u $USER -p$PASSWORD -e "$SHOWSQL" mysql
 					 echo
-					 echo -e "Criação da Base de Dados do Wordpress feita com sucesso, pressione <Enter> para continuar"
+					 echo -e "Criação da Base de Dados do Wordpress feita com sucesso!!!, pressione <Enter> para continuar"
 					 read
 					 sleep 2
 					 clear
@@ -137,7 +137,7 @@ then
 					 cp -v conf/wp-config.php /arquivos/pti.intra/sistema/erp/ >> $LOG
 					 #Editando o arquivo de configuração wp-config.php
 					 vim /arquivos/pti.intra/sistema/erp/wp-config.php +34
-					 echo -e "Arquivo editado com sucesso, pressione <Enter> para continuar"
+					 echo -e "Arquivo editado com sucesso!!!, pressione <Enter> para continuar"
 					 read
 					 sleep 2
 					 clear
@@ -153,7 +153,7 @@ then
 					 a2ensite pti-intra.conf &>> $LOG
 					 #Reinicializando o serviço do Apache Server
 					 sudo service apache2 restart &>> $LOG
-					 echo -e "Arquivo editado com sucesso, pressione <Enter> para continuar"
+					 echo -e "Arquivo editado com sucesso!!!, pressione <Enter> para continuar"
 					 read
 					 sleep 2
 					 clear
@@ -171,7 +171,7 @@ then
 					 #Reinicializando o serviço do ProFTPD Server
 					 sudo service proftpd restart
 					 echo
-					 echo -e "Arquivo editado com sucesso, pressione <Enter> para continuar"
+					 echo -e "Arquivo editado com sucesso!!!, pressione <Enter> para continuar"
 					 read
 					 sleep 2
 					 clear
@@ -180,13 +180,13 @@ then
 					 #Criando o usuário que será utilizado para acessar o FTP no servidor, utilizando o comando useradd
 					 useradd -d /arquivos/pti.intra/sistema/erp -s /bin/bash -M wordpress -G www-data &>> $LOG
 					 echo
-					 echo -e "Usuário criando com sucesso, continuando o script"
+					 echo -e "Usuário criando com sucesso!!!, continuando o script"
 					 echo
 					 echo -e "Setando a senha para o usuário: wordpress - senha padrão: wordpress"
 					 #Setando a senha padrão para o usuário wordpress com o comando passwd
 					 echo -e "wordpress\nwordpress" | passwd wordpress &>> $LOG
 					 echo
-					 echo -e "Senha setada com sucesso, pressione <Enter> para continaur com o script"
+					 echo -e "Senha setada com sucesso!!!, pressione <Enter> para continaur com o script"
 					 read
 					 sleep 2
 					 clear
