@@ -62,7 +62,7 @@ then
 					 cat conf/smb.conf >> /etc/samba/smb.conf
 					 #Editando o arquivo de configuração smb.conf
 					 vim /etc/samba/smb.conf
-					 echo -e "Arquivo editado com sucesso, pressione <Enter> para continuar com o script"
+					 echo -e "Arquivo editado com sucesso!!!, pressione <Enter> para continuar com o script"
 					 read
 					 sleep 2
 					 clear
@@ -72,7 +72,7 @@ then
 					 read
 					 #Testando as configuração do arquivo smb.conf com o comando testparm, informações detalhadas: testparm -v
 					 testparm | less
-					 echo -e "Arquivo smb.conf testado com sucesso, pressione <Enter> para continuar com o script"
+					 echo -e "Arquivo smb.conf testado com sucesso!!!, pressione <Enter> para continuar com o script"
 					 read
 					 sleep 2
 					 clear
@@ -80,7 +80,7 @@ then
 					 echo -e "Reinicializando os serviços do SAMBA-4"
 					 #Reinicializando todas as alterações no arquivo de configuração smb.conf sem parar o serviço do SAMBA-4
 					 smbcontrol all reload-config
-					 echo -e "Serviços reinicializados com sucesso, pressione <Enter> para continuar"
+					 echo -e "Serviços reinicializados com sucesso!!!, pressione <Enter> para continuar"
 					 read
 					 sleep 2
 					 clear
@@ -92,7 +92,7 @@ then
 					 #Listando todos os compartilhamento criados no smb.conf com o comando smbclient
 					 smbclient -L localhost -N
 					 echo
-					 echo -e "Compartilhamentos listados com sucesso"
+					 echo -e "Compartilhamentos listados com sucesso!!!"
 					 echo -e "Pressione <Enter> para continuar o script"
 					 read
 					 sleep 2
