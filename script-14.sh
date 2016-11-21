@@ -54,7 +54,10 @@ then
 					 echo -e "Rodando o Script-14.sh em: `date`" > $LOG
 					 echo -e "================================================================================="
 					 echo -e "                     Criação da estrutura de diretórios"
+					 echo -e "                      Pressione <Enter> para continuar"
 					 echo -e "================================================================================="
+					 read
+					 clear
 
 					 echo -e "Criando a estrutura de diretórios para o servidor: `hostname`"
 					 echo -e "Diretório $DIRBASE em: $ARQUIVOS/$DIRBASE"
@@ -137,7 +140,7 @@ then
 						 mkdir -v $BACKUP/$DIRBASE/bkp >> $LOG
 						 echo -e "Diretório criado com sucesso"
 					 
-					 echo -e "Criação dos diretórios feita com sucesso, pressione <Enter> para continuar"
+					 echo -e "Criação dos diretórios feita com sucesso!!!, pressione <Enter> para continuar"
 					 read
 					 sleep 2
 					 clear
