@@ -161,7 +161,12 @@ then
 					 cp -v conf/sshd_config /etc/ssh/sshd_config >> $LOG
 					 #Editando o arquivo de configuração do sshd_config
 					 vim /etc/ssh/sshd_config
-					 echo -e "Atualização feita com sucesso!!!" >> $LOG
+					 echo -e "Atualização feita com sucesso!!!, pressione <Enter> para testar o arquivo sshd_config"
+					 echo -e "Pressione Q para sair"
+					 read
+					 echo
+					 sshd -T | less
+					 echo
 					 echo -e "SSHD_CONFIG atualizado com sucesso, pressione <Enter> para continuando com o script"
 					 read
 					 sleep 2
@@ -179,7 +184,11 @@ then
 					 cp -v conf/dhcpd.conf /etc/dhcp/dhcpd.conf >> $LOG
 					 #Editando o arquivo de configuração do dhcpd.conf
 					 vim /etc/dhcp/dhcpd.conf
-					 echo -e "Atualização feita com sucesso!!!" >> $LOG
+					 echo -e "Atualização feita com sucesso!!!, pressione <Enter> para testar o arquivo dhcpd.conf"
+					 read
+					 echo
+					 dhcpd -t
+					 echo
 					 echo -e "DHCPD.CONF atualizado com sucesso, pressione <Enter> para continuando com o script"
 					 read
 					 sleep 2
