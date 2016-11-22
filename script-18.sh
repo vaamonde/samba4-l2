@@ -153,7 +153,14 @@ then
 					 a2ensite pti-intra.conf &>> $LOG
 					 #Reinicializando o serviço do Apache Server
 					 sudo service apache2 restart &>> $LOG
-					 echo -e "Arquivo editado com sucesso!!!, pressione <Enter> para continuar"
+					 #Atualizando o arquivo apache2.conf com a variável ServerName
+					 echo ServerName localhost >> /etc/apache2/apache2.conf
+					 echo -e "Arquivo editado com sucesso!!!, pressione <Enter> para testar o Apache2"
+					 read
+					 echo
+					 apache2ctl -V
+					 echo
+					 echo -e "Finalização da configuração do Apache2 com sucesso!!!, pressione <Enter> para continuar
 					 read
 					 sleep 2
 					 clear
@@ -170,6 +177,10 @@ then
 					 vim /etc/proftpd/proftpd.conf
 					 #Reinicializando o serviço do ProFTPD Server
 					 sudo service proftpd restart
+					 echo -e "Verificando as configurações do ProFTPD, pressione <Enter>"
+					 read
+					 echo
+					 proftpd -t				 
 					 echo
 					 echo -e "Arquivo editado com sucesso!!!, pressione <Enter> para continuar"
 					 read
