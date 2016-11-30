@@ -20,7 +20,7 @@ LOCAL="`pwd`"
 if [ $DIRETORIO == $LOCAL ]; then
 	echo -e "Localizando arquivos indevidos na Pasta: $DIRETORIO em: `date`" > $LOG
 	echo >> $LOG
-	  find -type f -print0 | xargs -0 file -s | egrep -i ‘(audio file|video|executable)’ >> $LOG
+	  find -type f -print0 | xargs -0 file -s | egrep ‘(Audio file|video|executable)’ >> $LOG
 	echo >> $LOG
 	echo -e "Finalização da localização de arquivos feita com sucesso!!!" >> $LOG
 else
