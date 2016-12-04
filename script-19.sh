@@ -5,7 +5,7 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 31/05/2016
-# Data de atualização: 21/11/2016
+# Data de atualização: 04/12/2016
 # Versão: 0.7
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
@@ -54,12 +54,8 @@ then
 					 read
 					 #Fazendo backup do arquivo de configuração do smb.conf
 					 cp -v /etc/samba/smb.conf /etc/samba/smb.conf.bkp >> $LOG
-					 #Copiando o arquivo de template
-					 cp -v conf/template /etc/samba/smb.conf >> $LOG
-					 #Listando o contéudo do arquivo smbc.conf.bkp e redirecionando sua saída para o arquivo de configuração smb.conf
-					 cat /etc/samba/smb.conf.bkp >> /etc/samba/smb.conf
-					 #Listando o contéudo do arquivo smb.conf e redirecionando sua saída para o arquivo de configuração smb.conf
-					 cat conf/smb.conf >> /etc/samba/smb.conf
+					 #Copiando o arquivo de configuranção do smb.conf
+					 cp -v conf/smb.conf /etc/samba/smb.conf >> $LOG
 					 #Editando o arquivo de configuração smb.conf
 					 vim /etc/samba/smb.conf
 					 echo -e "Arquivo editado com sucesso!!!, pressione <Enter> para continuar com o script"
