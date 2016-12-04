@@ -9,6 +9,8 @@ Versão: 0.7
 Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 Kernel >= 4.4.x
 
+04/12/2016  - Alteração do script-19.sh, copia final do arquivo smb.conf, atualizando o arquivo smb.conf com correções de herança de arquivos e permissões de grupos, atualização do script-14.sh, mudança da estrutura de pastas, resolver problema da Lixeira. Robson Vaamonde
+
 22/11/2016  - Acréscimo das opções de Debug nos serviços do DHCPD e SSHD no script-05.sh, acréscimo das opções de Debug nos serviços Apache2 e ProFTDP no script-18.sh. Robson Vaamonde
 
 21/11/2016  - Atualização da versão dos script para 0.7. Robson Vaamonde
