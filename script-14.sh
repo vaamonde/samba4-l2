@@ -99,6 +99,10 @@ then
 						 echo -e "Diretório gestao em: $ARQUIVOS/$DIRBASE/gestao/Diretoria"
 						 mkdir -v $ARQUIVOS/$DIRBASE/gestao/Diretoria >> $LOG
 						 echo -e "Diretório criado com sucesso"
+						 
+ 						 echo -e "Diretório gestao em: $ARQUIVOS/$DIRBASE/gestao/.lixeira"
+						 mkdir -v $ARQUIVOS/$DIRBASE/gestao/.lixeira >> $LOG
+						 echo -e "Diretório criado com sucesso"
 
 					 echo -e "Diretório sistema em: $ARQUIVOS/$DIRBASE/sistema"
 					 #Criação do diretório sistema, onde vai ficar o sistema de gestão empresarial da empresa instalado
@@ -123,10 +127,11 @@ then
 					 echo -e "Diretório lixeira em: $ARQUIVOS/$DIRBASE/lixeira"
 					 #Criação da pasta para armazenar os arquivos deletados nos compartilhamentos
 					 mkdir -v $ARQUIVOS/$DIRBASE/lixeira >> $LOG
+					 #Criação dos Links Simbólicos das Lixeiras das Pastas
+					 ln -sv $ARQUIVOS/$DIRBASE/publico/.lixeira/ $ARQUIVOS/$DIRBASE/lixeira/Lixeira_Publico >> $LOG
+					 ln -sv $ARQUIVOS/$DIRBASE/gestao/.lixeira/ $ARQUIVOS/$DIRBASE/lixeira/Lixeira_Gestao >> $LOG
+					 ln -sv $ARQUIVOS/$DIRBASE/sistema/.lixeira/ $ARQUIVOS/$DIRBASE/lixeira/Lixeira_Sistema >> $LOG
 					 echo -e "Diretório criado com sucesso"
-					 
-					 #Criação dos Link Simbólicos das Lixeiras das Pastas
-					 #ln -s ... Publico
 
 					 echo -e "Diretório $DIRBASE em: $BACKUP/$DIRBASE"
 					 #Criação da pasta raiz do backup
