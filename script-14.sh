@@ -5,7 +5,7 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 31/05/2016
-# Data de atualização: 21/11/2016
+# Data de atualização: 05/12/2016
 # Versão: 0.7
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
@@ -124,6 +124,9 @@ then
 					 #Criação da pasta para armazenar os arquivos deletados nos compartilhamentos
 					 mkdir -v $ARQUIVOS/$DIRBASE/lixeira >> $LOG
 					 echo -e "Diretório criado com sucesso"
+					 
+					 #Criação dos Link Simbólicos das Lixeiras das Pastas
+					 #ln -s ... Publico
 
 					 echo -e "Diretório $DIRBASE em: $BACKUP/$DIRBASE"
 					 #Criação da pasta raiz do backup
@@ -148,19 +151,7 @@ then
 					 echo -e "Listando o contéudo do diretório: $ARQUIVOS/$DIRBASE"
 					 echo
 					 #Listando o contéudo do diretório /arquivos/pti.intra
-					 ls -lha $ARQUIVOS/$DIRBASE
-					 echo
-
-					 echo -e "Listando o contéudo do diretório: $ARQUIVOS/$DIRBASE/gestao"
-					 echo
-					 #Listando o contéudo do diretório /arquivos/pti.intra/gestao
-					 ls -lha $ARQUIVOS/$DIRBASE/gestao
-					 echo
-
-					 echo -e "Listando o contéudo do diretório: $BACKUP/$DIRBASE"
-					 echo
-					 #Listando o contéudo do diretório /backup/pti.intra
-					 ls -lha $BACKUP/$DIRBASE
+					 tree -f $ARQUIVOS/$DIRBASE
 					 echo
 
 					 echo -e "Fim do Script-14.sh em: `date`" >> $LOG
