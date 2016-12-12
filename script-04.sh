@@ -211,7 +211,7 @@ then
 					 cp -v conf/phpinfo.php /var/www/html >> $LOG
 					 #Utilizando o navegador de modo texto links2 para testar a página em PHP
 					 links2 http://localhost/phpinfo.php
-					 echo -e "Teste do Apache e PHP feito com sucesso, pressione <Enter> para continuar"
+					 echo -e "Teste do Apache e PHP feito com sucesso!!!, pressione <Enter> para continuar"
 					 read
 					 sleep 2
 					 echo >> $LOG
