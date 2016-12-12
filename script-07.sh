@@ -114,7 +114,7 @@ then
 					 echo -e "Ponteiro criado com sucesso!!!!"
 					 echo -e "Ponteiro criado com sucesso!!!!" >> $LOG
 					 echo
-					 echo -e "Ponteiro criado com sucesso, pressione <Enter> para continuar com o script"
+					 echo -e "Ponteiro criado com sucesso!!!, pressione <Enter> para continuar com o script"
 					 read
 					 sleep 2
 					 clear
@@ -129,7 +129,7 @@ then
 					 samba_dnsupdate --use-file=/var/lib/samba/private/dns.keytab --verbose --all-names &>> $LOG
 					 echo -e "Atualização dos Registros de DNS feito com sucesso!!!!" >> $LOG
 					 echo
-					 echo -e "Atualização dos Registros de DNS feito com sucesso, pressione <Enter> para continuar"
+					 echo -e "Atualização dos Registros de DNS feito com sucesso!!!, pressione <Enter> para continuar"
 					 read
 					 sleep 2
 					 clear
@@ -143,7 +143,7 @@ then
 					 cp -v conf/sambadnsupdate /etc/cron.d/ >> $LOG
 					 #Editando o arquivo de agendamento do smbdadnsupdate
 					 vim /etc/cron.d/sambadnsupdate +13
-					 echo -e "Agendamento das atualizações do DNS criado com sucesso, pressione <Enter> para continuar com o script"
+					 echo -e "Agendamento das atualizações do DNS criado com sucesso!!!, pressione <Enter> para continuar com o script"
 					 read
 					 sleep 2
 					 echo >> $LOG
@@ -156,7 +156,7 @@ then
 					 #Atualizando todos os registros do DNS no SAMBA-4 utilizando o script samba_dnsupdate
 					 samba_dnsupdate --use-file=/var/lib/samba/private/dns.keytab --verbose --all-names | less
 					 echo
-					 echo -e "Teste das atualizações do DNS feito com sucesso, pressione <Enter> para continuar o script"
+					 echo -e "Teste das atualizações do DNS feito com sucesso!!!, pressione <Enter> para continuar o script"
 					 read
 					 sleep 2
 					 echo >> $LOG
@@ -235,7 +235,7 @@ then
 					 read
 					 #Editando o arquivo de configuração dhcpd-update-samba-dns.conf
 					 vim /etc/dhcp/dhcpd/dhcpd-update-samba-dns.conf +14
-					 echo -e "Configurando feita com sucesso, pressione <Enter> para continuar com o script"
+					 echo -e "Configurando feita com sucesso!!!, pressione <Enter> para continuar com o script"
 					 read
 					 sleep 2
 					 clear
@@ -245,7 +245,7 @@ then
 					 read
 					 #Editando o arquivo de configuração usr.sbin.dhcpd
 					 vim /etc/apparmor.d/local/usr.sbin.dhcpd +16
-					 echo -e "Configurando feita com sucesso, pressione <Enter> para continuar com o script"
+					 echo -e "Configurando feita com sucesso!!!, pressione <Enter> para continuar com o script"
 					 read
 					 sleep 2
 					 clear
