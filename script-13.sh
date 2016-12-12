@@ -65,7 +65,7 @@ then
 					 read
 					 #Editando o arquivo de script do samba_backup
 					 vim /usr/sbin/samba_backup +39
-					 echo -e "Arquivo editado com sucesso, pressione <Enter> para continuar com o script"
+					 echo -e "Arquivo editado com sucesso!!!, pressione <Enter> para continuar com o script"
 					 read
 					 sleep 2
 					 clear
@@ -79,7 +79,7 @@ then
 					 echo -e "Verificando os arquivos de Backup do SAMBA-4"
 					 ls -lha $BACKUP
 					 echo
-					 echo -e "Backup feito com sucesso, pressione <Enter> para continuar"
+					 echo -e "Backup feito com sucesso!!!, pressione <Enter> para continuar"
 					 read
 					 sleep 2
 					 clear
