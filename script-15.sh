@@ -48,9 +48,12 @@ then
 					 echo
 					 echo -e "Para criar unidades orgazinacionais no SAMBA-4 será necessário fazer alterações no"
 					 echo -e "arquivo sam.ldb localizado em: /var/lib/samba/private/sam.ldb"
+					 echo
 					 echo -e "Utilizando os comandos de manipulação de Base de Dados LDAP - ldbmodify"
+					 echo
 					 echo -e "Será necessário criar o arquivo ldif (arquivo de modificação) que tem os parâmetros"
 					 echo -e "necessário para a criação das Unidades Organizacionais"
+					 echo
 					 echo -e "Pressione <Enter> para editar o arquivo ou.ldif"
 					 read
 					 #Editando o arquivo de Unidades Organizacionais
