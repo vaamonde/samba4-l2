@@ -81,7 +81,7 @@ then
 					 echo >> $LOG
 					 echo ============================================================ >> $LOG
 					 
-					 echo -e "Serviços atualizados com sucesso, pressione <Enter> para continuar com o script"
+					 echo -e "Serviços atualizados com sucesso!!!, pressione <Enter> para continuar com o script"
 					 read
 					 sleep 2
 					 clear
@@ -107,7 +107,7 @@ then
 					 #Editando o arquivo de configuração interfaces
 					 vim +23 /etc/network/interfaces
 					 echo -e "Atualização feita com sucesso!!!" >> $LOG
-					 echo -e "INTERFACES atualizado com sucesso, pressione <Enter> continuando com o script"
+					 echo -e "INTERFACES atualizado com sucesso!!!, pressione <Enter> continuando com o script"
 					 read
 					 sleep s
 					 clear
@@ -128,7 +128,7 @@ then
 					 #Editando o arquivo de configuração hosts.allow
 					 vim +24 /etc/hosts.allow
 					 echo -e "Atualização feita com sucesso!!!" >> $LOG
-					 echo -e "HOSTS.ALLOW atualizado com sucesso, pressione <Enter> para continuando com o script"
+					 echo -e "HOSTS.ALLOW atualizado com sucesso!!!, pressione <Enter> para continuando com o script"
 					 read
 					 sleep 2
 					 clear
@@ -149,7 +149,7 @@ then
 					 #Editando o arquivo de confguração hosts.deny
 					 vim +32 /etc/hosts.deny
 					 echo -e "Atualização feita com sucesso!!!" >> $LOG
-					 echo -e "HOSTS.DENY atualizado com sucesso, pressione <Enter> para continuando com o script"
+					 echo -e "HOSTS.DENY atualizado com sucesso!!!, pressione <Enter> para continuando com o script"
 					 read
 					 sleep 2
 					 clear
@@ -172,7 +172,7 @@ then
 					 echo
 					 sshd -T | less
 					 echo
-					 echo -e "SSHD_CONFIG atualizado com sucesso, pressione <Enter> para continuando com o script"
+					 echo -e "SSHD_CONFIG atualizado com sucesso!!!, pressione <Enter> para continuando com o script"
 					 read
 					 sleep 2
 					 clear
@@ -194,7 +194,7 @@ then
 					 echo
 					 dhcpd -t
 					 echo
-					 echo -e "DHCPD.CONF atualizado com sucesso, pressione <Enter> para continuando com o script"
+					 echo -e "DHCPD.CONF atualizado com sucesso!!!, pressione <Enter> para continuando com o script"
 					 read
 					 sleep 2
 					 clear
@@ -215,7 +215,7 @@ then
 					 #Atualizando o arquivo de configuração issue para o comando screenfetch, gerando uma imagem do Ubuntu com códigos ASCII
 					 screenfetch > /etc/issue
 					 echo -e "Atualização feita com sucesso!!!" >> $LOG
-					 echo -e "ISSUE.NET atualizado com sucesso, pressione <Enter> continuando com o script"
+					 echo -e "ISSUE.NET atualizado com sucesso!!!, pressione <Enter> continuando com o script"
 					 read
 					 sleep 2
 					 clear
