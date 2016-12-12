@@ -160,7 +160,7 @@ then
 					 echo
 					 apache2ctl -V
 					 echo
-					 echo -e "Finalização da configuração do Apache2 com sucesso!!!, pressione <Enter> para continuar
+					 echo -e "Finalização da configuração do Apache2 com sucesso!!!, pressione <Enter> para continuar"
 					 read
 					 sleep 2
 					 clear
@@ -197,7 +197,7 @@ then
 					 #Setando a senha padrão para o usuário wordpress com o comando passwd
 					 echo -e "wordpress\nwordpress" | passwd wordpress &>> $LOG
 					 echo
-					 echo -e "Senha setada com sucesso!!!, pressione <Enter> para continaur com o script"
+					 echo -e "Senha setada com sucesso!!!, pressione <Enter> para continuar com o script"
 					 read
 					 sleep 2
 					 clear
