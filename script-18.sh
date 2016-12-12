@@ -160,7 +160,7 @@ then
 					 echo
 					 apache2ctl -V
 					 echo
-					 echo -e "Finalização da configuração do Apache2 com sucesso!!!, pressione <Enter> para continuar"
+					 echo -e "Finalização da configuração do Apache2 com sucesso!!!, pressione <Enter> para continuar."
 					 read
 					 sleep 2
 					 clear
