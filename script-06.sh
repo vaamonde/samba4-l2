@@ -160,7 +160,7 @@ then
 					 echo -e "Desabilitando a expiração da senha do usuário Administrator"
 					 #Desativando a expiração da senha do usuário administrator
 					 samba-tool user setexpiry administrator --noexpiry &>> $LOG
-					 echo -e "Desabilitando com sucesso, continuando com o script"
+					 echo -e "Desabilitando com sucesso!!!, continuando com o script"
 					 echo
 
 					 echo -e "Editando o arquivo NAMED.CONF" >> $LOG
@@ -176,7 +176,7 @@ then
 					 #Editando o arquivo de configuração named.conf
 					 vim /etc/bind/named.conf +19
 					 echo -e "Atualização feita com sucesso!!!" >> $LOG
-					 echo -e "NAMED.CONF atualizado com sucesso, pressione <Enter> para continuando com o script"
+					 echo -e "NAMED.CONF atualizado com sucesso!!!, pressione <Enter> para continuando com o script"
 					 read
 					 sleep 2
 					 clear
@@ -195,7 +195,7 @@ then
 					 #Editando o arquivo de configuração named.conf.options
 					 vim /etc/bind/named.conf.options
 					 echo -e "Atualização feita com sucesso!!!" >> $LOG
-					 echo -e "NAMED.CONF.OPTIONS atualizado com sucesso, pressione <Enter> para continuando com o script"
+					 echo -e "NAMED.CONF.OPTIONS atualizado com sucesso!!!, pressione <Enter> para continuando com o script"
 					 read
 					 sleep 2
 					 clear
@@ -228,7 +228,7 @@ then
 					 #Alterando as permissões de dono e grupo do link simbólico do arquivo de chaves rndc.key
 					 chown -v root:bind /etc/dhcp/ddns-keys/rndc.key >> $LOG
 					 echo -e "Atualização feita com sucesso!!!" >> $LOG
-					 echo -e "NAMED.CONF.LOCAL atualizado com sucesso, pressione <Enter> para continuando com o script"
+					 echo -e "NAMED.CONF.LOCAL atualizado com sucesso!!!, pressione <Enter> para continuando com o script"
 					 read
 					 sleep 2
 					 clear
@@ -253,7 +253,7 @@ then
 					 #Alterando o dono grupo do arquivo de configuração do SAMBA4 named.conf
 					 chown -v bind:bind /var/lib/samba/private/named.conf >> $LOG
 					 echo -e "Atualização feita com sucesso!!!" >> $LOG
-					 echo -e "APPARMOR.D atualizado com sucesso, pressione <Enter> para continuando com o script"
+					 echo -e "APPARMOR.D atualizado com sucesso!!!, pressione <Enter> para continuando com o script"
 					 read
 					 sleep 2
 					 clear
@@ -272,7 +272,7 @@ then
 					 #Editando o arquivo de configuração sysctl.conf
 					 vim /etc/sysctl.conf +73
 					 echo -e "Atualização feita com sucesso!!!" >> $LOG
-					 echo -e "SYSCTL.CONF atualizado com sucesso, pressione <Enter> para continuando com o script!!!!"
+					 echo -e "SYSCTL.CONF atualizado com sucesso!!!, pressione <Enter> para continuando com o script!!!!"
 					 read
 					 sleep 2
 					 clear
@@ -291,7 +291,7 @@ then
 					 #Editando o arquivo de configuração limits.conf
 					 vim /etc/security/limits.conf +70
 					 echo -e "Atualização feita com sucesso!!!" >> $LOG
-					 echo -e "LIMITS.CONF atualizado com sucesso, pressione <Enter> para continuando com o script!!!!"
+					 echo -e "LIMITS.CONF atualizado com sucesso!!!, pressione <Enter> para continuando com o script!!!!"
 					 read
 					 sleep 2
 					 clear
@@ -301,14 +301,16 @@ then
 					 echo -e "Editando o arquivo NAMED.CONF do SAMBA-4" >> $LOG
 					 echo -e "Editando o arquivo NAMED.CONF do SAMBA-4"
 					 echo -e "Verificar as linhas referente a versão do BIND instalado"
+					 echo
 					 echo -e "Versão do BIND instalado: `named -v`"
+					 echo
 					 echo -e "Pressione <Enter> para editar o arquivo"
 					 echo 
 					 read
 					 #Editando o arquivo de configurando do SAMBA-4 named.conf
 					 vim /var/lib/samba/private/named.conf +20
 					 echo -e "Atualização feita com sucesso!!!" >> $LOG
-					 echo -e "NAMED.CONF do SAMBA4 atualizado com sucesso, pressione <Enter> para continuando com o script"
+					 echo -e "NAMED.CONF do SAMBA4 atualizado com sucesso!!!, pressione <Enter> para continuando com o script"
 					 read
 					 sleep 2
 					 clear
