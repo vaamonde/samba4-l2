@@ -151,25 +151,30 @@ then
 
 					 echo -e "Atualizando a Base de Vírus do ClamAV" >> $LOG
 					 echo -e "Atualizando a Base de Vírus do ClamAV, aguarde esse processo demora alguns minutos..."
+					 echo
 					 echo -e "Para verificar o andamento do download, digite em outro terminal o comando:"
 					 echo -e "tail -f /var/log/script-02.log"
+					 echo
 					 echo -e "Caso o processo demora mais que o previsto, execute os comandos:"
 					 echo -e "ps -aux | grep freshclam"
 					 echo -e "kill ID_PROCESSO_FRESHCLAM"
 					 #Atualizando a base de dados de vírus do ClamAV, esse processo demora um pouco
 					 freshclam &>> $LOG
+					 echo
 					 echo -e "Base de dados atualizada com sucesso!!!"
 					 echo
 					 echo >> $LOG
 					 
 					 echo -e "Atualizando a Base de Vírus não Oficial do ClamAV" >> $LOG
 					 echo -e "Atualizando a Base de Vírus do ClamAV não oficial, aguarde esse processo demora alguns minutos..."
+					 echo
 					 echo -e "Para verificar o andamento do download, digite em outro terminal o comando:"
 					 echo -e "tail -f /var/log/script-02.log"
 					 echo -e "ps -aux | grep clamav-unofficial"
 					 echo -e "kill ID_PROCESSO_CLAMAV-UNOFFICIAL"
 					 #Atualizando a base de dados de vírus do ClamAV não Ofícial, esse processo demora um pouco
 					 clamav-unofficial-sigs &>> $LOG
+					 echo
 					 echo -e "Base de dados não oficial atualizada com sucesso!!!"
 					 echo
 					 echo >> $LOG
@@ -289,9 +294,12 @@ then
 
 					 echo -e "Atualizando o arquivo FSTAB" >> $LOG
 					 echo -e "Editando o arquivo /etc/fstab para acrescentar as informações de Quota"
-					 echo -e "Linha a ser editada no arquivo /etc/fstab"
 					 echo -e "Sistemas de arquivos BTRFS o sistema de Quota e diferente, deixar o padrão"
+					 echo
+					 echo -e "Linha a ser editada no arquivo /etc/fstab"
+					 echo
 					 echo -e "`cat -n /etc/fstab | sed -n '9p'`"
+					 echo
 					 echo -e "Informações a serem acrescentadas depois de ext4: defaults,barrier=1,grpquota,usrquota"
 					 echo -e "Pressione <Enter> para editar o arquivo"
 					 echo 
@@ -304,7 +312,8 @@ then
 					 #Habilitando o recurso de quota e criando os arquivos quota.user e quota.group
 					 quotacheck -ugcv /arquivos &>> $LOG
 					 echo -e "Atualização feita com sucesso!!!" >> $LOG
-					 echo -e "FSTAB atualizado com sucesso!!!, continuando com o script"
+					 echo -e "FSTAB atualizado com sucesso!!!, Pressione <Enter> continuando com o script"
+					 read
 					 sleep 2
 					 clear
 					 echo ============================================================ >> $LOG
@@ -331,7 +340,8 @@ then
 					 #Editando o arquivo de configuração do nsswitch.conf
 					 vim /etc/nsswitch.conf
 					 echo -e "Atualização feita com sucesso!!!" >> $LOG
-					 echo -e "NSSWITCH atualizado com sucesso!!!, continuando com o script"
+					 echo -e "NSSWITCH atualizado com sucesso!!!, Pressione <Enter> continuando com o script"
+					 read
 					 sleep 2
 					 clear
 					 echo ============================================================ >> $LOG
@@ -352,7 +362,8 @@ then
 					 #Editando o arquivo de configuração do hostname
 					 vim /etc/hostname +13
 					 echo -e "Atualização feita com sucesso!!!" >> $LOG
-					 echo -e "HOSTNAME atualizado com sucesso!!!, continuando com o script"
+					 echo -e "HOSTNAME atualizado com sucesso!!!, Pressione <Enter> continuando com o script"
+					 read
 					 sleep 2
 					 clear
 					 echo ============================================================ >> $LOG
@@ -374,7 +385,8 @@ then
 					 #Editando o arquivo de configuração do hosts
 					 vim /etc/hosts +14
 					 echo -e "Atualização feita com sucesso!!!" >> $LOG
-					 echo -e "HOSTS atualizado com sucesso!!!, continuando com o script"
+					 echo -e "HOSTS atualizado com sucesso!!!, Pressione <Enter> continuando com o script"
+					 read
 					 sleep 2
 					 clear
 					 echo ============================================================ >> $LOG
@@ -416,7 +428,8 @@ then
 					 #Atualizando o grub com as novas modificações feitas no arquivo grub, atualizar Kernel e Initrd
 					 update-grub &>> $LOG
 					 echo -e "Atualização feita com sucesso!!!" >> $LOG
-					 echo -e "GRUB atualizado com sucesso!!!, continuando com o script"
+					 echo -e "GRUB atualizado com sucesso!!!, Pressione <Enter> continuando com o script"
+					 read
 					 sleep 2
 					 clear
 					 echo ============================================================ >> $LOG
@@ -438,7 +451,8 @@ then
 					 #Verificando os status das impressoras
 					 lpstat -t >> $LOG
 					 echo -e "Atualização feita com sucesso!!!" >> $LOG
-					 echo -e "CUSPD.CONF atualizado com sucesso!!!, continuando com o script"
+					 echo -e "CUSPD.CONF atualizado com sucesso!!!, Pressione <Enter> continuando com o script"
+					 read
 					 sleep 2
 					 clear
 					 
