@@ -77,6 +77,9 @@ then
 					 echo -e "ACL (Access Control List) Permissões de Arquivos e Diretórios"
 					 echo -e "ATTR (Extended Attributes) Atributos Extendidos"
 					 echo -e "Configuração do FSTAB para suporte a ACL e XATTR"
+					 echo
+					 echo -e "Após o término o Servidor será reinicializado"
+					 echo
 					 echo -e "Aguarde..."
 					 echo
 					 echo -e "Rodando o Script-01.sh em: `date`" > $LOG
@@ -259,6 +262,8 @@ then
 					 echo -e "Tempo gasto para execução do script-01.sh: $TEMPO"
 					 echo -e "Pressione <Enter> para concluir o processo."
 					 read
+					 sleep 2
+					 reboot
 					 else
 						 echo -e "Versão do Kernel: $KERNEL não homologada para esse script, versão: >= 4.4 "
 						 echo -e "Pressione <Enter> para finalizar o script"
