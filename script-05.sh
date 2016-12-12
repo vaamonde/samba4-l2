@@ -89,10 +89,13 @@ then
 
 					 echo -e "Atualizando o arquivo INTERFACES" >> $LOG
 					 echo -e "Editando o arquivo /etc/network/interfaces para acrescentar as informações de endereçamento IP"
+					 echo
 					 echo -e "Linhas a serem editadas no arquivo /etc/network/interfaces"
 					 echo -e "`cat -n /etc/network/interfaces | tail -n3`"
+					 echo
 					 echo -e "Obs: no Ubuntu 16.04 não é habilitado por padrão as configurações de ETHx nas interfaces"
 					 echo -e "No procedimento: script-02.sh foi executado a mudança do GRUB"
+					 echo
 					 echo -e "Interface padrão no GNU/Linux Ubuntu Server versão: $UBUNTU: `lshw -class network | grep -i "logical name" | cut -d: -f2`"
 					 echo -e "Pressione <Enter> para editar o arquivo"
 					 echo 
@@ -112,6 +115,7 @@ then
 
 					 echo -e "Atualizando o arquivo HOSTS.ALLOW" >> $LOG
 					 echo -e "Editando o arquivo /etc/hosts.allow para acrescentar as informações de liberação de acesso remoto"
+					 echo
 					 echo -e "Linhas a serem editadas no arquivo /etc/hosts.allow"
 					 echo -e "`cat -n /etc/hosts.allow`"
 					 echo -e "Pressione <Enter> para editar o arquivo"
@@ -132,6 +136,7 @@ then
 
 					 echo -e "Atualizando o arquivo HOSTS.DENY" >> $LOG
 					 echo -e "Editando o arquivo /etc/hosts.deny para acrescentar as informações de bloqueio de acesso remoto"
+					 echo
 					 echo -e "Linhas a serem editadas no arquivo /etc/hosts.deny"
 					 echo -e "`cat -n /etc/hosts.deny`"
 					 echo -e "Pressione <Enter> para editar o arquivo"
