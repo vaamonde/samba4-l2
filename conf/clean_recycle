@@ -12,17 +12,45 @@
 #
 # Criando as váriaveis de validação do diretório
 LOG="/var/log/samba/log.limpeza_lixeira"
-LIXEIRA="/arquivos/pti.intra/lixeira"
-cd $LIXEIRA
-LOCAL="`pwd`"
+LIXEIRA_GESTAO="/arquivos/pti.intra/lixeira/Lixeira_Gestao"
+LIXEIRA_PUBLICO="/arquivos/pti.intra/lixeira/Lixeira_Publico"
+LIXEIRA_SISTEMA="/arquivos/pti.intra/lixeira/Lixeira_Sistema"
 
-#Fazendo o teste lógico para a limpeza do diretório Lixeira.
-if [ $LIXEIRA == $LOCAL ]; then
-	echo -e "Fazendo a limpeza do diretório: $LIXEIRA em: `date`" > $LOG
+#Fazendo o teste lógico para a limpeza do diretório Lixeira Gestão.
+cd $LIXEIRA_GESTAO
+LOCAL_GESTAO="`pwd`"
+if [ $LIXEIRA_GESTAO == $LOCAL_GESTAO ]; then
+	echo -e "Fazendo a limpeza do diretório: $LIXEIRA_GESTAO em: `date`" > $LOG
 	echo >> $LOG
-	rm -Rfv * >> $LOG
+		rm -Rfv * >> $LOG
 	echo >> $LOG
-	echo -e "Pasta Lixeira limpada com sucesso!!!" >> $LOG
+	echo -e "Pasta Lixeira Gestão limpada com sucesso!!!" >> $LOG
 else
-	echo -e "Diretório lixeira inexistente, verificar as configurações da váriavél de ambiente, localização dos arquivos, etc" >> $LOG
+	echo -e "Diretório lixeira gestão inexistente, verificar as configurações da váriavél de ambiente, localização dos arquivos, etc" >> $LOG
+fi
+
+#Fazendo o teste lógico para a limpeza do diretório Lixeira Publico.
+cd $LIXEIRA_PUBLICO
+LOCAL_PUBLICO="`pwd`"
+if [ $LIXEIRA_PUBLICO == $LOCAL_PUBLICO ]; then
+	echo -e "Fazendo a limpeza do diretório: $LIXEIRA_PUBLICO em: `date`" > $LOG
+	echo >> $LOG
+		rm -Rfv * >> $LOG
+	echo >> $LOG
+	echo -e "Pasta Lixeira Publico limpada com sucesso!!!" >> $LOG
+else
+	echo -e "Diretório lixeira publico inexistente, verificar as configurações da váriavél de ambiente, localização dos arquivos, etc" >> $LOG
+fi
+
+#Fazendo o teste lógico para a limpeza do diretório Lixeira Sistema.
+cd $LIXEIRA_SISTEMA
+LOCAL_SISTEMA="`pwd`"
+if [ $LIXEIRA_SISTEMA == $LOCAL_SISTEMA ]; then
+	echo -e "Fazendo a limpeza do diretório: $LIXEIRA_SISTEMA em: `date`" > $LOG
+	echo >> $LOG
+		rm -Rfv * >> $LOG
+	echo >> $LOG
+	echo -e "Pasta Lixeira Sistema limpada com sucesso!!!" >> $LOG
+else
+	echo -e "Diretório lixeira sistema inexistente, verificar as configurações da váriavél de ambiente, localização dos arquivos, etc" >> $LOG
 fi
