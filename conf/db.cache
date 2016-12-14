@@ -9,22 +9,6 @@
 ; Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 ; Kernel >= 4.4.x
 ;
-;       This file holds the information on root name servers needed to
-;       initialize cache of Internet domain name servers
-;       (e.g. reference this file in the "cache  .  <file>"
-;       configuration file of BIND domain name servers).
-;
-;       This file is made available by InterNIC 
-;       under anonymous FTP as
-;           file                /domain/named.cache
-;           on server           FTP.INTERNIC.NET
-;       -OR-                    RS.INTERNIC.NET
-;
-;       last update:    March 23, 2016
-;       related version of root zone:   2016032301
-;
-; formerly NS.INTERNIC.NET
-;
 .                        3600000      NS    A.ROOT-SERVERS.NET.
 A.ROOT-SERVERS.NET.      3600000      A     198.41.0.4
 A.ROOT-SERVERS.NET.      3600000      AAAA  2001:503:ba3e::2:30
