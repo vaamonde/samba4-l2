@@ -9,9 +9,6 @@
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 
-# Site-specific additions and overrides for usr.sbin.dhcpd.
-# For more details, please see /etc/apparmor.d/local/README.
-
 # Aplicando a segurança de acesso aos arquivos do SAMBA4 para o DHCPD
 # Opções de: Uxmr para testar
   /etc/dhcp/dhcpd/** Uxr,
