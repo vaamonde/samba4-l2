@@ -9,9 +9,6 @@
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 
-# Site-specific additions and overrides for usr.sbin.named.
-# For more details, please see /etc/apparmor.d/local/README.
-
 # Aplicando a segurança de acesso aos arquivos é diretório do serviço do SAMBA4 para o serviço do BIND9
 # Permissões de leitura, script e execução.
   /var/lib/samba/private/named.conf r,
