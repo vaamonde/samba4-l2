@@ -10,14 +10,11 @@ Scripts de configuração do SAMBA-4 Level 2 para o projeto do Curso do AulaEAD.
 <p style="text-align: justify;">O grande diferencial do SAMBA-4 Level 2 é que todo o processo de instalação e configuração do Servidor e dos principais Serviços de Redes estão automatizados, serão cerca de <strong>21 (vinte e um) scripts e cerca de 51 (cinquenta e um) arquivos conf's</strong> comentados para facilitar o entendimento e implementações dos serviços.</p>
 <p style="text-align: justify;">Nesse Level 2 você vai aprender a implementar o <strong>SAMBA-4 com integração com o Bind DNS e o ISC DHCP Server</strong> utilizando scripts e configurações, iremos implementar serviços como o<strong> APACHE-2, MySQL, ProFTPD, SSH Server, NTP Server, Kerberos, LDAP</strong> e muito mais, estarei mostrando como criar <strong>Unidades Organizacionais, Usuários e Grupos em Lotes</strong> é o principais serviços de compartilhamento do SAMBA-4 como: <strong>Lixeira, Auditória de Arquivos, Veto de Arquivos, Ocultar Arquivos, Quota de Disco, ACL, ATTR</strong> e muito mais.</p>
 <p style="text-align: justify;">Ideal para Estudantes e Profissionais que desejam se aprofundar nos conceitos de servidores GNU/Linux Ubuntu Server e implementação de Solução Open Source de Armazenamento e Gerenciamento de Arquivos e Usuários utilizando o <strong>SAMBA-4 Level 2</strong></p>
-<p style="text-align: justify;"><a href="http://aulaead.com/wp-content/uploads/2016/05/samba4vsactive.png"><img class="wp-image-4586 aligncenter" src="http://aulaead.com/wp-content/uploads/2016/05/samba4vsactive-300x169.png" alt="samba4vsactive" width="719" height="405" /></a></p>
-[gdlr_image_link type="image" image_url="http://aulaead.com/wp-content/uploads/2016/05/TUX_AULASr.jpg" link_url="https://www.youtube.com/playlist?list=PLozhsZB1lLUNy36DZzeuR0VqcQyqOWTpw" target="_blank" alt="Assista as Aulas Teóricas agora mesmo no YOUTUBE"][gdlr_accordion style="style-1" initial="1"]
 
 <h3 class="widget-title">PRÉ-REQUISITO"</h3>
 <p style="text-align: justify;">Desejável conhecimentos básicos em Virtualização, GNU/Linux Ubuntu Desktop, Linux Mint, SAMBA-4 Level 1, Debian e Protocolos TCP/IP. Faça <strong>GRATUITAMENTE</strong> o curso abaixo indicado para adquirir a base necessária para este treinamento.</p>
-<p style="text-align: justify;"><a href="http://aulaead.com/course/cursovirtualbox/"><img class="alignnone size-full wp-image-4154" src="http://aulaead.com/wp-content/uploads/2015/11/virtualbox-aulaead.png" alt="virtualbox aulaead" width="204" height="136" /></a> <a href="http://aulaead.com/wp-content/uploads/2016/02/AulaEAD_Curso_Linux_Ubuntu_Desktop_Gratis.jpg"><img class="alignnone wp-image-4811" src="http://aulaead.com/wp-content/uploads/2016/02/AulaEAD_Curso_Linux_Ubuntu_Desktop_Gratis-300x200.jpg" alt="AulaEAD_Curso_Linux_Ubuntu_Desktop_Gratis" width="204" height="136" /></a></p>
-<p style="text-align: justify;"> <a href="http://aulaead.com/course/curso-de-redes-tcp-ip-enderecamento-ipv4-e-subrede/" rel="attachment wp-att-4205"><img class="alignnone wp-image-4205" title="Endereçamento IPv4" src="http://aulaead.com/wp-content/uploads/2015/12/ipv4.jpg" alt="ipv4" width="204" height="137" /></a> <a href="http://aulaead.com/wp-content/uploads/2016/07/samba4-level2.jpg"><img class="alignnone wp-image-4856" src="http://aulaead.com/wp-content/uploads/2016/07/samba4-level2-300x200.jpg" alt="samba4-level2" width="204" height="136" /></a></p>
-<p style="text-align: justify;"><strong>IDADE MÍNIMA:</strong> <strong>14 ANOS.</strong></p>
+
+<strong>IDADE MÍNIMA:</strong> <strong>14 ANOS.</strong></p>
 
 <h3 class="widget-title">PÚBLICO ALVO</h3>
 <p style="text-align: justify;">Qualquer pessoa que queira conhecer o <strong>SAMBA-4</strong> e suas ferramentas de integrações, focado para usuários intermediários em <strong>GNU/Linux</strong> e <strong>Redes de Computadores</strong> que estão buscando conhecimentos e práticas em cenários de redes para migração ou implementação de servidores de centralização de domínio. Esse curso e continuidade do <strong>SAMBA-4 Level 1</strong>.</p>
@@ -30,7 +27,6 @@ Scripts de configuração do SAMBA-4 Level 2 para o projeto do Curso do AulaEAD.
 
 <h3 class="widget-title">RECOMENDAÇÕES</h3>
 <p style="text-align: justify;">Fazer os cursos: Curso de Virtualização com VirtualBOX, Curso de Ubuntu Desktop Básico, Curso de GNU/Linux Mint Desktop Básico, Curso Primeiros Passos com Servidores GNU/Linux é o já ter feito o SAMBA-4 Level 1.</p>
-[/gdlr_tab]
 
 <h3 class="widget-title">CONTEÚDO PROGRAMÁTICO</h3>
 <table style="height: 278px;" border="0" width="1194" cellspacing="0" cellpadding="0">
@@ -299,8 +295,6 @@ Scripts de configuração do SAMBA-4 Level 2 para o projeto do Curso do AulaEAD.
  	<li><strong>ou até mesmo para subir de cargo na sua empresa.</strong></li>
 </ul>
 <p style="text-align: left;">O certificado tem validade para fins <strong>curriculares</strong> e em <strong>provas de títulos</strong>, como certificado de <strong>atualização/aperfeiçoamento</strong>, respeitando a <em>carga-horária</em> descrita e não podendo ser usado para outros fins. Por isso, destacamos que <strong>NÃO é um certificado técnico profissionalizante</strong> ou de <strong>graduação</strong> ou de <strong>pós-graduação</strong> e não dá direito de assumir responsabilidades técnicas.</p>
-[gdlr_frame type="border" align="left" caption="CERTIFICADO"][gdlr_image_link type="image" image_url="http://aulaead.com/wp-content/uploads/2015/10/Certificado_Modelo_AulaEad.jpg" link_url="" alt="Modelo de Certificado de Conclusão"][/gdlr_frame]
-
 
 <h3 class="widget-title">METODOLOGIA DO CURSO</h3>
 <p style="text-align: justify;">Curso a distância que será desenvolvido no ambiente aulaead.com através de vídeo aulas que ajudarão na compreensão dos conceitos e práticas, fornecendo as habilidades e conhecimentos necessários para o aluno dar os primeiros passos na utilização do SAMBA-4 Level 2 para simulação do ambiente de rede.</p>
@@ -311,10 +305,4 @@ Scripts de configuração do SAMBA-4 Level 2 para o projeto do Curso do AulaEAD.
  	<li style="text-align: justify;">Todos os outros nomes de produtos referidos ao longo deste curso têm uma finalidade meramente informativa, podendo ser marcas comerciais dos respectivos proprietários. O site www.aulaead.com não detém quaisquer direitos sobre essas marcas.</li>
  	<li style="text-align: justify;">Todos os softwares utilizados pelo aluno, durante o desenvolvimento do curso, são de inteira responsabilidade do mesmo.</li>
 </ul>
-
-Veja também o Curso Completo: UBUNTU DESKTOP BÁSICO e LINUX MINT BÁSICO
-
-[gdlr_image_link type="image" image_url="http://aulaead.com/wp-content/uploads/2016/01/AulaEAD_Curso_LINUX_FIREWALL_IPTABLES_PROXY_640x230.jpg" link_url="http://aulaead.com/course/curso-linux-security-level-1-iptables-squid-endian-firewall/" target="_blank" alt="Curso Completo LINUX SECURITY LEVEL 1 – IPTABLES + SQUID + ENDIAN FIREWALL"]
-
 </div>
-<div>[gdlr_space height="40px"]</div>
