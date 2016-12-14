@@ -1,21 +1,16 @@
 #!/bin/bash
-
-# This script converts a PS spoolfile into a PDF.
-# Copyright (C) Marc Muehlfeld <samba@marc-muehlfeld.de> 2014
-#
-# This program is free software; you can redistribute it
-# and/or modify it under the terms of the GNU General
-# Public License as published by the Free Software Foundation;
-# Either version 3 of the License, or (at your option) any
-# later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public
-# License along with this program; if not, see <http://www.gnu.org/licenses/>.
+# Modificado por: Robson Vaamonde
+# Autor original: Mmuehlfeld
+# Site: https://wiki.samba.org/index.php/File:Pdfprint.sh.txt
+# Site: www.procedimentosemti.com.br
+# Facebook: facebook.com/ProcedimentosEmTI
+# Facebook: facebook.com/BoraParaPratica
+# YouTube: youtube.com/BoraParaPratica
+# Data de criação: 31/05/2016
+# Data de atualização:09/08/2016
+# Versão: 0.4
+# Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
+# Kernel >= 4.4.x
 
 # Print usage/help
 usage () {
