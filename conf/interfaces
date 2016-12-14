@@ -9,17 +9,14 @@
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 
-# This file describes the network interfaces available on your system
-# and how to activate them. For more information, see interfaces(5).
-
+#Configuração do código das interfaces
 source /etc/network/interfaces.d/*
 
-# The loopback network interface
+#Configuração da interfaces de Loopback
 auto lo
 iface lo inet loopback
 
-# The primary network interface
-# Configurações da rede estática
+# Configurações da interface de rede estática eth0
 auto eth0
 iface eth0 inet static
 address 192.168.1.10
