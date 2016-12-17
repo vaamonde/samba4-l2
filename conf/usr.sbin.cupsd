@@ -149,6 +149,7 @@
 }
 
 /usr/lib/cups/backend/cups-pdf {
+#Configurações de acesso a impressora PDF pelo CUPS
   #include <abstractions/base>
   #include <abstractions/fonts>
   #include <abstractions/nameservice>
@@ -180,5 +181,6 @@
   /var/spool/cups-pdf/** rw,
   
   #Liberação para impressão e gravação de arquivos PDF no diretório: /arquivos/pti.intra/pdf/
-  /arquivos/pti.intra/pdf/** rw,
+  /arquivos/pti.intra/pdf/* rw,
+  
 }
