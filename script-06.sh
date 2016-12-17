@@ -37,8 +37,8 @@
 # Informações sobre tipos de DNS do SAMBA4
 # SAMBA_INTERNAL	= Configurações de DNS interna no SAMBA4
 # BIND9_FLATFILE	= Configurações de DNS utilizando arquivos de configurações
-# BIND9_DLZ		 	= Configurações de DNS integrado em SAMBA4 é o BIND
-# NONE				= Sem configuração de DNS
+# BIND9_DLZ		= Configurações de DNS integrado em SAMBA4 é o BIND
+# NONE			= Sem configuração de DNS
 #
 # Informações sobre o FSMO Roles (Flexible Single Master Operation Roles)
 # 1. Schema Master (Mestre de Esquema);
