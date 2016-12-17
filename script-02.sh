@@ -484,13 +484,15 @@ then
 					 read
 					 sleep 2
 					 #Fazendo o backup do arquivo original
-					 mv -v /etc/apparmor.d/local/usr.sbin.cupsd /etc/apparmor.d/local/usr.sbin.cupsd.old >> $LOG
+					 mv -v /etc/apparmor.d/usr.sbin.cupsd /etc/apparmor.d/usr.sbin.cupsd.old >> $LOG
 					 #Atualizando o arquivo
-					 cp -v conf/usr.sbin.cupsd /etc/apparmor.d/local/usr.sbin.cupsd >> $LOG
+					 cp -v conf/usr.sbin.cupsd /etc/apparmor.d/usr.sbin.cupsd >> $LOG
 					 #Editando o arquivo CUPS-PDF
-					 vim /etc/apparmor.d/local/usr.sbin.cupsd
+					 vim /etc/apparmor.d/local/usr.sbin.cupsd +183
 					 #Reinicializando os serviços do CUPS
 					 sudo service apparmor restart
+					 sudo service cups restart
+					 sudo service cups-browsed restart
 					 echo -e "Arquivo atualizando com sucesso!!! pressione <Enter> para continuar"
 					 read
 					 sleep 2
