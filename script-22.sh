@@ -5,15 +5,14 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 07/12/2016
-# Data de atualização: 07/12/2016
+# Data de atualização: 17/12/2016
 # Versão: 0.7
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
-# Configuração do CUPS-PDF
-
+# DESENVOLVIMENTO DE NOVAS TECNOLOGIAS PARA O CURSO, SISTEMA DE MONITORAMENTO E BILHETAGEM, NÃO USAR ESSE SCRIPT
 # DESENVOLVIMENTO: Configuração da Auditoria do Apache2 AWStats
-# DESENVOLVIEMNTO: Configuração da Auditoria do CUPS W3Perl 
+# DESENVOLVIEMNTO: Configuração da Auditoria do CUPS W3Perl
 #
 # Utilizar o comando: sudo -i para executar o script
 #
