@@ -454,15 +454,34 @@ then
 					 echo
 					 echo -e "Testando as configurações do arquivo: cupsd.conf"
 					 echo
+					 #Testando as configurações do arquivo cupsd.conf
 					 cupsd -t
 					 echo
 					 echo -e "CUSPD.CONF atualizado com sucesso!!!, Pressione <Enter> continuando com o script"
 					 read
 					 sleep 2
 					 clear
-					 
 					 echo ============================================================ >> $LOG
-					 echo -e "Fim do Script-02.sh em: `date`" >> $LOG			 
+					 
+					 echo -e "Atualizando é editando arquivo CUPS-PDF.CONF, pressione <Enter> para continuar"
+					 read
+					 sleep 2
+					 #Fazendo o backup do arquivo original
+					 mv -v /etc/cups/cups-pdf.conf /etc/cups/cups-pdf.conf.old >> $LOG
+					 #Atualizando o arquivo
+					 cp -v conf/cups-pdf.conf /etc/cups/cups-pdf.conf >> $LOG
+					 #Editando o arquivo CUPS-PDF
+					 vim /etc/cups/cups-pdf.conf
+					 #Reinicializando os serviços do CUPS
+					 sudo service cups restart
+					 sudo service cups-browsed restart
+					 echo -e "Arquivo atualizando com sucesso!!! pressione <Enter> para continuar"
+					 read
+					 sleep 2
+					 clear
+					 echo ============================================================ >> $LOG
+					 
+					 echo -e "Fim do Script-02.sh em: `date`" >> $LOG
 
 					 echo
 					 echo -e "Instalação dos Servicos de Rede Feito com Sucesso!!!!!"
