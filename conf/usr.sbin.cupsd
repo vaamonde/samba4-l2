@@ -10,4 +10,4 @@
 # Kernel >= 4.4.x
 
 #Liberação para impressão e gravação de arquivos PDF no diretório: /arquivos/pti.intra/pdf/
-/arquivos/pti.intra/pdf** rw,
+/arquivos/pti.intra/pdf/** rw,
