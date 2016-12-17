@@ -10,8 +10,10 @@
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
-# Configuração da Auditoria do Apache2 AWStats
-# Configuração da Auditoria do CUPS W3Perl 
+# Configuração do CUPS-PDF
+
+# DESENVOLVIMENTO: Configuração da Auditoria do Apache2 AWStats
+# DESENVOLVIEMNTO: Configuração da Auditoria do CUPS W3Perl 
 #
 # Utilizar o comando: sudo -i para executar o script
 #
@@ -36,6 +38,8 @@ then
 					 echo -e "Usuário é `whoami`, continuando a executar o Script-21.sh"
 					 echo
 					 echo -e "Rodando o Script-22.sh em: `date`" > $LOG
+					 echo
+					 
 					 
 
 
