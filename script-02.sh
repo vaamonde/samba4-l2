@@ -5,7 +5,7 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 31/05/2016
-# Data de atualização: 26/09/2016
+# Data de atualização: 17/12/2016
 # Versão: 0.6
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
@@ -54,8 +54,7 @@
 #	service clamav-daemon start
 #	service clamav-freshclam start
 #
-# Melhor anti-vírus para GNU/Linux, indicação:
-# Shopos Antivirus for GNU/Linux
+# Melhor anti-vírus para GNU/Linux, indicação: Shopos Antivirus for GNU/Linux
 # Download: https://www.sophos.com/en-us/products/free-tools/sophos-antivirus-for-linux.aspx
 # Instalação: https://www.sophos.com/en-us/support/knowledgebase/14378.aspx
 # No Level-3 estarei utilizando ele nas configurações
@@ -480,6 +479,24 @@ then
 					 sleep 2
 					 clear
 					 echo ============================================================ >> $LOG
+					 
+					 echo -e "Atualizando é editando arquivo USR.SBIN.CUPSD, pressione <Enter> para continuar"
+					 read
+					 sleep 2
+					 #Fazendo o backup do arquivo original
+					 mv -v /etc/apparmor.d/local/usr.sbin.cupsd /etc/apparmor.d/local/usr.sbin.cupsd.old >> $LOG
+					 #Atualizando o arquivo
+					 cp -v conf/usr.sbin.cupsd /etc/apparmor.d/local/usr.sbin.cupsd >> $LOG
+					 #Editando o arquivo CUPS-PDF
+					 vim /etc/apparmor.d/local/usr.sbin.cupsd
+					 #Reinicializando os serviços do CUPS
+					 sudo service apparmor restart
+					 echo -e "Arquivo atualizando com sucesso!!! pressione <Enter> para continuar"
+					 read
+					 sleep 2
+					 clear
+					 echo ============================================================ >> $LOG
+
 					 
 					 echo -e "Fim do Script-02.sh em: `date`" >> $LOG
 
