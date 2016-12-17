@@ -33,243 +33,243 @@ Scripts de configuração do SAMBA-4 Level 2 para o projeto do Curso do AulaEAD.
 <tbody>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 1</td>
-<td style="text-align: left;" valign="top" width="448">Aula 01 – Abertura do Curso de SAMBA-4 Level 2</td>
+<td style="text-align: left;" valign="top" width="640">Aula 01 – Abertura do Curso de SAMBA-4 Level 2</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 2</td>
-<td style="text-align: left;" valign="top" width="448">Aula 02 – Apresentação do Curso Linux SAMBA-4 Level 2</td>
+<td style="text-align: left;" valign="top" width="640">Aula 02 – Apresentação do Curso Linux SAMBA-4 Level 2</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 3</td>
-<td style="text-align: left;" valign="top" width="448">Aula 03 – Cenário Proposto para Implementação SAMBA-4</td>
+<td style="text-align: left;" valign="top" width="640">Aula 03 – Cenário Proposto para Implementação SAMBA-4</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 4</td>
-<td style="text-align: left;" valign="top" width="448">Aula 04 – Tipos de Instalação do SAMBA-4</td>
+<td style="text-align: left;" valign="top" width="640">Aula 04 – Tipos de Instalação do SAMBA-4</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 5</td>
-<td style="text-align: left;" valign="top" width="448">Aula 05 – Recursos de Armazenamento para o SAMBA-4</td>
+<td style="text-align: left;" valign="top" width="640">Aula 05 – Recursos de Armazenamento para o SAMBA-4</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 6</td>
-<td style="text-align: left;" valign="top" width="448">Aula 06 – Recursos de Serviços do SAMBA-4</td>
+<td style="text-align: left;" valign="top" width="640">Aula 06 – Recursos de Serviços do SAMBA-4</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 7</td>
-<td style="text-align: left;" valign="top" width="448">Aula 07 – Recursos de Compartilhamentos do SAMBA-4</td>
+<td style="text-align: left;" valign="top" width="640">Aula 07 – Recursos de Compartilhamentos do SAMBA-4</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 8</td>
-<td style="text-align: left;" valign="top" width="448">Aula 08 – Integrações de Serviços com o SAMBA-4</td>
+<td style="text-align: left;" valign="top" width="640">Aula 08 – Integrações de Serviços com o SAMBA-4</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 9</td>
-<td style="text-align: left;" valign="top" width="448">Aula 09 – Download das ISO do Sistemas Operacionais</td>
+<td style="text-align: left;" valign="top" width="640">Aula 09 – Download das ISO do Sistemas Operacionais</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 10</td>
-<td style="text-align: left;" valign="top" width="448">Aula 10 – Criação das Máquinas Virtuais</td>
+<td style="text-align: left;" valign="top" width="640">Aula 10 – Criação das Máquinas Virtuais</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 11</td>
-<td style="text-align: left;" valign="top" width="448">Aula 11 – Scripts e Arquivos de Configurações</td>
+<td style="text-align: left;" valign="top" width="640">Aula 11 – Scripts e Arquivos de Configurações</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 12</td>
-<td style="text-align: left;" valign="top" width="448">Aula 12 – Ferramentas de Suporte da Microsoft</td>
+<td style="text-align: left;" valign="top" width="640">Aula 12 – Ferramentas de Suporte da Microsoft</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 13</td>
-<td style="text-align: left;" valign="top" width="448">Aula 13 – Instalação do UTM Endian Firewall</td>
+<td style="text-align: left;" valign="top" width="640">Aula 13 – Instalação do UTM Endian Firewall</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 14</td>
-<td style="text-align: left;" valign="top" width="448">Aula 14 – Instalação do GNU/Linux Mint 18</td>
+<td style="text-align: left;" valign="top" width="640">Aula 14 – Instalação do GNU/Linux Mint 18</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 15</td>
-<td style="text-align: left;" valign="top" width="448">Aula 15 – Configuração do UTM Endian Firewall</td>
+<td style="text-align: left;" valign="top" width="640">Aula 15 – Configuração do UTM Endian Firewall</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 16</td>
-<td style="text-align: left;" valign="top" width="448">Aula 16 – Configurações Básicas do GNU/Linux Mint 18</td>
+<td style="text-align: left;" valign="top" width="640">Aula 16 – Configurações Básicas do GNU/Linux Mint 18</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 17</td>
-<td style="text-align: left;" valign="top" width="448">Aula 17 – Instalação do GNU/Linux Ubuntu Server 16.04 LTS</td>
+<td style="text-align: left;" valign="top" width="640">Aula 17 – Instalação do GNU/Linux Ubuntu Server 16.04 LTS</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 18</td>
-<td style="text-align: left;" valign="top" width="448">Aula 18 – Download dos Scripts e Arquivos de Configuração</td>
+<td style="text-align: left;" valign="top" width="640">Aula 18 – Download dos Scripts e Arquivos de Configuração</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 19</td>
-<td style="text-align: left;" valign="top" width="448">Aula 19 – Atualizando o Sistema - script-00.sh</td>
+<td style="text-align: left;" valign="top" width="640">Aula 19 – Atualizando o Sistema - script-00.sh</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 20</td>
-<td style="text-align: left;" valign="top" width="448">Aula 20 – Instalando os Software de Rede - script-01.sh</td>
+<td style="text-align: left;" valign="top" width="640">Aula 20 – Instalando os Software de Rede - script-01.sh</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 21</td>
-<td style="text-align: left;" valign="top" width="448">Aula 21 – Instalação o SAMBA-4 e seus Recursos – script-02.sh</td>
+<td style="text-align: left;" valign="top" width="640">Aula 21 – Instalação o SAMBA-4 e seus Recursos – script-02.sh</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 22</td>
-<td style="text-align: left;" valign="top" width="448">Aula 22 – Instalação do Webmin WebADmin – script-03.sh</td>
+<td style="text-align: left;" valign="top" width="640">Aula 22 – Instalação do Webmin WebADmin – script-03.sh</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 23</td>
-<td style="text-align: left;" valign="top" width="448">Aula 23 – Instalação do LAMP Server – script-04.sh</td>
+<td style="text-align: left;" valign="top" width="640">Aula 23 – Instalação do LAMP Server – script-04.sh</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 24</td>
-<td style="text-align: left;" valign="top" width="448">Aula 24 – Configuração da Rede – script-05.sh</td>
+<td style="text-align: left;" valign="top" width="640">Aula 24 – Configuração da Rede – script-05.sh</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 25</td>
-<td style="text-align: left;" valign="top" width="448">Aula 25 – Promovendo o Controlador de Domínio – script-06.sh</td>
+<td style="text-align: left;" valign="top" width="640">Aula 25 – Promovendo o Controlador de Domínio – script-06.sh</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 26</td>
-<td style="text-align: left;" valign="top" width="448">Aula 26 – Integração do SAMBA-4, DNS e DHCP – script-07.sh</td>
+<td style="text-align: left;" valign="top" width="640">Aula 26 – Integração do SAMBA-4, DNS e DHCP – script-07.sh</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 27</td>
-<td style="text-align: left;" valign="top" width="448">Aula 27 – Analisando Portas TCP e UDP – script-08.sh</td>
+<td style="text-align: left;" valign="top" width="640">Aula 27 – Analisando Portas TCP e UDP – script-08.sh</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 28</td>
-<td style="text-align: left;" valign="top" width="448">Aula 28 – Troubleshooting de Serviços de Rede – script-09.sh</td>
+<td style="text-align: left;" valign="top" width="640">Aula 28 – Troubleshooting de Serviços de Rede – script-09.sh</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 29</td>
-<td style="text-align: left;" valign="top" width="448">Aula 29 – Troubleshooting de discos – script-10.sh</td>
+<td style="text-align: left;" valign="top" width="640">Aula 29 – Troubleshooting de discos – script-10.sh</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 30</td>
-<td style="text-align: left;" valign="top" width="448">Aula 30 – Troubleshooting de Status de Serviços -script-11.sh</td>
+<td style="text-align: left;" valign="top" width="640">Aula 30 – Troubleshooting de Status de Serviços -script-11.sh</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 31</td>
-<td style="text-align: left;" valign="top" width="448">Aula 31 – Troubleshooting de ACL e ATTR – script-12.sh</td>
+<td style="text-align: left;" valign="top" width="640">Aula 31 – Troubleshooting de ACL e ATTR – script-12.sh</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 32</td>
-<td style="text-align: left;" valign="top" width="448">Aula 32 – Script de Backup do SAMBA-4 – script-13.sh</td>
+<td style="text-align: left;" valign="top" width="640">Aula 32 – Script de Backup do SAMBA-4 – script-13.sh</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 33</td>
-<td style="text-align: left;" valign="top" width="448">Aula 33 – Criação da Estrutura de Diretórios – script-14.sh</td>
+<td style="text-align: left;" valign="top" width="640">Aula 33 – Criação da Estrutura de Diretórios – script-14.sh</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 34</td>
-<td style="text-align: left;" valign="top" width="448">Aula 34 – Criação das Unidades Organizacionais – script-15.sh</td>
+<td style="text-align: left;" valign="top" width="640">Aula 34 – Criação das Unidades Organizacionais – script-15.sh</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 35</td>
-<td style="text-align: left;" valign="top" width="448">Aula 35 – Criação dos Grupos Globais e Locais – script-16.sh</td>
+<td style="text-align: left;" valign="top" width="640">Aula 35 – Criação dos Grupos Globais e Locais – script-16.sh</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 36</td>
-<td style="text-align: left;" valign="top" width="448">Aula 36 – Criação dos Usuários – script-17.sh</td>
+<td style="text-align: left;" valign="top" width="640">Aula 36 – Criação dos Usuários – script-17.sh</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 37</td>
-<td style="text-align: left;" valign="top" width="448">Aula 37 – Instalação do Sistema de ERP – script-18.sh</td>
+<td style="text-align: left;" valign="top" width="640">Aula 37 – Instalação do Sistema de ERP – script-18.sh</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 38</td>
-<td style="text-align: left;" valign="top" width="448">Aula 38 – Configuração dos Shares no smb.conf – script-19.sh</td>
+<td style="text-align: left;" valign="top" width="640">Aula 38 – Configuração dos Shares no smb.conf – script-19.sh</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 39</td>
-<td style="text-align: left;" valign="top" width="448">Aula 39 – Backup do Servidor – script-20.sh</td>
+<td style="text-align: left;" valign="top" width="640">Aula 39 – Backup do Servidor – script-20.sh</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 40</td>
-<td style="text-align: left;" valign="top" width="448">Aula 40 – Troubleshooting de Serviços via Web</td>
+<td style="text-align: left;" valign="top" width="640">Aula 40 – Troubleshooting de Serviços via Web</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 41</td>
-<td style="text-align: left;" valign="top" width="448">Aula 41 – Ingressando Máquinas Microosft Windows no Domínio do SAMBA-4</td>
+<td style="text-align: left;" valign="top" width="640">Aula 41 – Ingressando Máquinas Microosft Windows no Domínio do SAMBA-4</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 42</td>
-<td style="text-align: left;" valign="top" width="448">Aula 42 – Instalando as Ferramentas do RSAT, Support Tools e Sysinternal</td>
+<td style="text-align: left;" valign="top" width="640">Aula 42 – Instalando as Ferramentas do RSAT, Support Tools e Sysinternal</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 43</td>
-<td style="text-align: left;" valign="top" width="448"> Aula 43 – Criação dos Atalhos para Administração do SAMBA-4</td>
+<td style="text-align: left;" valign="top" width="640"> Aula 43 – Criação dos Atalhos para Administração do SAMBA-4</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 44</td>
-<td style="text-align: left;" valign="top" width="448">Aula 44 – Troubleshooting Support Tools Sysinternal</td>
+<td style="text-align: left;" valign="top" width="640">Aula 44 – Troubleshooting Support Tools Sysinternal</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 45</td>
-<td style="text-align: left;" valign="top" width="448">Aula 45 – Compartilhamento Pasta Publico</td>
+<td style="text-align: left;" valign="top" width="640">Aula 45 – Compartilhamento Pasta Publico</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 46</td>
-<td style="text-align: left;" valign="top" width="448">Aula 46 – Compartilhamento Pasta Gestão</td>
+<td style="text-align: left;" valign="top" width="640">Aula 46 – Compartilhamento Pasta Gestão</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 47</td>
-<td style="text-align: left;" valign="top" width="448">Aula 47 – Compartilhamento Pasta Backup e Lixeira</td>
+<td style="text-align: left;" valign="top" width="640">Aula 47 – Compartilhamento Pasta Backup e Lixeira</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 48</td>
-<td style="text-align: left;" valign="top" width="448">Aula 48 – Compartilhamento Home Drivers</td>
+<td style="text-align: left;" valign="top" width="640">Aula 48 – Compartilhamento Home Drivers</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 49</td>
-<td style="text-align: left;" valign="top" width="448">Aula 49 – Compartilhamento Home Profile</td>
+<td style="text-align: left;" valign="top" width="640">Aula 49 – Compartilhamento Home Profile</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 50</td>
-<td style="text-align: left;" valign="top" width="448">Aula 50 – Compartilhamento Pasta Sistema</td>
+<td style="text-align: left;" valign="top" width="640">Aula 50 – Compartilhamento Pasta Sistema</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 51</td>
-<td style="text-align: left;" valign="top" width="448">Aula 51 – Configuração do Recurso de Log e Auditória de Arquivos - script-21.sh</td>
+<td style="text-align: left;" valign="top" width="640">Aula 51 – Configuração do Recurso de Log e Auditória de Arquivos - script-21.sh</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 52</td>
-<td style="text-align: left;" valign="top" width="448">Aula 52 – Atualização dos Scripts via Git – Github</td>
+<td style="text-align: left;" valign="top" width="640">Aula 52 – Atualização dos Scripts via Git – Github</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 53</td>
-<td style="text-align: left;" valign="top" width="448">Aula 53 – Configuração do Recurso de Access Based Share Enumerator e Triagem</td>
+<td style="text-align: left;" valign="top" width="640">Aula 53 – Configuração do Recurso de Access Based Share Enumerator e Triagem</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 54</td>
-<td style="text-align: left;" valign="top" width="448">Aula 54 – Configuração do Recurso de Impressão pelo Cups - script-22.sh</td>
+<td style="text-align: left;" valign="top" width="640">Aula 54 – Configuração do Recurso de Impressão pelo Cups - script-22.sh</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 55</td>
-<td style="text-align: left;" valign="top" width="448">Aula 55 – Configuração do Recurso de Impressão pelo Windows</td>
+<td style="text-align: left;" valign="top" width="640">Aula 55 – Configuração do Recurso de Impressão pelo Windows</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 56</td>
-<td style="text-align: left;" valign="top" width="448">Aula 56 – Configuração do Recurso de Lixeira</td>
+<td style="text-align: left;" valign="top" width="640">Aula 56 – Configuração do Recurso de Lixeira</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 57</td>
-<td style="text-align: left;" valign="top" width="448">Aula 57 – Configuração do Recurso de Quota de Disco</td>
+<td style="text-align: left;" valign="top" width="640">Aula 57 – Configuração do Recurso de Quota de Disco</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 58</td>
-<td style="text-align: left;" valign="top" width="448">AULA BÔNUS – 01 – Correção Falha GPO/RSOP Windows 10</td>
+<td style="text-align: left;" valign="top" width="640">AULA BÔNUS – 01 – Correção Falha GPO/RSOP Windows 10</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 59</td>
-<td style="text-align: left;" valign="top" width="448">AULA BÔNUS – 02 – BÔNUS – Criação de GPO de Mapeamento de Rede</td>
+<td style="text-align: left;" valign="top" width="640">AULA BÔNUS – 02 – BÔNUS – Criação de GPO de Mapeamento de Rede</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 60</td>
-<td style="text-align: left;" valign="top" width="448">Questionário de Avaliação</td>
+<td style="text-align: left;" valign="top" width="640">Questionário de Avaliação</td>
 </tr>
 </tbody>
 </table>
