@@ -17,12 +17,13 @@
 #					/gestao			= Pasta dos departamentos da rede;
 #					/sistema		= Pasta do sistema de gestão;
 #					/usuarios		= Pasta dos usuários da rede;
-#						/home		= Pasta home dos usuários
-#						/profiles	= Pasta perfil dos usuários
-#					/lixeira		= Pasta da Lixeira
+#						/home		= Pasta home dos usuários;
+#						/profiles	= Pasta perfil dos usuários;
+#					/lixeira		= Pasta dos links simbólicos das lixeiras;
+#					/pdf			= Pasta das impressões de arquivos PDF;
 # /backup/pti.intra
 #					/rsync			= Pasta do sincronismo dos arquivos da rede;
-#					/bkp			= Pasta de Backup do Backupninja
+#					/bkp			= Pasta de Backup do Backupninja.
 #
 # Utilizar o comando: sudo -i para executar o script
 #
@@ -69,6 +70,15 @@ then
 					 echo -e "Diretório publico em: $ARQUIVOS/$DIRBASE/publico"
 					 #Criação do diretório público, será utilizado como pasta temporária na rede, seus arquivos deverão ser deletados todos os domingos
 					 mkdir -v $ARQUIVOS/$DIRBASE/publico >> $LOG
+					 echo -e "Diretório criado com sucesso"
+					 
+					 echo -e "Diretório pdf em: $ARQUIVOS/$DIRBASE/pdf"
+					 #Criação do diretório pdf, será utilizado como pasta dos arquivos impressos pela impressora PDF do Cups
+					 mkdir -v $ARQUIVOS/$DIRBASE/pdf >> $LOG
+					 #Alterando as permissões da pasta
+					 chmod -v 0777 $ARQUIVOS/$DIRBASE/pdf >> $LOG
+					 #Alterando dono e grupo da pasta
+					 chgrp -v lpadmin $ARQUIVOS/$DIRBASE/pdf >> $LOG
 					 echo -e "Diretório criado com sucesso"
 
 					 echo -e "Diretório gestao em: $ARQUIVOS/$DIRBASE/gestao"
