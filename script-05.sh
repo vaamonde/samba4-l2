@@ -106,6 +106,8 @@ then
 					 cp -v conf/interfaces /etc/network/interfaces >> $LOG
 					 #Editando o arquivo de configuração interfaces
 					 vim +23 /etc/network/interfaces
+					 #Verificando as informações de Interfaces
+					 ifup --verbose --no-act --force --all /etc/network/interfaces >> $LOG
 					 echo -e "Atualização feita com sucesso!!!" >> $LOG
 					 echo -e "INTERFACES atualizado com sucesso!!!, pressione <Enter> continuando com o script"
 					 read
@@ -170,7 +172,8 @@ then
 					 echo -e "Pressione Q para sair"
 					 read
 					 echo
-					 sshd -T | less
+					 #Verificando as configurações do sshd
+					 sshd -T >> $LOG
 					 echo
 					 echo -e "SSHD_CONFIG atualizado com sucesso!!!, pressione <Enter> para continuando com o script"
 					 read
@@ -192,7 +195,8 @@ then
 					 echo -e "Atualização feita com sucesso!!!, pressione <Enter> para testar o arquivo dhcpd.conf"
 					 read
 					 echo
-					 dhcpd -t
+					 #Verificando as configurações do dhcpd
+					 dhcpd -t >> $LOG
 					 echo
 					 echo -e "DHCPD.CONF atualizado com sucesso!!!, pressione <Enter> para continuando com o script"
 					 read
