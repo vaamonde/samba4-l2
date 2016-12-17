@@ -11,7 +11,7 @@ Scripts de configuração do SAMBA-4 Level 2 para o projeto do Curso do AulaEAD.
 <p style="text-align: justify;">Nesse Level 2 você vai aprender a implementar o <strong>SAMBA-4 com integração com o Bind DNS e o ISC DHCP Server</strong> utilizando scripts e configurações, iremos implementar serviços como o<strong> APACHE-2, MySQL, ProFTPD, SSH Server, NTP Server, Kerberos, LDAP</strong> e muito mais, estarei mostrando como criar <strong>Unidades Organizacionais, Usuários e Grupos em Lotes</strong> é o principais serviços de compartilhamento do SAMBA-4 como: <strong>Lixeira, Auditória de Arquivos, Veto de Arquivos, Ocultar Arquivos, Quota de Disco, ACL, ATTR</strong> e muito mais.</p>
 <p style="text-align: justify;">Ideal para Estudantes e Profissionais que desejam se aprofundar nos conceitos de servidores GNU/Linux Ubuntu Server e implementação de Solução Open Source de Armazenamento e Gerenciamento de Arquivos e Usuários utilizando o <strong>SAMBA-4 Level 2</strong></p>
 
-<h3 class="widget-title">PRÉ-REQUISITO"</h3>
+<h3 class="widget-title">PRÉ-REQUISITO</h3>
 <p style="text-align: justify;">Desejável conhecimentos básicos em Virtualização, GNU/Linux Ubuntu Desktop, Linux Mint, SAMBA-4 Level 1, Debian e Protocolos TCP/IP. Faça <strong>GRATUITAMENTE</strong> o curso abaixo indicado para adquirir a base necessária para este treinamento.</p>
 
 <strong>IDADE MÍNIMA:</strong> <strong>14 ANOS.</strong></p>
