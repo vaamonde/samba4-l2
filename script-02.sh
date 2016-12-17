@@ -451,6 +451,11 @@ then
 					 #Verificando os status das impressoras
 					 lpstat -t >> $LOG
 					 echo -e "Atualização feita com sucesso!!!" >> $LOG
+					 echo
+					 echo -e "Testando as configurações do arquivo: cupsd.conf"
+					 echo
+					 cupsd -t
+					 echo
 					 echo -e "CUSPD.CONF atualizado com sucesso!!!, Pressione <Enter> continuando com o script"
 					 read
 					 sleep 2
