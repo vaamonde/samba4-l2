@@ -1,4 +1,5 @@
-# Autor: Robson Vaamonde
+# Autor: Martin Pitt <martin.pitt@ubuntu.com>
+# Modificado por: Robson Vaamonde
 # Site: www.procedimentosemti.com.br
 # Facebook: facebook.com/ProcedimentosEmTI
 # Facebook: facebook.com/BoraParaPratica
@@ -9,5 +10,175 @@
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 
-#Liberação para impressão e gravação de arquivos PDF no diretório: /arquivos/pti.intra/pdf/
-/arquivos/pti.intra/pdf/** rw,
+#include <tunables/global>
+
+/usr/sbin/cupsd flags=(attach_disconnected) {
+  #include <abstractions/base>
+  #include <abstractions/bash>
+  #include <abstractions/authentication>
+  #include <abstractions/dbus>
+  #include <abstractions/fonts>
+  #include <abstractions/nameservice>
+  #include <abstractions/perl>
+  #include <abstractions/user-tmp>
+
+  capability chown,
+  capability fowner,
+  capability fsetid,
+  capability kill,
+  capability net_bind_service,
+  capability setgid,
+  capability setuid,
+  capability audit_write,
+  deny capability block_suspend,
+
+  capability dac_override,
+
+  network bluetooth,
+
+  network x25 seqpacket,
+  network ax25 dgram,
+  network netrom seqpacket,
+  network rose dgram,
+  network ipx dgram,
+  network appletalk dgram,
+  network econet dgram,
+  network ash dgram,
+
+  /bin/bash ixr,
+  /bin/dash ixr,
+  /bin/hostname ixr,
+  /dev/lp* rw,
+  deny /dev/tty rw,  # silence noise
+  /dev/ttyS* rw,
+  /dev/ttyUSB* rw,
+  /dev/usb/lp* rw,
+  /dev/bus/usb/ r,
+  /dev/bus/usb/** rw,
+  /dev/parport* rw,
+  /etc/cups/ rw,
+  /etc/cups/** rw,
+  /etc/cups/interfaces/* ixrw,
+  /etc/foomatic/* r,
+  /etc/gai.conf r,
+  /etc/papersize r,
+  /etc/pnm2ppa.conf r,
+  /etc/printcap rwl,
+  /etc/ssl/** r,
+  @{PROC}/net/ r,
+  @{PROC}/net/* r,
+  @{PROC}/sys/dev/parport/** r,
+  @{PROC}/*/net/ r,
+  @{PROC}/*/net/** r,
+  @{PROC}/*/auxv r,
+  @{PROC}/sys/crypto/** r,
+  /sys/** r,
+  /usr/bin/* ixr,
+  /usr/sbin/* ixr,
+  /bin/* ixr,
+  /sbin/* ixr,
+  /usr/lib/** rm,
+
+  /usr/lib/cups/backend/bluetooth ixr,
+  /usr/lib/cups/backend/dnssd ixr,
+  /usr/lib/cups/backend/http ixr,
+  /usr/lib/cups/backend/ipp ixr,
+  /usr/lib/cups/backend/lpd ixr,
+  /usr/lib/cups/backend/parallel ixr,
+  /usr/lib/cups/backend/serial ixr,
+  /usr/lib/cups/backend/snmp ixr,
+  /usr/lib/cups/backend/socket ixr,
+  /usr/lib/cups/backend/usb ixr,
+  /usr/lib/cups/backend/cups-pdf Px,
+  /usr/lib/cups/backend/* Cx -> third_party,
+
+  /usr/lib/cups/cgi-bin/* ixr,
+  /usr/lib/cups/daemon/* ixr,
+  /usr/lib/cups/monitor/* ixr,
+  /usr/lib/cups/notifier/* ixr,
+  /usr/lib/cups/filter/** Cxr -> third_party,
+  /usr/lib/cups/driver/* Cxr -> third_party,
+  /usr/local/** rm,
+  /usr/local/lib/cups/** rix,
+  /usr/share/** r,
+  /{,var/}run/** rm,
+  /{,var/}run/avahi-daemon/socket rw,
+  deny /{,var/}run/samba/ rw,
+  /{,var/}run/samba/** rw,
+  /var/cache/samba/*.tdb r,
+  /var/{cache,lib}/samba/printing/printers.tdb r,
+  /{,var/}run/cups/ rw,
+  /{,var/}run/cups/** rw,
+  /var/cache/cups/ rw,
+  /var/cache/cups/** rwk,
+  /var/log/cups/ rw,
+  /var/log/cups/* rw,
+  /var/spool/cups/ rw,
+  /var/spool/cups/** rw,
+
+  /opt/** rix,
+
+  /usr/bin/hpijs Cx -> third_party,
+  /usr/Brother/** Cx -> third_party,
+
+  /etc/krb5.conf r,
+  deny /etc/krb5.conf w,
+  /etc/krb5.keytab rk,
+  /etc/cups/krb5.keytab rwk,
+  /tmp/krb5cc* k,
+
+  /etc/likewise r,
+  /etc/likewise/* r,
+
+  deny /etc/udev/udev.conf r,
+
+  signal peer=/usr/sbin/cupsd//third_party,
+  unix peer=(label=/usr/sbin/cupsd//third_party),
+  profile third_party flags=(attach_disconnected) {
+    file,
+    capability,
+    audit deny capability mac_admin,
+    network,
+    dbus,
+    signal,
+    ptrace,
+    unix,
+  }
+
+  #include <local/usr.sbin.cupsd>
+}
+
+/usr/lib/cups/backend/cups-pdf {
+  #include <abstractions/base>
+  #include <abstractions/fonts>
+  #include <abstractions/nameservice>
+  #include <abstractions/user-tmp>
+
+  capability chown,
+  capability fowner,
+  capability fsetid,
+  capability setgid,
+  capability setuid,
+  capability dac_override,
+  capability dac_read_search,
+
+  @{PROC}/*/auxv r,
+
+  /bin/dash ixr,
+  /bin/bash ixr,
+  /bin/cp ixr,
+  /etc/papersize r,
+  /etc/cups/cups-pdf.conf r,
+  @{HOME}/PDF/ rw,
+  @{HOME}/PDF/* rw,
+  /usr/bin/gs ixr,
+  /usr/lib/cups/backend/cups-pdf mr,
+  /usr/lib/ghostscript/** mr,
+  /usr/share/** r,
+  /var/log/cups/cups-pdf_log w,
+  /var/spool/cups/** r,
+  /var/spool/cups-pdf/** rw,
+  
+  #Liberação para impressão e gravação de arquivos PDF no diretório: /arquivos/pti.intra/pdf/
+  /arquivos/pti.intra/pdf/** rw,
+}
