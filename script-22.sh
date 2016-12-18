@@ -54,7 +54,7 @@ then
 					 echo
 					 echo -e "Arquivos copiados com sucesso!!!, pressione <Enter> para editar o arquivo: CLEANPDF"
 					 read
-					 vim /etc/cron.d/cleanpdf +15
+					 vim /etc/cron.d/cleanpdf +13
 					 echo
 					 echo -e "Arquivo editado com sucesso!!!, pressione <Enter> para continuar."
 					 read
