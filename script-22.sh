@@ -10,7 +10,6 @@
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
-# DESENVOLVIEMNTO: Configuração da Auditoria do CUPS W3Perl
 # Configuração da Auditoria do Apache2 AWStats, após a configuração acessar a URL: http://pti.intra/cgi-bin/awstats.pl?config=pti.intra
 # Limpeza da Pasta PDF
 # Limpeza das configurações do CUPS
@@ -34,6 +33,9 @@ then
 		then
 			if [ "$KERNEL" == "4.4" ]
 				then
+					 #Declração dos váriaveis do ambiente
+					 DOMINIO="pti.intra"
+					 
 					 clear
 					 echo -e "Usuário é `whoami`, continuando a executar o Script-21.sh"
 					 echo
@@ -86,14 +88,13 @@ then
 					 sleep 2
 					 clear
 
-
 					 echo -e "Instalando é configurando o AWStats, pressione <Enter> para continuar, aguarde..."
 					 read
 					 sleep 2
 					 #Atualizando as listas do apt-get
 					 apt-get update >> $LOG
 					 #Instalando o pacote do awstats
-					 apt-get -y install awstats libgeo-ipfree-perl libnet-ip-perl >> $LOG
+					 apt-get -y install awstats libgeo-ipfree-perl libnet-ip-perl libgeoip1 >> $LOG
 					 #Habilitar o recurso de CGI no Apache2
 					 a2enmod cgi >> $LOG
 					 #Copiando o diretório do CGI para o Apache
@@ -118,6 +119,7 @@ then
 					 read
 					 sleep 2
 					 clear
+					 
 					 
 					 echo -e "Fim do Script-22.sh em: `date`" >> $LOG
 					 echo
