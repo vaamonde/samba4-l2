@@ -14,6 +14,9 @@
 # DESENVOLVIMENTO: Configuração da Auditoria do Apache2 AWStats
 # DESENVOLVIEMNTO: Configuração da Auditoria do CUPS W3Perl
 #
+# Limpeza da Pasta PDF
+# Limpeza das configurações do CUPS
+#
 # Utilizar o comando: sudo -i para executar o script
 #
 # Caminho para o Log do Script-22.sh
@@ -39,6 +42,36 @@ then
 					 echo -e "Rodando o Script-22.sh em: `date`" > $LOG
 					 echo
 					 
+					 echo -e "Configurando a Limpeza da Pasta PDF, pressione <Enter> para continuar"
+					 read
+					 sleep 2
+					 #Copiando o arquivo de limpeza da pasta PDF
+					 cp -v conf/clean_pdf /usr/sbin >> $LOG
+					 #Aplicando as permissões de execução
+					 chmod -v +x /usr/sbin/clean_pdf >> $LOG
+					 #Copiando o arquivo de agendamento da limpeza da pasta PDF
+					 cp -v conf/cleanpdf /etc/cron.d/ >> $LOG
+					 echo
+					 echo -e "Arquivos copiados com sucesso!!!, pressione <Enter> para editar o arquivo: CLEANPDF
+					 read
+					 vim /etc/cron.d/cleanpdf
+					 echo
+					 echo -e "Arquivo editado com sucesso!!!, pressione <Enter> para continuar."
+					 
+					 
+					 echo -e "Configurando a Limpeza do CUPS, pressione <Enter> para continuar"
+					 read
+					 sleep 2
+					 #Copiando o arquivo de limpeza do cups
+					 cp -v conf/clean_cups /usr/sbin >> $LOG
+					 #Aplicando as permissões de execução
+					 chmod -v +x /usr/sbin/clean_cups >> $LOG
+					 echo
+					 echo -e "Arquivos copiados com sucesso!!!, pressione <Enter> para editar o arquivo: CLEAN_CUPS
+					 read
+					 vim /usr/sbin/clean_cups
+					 echo
+					 echo -e "Arquivo editado com sucesso!!!, pressione <Enter> para continuar."
 					 
 
 
