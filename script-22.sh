@@ -54,10 +54,11 @@ then
 					 echo
 					 echo -e "Arquivos copiados com sucesso!!!, pressione <Enter> para editar o arquivo: CLEANPDF"
 					 read
-					 vim /etc/cron.d/cleanpdf
+					 vim /etc/cron.d/cleanpdf +15
 					 echo
 					 echo -e "Arquivo editado com sucesso!!!, pressione <Enter> para continuar."
-					 
+					 read
+					 clear
 					 
 					 echo -e "Configurando a Limpeza do CUPS, pressione <Enter> para continuar"
 					 read
@@ -72,6 +73,8 @@ then
 					 vim /usr/sbin/clean_cups
 					 echo
 					 echo -e "Arquivo editado com sucesso!!!, pressione <Enter> para continuar."
+					 read
+					 clear
 					 
 					 echo -e "Fim do Script-22.sh em: `date`" >> $LOG
 					 echo
