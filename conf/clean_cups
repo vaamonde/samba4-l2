@@ -25,7 +25,7 @@ LOCAL1="`pwd`"
 if [ $SPOOL == $LOCAL1 ]; then
 	echo -e "Fazendo a limpeza do diretório: $SPOOL em: `date`" >> $LOG
 	echo >> $LOG
-	rm -Rfv * >> $LOG
+		rm -Rfv * >> $LOG
 	echo >> $LOG
 	echo -e "Pasta $SPOOL limpa com sucesso!!!" >> $LOG
 else
@@ -36,9 +36,9 @@ cd $LOGS
 LOCAL2="`pwd`"
 #Fazendo o teste lógico para a limpeza do diretório Logs
 if [ $LOGS == $LOCAL2 ]; then
-	echo -e "Fazendo a limpeza do diretório: $LOGS em: `date`" > $LOG
+	echo -e "Fazendo a limpeza do diretório: $LOGS em: `date`" >> $LOG
 	echo >> $LOG
-	rm -fv *_log* >> $LOG
+		rm -fv *_log* >> $LOG
 	echo >> $LOG
 	echo -e "Pasta $LOGS limpa com sucesso!!!" >> $LOG
 else
@@ -49,9 +49,9 @@ cd $CACHE
 LOCAL3="`pwd`"
 #Fazendo o teste lógico para a limpeza do diretório Cache
 if [ $CACHE == $LOCAL3 ]; then
-	echo -e "Fazendo a limpeza do diretório: $CACHE em: `date`" > $LOG
+	echo -e "Fazendo a limpeza do diretório: $CACHE em: `date`" >> $LOG
 	echo >> $LOG
-	rm -fv job.cache* >> $LOG
+		rm -fv job.cache* *.data >> $LOG
 	echo >> $LOG
 	echo -e "Pasta $CACHE limpa com sucesso!!!" >> $LOG
 else
