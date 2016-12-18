@@ -52,7 +52,7 @@ then
 					 #Copiando o arquivo de agendamento da limpeza da pasta PDF
 					 cp -v conf/cleanpdf /etc/cron.d/ >> $LOG
 					 echo
-					 echo -e "Arquivos copiados com sucesso!!!, pressione <Enter> para editar o arquivo: CLEANPDF
+					 echo -e "Arquivos copiados com sucesso!!!, pressione <Enter> para editar o arquivo: CLEANPDF"
 					 read
 					 vim /etc/cron.d/cleanpdf
 					 echo
@@ -67,14 +67,12 @@ then
 					 #Aplicando as permissões de execução
 					 chmod -v +x /usr/sbin/clean_cups >> $LOG
 					 echo
-					 echo -e "Arquivos copiados com sucesso!!!, pressione <Enter> para editar o arquivo: CLEAN_CUPS
+					 echo -e "Arquivos copiados com sucesso!!!, pressione <Enter> para editar o arquivo: CLEAN_CUPS"
 					 read
 					 vim /usr/sbin/clean_cups
 					 echo
 					 echo -e "Arquivo editado com sucesso!!!, pressione <Enter> para continuar."
 					 
-
-
 					 echo -e "Fim do Script-22.sh em: `date`" >> $LOG
 					 echo
 					 # Script para calcular o tempo gasto para a execução do script-22.sh
