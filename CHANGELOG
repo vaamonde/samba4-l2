@@ -9,6 +9,8 @@ Versão: 0.7
 Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 Kernel >= 4.4.x
 
+18/12/2016  - Atualização do script-22.sh, instalação do AWStats, limpeza do CUPS e Pasta PDF, corrigindo bugs do W3Perl. Robson Vaamonde
+
 17/12/2016  - Atualização dos scripts-02.sh e scripts-14.sh, criação dos conf: clean_pdf, cleanpdf, clean_cups e cleancups. Robson Vaamonde
 
 14/12/2016  - Customização dos arquivos: cupsd.conf, cups-pdf.conf, usr.sbin.cups, smb.conf, sambapdf, printpdf, clean_recycle, script-14.sh. Robson Vaamonde
