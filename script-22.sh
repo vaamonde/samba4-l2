@@ -10,10 +10,8 @@
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
-# DESENVOLVIMENTO DE NOVAS TECNOLOGIAS PARA O CURSO, SISTEMA DE MONITORAMENTO E BILHETAGEM, NÃO USAR ESSE SCRIPT
-# DESENVOLVIMENTO: Configuração da Auditoria do Apache2 AWStats
 # DESENVOLVIEMNTO: Configuração da Auditoria do CUPS W3Perl
-#
+# Configuração da Auditoria do Apache2 AWStats, após a configuração acessar a URL: http://pti.intra/cgi-bin/awstats.pl?config=pti.intra
 # Limpeza da Pasta PDF
 # Limpeza das configurações do CUPS
 #
@@ -44,7 +42,6 @@ then
 					 
 					 echo -e "Configurando a Limpeza da Pasta PDF, pressione <Enter> para continuar"
 					 read
-					 sleep 2
 					 #Copiando o arquivo de limpeza da pasta PDF
 					 cp -v conf/clean_pdf /usr/sbin >> $LOG
 					 #Aplicando as permissões de execução
@@ -54,10 +51,12 @@ then
 					 echo
 					 echo -e "Arquivos copiados com sucesso!!!, pressione <Enter> para editar o arquivo: CLEANPDF"
 					 read
+					 sleep 2
 					 vim /etc/cron.d/cleanpdf +13
 					 echo
 					 echo -e "Arquivo editado com sucesso!!!, pressione <Enter> para continuar."
 					 read
+					 sleep 2
 					 clear
 					 
 					 echo -e "Configurando a Limpeza do CUPS, pressione <Enter> para continuar"
@@ -74,6 +73,50 @@ then
 					 echo
 					 echo -e "Arquivo editado com sucesso!!!, pressione <Enter> para continuar."
 					 read
+					 sleep 2
+					 clear
+					 
+					 echo -e "Arquivos copiados com sucesso!!!, pressione <Enter> para editar o arquivo: CLEAN_CUPS"
+					 read
+					 sleep 2
+					 vim /usr/sbin/clean_cups
+					 echo
+					 echo -e "Arquivo editado com sucesso!!!, pressione <Enter> para continuar."
+					 read
+					 sleep 2
+					 clear
+
+
+					 echo -e "Instalando é configurando o AWStats, pressione <Enter> para continuar, aguarde..."
+					 read
+					 sleep 2
+					 #Atualizando as listas do apt-get
+					 apt-get update >> $LOG
+					 #Instalando o pacote do awstats
+					 apt-get -y install awstats libgeo-ipfree-perl libnet-ip-perl >> $LOG
+					 #Habilitar o recurso de CGI no Apache2
+					 a2enmod cgi >> $LOG
+					 #Copiando o diretório do CGI para o Apache
+					 cp -r /usr/lib/cgi-bin /var/www/html/ >> $LOG
+					 #Mudando o dono e grupo do diretório cgi
+					 chown -Rv www-data:www-data /var/www/html/cgi-bin/ >> $LOG
+					 #Alterando as permissões do diretório
+					 chmod -Rv 755 /var/www/html/cgi-bin/ >> $LOG
+					 #Atualizando o arquivo de configuração personalizado do awstats
+					 cp -v conf/awstats.pti.intra.conf /etc/awstats/awstats.pti.intra.conf >> $LOG
+					 #Fazendo o backup do arquivo 000-default.conf
+					 cp -v /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/000-default.conf.old >> $LOG
+					 #Atualizando o arquivo 000-default.conf
+					 cp -v conf/000-default.conf /etc/apache2/sites-available/000-default.conf >> $LOG
+					 #Reinicializando o Apache2
+					 sudo service apache2 restart >> $LOG
+					 #Copiando o arquivo de agendamento das atualizações do awstats
+					 cp -v conf/awstatsupdate /etc/cron.d/ >> $LOG
+					 #Atualizando as estáticas do AWStats
+					 /usr/lib/cgi-bin/awstats.pl -config=pti.intra -update >> $LOG
+					 echo -e "Instalação concluida com sucesso!!!!, pressione <Enter> para continuar"
+					 read
+					 sleep 2
 					 clear
 					 
 					 echo -e "Fim do Script-22.sh em: `date`" >> $LOG
