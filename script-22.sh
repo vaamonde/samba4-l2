@@ -13,6 +13,7 @@
 # Configuração da Auditoria do Apache2 AWStats, após a configuração acessar a URL: http://pti.intra/cgi-bin/awstats.pl?config=pti.intra
 # Limpeza da Pasta PDF
 # Limpeza das configurações do CUPS
+# Script de Impressoras PDF
 #
 # Utilizar o comando: sudo -i para executar o script
 #
@@ -33,8 +34,6 @@ then
 		then
 			if [ "$KERNEL" == "4.4" ]
 				then
-					 #Declração dos váriaveis do ambiente
-					 DOMINIO="pti.intra"
 					 
 					 clear
 					 echo -e "Usuário é `whoami`, continuando a executar o Script-21.sh"
@@ -51,9 +50,10 @@ then
 					 #Copiando o arquivo de agendamento da limpeza da pasta PDF
 					 cp -v conf/cleanpdf /etc/cron.d/ >> $LOG
 					 echo
-					 echo -e "Arquivos copiados com sucesso!!!, pressione <Enter> para editar o arquivo: CLEANPDF"
+					 echo -e "Arquivos copiados com sucesso!!!, pressione <Enter> para editar o arquivo: CLEAN_PDF"
 					 read
 					 sleep 2
+					 #Editando o arquivo cleanpdf
 					 vim /etc/cron.d/cleanpdf +13
 					 echo
 					 echo -e "Arquivo editado com sucesso!!!, pressione <Enter> para continuar."
@@ -71,16 +71,8 @@ then
 					 echo
 					 echo -e "Arquivos copiados com sucesso!!!, pressione <Enter> para editar o arquivo: CLEAN_CUPS"
 					 read
-					 vim /usr/sbin/clean_cups
-					 echo
-					 echo -e "Arquivo editado com sucesso!!!, pressione <Enter> para continuar."
-					 read
 					 sleep 2
-					 clear
-					 
-					 echo -e "Arquivos copiados com sucesso!!!, pressione <Enter> para editar o arquivo: CLEAN_CUPS"
-					 read
-					 sleep 2
+					 #Editando o arquivo clean_cups
 					 vim /usr/sbin/clean_cups
 					 echo
 					 echo -e "Arquivo editado com sucesso!!!, pressione <Enter> para continuar."
@@ -113,13 +105,38 @@ then
 					 sudo service apache2 restart >> $LOG
 					 #Copiando o arquivo de agendamento das atualizações do awstats
 					 cp -v conf/awstatsupdate /etc/cron.d/ >> $LOG
-					 #Atualizando as estáticas do AWStats
+					 #Atualizando as estatística do AWStats
 					 /usr/lib/cgi-bin/awstats.pl -config=pti.intra -update >> $LOG
 					 echo -e "Instalação concluida com sucesso!!!!, pressione <Enter> para continuar"
 					 read
 					 sleep 2
 					 clear
 					 
+					 echo -e "Configurando os Scripts das Impressoras PDF, pressione <Enter> para continuar"
+					 read
+					 sleep 2
+					 #Copiando os arquivos para /usr/sbin
+					 cp -v conf/printpdf conf/sambapdf /usr/sbin >> $LOG
+					 #Aplicando as permissões de execução
+					 chmod -v +x /usr/sbin/printpdf >> $LOG
+					 chmod -v +x /usr/sbin/sambapdf >> $LOG
+					 echo
+					 echo -e "Arquivos copiados com sucesso!!!, pressione <Enter> para editar o arquivo: PRINTPDF"
+					 read
+					 vim /usr/sbin/printpdf
+					 echo
+					 echo -e "Arquivo editado com sucesso!!!, pressione <Enter> para continuar."
+					 read
+					 sleep 2
+					 clear
+ 					 echo -e "Arquivos copiados com sucesso!!!, pressione <Enter> para editar o arquivo: SAMBAPDF"
+					 read
+					 vim /usr/sbin/sambapdf
+					 echo
+					 echo -e "Arquivo editado com sucesso!!!, pressione <Enter> para continuar."
+					 read
+					 sleep 2
+					 clear
 					 
 					 echo -e "Fim do Script-22.sh em: `date`" >> $LOG
 					 echo
