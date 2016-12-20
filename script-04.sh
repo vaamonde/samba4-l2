@@ -180,6 +180,17 @@ then
 					 clear
 					 echo ============================================================ >> $LOG
 					 
+					 #Em desenvolvimento: 20/12/2016
+					 #Fazendo o backup do Apache2.conf
+					 cp -v /etc/apache2/apache2.conf /etc/apache2/apache2.conf.old >> $LOG
+					 #Atualizando o arquivo do Apache2.conf
+					 #cp -v conf/apache2.conf /etc/apache2/apache2.conf
+					 #Fazendo o backup do 000-default.conf
+					 cp -v /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/000-default.conf.old >> $LOG                          
+					 #Atualizando o arquivo 00-default.conf
+					 #cp -v conf/000-default.conf /etc/apache2/sites-available/000-default.conf >> $LOG
+					 
+					 echo ============================================================ >> $LOG
 					 echo -e "Permitir acesso remoto ao MySQL Server"
 					 echo -e "Comente a linha: bind-address 127.0.0.1"
 					 echo -e "Pressione <Enter> para editar o arquivo"
