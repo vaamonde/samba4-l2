@@ -78,9 +78,11 @@ then
 					 wget $WORDPRESS &>> $LOG
 					 echo -e "Download feito com sucesso!!!"
 					 #Descompactando o arquivo do Wordpress
-				     unzip latest.zip &>> $LOG
+				     	 unzip latest.zip &>> $LOG
 					 #Movendo o contéudo da pasta do wordpress para o diretório erp
 					 mv -v wordpress/ /arquivos/pti.intra/sistema/erp &>> $LOG
+					 #Copiando o arquivo htaccess
+					 cp -v conf/htaccess /arquivos/pti.intra/sistema/erp/.htaccess &>> $LOG
 					 #Alterando as permissões de dono, grupo e outros recursivo no diretório erp
 					 chmod -Rfv 755 /arquivos/pti.intra/sistema/erp &>> $LOG
 					 #Alterando o dono é o grupo recursivo no diretório erp
