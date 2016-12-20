@@ -67,7 +67,28 @@
   BrowserMatch ^Mozilla/4\.0[678] no-gzip
   BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
   Header append Vary User-Agent
+  SetOutputFilter DEFLATE
+  SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png)$ no-gzip dont-vary
+  SetEnvIfNoCase Request_URI \.(?:exe|t?gz|zip|bz2|sit|rar)$ no-gzip dont-vary
+  <IfModule mod_headers.c>
+        Header append Vary User-Agent
+  </IfModule>
 </IfModule>
+
+<ifModule mod_headers.c>
+  <filesMatch "\.(ico|jpe?g|png|gif|swf)$">
+    Header set Cache-Control "public"
+  </filesMatch>
+  <filesMatch "\.(css)$">
+    Header set Cache-Control "public"
+  </filesMatch>
+  <filesMatch "\.(js)$">
+    Header set Cache-Control "private"
+  </filesMatch>
+  <filesMatch "\.(x?html?|php)$">
+    Header set Cache-Control "private, must-revalidate"
+  </filesMatch>
+</ifModule>
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
@@ -76,4 +97,24 @@
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule . /index.php [L]
+</IfModule>
+
+<Files xmlrpc.php>
+    order allow,deny
+    deny from all
+</Files>
+
+Set-Cookie: COOKIE=VAL; path=/; domain=.domain.com; secure; HttpOnly
+Options -Indexes
+
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options nosniff
+  Header always append X-Frame-Options SAMEORIGIN
+  Header set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On 
+  RewriteCond %{REQUEST_METHOD} ^TRACE 
+  RewriteRule .* - [F]
 </IfModule>
