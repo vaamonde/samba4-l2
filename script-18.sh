@@ -81,8 +81,10 @@ then
 				     	 unzip latest.zip &>> $LOG
 					 #Movendo o contéudo da pasta do wordpress para o diretório erp
 					 mv -v wordpress/ /arquivos/pti.intra/sistema/erp &>> $LOG
-					 #Copiando o arquivo htaccess
+					 #Copiando o arquivo htaccess customizado
 					 cp -v conf/htaccess /arquivos/pti.intra/sistema/erp/.htaccess &>> $LOG
+					 #Copiando o arquivo de configuração wp-config.php
+					 cp -v conf/wp-config.php /arquivos/pti.intra/sistema/erp/ &>> $LOG
 					 #Alterando as permissões de dono, grupo e outros recursivo no diretório erp
 					 chmod -Rfv 755 /arquivos/pti.intra/sistema/erp &>> $LOG
 					 #Alterando o dono é o grupo recursivo no diretório erp
@@ -135,12 +137,8 @@ then
 					 echo -e "DB_COLLATE=''             sem collate"
 					 echo -e "Pressione <Enter> para editar o arquivo: wp-config.php"
 					 read
-					 #Copiando o arquivo de configuração wp-config.php
-					 cp -v conf/wp-config.php /arquivos/pti.intra/sistema/erp/ >> $LOG
-					 #Copiando o arquivos .htaccess customizado
-					 cp -v conf/htaccess /arquivos/pti.intra/sistema/erp/.htaccess >> $LOG
 					 #Editando o arquivo de configuração wp-config.php
-					 vim /arquivos/pti.intra/sistema/erp/wp-config.php +34
+					 vim /arquivos/pti.intra/sistema/erp/wp-config.php +16
 					 echo -e "Arquivo editado com sucesso!!!, pressione <Enter> para continuar"
 					 read
 					 sleep 2
