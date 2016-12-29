@@ -137,6 +137,8 @@ then
 					 read
 					 #Copiando o arquivo de configuração wp-config.php
 					 cp -v conf/wp-config.php /arquivos/pti.intra/sistema/erp/ >> $LOG
+					 #Copiando o arquivos .htaccess customizado
+					 cp -v conf/htaccess /arquivos/pti.intra/sistema/erp/.htaccess >> $LOG
 					 #Editando o arquivo de configuração wp-config.php
 					 vim /arquivos/pti.intra/sistema/erp/wp-config.php +34
 					 echo -e "Arquivo editado com sucesso!!!, pressione <Enter> para continuar"
