@@ -30,6 +30,8 @@
 # MYSQL (Open-Source Relational Database Nanagement System - Porta padrão: TCP 3306)
 # FTP (File Transfer Protocol - Porta padrão: TCP 21)
 # NFS (Network File System - Porta padrão: TCP/UDP 2049)
+# RPC (Remote Procedure Call - Portas dinâmicas de: TCP 1024 até 5000)
+# Netdata (Sistema de Monitoramento - Porta padrão: TCP/UDP 19999)
 # 
 # Utilizar o comando: sudo -i para executar o script
 #
