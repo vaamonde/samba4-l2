@@ -19,14 +19,11 @@ PATH=/sbin:/bin:/usr/sbin:/usr/bin
 FIREWALL="/etc/firewall"
 IPTABLES="/sbin/iptables"
 PROGRAMA="/etc/init.d/firewall.sh"
-LOG="/var/log/firewall.log"
-
-#Lista de MAC liberados
-MACLIST="$FIREWALL/macsliberadosfirewall"
 
 #Portas liberadas e bloqueadas
 PORTSLIB="$FIREWALL/portslib"
 PORTSBLO="$FIREWALL/portsblo"
+RANGEPORT="$FIREWALL/rangeport"
 
 #Interfaces de Rede
 LAN=eth1
@@ -52,7 +49,7 @@ $IPTABLES -X
 echo "limpeza das tabelas do iptables"
 echo "ON .................................................[ OK ]"
 
-#Zerando os contadores das cadeias ###
+#Zerando os contadores das cadeias
 $IPTABLES -t nat -Z
 $IPTABLES -t mangle -Z
 $IPTABLES -t filter -Z
@@ -80,7 +77,7 @@ for i in `cat $PORTSLIB`; do
 done
 	$IPTABLES -I INPUT -m state --state ESTABLISHED -j ACCEPT
 	$IPTABLES -I INPUT -m state --state RELATED -j ACCEPT
-	$IPTABLES -I OUTPUT -p icmp -o $WAN -j ACCEPT
+	$IPTABLES -I OUTPUT -p icmp -o $LAN -j ACCEPT
 	$IPTABLES -I INPUT -p icmp -j ACCEPT
 echo "ativado as portas abertas para estabelecer conexões"
 echo "ativado a liberação das portas principais do servidor $HOSTNAME"
