@@ -10,6 +10,7 @@
  * Versão: 0.4
  * Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
  * Kernel >= 4.4.x
+*/
  
 /** Nome da base de dados do WordPress*/
 define('DB_NAME', 'wordpress');
