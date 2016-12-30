@@ -18,7 +18,6 @@
 # PERL - Linguagem de programação multiplataforma
 # PYTHON - Linguagem de programação de alto nível
 # PhpMyAdmin - Aplicativo desenvolvido em PHP para administração do MySQL pela Internet
-# PhpLDAPAdmin - Aplicativo desenvlvido em PHP para administração do LDAP SAMBA4 pela Internet
 #
 # Configuração do MySQL
 #	será solicitado a senha do ROOT do MySQL
@@ -31,10 +30,12 @@
 #	será solicitado para configurar a base de dados do PhpMyAdmin, escolha: yes
 #	será solicitado a senha do PhpMyAdmin, digite uma senha
 #
-# PhpLDAPAdim está com falha para autenticar no SAMBA-4, fazendo os teste para finalização dessa configuração.
+# PhpLDAPAdim está com falha para autenticar no SAMBA-4, fazendo os teste para finalização dessa configuração, recurso retirado do script de instalação
 # Mais informações: https://wiki.samba.org/index.php/Samba4/LDAP_Backend/OpenLDAP
+#
 # Indicação de outro software que tem mais recursos: Fusion Directory projeto fake do GOsa.
 # Site: https://www.fusiondirectory.org/
+#
 # Outro software que está sendo testado para essa utilização o Easy LDAP Manager
 # Site: https://www.ldap-account-manager.org/lamcms/
 #
@@ -86,8 +87,8 @@ then
 					 echo -e "PYTHON - Linguagem de programação de alto nível"
 					 echo -e "PhpMyAdmin - Aplicativo desenvolvido em PHP para administração do MySQL pela Internet"
 					 echo -e "Após a instalação do PhpMyAdmin acessar a URL: http://`hostname -I`/phpmyadmin"
-					 echo -e "PhpLDAPAdmin - Aplicativo desenvlvido em PHP para administração do LDAP SAMBA4 pela Internet"
-					 echo -e "Após a instalação do PhpLDAPAdmin acessar a URL: http://`hostname -I`/phpldapadmin"
+					 #echo -e "PhpLDAPAdmin - Aplicativo desenvlvido em PHP para administração do LDAP SAMBA4 pela Internet"
+					 #echo -e "Após a instalação do PhpLDAPAdmin acessar a URL: http://`hostname -I`/phpldapadmin"
 					 echo -e "ProFTPD - Servidor de Transferência de Arquivos"
 					 echo -e "Aguarde..."
 					 echo
@@ -123,7 +124,7 @@ then
 					 debconf-show mysql-server-5.7 >> $LOG
 					 echo  >> $LOG
 					 #Instalando o MySQL Server
-					 apt-get -y install lamp-server^ perl python phpldapadmin links2 &>> $LOG
+					 apt-get -y install lamp-server^ perl python links2 &>> $LOG
 					 echo -e "Instalação do LAMP-SERVER Feito com Sucesso!!!"
 					 echo
 					 echo -e "Instalação do LAMP-SERVER Feito com Sucesso!!!" >> $LOG
