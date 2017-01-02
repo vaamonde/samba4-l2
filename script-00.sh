@@ -50,63 +50,50 @@ then
 					 echo -e "Após o término o Servidor será reinicializado"
 					 echo -e "Aguarde..."
 					 echo
-					 echo -e "Rodando o Script-00.sh em: `date`" > $LOG
 					 echo  ============================================================ >> $LOG
-					 echo -e "Atualizando as Listas do Apt-Get" >> $LOG
-					 echo -e "Atualizando as Listas do Apt-Get"
+					 
+					 echo -e "Atualizando as Listas do Apt-Get (apt-get update)"
 					 #Exportando a variável do Debian Frontend Noninteractive para não solicitar interação com o usuário
 					 export DEBIAN_FRONTEND=noninteractive
 					 #Atualizando as listas do apt-get
 					 apt-get update &>> $LOG
 					 echo -e "Listas Atualizadas com Sucesso!!!"
-					 echo
-					 echo -e "Listas Atualizadas com Sucesso!!!" >> $LOG
+					 echo					 
 					 echo  ============================================================ >> $LOG
 
-					 echo -e "Atualização dos Aplicativos Instalados" >> $LOG
-					 echo -e "Atualização dos Aplicativos Instalados"
-					 echo  >> $LOG
+					 echo -e "Atualização dos Aplicativos Instalados (apt-get upgrade)"
 					 #Fazendo a atualização de todos os pacotes instalados no servidor
 					 apt-get -o Dpkg::Options::="--force-confold" upgrade -q -y --force-yes &>> $LOG
 					 echo -e "Sistema Atualizado com Sucesso!!!"
 					 echo
-					 echo -e "Sistema Atualizado com Sucesso!!!" >> $LOG
 					 echo  ============================================================ >> $LOG
 
-					 echo -e "Atualização da Distribuição Ubuntu Server (Kernel)" >> $LOG
-					 echo -e "Atualização da Distribuição Ubuntu Server (Kernel)"
-					 echo  >> $LOG
-					 echo -e "Kernel atual: `uname -r`" >> $LOG
+					 echo -e "Atualização da Distribuição Ubuntu Server (Kernel - apt-get dist-upgrade)"
 					 echo -e "Versão do Kernel atual: `uname -r`"
 					 #Fazendo a atualização do Kernel
 					 apt-get -o Dpkg::Options::="--force-confold" dist-upgrade -q -y --force-yes &>> $LOG
-					 echo -e "Kernel Atualizado com Sucesso!!!"
 					 echo -e "Listando os Kernel instalados"
 					 #Listando as imagens dos Kernel instalados
 					 dpkg --list | grep linux-image
 					 echo
-					 echo -e "Kernel Atualizado com Sucesso!!!" >> $LOG
+					 echo -e "Kernel Atualizado com Sucesso!!!"
+					 echo
 					 echo ============================================================ >> $LOG
 
-					 echo -e "Autoremoção dos Aplicativos desnecessários" >> $LOG
-					 echo -e "Autoremoção dos Aplicativos desnecessários"
+					 echo -e "Autoremoção dos Aplicativos desnecessários instalados"
 					 #Removendo aplicativos que não estão sendo mais usados
 					 apt-get -y autoremove &>> $LOG
 					 echo -e "Remoção feita com Sucesso!!!"
 					 echo
-					 echo -e "Remoção feita com Sucesso!!!" >> $LOG
 					 echo ============================================================ >> $LOG
-					 echo >> $LOG
 					 
-					 echo -e "Limpando o Cache do Apt-Get" >> $LOG
-					 echo -e "Limpando o Cache do Apt-Get"
+					 echo -e "Limpando o Cache do Apt-Get (download dos arquivos *.deb)"
 					 #Limpando o diretório de cache do apt-get
 					 apt-get clean &>> $LOG
 					 echo -e "Cache Limpo com Sucesso!!!"
 					 echo
-					 echo -e "Cache Limpo com Sucesso!!!" >> $LOG
 					 echo ============================================================ >> $LOG
-					 echo >> $LOG
+
 					 
 					 echo -e "Fim do Script-00.sh em: `date`" >> $LOG
 
