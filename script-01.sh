@@ -71,6 +71,7 @@ then
 					 echo -e "Usuário é `whoami`, continuando a executar o Script-01.sh"
 					 echo
 					 echo -e "Instalação dos principais pacotes de rede e suporte ao sistema de arquivos"
+					 echo
 					 echo -e "NTP (Network Time Protocol) Servidor de Data é Hora"
 					 echo -e "KRB5 (Kerberos) Protocolo de Autenticação Segura"
 					 echo -e "NFS (Network File System) Protocolo de Transferência de Arquivos"
@@ -84,35 +85,29 @@ then
 					 echo
 					 echo -e "Rodando o Script-01.sh em: `date`" > $LOG
 					 echo ============================================================ >> $LOG
-					 echo -e "Atualizando as Listas do Apt-Get" >> $LOG
+					 
 					 echo -e "Atualizando as Listas do Apt-Get"
 					 #Atualizando as listas do apt-get
 					 apt-get update &>> $LOG
 					 echo -e "Listas Atualizadas com Sucesso!!!"
 					 echo
-					 echo -e "Listas Atualizadas com Sucesso!!!" >> $LOG
 					 echo ============================================================ >> $LOG
 
-					 echo -e "Atualizando o Sistema" >> $LOG
 					 echo -e "Atualizando o Sistema"
 					 #Fazendo a atualização de todos os pacotes instalados no servidor
 					 apt-get -o Dpkg::Options::="--force-confold" upgrade -q -y --force-yes &>> $LOG
 					 echo -e "Sistema Atualizado com Sucesso!!!"
 					 echo
-					 echo -e "Sistema Atualizado com Sucesso!!!" >> $LOG
 					 echo ============================================================ >> $LOG
 
-					 echo -e "Instalando as Dependências da Parte de Rede" >> $LOG
 					 echo -e "Instalando as Dependências da Parte de Rede, aguarde..."
 					 #Instalando os principais pacotes para o funcionamento correto dos serviços de rede
 					 apt-get -y install ntp ntpdate build-essential libacl1-dev libattr1-dev libblkid-dev libgnutls-dev libreadline-dev python-dev libpam0g-dev python-dnspython gdb pkg-config libpopt-dev libldap2-dev dnsutils libbsd-dev docbook-xsl libcups2-dev nfs-kernel-server nfs-common acl attr debconf-utils screenfetch figlet sysv-rc-conf &>> $LOG
 					 echo -e "Instalação das Dependências Feita com Sucesso!!!"
 					 echo
-					 echo -e "Instalação das Dependências Feita com Sucesso!!!" >> $LOG
 					 echo ============================================================ >> $LOG
 
-					 echo -e "Configurando o Kerberos" >> $LOG
-					 echo -e "Configurando o Kerberos"
+					 echo -e "Configurando os parâmetros do apt-get para a instalação do Kerberos"
 					 #Configurando o Debconf para a configurações do Kerberos trabalhar com Nointeractive
 					 echo "krb5-config krb5-config/default_realm string $REALM" |  debconf-set-selections
 					 echo "krb5-config krb5-config/kerberos_servers string $SERVERS" |  debconf-set-selections
@@ -123,31 +118,29 @@ then
 					 echo  >> $LOG
 					 #Exibindo as configurações do Debconf do Kerberos
 					 debconf-show krb5-config >> $LOG
-					 echo  >> $LOG
-					 echo -e "Instalando o Kerberos"  >> $LOG
+					 echo -e "Parâmetros configurado com sucesso!!!"
+					 echo
+					 echo ============================================================ >> $LOG
+					 
 					 echo -e "Instalando o Kerberos"
 					 #Instalando o Kerberos
 					 apt-get -y install krb5-user krb5-config &>> $LOG
-					 echo -e "Kerberos Configurado com Sucesso!!!"
+					 echo -e "Kerberos instalado com Sucesso!!!"
 					 echo
-					 echo -e "Kerberos Configurado com Sucesso!!!" >> $LOG
 					 echo ============================================================ >> $LOG
-					 echo  >> $LOG
 					 
-					 echo -e "Limpando o Cache do Apt-Get" >> $LOG
 					 echo -e "Limpando o Cache do Apt-Get"
 					 #Limpando o diretório de cache do apt-get
 					 apt-get clean &>> $LOG
 					 echo -e "Cache Limpo com Sucesso!!!"
 					 echo
-					 echo -e "Cache Limpo com Sucesso!!!" >> $LOG
-					 echo
-					 echo -e "Instalação dos principais software feita com sucesso, pressione <Enter> para continuar"
+					 echo ============================================================ >> $LOG
+					 
+					 echo -e "Instalação dos principais software feita com sucesso!!!, pressione <Enter> para continuar"
 					 read
 					 sleep 2
 					 clear
 					 echo ============================================================ >> $LOG
-					 echo  >> $LOG
 					
 					 echo -e "Configurando o Serviço do NTP"
 					 echo
@@ -163,7 +156,7 @@ then
 					 cp -v conf/ntp.drift /etc/ntp.drift >> $LOG
 					 #Adicionando o contéudo de 0.0 dentro do arquivo ntp.drift
 					 echo 0.0 > /etc/ntp.drift
-					 echo -e "Arquivo criado com sucesso!!!"
+					 echo -e "Arquivo ntp.drift criado com sucesso!!!"
 					 sleep 2
 					 echo
 					 
@@ -171,6 +164,7 @@ then
 					 #Copiando o arquivo de configuração do NTP Server
 					 cp -v conf/ntp.conf /etc/ntp.conf >> $LOG
 					 echo -e "Arquivo atualizado com sucesso!!!"
+					 
 					 #Parando o serviço do NTP Server para fazer a sua configuração
 					 sudo service ntp stop
 					 sleep 2
@@ -181,7 +175,7 @@ then
 					 read
 					 #Editando o arquivo ntp.conf
 					 vim /etc/ntp.conf
-					 echo -e "Arquivos editado com sucesso!!!"
+					 echo -e "Arquivo ntp.conf editado com sucesso!!!"
 					 sleep 2
 					 echo
 					 
@@ -203,24 +197,22 @@ then
 					 sleep 2
 					 echo
 					 
-					 echo -e "Hora do Hardware"
+					 echo -e "Data/Hora do Hardware do servidor"
 					 #Verificando data/hora de hardware (BIOS)
 					 hwclock
 					 echo
-					 echo -e "Hora da Máquina"
+					 echo -e "Data/Hora do Sistema Operacional do servidor"
 					 #Verificando data/hora de sistema operacional
 					 date
 					 sleep 2
 					 echo
 					 
-					 echo -e "Atualização do NTP feito com sucesso!!!" >> $LOG
 					 echo -e "NTP.CONF atualizado com sucesso!!!, pressione <Enter> para continuar com o script"
 					 read
 					 sleep 2
 					 clear
 					 echo ============================================================ >> $LOG
 
-					 echo -e "Atualizando o FSTAB" >> $LOG
 					 echo -e "Editando o arquivo /etc/fstab para acrescentar as informações de ACL e XATTR"
 					 echo
 					 echo -e "Informações de ACL e XATTR na Raiz e no diretório Var"
@@ -236,22 +228,26 @@ then
 					 echo -e "`cat -n /etc/fstab | sed -n '12p'`"
 					 echo
 					 echo -e "Informações a serem acrescentadas depois de ext4: defaults,barrier=1"
+					 echo
 					 echo -e "Se tiver utilizando o BTRFS, deixar o padrão"
 					 echo -e "Pressione <Enter> para editar o arquivo"
 					 echo 
 					 read
+					 
+					 echo -e "Fazendo o backup do arquivo fstab
 					 #Fazendo o backup do arquivo fstab
 					 cp -v /etc/fstab /etc/fstab.old >> $LOG
+					 echo -e "Backup feito com sucesso!!!"
+					 sleep 2
+					 
 					 #Editando o arquivo fstab
 					 vim /etc/fstab
-					 echo -e "Atualização feita com sucesso!!!" >> $LOG
 					 echo -e "FSTAB atualizado com sucesso!!!, pressione <Enter> para continuar com o script"
 					 read
-					 sleep s
+					 sleep 2
 					 clear
 					 echo ============================================================ >> $LOG
 
-					 echo -e "Atualizando o KRB5.CONF" >> $LOG
 					 echo -e "Editando o arquivo /etc/krb5.conf para acrescentar as informações SAMBA4"
 					 echo
 					 echo -e "Linha a ser editada no arquivo /etc/krb5.conf" 
@@ -279,7 +275,6 @@ then
 					 echo -e "Editando o arquivo ntp.conf"
 					 #Editando o arquivo de configuração do Kerberos
 					 vim /etc/krb5.conf
-					 echo -e "Atualização feita com sucesso!!!" >> $LOG
 					 echo -e "KRB5.CONF atualizado com sucesso!!!, pressione <Enter> para continuar com o script"
 					 read
 					 sleep 2
