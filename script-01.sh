@@ -234,7 +234,7 @@ then
 					 echo 
 					 read
 					 
-					 echo -e "Fazendo o backup do arquivo fstab
+					 echo -e "Fazendo o backup do arquivo fstab"
 					 #Fazendo o backup do arquivo fstab
 					 cp -v /etc/fstab /etc/fstab.old >> $LOG
 					 echo -e "Backup feito com sucesso!!!"
