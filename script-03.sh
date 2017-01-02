@@ -51,7 +51,6 @@ then
 					 echo
 					 echo -e "Rodando o Script-03.sh em: `date`" > $LOG
 					 
-					 echo -e "Atualizando as Listas do Apt-Get" >> $LOG
 					 echo -e "Atualizando as Listas do Apt-Get"
 					 #Exportando o recurso de Noninteractive do Debconf
 					 export DEBIAN_FRONTEND=noninteractive
@@ -59,38 +58,27 @@ then
 					 apt-get update &>> $LOG
 					 echo -e "Listas Atualizadas com Sucesso!!!"
 					 echo
-					 echo -e "Listas Atualizadas com Sucesso!!!" >> $LOG
-					 echo >> $LOG
 					 echo ============================================================ >> $LOG
 
-					 echo -e "Atualizando o Sistema" >> $LOG
 					 echo -e "Atualizando o Sistema"
 					 #Fazendo a atualização de todos os pacotes instalados no servidor
 					 apt-get -o Dpkg::Options::="--force-confold" upgrade -q -y --force-yes &>> $LOG
 					 echo -e "Sistema Atualizado com Sucesso!!!"
 					 echo
-					 echo -e "Sistema Atualizado com Sucesso!!!" >> $LOG
-					 echo >> $LOG
 					 echo ============================================================ >> $LOG
 
-					 echo -e "Instalando as Dependências do Webmin" >> $LOG
 					 echo -e "Instalando as Dependências do Webmin"
 					 #Instalando as dependências do Webmin
 					 apt-get -y install perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions python &>> $LOG
 					 echo -e "Instalação das Dependências do Webmin Feito com Sucesso!!!"
 					 echo
-					 echo -e "Instalação das Dependências do Webmin Feito com Sucesso!!!" >> $LOG
-					 echo >> $LOG
 					 echo ============================================================ >> $LOG
 
-					 echo -e "Limpando o Cache do Apt-Get" >> $LOG
 					 echo -e "Limpando o Cache do Apt-Get"
 					 #Limpando o diretório de cache do apt-get
 					 apt-get clean &>> $LOG
 					 echo -e "Cache Limpo com Sucesso!!!"
 					 echo
-					 echo -e "Cache Limpo com Sucesso!!!" >> $LOG
-					 echo >> $LOG
 					 echo -e "Pressione <Enter> para continuar com o script"
 					 read
 					 sleep 2
@@ -98,26 +86,26 @@ then
 					 echo ============================================================ >> $LOG
 
 					 echo -e "Baixando o Webmin do Site Oficial, download de: $TAMANHO, aguarde..."
-					 echo -e "Baixando o Webmin do Site Oficial, download de: $TAMANHO, aguarde..." >> $LOG
 					 #Fazendo o download do instalador do Webmin do site oficial
 					 wget http://prdownloads.sourceforge.net/webadmin/$VERSAO &>> $LOG
 					 #Listando o arquivo após fazer o download
 					 ls -lha $VERSAO >> $LOG
 					 echo -e "Download feito com sucesso!!!"
+					 sleep 2
 					 echo
-					 echo -e "Instalando o Webmin" >> $LOG
+
 					 echo -e "Instalando o Webmin, aguarde..."
 					 #Instalando o webmin utilizando o comando dpkg
 					 dpkg -i $VERSAO &>> $LOG
 					 #Removendo o arquivo de instalação do webmin
-					 rm -v $VERSAO >> $LOG
-					 echo -e "Instalação do Webmin Feito com Sucesso!!!" >> $LOG
-					 echo >> $LOG
+					 rm -v $VERSAO &>> $LOG
+					 echo -e "Instalação do Webmin Feito com Sucesso!!!"
+					 echo 
 					 echo ============================================================ >> $LOG
 					 echo -e "Fim do Script-03.sh em: `date`" >> $LOG
 
 					 echo
-					 echo -e "Instalação do Webmin Feito com Sucesso!!!"
+					 echo -e "Instalação e configuração básica do Webmin Feito com Sucesso!!!"
 					 echo
 					 # Script para calcular o tempo gasto para a execução do script-03.sh
 						DATAFINAL=`date +%s`
