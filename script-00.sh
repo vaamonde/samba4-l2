@@ -68,7 +68,7 @@ then
 					 echo
 					 echo  ============================================================ >> $LOG
 
-					 echo -e "Atualização da Distribuição Ubuntu Server (Kernel - apt-get dist-upgrade)"
+					 echo -e "Atualização da Distribuição Ubuntu Server Kernel (apt-get dist-upgrade)"
 					 echo -e "Versão do Kernel atual: `uname -r`"
 					 #Fazendo a atualização do Kernel
 					 apt-get -o Dpkg::Options::="--force-confold" dist-upgrade -q -y --force-yes &>> $LOG
@@ -80,15 +80,16 @@ then
 					 echo
 					 echo ============================================================ >> $LOG
 
-					 echo -e "Autoremoção dos Aplicativos desnecessários instalados"
+					 echo -e "Autoremoção dos Aplicativos desnecessários instalados (apt-get autoremove)"
 					 #Removendo aplicativos que não estão sendo mais usados
 					 apt-get -y autoremove &>> $LOG
 					 echo -e "Remoção feita com Sucesso!!!"
 					 echo
 					 echo ============================================================ >> $LOG
 					 
-					 echo -e "Limpando o Cache do Apt-Get (download dos arquivos *.deb)"
+					 echo -e "Limpando o Cache do Apt-Get (download dos arquivos *.deb | apt-get autoclean e apt-get clean)"
 					 #Limpando o diretório de cache do apt-get
+					 apt-get autoclean &>> $LOG
 					 apt-get clean &>> $LOG
 					 echo -e "Cache Limpo com Sucesso!!!"
 					 echo
