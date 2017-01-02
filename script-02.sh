@@ -315,6 +315,13 @@ then
 					 echo -e "Pressione <Enter> para editar o arquivo"
 					 echo 
 					 read
+					 
+					 echo -e "Fazendo o backup do arquivo fstab"
+					 cp -v /etc/fstab /etc/fstab.old.1 &>> $LOG
+					 echo -e "Backup feito com sucesso!!!"
+					 sleep 2
+					 echo
+					 
 					 #Editando o arquivo fstab
 					 vim /etc/fstab
 					 
