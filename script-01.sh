@@ -149,51 +149,72 @@ then
 					 echo ============================================================ >> $LOG
 					 echo  >> $LOG
 					
-					 echo -e "Configurando o Serviço do NTP" >> $LOG
-					 echo -e "Fazendo o Backup do arquivo ntp.conf" >> $LOG
+					 echo -e "Configurando o Serviço do NTP"
+					 echo
+					 echo -e "Fazendo o Backup do arquivo ntp.conf"
 					 #Fazendo o backup do arquivos de configuração do NTP Server
 					 mv -v /etc/ntp.conf /etc/ntp.conf.old >> $LOG
-					 echo -e "Backup do arquivo ntp.conf feito com sucesso!!!" >> $LOG
-					 echo >> $LOG
-					 echo -e "Criando o arquivo ntp.drift" >> $LOG
+					 echo -e "Backup do arquivo ntp.conf feito com sucesso!!!"
+					 sleep 2
+					 echo
+					 
+					 echo -e "Criando o arquivo ntp.drift"
 					 #Copiando o arquivo ntp.drift
 					 cp -v conf/ntp.drift /etc/ntp.drift >> $LOG
 					 #Adicionando o contéudo de 0.0 dentro do arquivo ntp.drift
 					 echo 0.0 > /etc/ntp.drift
-					 echo -e "Arquivo criado com sucesso!!!" >> $LOG
-					 echo >> $LOG
-					 echo -e "Atualizando o arquivo ntp.conf" >> $LOG
+					 echo -e "Arquivo criado com sucesso!!!"
+					 sleep 2
+					 echo
+					 
+					 echo -e "Atualizando o arquivo ntp.conf"
 					 #Copiando o arquivo de configuração do NTP Server
 					 cp -v conf/ntp.conf /etc/ntp.conf >> $LOG
-					 echo -e "Arquivo atualizado com sucesso!!!" >> $LOG
-					 echo >> $LOG
-					 echo -e "Atualizando Data/Hora do Servidor" >> $LOG
-					 #Para o serviço do NTP Server para fazer a sua configuração
+					 echo -e "Arquivo atualizado com sucesso!!!"
+					 #Parando o serviço do NTP Server para fazer a sua configuração
 					 sudo service ntp stop
+					 sleep 2
+					 echo 
+					 
 					 echo -e "Editando o arquivo /etc/ntp.conf para acescentar as informações de Servidores NTP"
 					 echo -e "Pressione <Enter> para editar o arquivo"
-					 echo
 					 read
 					 #Editando o arquivo ntp.conf
 					 vim /etc/ntp.conf
-					 echo -e "Atualização do ntpdate" >> $LOG
+					 echo -e "Arquivos editado com sucesso!!!"
+					 sleep 2
+					 echo
+					 
+					 echo -e "Atualizando Data/Hora do Servidor utilizando ntpdate"
 					 #Atualizando data/hora do servidor NTP.br
 					 #d=debug, q=query, u=unprivileged, v=verbose
-					 ntpdate -dquv $NTP &>> $LOG
+					 ntpdate -dquv $NTP
 					 #Iniciando o serviço do NTP Server
 					 sudo service ntp start
-					 echo -e "Verificação dos servidores NTP" >> $LOG
+					 echo -e "Data/Hora atualizada com sucesso!!!"
+					 sleep 2
+					 echo
+					 
+					 echo -e "Verificação dos servidores NTP"
 					 #Verificando as informações de Servidores NTP e seu sincronismo
 					 #p=print, n=all andress
-					 ntpq -pn >> $LOG
-					 echo -e "Hora do Hardware" >> $LOG
+					 ntpq -pn
+					 echo -e "Verificação feita com sucesso!!!"
+					 sleep 2
+					 echo
+					 
+					 echo -e "Hora do Hardware"
 					 #Verificando data/hora de hardware (BIOS)
-					 hwclock >> $LOG
-					 echo -e "Hora da Máquina" >> $LOG
+					 hwclock
+					 echo
+					 echo -e "Hora da Máquina"
 					 #Verificando data/hora de sistema operacional
-					 date >> $LOG
+					 date
+					 sleep 2
+					 echo
+					 
 					 echo -e "Atualização do NTP feito com sucesso!!!" >> $LOG
-					 echo -e "NTP.CONF atualizado com sucesso, pressione <Enter> para continuar com o script"
+					 echo -e "NTP.CONF atualizado com sucesso!!!, pressione <Enter> para continuar com o script"
 					 read
 					 sleep 2
 					 clear
@@ -201,6 +222,7 @@ then
 
 					 echo -e "Atualizando o FSTAB" >> $LOG
 					 echo -e "Editando o arquivo /etc/fstab para acrescentar as informações de ACL e XATTR"
+					 echo
 					 echo -e "Informações de ACL e XATTR na Raiz e no diretório Var"
 					 echo 
 					 echo -e "Linhas a serem editadas no arquivo /etc/fstab" 
@@ -223,7 +245,7 @@ then
 					 #Editando o arquivo fstab
 					 vim /etc/fstab
 					 echo -e "Atualização feita com sucesso!!!" >> $LOG
-					 echo -e "FSTAB atualizado com sucesso, pressione <Enter> para continuar com o script"
+					 echo -e "FSTAB atualizado com sucesso!!!, pressione <Enter> para continuar com o script"
 					 read
 					 sleep s
 					 clear
@@ -231,20 +253,34 @@ then
 
 					 echo -e "Atualizando o KRB5.CONF" >> $LOG
 					 echo -e "Editando o arquivo /etc/krb5.conf para acrescentar as informações SAMBA4"
+					 echo
 					 echo -e "Linha a ser editada no arquivo /etc/krb5.conf" 
-					 echo -e "`cat -n /etc/krb5.conf | head -n3`"
+					 echo -e "`cat -n /etc/krb5.conf | head -n2`"
+					 echo
 					 echo -e "Informações a serem acrescentadas depois de default_realm"
 					 echo -e "Pressione <Enter> para editar o arquivo"
 					 echo 
 					 read
+					 
+					 echo -e "Fazendo o Backup do arquivo ntp.conf"
 					 #Fazendo o backup do arquivo de confguração do Kerberos
 					 mv -v /etc/krb5.conf /etc/krb5.conf.old >> $LOG
+					 echo -e "Backup feito com sucesso!!!"
+					 sleep 2
+					 echo
+					 
+					 echo -e "Atualizando o arquivo ntp.conf"
 					 #Atualizando o arquivo de configuração do Kerberos
 					 cp -v conf/krb5.conf /etc/krb5.conf >> $LOG
+					 echo -e "Atualizado com sucesso!!!"
+					 sleep 2
+					 echo 
+					 
+					 echo -e "Editando o arquivo ntp.conf"
 					 #Editando o arquivo de configuração do Kerberos
 					 vim /etc/krb5.conf
 					 echo -e "Atualização feita com sucesso!!!" >> $LOG
-					 echo -e "KRB5.CONF atualizado com sucesso, pressione <Enter> para continuar com o script"
+					 echo -e "KRB5.CONF atualizado com sucesso!!!, pressione <Enter> para continuar com o script"
 					 read
 					 sleep 2
 					 clear
@@ -252,7 +288,7 @@ then
 
 					 echo -e "Fim do Script-01.sh em: `date`" >> $LOG
 					 echo
-					 echo -e "Instalação das Dependências de Rede Feito com Sucesso!!!!!" 
+					 echo -e "Instalação das Dependências de Rede Feita com Sucesso!!!!!" 
 					 echo
 					 # Script para calcular o tempo gasto para a execução do script-01.sh
 						DATAFINAL=`date +%s`
