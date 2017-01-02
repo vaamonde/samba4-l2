@@ -258,21 +258,21 @@ then
 					 echo 
 					 read
 					 
-					 echo -e "Fazendo o Backup do arquivo ntp.conf"
+					 echo -e "Fazendo o Backup do arquivo krb5.conf"
 					 #Fazendo o backup do arquivo de confguração do Kerberos
 					 mv -v /etc/krb5.conf /etc/krb5.conf.old >> $LOG
 					 echo -e "Backup feito com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Atualizando o arquivo ntp.conf"
+					 echo -e "Atualizando o arquivo krb5.conf"
 					 #Atualizando o arquivo de configuração do Kerberos
 					 cp -v conf/krb5.conf /etc/krb5.conf >> $LOG
 					 echo -e "Atualizado com sucesso!!!"
 					 sleep 2
 					 echo 
 					 
-					 echo -e "Editando o arquivo ntp.conf"
+					 echo -e "Editando o arquivo krb5.conf"
 					 #Editando o arquivo de configuração do Kerberos
 					 vim /etc/krb5.conf
 					 echo -e "KRB5.CONF atualizado com sucesso!!!, pressione <Enter> para continuar com o script"
