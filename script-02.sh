@@ -131,7 +131,9 @@ then
 
 					 echo -e "Limpando o Cache do Apt-Get (apt-get autoremove && apt-get autoclean && apt-get clean)"
 					 #Limpando o diretório de cache do apt-get
-					 apt-get autoremove && apt-get autoclean && apt-get clean &>> $LOG
+					 apt-get -y autoremove &>> $LOG
+					 apt-get -y autoclean &>> $LOG
+					 apt-get -y clean &>> $LOG
 					 echo -e "Cache Limpo com Sucesso!!!"
 					 echo
 					 echo ============================================================ >> $LOG
@@ -168,7 +170,7 @@ then
 					 echo -e "Base de dados não oficial atualizada com sucesso!!!"
 					 echo
 					 
-					 echo -e "Inciando o Serviço do ClamAV-Daemon"
+					 echo -e "Iniciando o Serviço do ClamAV-Daemon"
 					 #Iniciando o serviço do ClamAV Antivírus
 					 sudo service clamav-daemon restart
 					 
@@ -177,11 +179,14 @@ then
 					 sudo service clamav-freshclam restart
 					 
 					 echo -e "Serviços reiniciados com sucesso!!!"
+					 sleep 2
+					 echo 
 					 
 					 echo -e "Criando o diretório de quarentena"
 					 #Criando o diretório para armazenar os arquivos com vírus
 					 mkdir -v /backup/quarentena >> $LOG
 					 echo -e "Diretório de quarentena criado com sucesso!!!"
+					 sleep 2
 					 echo
 					 
 					 echo -e "Base de dados de vírus atualizadas com sucesso!!!, pressione <Enter> para continuar com o script"
@@ -193,7 +198,7 @@ then
 					 echo -e "Agendamento do scaneamento do ClamAV no diretório /arquivos ás 22:30hs, todos os dias"
 					 echo -e "30 22  * * *    root     clamscan -r -i -v /arquivos --move=/backup/quarentena --log=/var/log/scan-arquivos.log"
 					 echo
-					 echo -e "Agendamento da atualizações do Freshclam ás 21:30hs, todos os dias"
+					 echo -e "Agendamento das atualizações do Freshclam ás 21:30hs, todos os dias"
 					 echo -e "30 21  * * *    root     freshclam"
 					 echo
 					 echo -e "Editando o arquivo /etc/cron.d/clamav para acrescentar informações de agendamento do ClamAV"
@@ -324,6 +329,8 @@ then
 					 
 					 #Editando o arquivo fstab
 					 vim /etc/fstab
+					 sleep 2
+					 echo
 					 
 					 echo -e "Remontando o ponto de montagem: /arquivos"
 					 #Remontando a partição /arquivos com as novas opções de quota
@@ -566,6 +573,8 @@ then
 					 
 					 #Editando o arquivo CUPS-PDF
 					 vim /etc/cups/cups-pdf.conf
+					 sleep 2
+					 echo
 					 
 					 echo -e "Reinicializando os serviços do CUPS"
 					 #Reinicializando os serviços do CUPS
@@ -596,10 +605,13 @@ then
 					 #Atualizando o arquivo
 					 cp -v conf/usr.sbin.cupsd /etc/apparmor.d/usr.sbin.cupsd >> $LOG
 					 echo -e "Arquivo atualizado com sucesso!!!"
-					 
+					 sleep 2
+					 echo
 					 
 					 #Editando o arquivo CUPS-PDF
-					 vim /etc/apparmor.d/local/usr.sbin.cupsd +183
+					 vim /etc/apparmor.d/usr.sbin.cupsd +183
+					 sleep 2
+					 echo
 					 
 					 echo -e "Reinicializando os serviços do CUPS e do APPARMOR"
 					 #Reinicializando os serviços do CUPS
