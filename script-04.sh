@@ -62,6 +62,8 @@ then
 					 # Variáveis de configuração do MySQL
 					 PASSWORD="pti@2016"
 					 AGAIN="pti@2016"
+					 USER="root"
+					 GRANTALL="GRANT ALL ON *.* TO root@'%' IDENTIFIED BY 'pti@2016';"
 					 #
 					 # Variáveis de configuração do ProFTPD
 					 INETD="standalone"
@@ -79,6 +81,7 @@ then
 					 echo -e "Usuário é `whoami`, continuando a executar o Script-04.sh"
 					 echo
 					 echo -e "Instalando os software para o Sistema de Gestão ERP"
+					 echo
 					 echo -e "APACHE (Apache HTTP Server) -Servidor de Hospedagem de Páginas web"
 					 echo -e "Após a instalação do Apache2 acessar a URL: http://`hostname -I`/"
 					 echo -e "MYSQL (SGBD) - Sistemas de Gerenciamento de Banco de Dados"
@@ -94,48 +97,50 @@ then
 					 echo
 					 echo -e "Rodando o Script-04.sh em: `date`" > $LOG
 					 
-					 echo -e "Atualizando as Listas do Apt-Get" >> $LOG
 					 echo -e "Atualizando as Listas do Apt-Get"
 					 #Atualizando as listas do apt-get
 					 apt-get update &>> $LOG
 					 echo -e "Listas Atualizadas com Sucesso!!!"
 					 echo
-					 echo -e "Listas Atualizadas com Sucesso!!!" >> $LOG
-					 echo >> $LOG
 					 echo ============================================================ >> $LOG
 
-					 echo -e "Atualizando o Sistema" >> $LOG
 					 echo -e "Atualizando o Sistema"
 					 #Fazendo a atualização de todos os pacotes instalados no servidor
 					 apt-get -o Dpkg::Options::="--force-confold" upgrade -q -y --force-yes &>> $LOG
 					 echo -e "Sistema Atualizado com Sucesso!!!"
 					 echo
-					 echo -e "Sistema Atualizado com Sucesso!!!" >> $LOG
-					 echo >> $LOG
 					 echo ============================================================ >> $LOG
 
-					 echo -e "Instalando o LAMP-SERVER" >> $LOG
 					 echo -e "Instalando o LAMP-SERVER"
+					 echo
+					 
+					 echo -e "Configurando as variáveis do MySQL para o apt-get"
 					 #Configurando as variáveis do Debconf para a instalação do MySQL em modo Noninteractive
 					 echo "mysql-server-5.7 mysql-server/root_password password $PASSWORD" |  debconf-set-selections
 					 echo "mysql-server-5.7 mysql-server/root_password_again password $AGAIN" |  debconf-set-selections
-					 echo  >> $LOG
+					 echo -e "Variáveis configuradas com sucesso!!!"
+					 sleep 2
+					 echo
 					 #Mostrando as configuração do Debconf para o MySQL
 					 debconf-show mysql-server-5.7 >> $LOG
 					 echo  >> $LOG
-					 #Instalando o MySQL Server
+
+					 #Instalando o LAMP-Server com as variáveis do MySQL
 					 apt-get -y install lamp-server^ perl python links2 &>> $LOG
 					 echo -e "Instalação do LAMP-SERVER Feito com Sucesso!!!"
 					 echo
-					 echo -e "Instalação do LAMP-SERVER Feito com Sucesso!!!" >> $LOG
-					 echo >> $LOG
 					 echo ============================================================ >> $LOG
 
-					 echo -e "Instalando o ProFTPD" >> $LOG
 					 echo -e "Instalando o ProFTPD"
+					 echo
+					 
+					 echo -e "Configurando as variáveis do ProFTPD para o apt-get"
 					 #Configurando as variáveis do Debconf para a instalação do ProFTPD em modo Noninteractive
 					 echo "proftpd-basic shared/proftpd/inetd_or_standalone select $INETD" |  debconf-set-selections
-					 echo  >> $LOG
+					 echo -e "Variáveis configuradas com sucesso!!!"
+					 sleep 2
+					 echo
+					 
 					 #Mostrando as configuração do Debconf para o ProFTPD
 					 debconf-show proftpd-basic >> $LOG
 					 echo  >> $LOG
@@ -143,12 +148,12 @@ then
 					 apt-get -y install proftpd &>> $LOG
 					 echo -e "Instalação do ProFTPD Feito com Sucesso!!!"
 					 echo
-					 echo -e "Instalação do ProFTPD Feito com Sucesso!!!" >> $LOG
-					 echo >> $LOG
 					 echo ============================================================ >> $LOG
 
-					 echo -e "Instalando o PhpMyAdmin" >> $LOG
 					 echo -e "Instalando o PhpMyAdmin"
+					 echo
+					 
+					 echo -e "Configurando as váriaveis do PhpMyAdmin para o apt-get"
 					 #Configurando as variáveis do Debconf para a instalação do PhpMyAdmin em modo Noninteractive
 					 echo "phpmyadmin phpmyadmin/internal/skip-preseed boolean true" |  debconf-set-selections
 					 echo "phpmyadmin phpmyadmin/dbconfig-install boolean true" |  debconf-set-selections
@@ -157,24 +162,35 @@ then
 					 echo "phpmyadmin phpmyadmin/mysql/admin-user string $ADMINUSER" |  debconf-set-selections
 					 echo "phpmyadmin phpmyadmin/mysql/admin-pass password $ADMIN_PASS" |  debconf-set-selections
 					 echo "phpmyadmin phpmyadmin/mysql/app-pass password $APP_PASS" |  debconf-set-selections
-					 echo  >> $LOG
+					 echo -e "Variáveis configuradas com sucesso!!!"
+					 sleep 2
+					 echo
+					 
 					 #Mostrando as configuração do Debconf para o PhpMyAdmin
 					 debconf-show phpmyadmin >> $LOG
 					 echo  >> $LOG
 					 #Instalando o PhpMyAdmin
 					 apt-get -y install phpmyadmin php-mbstring php-gettext &>> $LOG
 					 echo  >> $LOG
-					 echo -e "Atualizando as Dependências do PHP para o PhpMyAdmin" >> $LOG
+					 					 
+					 echo -e "Atualizando as Dependências do PHP para o PhpMyAdmin"
 					 #Atualizando as dependências do PhpMyAdmin, ativando os recursos de módulos do PHP no Apache2
 					 phpenmod mcrypt
 					 phpenmod mbstring
+					 echo -e "Atualização feita com sucesso!!!"
+					 sleep 2
+					 echo
+					 
+					 echo -e "Reinicializando o serviçoo do Apache2"
 					 #Reinicializando o serviço do Apache2 Server
 					 sudo service apache2 restart
+					 echo -e "Serviço reinicializado com sucesso!!!"
+					 sleep 2
+					 echo
+					 
 					 echo -e "Instalação do PhpMyAdmin Feito com Sucesso!!!"
 					 echo
-					 echo -e "Instalação do PhpMyAdmin Feito com Sucesso!!!" >> $LOG
-					 echo >> $LOG
-					 
+
 					 echo -e "Serviços instalando com sucesso!!!, pressione <Enter> para continuar com o script"
 					 read
 					 sleep 2
@@ -184,7 +200,7 @@ then
 					 #Em desenvolvimento: 20/12/2016
 					 #Fazendo o backup do Apache2.conf
 					 cp -v /etc/apache2/apache2.conf /etc/apache2/apache2.conf.old >> $LOG
-					 #Atualizando o arquivo do Apache2.conf
+					 #Atualizando o arquivo do Apache2.conf customizado
 					 #cp -v conf/apache2.conf /etc/apache2/apache2.conf
 					 #Fazendo o backup do 000-default.conf
 					 cp -v /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/000-default.conf.old >> $LOG                          
@@ -196,19 +212,50 @@ then
 					 echo -e "Comente a linha: bind-address 127.0.0.1"
 					 echo -e "Pressione <Enter> para editar o arquivo"
 					 read
+					 echo
+					 
+					 echo -e "Fazendo o backup do arquivo mysqld.cnf"
 					 #Fazendo o backup do arquivo mysqld.conf
-					 cp -v /etc/mysql/mysql.conf.d/mysqld.cnf /etc/mysql/mysql.conf.d/mysqld.cnf.old
+					 mv -v /etc/mysql/mysql.conf.d/mysqld.cnf /etc/mysql/mysql.conf.d/mysqld.cnf.old
+					 echo -e "Backup feito com sucesso!!!"
+					 sleep 2
+					 echo
+					 
+					 echo -e "Atualizando o arquivo do mysqld.cnf"
+					 #Atualizando o arquivo das configuração do mysqld.cnf customizado
+					 cp -v conf/mysqld.cnf /etc/mysql/mysql.conf.d/mysqld.cnf
+					 echo -e "Arquivo atualizado com sucesso!!!"
+					 sleep 2
+					 echo
+					 
 					 #Editando o arquivo do mysqld.conf
-					 vim /etc/mysql/mysql.conf.d/mysqld.cnf +43
+					 vim /etc/mysql/mysql.conf.d/mysqld.cnf
+					 sleep 2
+					 echo
+					 
+					 echo -e "Permitindo o usuário Root se logar remoto no servidor de MySQL"
 					 #Permitindo o usuário Root acessar o servidor do MySQL remoto
-					 #Criando as variáveis para o MySQL
-					 USER="root"
-					 GRANTALL="GRANT ALL ON *.* TO root@'%' IDENTIFIED BY 'pti@2016';"
 					 #Alterando o Banco de Dados do MySQL
 					 mysql -u $USER -p$PASSWORD -e "$GRANTALL" mysql &>> $LOG
+					 echo -e "Permissão aplicada com sucesso!!!"
+					 sleep 2
+					 echo
+					 
+					 echo -e "Testando as configurações do MySQLD"
+					 #Verificando as configurações do servidor de MySQL
+					 mysqld --help --verbose | grep /etc &>> $LOG
+					 echo -e "Arquivo testado com sucesso!!!"
+					 sleep 2
+					 echo
+					 
+					 echo -e "Reinicializando o servidor do MySQL"
 					 #Reinicializando o serviço do MySQL Server
 					 sudo service mysql restart
-					 echo -e "MySQL configurado com sucesso, pressione <Enter> para continuar"
+					 echo -e "Serviços do MySQL reinicializado com sucesso!!!"
+					 sleep 2
+					 echo
+					 
+					 echo -e "MYSQLD configurado com sucesso!!!, pressione <Enter> para continuar"
 					 read
 					 sleep 2
 					 clear
@@ -218,11 +265,18 @@ then
 					 echo -e "Pressione <Enter> para abrir a página de teste"
 					 echo -e "Pressione Q para sair"
 					 read
-					 echo >> $LOG
+					 echo
+					 
+					 echo -e "Copiando o arquivo phpinfo.php"
 					 #Copiando o arquivo phpinfo.php para testar o servidor Apache2 e também o suporte ao PHP
 					 cp -v conf/phpinfo.php /var/www/html >> $LOG
+					 echo -e "Arquivo copiado com sucesso!!!"
+					 sleep 2
+					 echo
+					 
 					 #Utilizando o navegador de modo texto links2 para testar a página em PHP
 					 links2 http://localhost/phpinfo.php
+					 echo
 					 echo -e "Teste do Apache e PHP feito com sucesso!!!, pressione <Enter> para continuar"
 					 read
 					 sleep 2
