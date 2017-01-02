@@ -283,7 +283,7 @@ then
 
 					 echo -e "Fim do Script-01.sh em: `date`" >> $LOG
 					 echo
-					 echo -e "Instalação das Dependências de Rede Feita com Sucesso!!!!!" 
+					 echo -e "Instalação das Dependências de Rede Feita com Sucesso!!!" 
 					 echo
 					 # Script para calcular o tempo gasto para a execução do script-01.sh
 						DATAFINAL=`date +%s`
@@ -291,7 +291,7 @@ then
 						RESULTADO=`expr 10800 + $SOMA`
 						TEMPO=`date -d @$RESULTADO +%H:%M:%S`
 					 echo -e "Tempo gasto para execução do script-01.sh: $TEMPO"
-					 echo -e "Pressione <Enter> para concluir o processo."
+					 echo -e "Pressione <Enter> para concluir o processo e reinicializar o servidor."
 					 read
 					 sleep 2
 					 reboot
