@@ -42,41 +42,66 @@ then
 					 echo -e "Rodando o Script-13.sh em: `date`" > $LOG
 					 echo -e "================================================================================="
 					 echo -e "               Confguração do Agendamento de Backup do SAMBA4"
+					 echo -e "                      Pressione <Enter> para continuar"
+					 echo -e "================================================================================="
+					 read
+					 sleep 2
+					 clear
 					 echo
 
-					 echo -e "01. Copiando o Script de Backup do SAMBA-4 do servidor: `hostname`"
+					 echo -e "Copiando o Script de Backup do SAMBA-4 do servidor: `hostname`"
 					 echo
+					 
+					 echo -e "Atualizando o arquivo samba_backup"
 					 #Copiando o arquivo de script do samba_backup
 					 cp -v conf/samba_backup /usr/sbin >> $LOG
+					 echo -e "Arquivo atualizado com sucesso!!!"
+					 sleep 2
+					 echo
+					 
+					 echo -e "Alterando as permissões do arquivo samba_backup"
 					 #Alterando suas permissões de dono, grupo e outros
 					 chmod -v 750 /usr/sbin/samba_backup >> $LOG
+					 echo -e "Permissões alteradas com sucesso!!!"
+					 sleep 2
+					 echo
+					 
+					 echo -e "Criando os diretórios de backup"
 					 #Criando o diretório de Backup para o SAMBA-4 em /backup/samba4
 					 mkdir -v $BACKUP >> $LOG
 					 #Criando o diretório /etc dentro da localização dos arquivos de configuraçao do SAMBA-4
 					 mkdir -v /var/lib/samba/etc/ >> $LOG
-					 echo -e "Copia feita com sucesso!!!, pressione <Enter> para continuando com o script"
+					 echo -e "Diretórios criados com sucesso!!!"
+					 sleep 2
+					 echo
+					 
+					 echo -e "Criação e cópia feita com sucesso!!!, pressione <Enter> para continuando com o script"
 					 read
 					 sleep 2
 					 clear
 					 
-					 echo
 					 echo -e "Editando as configurações do arquivos SAMBA_BACKUP"
 					 echo -e "Pressione <Enter> para continuar"
 					 read
+					 
 					 #Editando o arquivo de script do samba_backup
 					 vim /usr/sbin/samba_backup +39
+					 
 					 echo -e "Arquivo editado com sucesso!!!, pressione <Enter> para continuar com o script"
 					 read
 					 sleep 2
 					 clear
 					 
-					 echo
 					 echo -e "Executando o Backup do SAMBA-4"
+					 #Executando o backup do samba utilizando o script
 					 samba_backup
-					 echo
 					 echo -e "Backup do SAMBA-4 executado com sucesso!!!!"
+					 sleep 2
 					 echo
+					 
 					 echo -e "Verificando os arquivos de Backup do SAMBA-4"
+					 echo
+					 #Listando o contéudo do diretório de backup
 					 ls -lha $BACKUP
 					 echo
 					 echo -e "Backup feito com sucesso!!!, pressione <Enter> para continuar"
@@ -87,17 +112,25 @@ then
 					 echo -e "02. Agendando do Backup SAMBA-4 do servidor: `hostname`"
 					 echo -e "Pressione <Enter> para editar o arquivo: /etc/cron.d/sambabackup"
 					 read
+					 echo
+					 
+					 echo -e "Atualizando o arquivo sambackup"
 					 #Copiando o arquivo de agendamento do sambabackup
 					 cp -v conf/sambabackup /etc/cron.d/ >> $LOG
+					 echo -e "Arquivo atualizado com sucesso!!!"
+					 sleep 2
+					 echo
+					 
 					 #Editando o arquivo de agendamento do sambabackup
 					 vim /etc/cron.d/sambabackup +13
+					 
 					 echo -e "Arquivo editado com sucesso!!! Pressione <Enter> para continuar"	 
 					 read
 					 sleep 2
 					 clear	 
 
 					 echo -e "Fim do Script-13.sh em: `date`" >> $LOG
-					 echo -e "               Confguração do Agendamento de Backup do SAMBA-4"
+					 echo -e "   Confguração do Agendamento de Backup do SAMBA-4 concluída com sucessso!!!"
 					 echo -e "================================================================================="
 					 echo
 					 # Script para calcular o tempo gasto para a execução do script-13.sh
