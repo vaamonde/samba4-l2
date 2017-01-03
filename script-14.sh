@@ -66,11 +66,15 @@ then
 					 #Criação da raiz do diretório /arquivos/pti.intra
 					 mkdir -v $ARQUIVOS/$DIRBASE >> $LOG
 					 echo -e "Diretório criado com sucesso"
+					 sleep 2
+					 echo
 					 
 					 echo -e "Diretório publico em: $ARQUIVOS/$DIRBASE/publico"
 					 #Criação do diretório público, será utilizado como pasta temporária na rede, seus arquivos deverão ser deletados todos os domingos
 					 mkdir -v $ARQUIVOS/$DIRBASE/publico >> $LOG
 					 echo -e "Diretório criado com sucesso"
+					 sleep 2
+					 echo
 					 
 					 echo -e "Diretório pdf em: $ARQUIVOS/$DIRBASE/pdf"
 					 #Criação do diretório pdf, será utilizado como pasta dos arquivos impressos pela impressora PDF do Cups
@@ -80,59 +84,85 @@ then
 					 #Alterando dono e grupo da pasta
 					 chgrp -v lpadmin $ARQUIVOS/$DIRBASE/pdf >> $LOG
 					 echo -e "Diretório criado com sucesso"
+					 sleep 2
+					 echo
 
 					 echo -e "Diretório gestao em: $ARQUIVOS/$DIRBASE/gestao"
 					 #Criação do diretório gestão, que vai armazenar todos as informações dos departamentos da empresa, será utilizado recursos como Access Based Enumerator e quebra de Herança nas permissões
 					 mkdir -v $ARQUIVOS/$DIRBASE/gestao >> $LOG
 					 echo -e "Diretório criado com sucesso"
+					 sleep 2
+					 echo
 
 						 echo -e "Diretório gestao em: $ARQUIVOS/$DIRBASE/gestao/Vendas"
 						 mkdir -v $ARQUIVOS/$DIRBASE/gestao/Vendas >> $LOG
 						 echo -e "Diretório criado com sucesso"
+						 sleep 2
+					 	 echo
 
 						 echo -e "Diretório gestao em: $ARQUIVOS/$DIRBASE/gestao/Compras"
 						 mkdir -v $ARQUIVOS/$DIRBASE/gestao/Compras >> $LOG
 						 echo -e "Diretório criado com sucesso"
+						 sleep 2
+					 	 echo
 
 						 echo -e "Diretório gestao em: $ARQUIVOS/$DIRBASE/gestao/Desenvolvimento"
 						 mkdir -v $ARQUIVOS/$DIRBASE/gestao/Desenvolvimento >> $LOG
 						 echo -e "Diretório criado com sucesso"
+						 sleep 2
+					 	 echo
 
 						 echo -e "Diretório gestao em: $ARQUIVOS/$DIRBASE/gestao/RH"
 						 mkdir -v $ARQUIVOS/$DIRBASE/gestao/RH >> $LOG
 						 echo -e "Diretório criado com sucesso"
+						 sleep 2
+					 	 echo
 
 						 echo -e "Diretório gestao em: $ARQUIVOS/$DIRBASE/gestao/Gerencia"
 						 mkdir -v $ARQUIVOS/$DIRBASE/gestao/Gerencia >> $LOG
 						 echo -e "Diretório criado com sucesso"
+						 sleep 2
+					 	 echo
 
 						 echo -e "Diretório gestao em: $ARQUIVOS/$DIRBASE/gestao/Diretoria"
 						 mkdir -v $ARQUIVOS/$DIRBASE/gestao/Diretoria >> $LOG
 						 echo -e "Diretório criado com sucesso"
+						 sleep 2
+					 	 echo
 						 
  						 echo -e "Diretório gestao em: $ARQUIVOS/$DIRBASE/gestao/.lixeira"
 						 mkdir -v $ARQUIVOS/$DIRBASE/gestao/.lixeira >> $LOG
 						 echo -e "Diretório criado com sucesso"
+						 sleep 2
+					 	 echo
 
 					 echo -e "Diretório sistema em: $ARQUIVOS/$DIRBASE/sistema"
 					 #Criação do diretório sistema, onde vai ficar o sistema de gestão empresarial da empresa instalado
 					 mkdir -v $ARQUIVOS/$DIRBASE/sistema >> $LOG
 					 echo -e "Diretório criado com sucesso"
+					 sleep 2
+					 echo
 
 					 echo -e "Diretório usuarios em: $ARQUIVOS/$DIRBASE/usuarios"
 					 #Criação da pasta raiz dos usuários na rede, vai armazenar o Perfil dos Usuários, Pasta Base e Redirecionamento de Pastas.
 					 mkdir -v $ARQUIVOS/$DIRBASE/usuarios >> $LOG
 					 echo -e "Diretório criado com sucesso"
+					 sleep 2
+					 echo
 					 
 						 echo -e "Diretório usuarios em: $ARQUIVOS/$DIRBASE/usuarios/home"
 						 #Criação da pasta Home dos usuários.
 						 mkdir -v $ARQUIVOS/$DIRBASE/usuarios/home >> $LOG
 						 echo -e "Diretório criado com sucesso"
+						 sleep 2
+					 	 echo
 						 
  						 echo -e "Diretório usuarios em: $ARQUIVOS/$DIRBASE/usuarios/profile"
 						 #Criação da pasta Home Profile.
 						 mkdir -v $ARQUIVOS/$DIRBASE/usuarios/profile >> $LOG
 						 echo -e "Diretório criado com sucesso"
+						 sleep 2
+					 	 echo
 
 					 echo -e "Diretório lixeira em: $ARQUIVOS/$DIRBASE/lixeira"
 					 #Criação da pasta para armazenar os arquivos deletados nos compartilhamentos
@@ -142,21 +172,29 @@ then
 					 ln -sv $ARQUIVOS/$DIRBASE/gestao/.lixeira/ $ARQUIVOS/$DIRBASE/lixeira/Lixeira_Gestao >> $LOG
 					 ln -sv $ARQUIVOS/$DIRBASE/sistema/.lixeira/ $ARQUIVOS/$DIRBASE/lixeira/Lixeira_Sistema >> $LOG
 					 echo -e "Diretório criado com sucesso"
+					 sleep 2
+					 echo
 
 					 echo -e "Diretório $DIRBASE em: $BACKUP/$DIRBASE"
 					 #Criação da pasta raiz do backup
 					 mkdir -v $BACKUP/$DIRBASE >> $LOG
 					 echo -e "Diretório criado com sucesso"
+					 sleep 2
+					 echo
 
 						 echo -e "Diretório rsync em: $BACKUP/$DIRBASE"
 						 #Criação da pasta utilizada pelo rsync para fazer o sincronismo dos arquivos de backup
 						 mkdir -v $BACKUP/$DIRBASE/rsync >> $LOG
 						 echo -e "Diretório criado com sucesso"
+						 sleep 2
+					 	 echo
 
 						 echo -e "Diretório bkp em: $BACKUP/$DIRBASE"
 						 #Criação da pasta utilizada pelo Backupninja para fazer o  backup dos arquivos
 						 mkdir -v $BACKUP/$DIRBASE/bkp >> $LOG
 						 echo -e "Diretório criado com sucesso"
+						 sleep 2
+					 	 echo
 					 
 					 echo -e "Criação dos diretórios feita com sucesso!!!, pressione <Enter> para continuar"
 					 read
