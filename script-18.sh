@@ -181,6 +181,8 @@ then
 					 
 					 echo -e "Criando o Virtual Host no Apache2"
 					 echo -e "Pressione <Enter> para criar é editar o arquivo do Virtual Host ERP"
+					 read
+					 sleep 2
 					 
 					 echo -e "Atualizando o arquivo pti-intra.conf"
 					 #Copiando o arquivo de configuração pti-intra.conf
