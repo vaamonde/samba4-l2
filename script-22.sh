@@ -201,28 +201,50 @@ then
 					 echo -e "Configurando os Scripts das Impressoras PDF, pressione <Enter> para continuar"
 					 read
 					 sleep 2
+					 
+					 echo -e "Atualizando o arquivo printpdf e sambapdf"
 					 #Copiando os arquivos para /usr/sbin
 					 cp -v conf/printpdf conf/sambapdf /usr/sbin >> $LOG
+					 echo -e "Arquivos atualizados com sucesso!!!"
+					 sleep 2
+					 echo
+					 
+					 echo -e "Alterando as permissões do arquivo printpdf e sambapdf"
 					 #Aplicando as permissões de execução
 					 chmod -v +x /usr/sbin/printpdf >> $LOG
 					 chmod -v +x /usr/sbin/sambapdf >> $LOG
+					 echo -e "Permissões alteradas com sucesso!!!"
+					 sleep 2
+					 echo
+					 
 					 echo
 					 echo -e "Arquivos copiados com sucesso!!!, pressione <Enter> para editar o arquivo: PRINTPDF"
 					 read
+					 
+					 #Editando o arquivo printpdf
 					 vim /usr/sbin/printpdf
+					 
 					 echo
 					 echo -e "Arquivo editado com sucesso!!!, pressione <Enter> para continuar."
 					 read
 					 sleep 2
 					 clear
- 					 echo -e "Arquivos copiados com sucesso!!!, pressione <Enter> para editar o arquivo: SAMBAPDF"
+ 					 
+					 echo
+					 echo -e "Editando o arquivo SAMBAPDF, pressione <Enter> para continuar"
 					 read
+					 
+					 #Editando o arquivo sambapdf
 					 vim /usr/sbin/sambapdf
 					 echo
+					 
 					 echo -e "Arquivo editado com sucesso!!!, pressione <Enter> para continuar."
 					 read
 					 sleep 2
 					 clear
+					 
+					 echo -e "Arquivos copiados e editados com sucesso!!!"
+					 echo
 					 
 					 echo -e "Fim do Script-22.sh em: `date`" >> $LOG
 					 echo
