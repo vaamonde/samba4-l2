@@ -432,7 +432,7 @@ then
 
 					 echo
 					 echo -e "34. Verificando as permissões aplicadas para o usuário: $USER no servidor: `hostname`"
-					 echo -e "Pressione <Enter> para continuar
+					 echo -e "Pressione <Enter> para continuar"
 					 read
 					 echo
 					 net rpc rights list accounts -U $USER%$PASSWORD | less
