@@ -54,8 +54,10 @@ then
 					 echo -e "Criação da estrutura de grupos Globais para o servidor: `hostname`"
 					 echo -e "Pressione <Enter> para editar o arquivo: group.global"
 					 read
+					 
 					 #Editando o arquivo de grupos globais
 					 vim $GRUPOGLOBAL
+					 
 					 echo -e "Arquivo editado com sucesso, pressione <Enter> para continuar com o script"
 					 read
 					 sleep 2
@@ -64,8 +66,10 @@ then
 					 echo -e "Criação da estrutura de grupos Domínio Local para o servidor: `hostname`"
 					 echo -e "Pressione <Enter> para editar o arquivo: group.local"
 					 read
+					 
 					 #Editando o arquivo de grupos domínio local
 					 vim $GRUPOLOCAL
+					 
 					 echo -e "Arquivo editado com sucesso, pressione <Enter> para continuar com o script"
 					 read
 					 sleep 2
@@ -74,8 +78,10 @@ then
 					 echo -e "Criação da estrutura de Membros de Grupos: `hostname`"
 					 echo -e "Pressione <Enter> para editar o arquivo: members.group"
 					 read
+					 
 					 #Editando o arquivo de membro de grupos globais e domínio local
 					 vim $MEMBERS
+					 
 					 echo -e "Arquivo editado com sucesso, pressione <Enter> para continuar com o script"
 					 read
 					 sleep 2
@@ -89,8 +95,8 @@ then
 					 gawk -F ":" '{ print $2, $3, $4 }' $GRUPOGLOBAL | while read LISTAGG;
 					 	do $(echo "/usr/bin/samba-tool group add $LISTAGG --group-scope=Global --group-type=Security") &>> $LOG;
 					 done;
-					 echo >> $LOG
 					 echo
+					 
 					 echo -e "Total de Grupos Globais criados: `wc -l $GRUPOGLOBAL | cut -d ' ' -f1`"
 					 echo
 					 echo -e "Grupos criado com sucesso!!!, pressione <Enter> para continuar com o script"
@@ -106,8 +112,8 @@ then
 					 gawk -F ":" '{ print $2, $3, $4 }' $GRUPOLOCAL | while read LISTAGL;
 					 	do $(echo "/usr/bin/samba-tool group add $LISTAGL --group-scope=Domain --group-type=Security") &>> $LOG;
 					 done;
-					 echo >> $LOG
 					 echo
+					 
 					 echo -e "Total de Grupos Globais criados: `wc -l $GRUPOLOCAL | cut -d ' ' -f1`"
 					 echo
 					 echo -e "Grupos criado com sucesso!!!, pressione <Enter> para continuar com o script"
@@ -123,8 +129,8 @@ then
 					 gawk -F ":" '{ print $2, $3 }' $MEMBERS | while read LISTAMG;
 					 	do $(echo "/usr/bin/samba-tool group addmembers $LISTAMG") &>> $LOG;
 					 done;
-					 echo >> $LOG
 					 echo
+					 
 					 echo -e "Total de Grupos Associados: `wc -l $MEMBERS | cut -d ' ' -f1`"
 					 echo
 					 echo -e "Associação de grupos feita com sucesso!!!, pressione <Enter> para continuar com o script"
@@ -162,7 +168,7 @@ then
 					 	do $(echo "/usr/bin/samba-tool group listmembers $LISTAMG") &>> /tmp/listmembers;
 					 done;
 					 echo
-					 #Concatenar os arquivos temporários e mostrar o resultado
+					 #Concatenando os arquivos temporários para mostrar o resultado
 					 paste -d' ' /tmp/members.group /tmp/listmembers
 					 echo -e "Pressione <Enter> para continuar com o script"
 					 read
