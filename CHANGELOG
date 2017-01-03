@@ -9,6 +9,12 @@ Versão: 0.8
 Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 Kernel >= 4.4.x
 
+03/01/2017  - Melhorias dos scripts finais, criação das configuração do Apache2 e PHP, correções de bug de aspas ("). Robson Vaamonde
+
+02/01/2017  - Atualização dos scripts: script-00.sh e script-03.sh, correções de bug de aspas ("). Robson Vaamonde
+
+30/12/2016  - Atualização de todos os scripts: script-00.sh até script-22.sh melhorias na apresentação das mensagens na tela. Robson Vaamonde
+
 29/12/2016  - Atualização do script-18.sh, customização do wp-config.php e htaccess. Robson Vaamonde
 
 28/12/2016  - Atualização das configurações do firewall.sh é atualização do script-08.sh. Robson Vaamonde
