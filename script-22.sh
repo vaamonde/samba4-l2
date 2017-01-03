@@ -158,19 +158,39 @@ then
 					 sleep 2
 					 echo
 					 
-					 echo -e "Fazendo o backup do arquivo 000-default.conf"
-					 #Fazendo o backup do arquivo 000-default.conf
-					 cp -v /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/000-default.conf.old >> $LOG
-					 echo -e "Backup feito com sucesso!!!"
-					 sleep 2
-					 echo
-					 
-					 echo -e "Atualizando o arquivo 000-default.conf"
-					 #Atualizando o arquivo 000-default.conf
-					 cp -v conf/000-default.conf /etc/apache2/sites-available/000-default.conf >> $LOG
+					 echo -e "Atualizando o arquivo awstatsupdate"
+					 #Copiando o arquivo de agendamento das atualizações do awstats
+					 cp -v conf/awstatsupdate /etc/cron.d/ >> $LOG
 					 echo -e "Arquivo atualizado com sucesso!!!"
 					 sleep 2
 					 echo
+					 
+					 echo -e "Copia dos arquivos feita com sucesso!!!, pressione <Enter> para continuar."
+					 read
+					 sleep 2
+					 clear
+					 
+					 echo -e "Editando o arquivo awstats.pti.intra.conf, pressione <Enter> para continuar"
+					 read
+					 
+					 #Editando o arquivo awstats.pti.intra.conf
+					 vim /etc/awstats/awstats.pti.intra.conf
+					 
+					 echo -e "Arquivo editado com sucesso!!!, pressione <Enter> para continuar"
+					 read
+					 sleep 2
+					 clear
+					 
+					 echo -e "Editando o arquivo awstatsupdate, pressione <Enter> para continuar"
+					 read
+					 
+					 #Editando o arquivo awstatsupdate
+					 vim /etc/cron.d/awstatsupdate
+					 
+					 echo -e "Arquivo editado com sucesso!!!, pressione <Enter> para continuar"
+					 read
+					 sleep 2
+					 clear
 					 
 					 echo -e "Reinicializando o serviço do Apache2"
 					 #Reinicializando o Apache2
@@ -179,21 +199,14 @@ then
 					 sleep 2
 					 echo
 					 
-					 echo -e "Atualizando o arquivo awstatsupdate"
-					 #Copiando o arquivo de agendamento das atualizações do awstats
-					 cp -v conf/awstatsupdate /etc/cron.d/ >> $LOG
-					 echo -e "Arquivo atualizado com sucesso!!!"
-					 sleep 2
-					 echo
-					 
-					 echo -e "Atualizando as estatística do AWStats"
+					 echo -e "Atualizando as estatísticas do AWStats"
 					 #Atualizando as estatística do AWStats
 					 /usr/lib/cgi-bin/awstats.pl -config=pti.intra -update >> $LOG
 					 echo -e "Estatísticas atualizadas com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Instalação concluida com sucesso!!!!, pressione <Enter> para continuar"
+					 echo -e "Instalação concluída com sucesso!!!!, pressione <Enter> para continuar"
 					 read
 					 sleep 2
 					 clear
@@ -218,7 +231,12 @@ then
 					 echo
 					 
 					 echo
-					 echo -e "Arquivos copiados com sucesso!!!, pressione <Enter> para editar o arquivo: PRINTPDF"
+					 echo -e "Arquivos copiados com sucesso!!!, pressione <Enter> continuar"
+					 read
+					 sleep 2
+					 clear
+					 
+					 echo -e "Editando o arquivo printpdf, pressione <Enter> para continuar"
 					 read
 					 
 					 #Editando o arquivo printpdf
@@ -231,7 +249,7 @@ then
 					 clear
  					 
 					 echo
-					 echo -e "Editando o arquivo SAMBAPDF, pressione <Enter> para continuar"
+					 echo -e "Editando o arquivo sambapdf, pressione <Enter> para continuar"
 					 read
 					 
 					 #Editando o arquivo sambapdf
