@@ -354,10 +354,21 @@ then
 					 echo -e "Acrescentar no final do arquivo a linha: *		-	nofile		400000"
 					 echo -e "Pressione <Enter> para editar o arquivo"
 					 read
+					 
+					 echo -e "Fazendo o backup do arquivo limits.conf"
 					 #Fazendo o backup do arquivo de configuração limits.conf
 					 mv -v /etc/security/limits.conf /etc/security/limits.conf.old >> $LOG
+					 echo -e "Backup feito com sucesso!!!"
+					 sleep 2
+					 echo
+					 
+					 echo -e "Atualizando o arquivo limits.conf"
 					 #Copiando o arquivo de configuração limits.conf
 					 cp -v conf/limits.conf /etc/security/limits.conf >>$LOG
+					 echo -e "Arquivo atualizado com sucesso!!!"
+					 sleep 2
+					 echo
+					 
 					 #Editando o arquivo de configuração limits.conf
 					 vim /etc/security/limits.conf +70
 
@@ -375,6 +386,7 @@ then
 					 echo -e "Pressione <Enter> para editar o arquivo"
 					 echo 
 					 read
+					 
 					 #Editando o arquivo de configurando do SAMBA-4 named.conf
 					 vim /var/lib/samba/private/named.conf +20
 
