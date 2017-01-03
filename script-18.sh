@@ -160,12 +160,14 @@ then
 					 
 					 echo -e "Editando o arquivo de conexão com o Banco de Dados do Wordpress"
 					 echo -e "Editando as variaveis do arquivos wp-config.php com as informações"
+					 echo
 					 echo -e "DB_NAME='wordpress'       base de dados do MySQL"
 					 echo -e "DB_USER='wordpress'       usuário de conexão a bade de dados"
 					 echo -e "DB_PASSWORD='wordpress'   senha do usuário de conexão"
 					 echo -e "DB_HOST='localhost'       endereço do servidor, recomendado localhost"
 					 echo -e "DB_CHARSET='utf8'         configurações de caracteres"
 					 echo -e "DB_COLLATE=''             sem collate"
+					 echo
 					 echo -e "Pressione <Enter> para editar o arquivo: wp-config.php"
 					 read
 					 
