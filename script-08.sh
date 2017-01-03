@@ -13,6 +13,7 @@
 # Verificação das portas de serviços da nona etapa, indicado para a distribuição GNU/Linux Ubuntu Server 16.04 LTS x64
 #
 # Informações de Serviços de Rede integrado com o SAMBA4
+#
 # SSH (Secure Shell - Porta padrão: TCP 22)
 # DNS (Domain Name System - Porta padrão: TCP/UDP 53 UDP 5353)
 # SMB (Server Message Block NetBIOS - Portas padrão: UDP 137, UDP 138 é TCP 139) 
@@ -58,11 +59,12 @@ then
 					 echo -e "Listando as Portas TCP e UDP do servidor: `hostname`"
 					 echo -e "Aguarde..."
 					 echo -e "Rodando o Script-08.sh em: `date`" > $LOG
-					 echo -e "Listando as portas do Servidor `hostname`" >> $LOG
 					 echo ============================================================ >> $LOG
+
 					 echo -e "Portas  Num.Porta Status        Serviço"
 					 #Executando o comando map para explorar as Portas TCP e UDP abertas
 					 nmap `hostname` -sS -sU | head -n37 | tail -n31 | cat -n
+					 
 					 echo -e "Quantida de portas padrão que devem ser listadas no servidor `hostname`: 31 (portas)"
 					 echo -e "Caso o número de portas seja diferente, verificar os status dos serviços de rede"
 					 echo -e "Pressione <Enter> para verificar as regras de Firewall"
@@ -74,7 +76,6 @@ then
 					 echo -e "Status padrão do UFW = Inactive"
 					 #Verificando o status do serviço de Firewall UFW
 					 ufw status
-					 echo -e "Verificação das Portas e Firewall concluido com sucesso!!!" >> $LOG
 					 echo ============================================================ >> $LOG
 					 echo -e "Fim do Script-08.sh em: `date`" >> $LOG
 					 echo -e "Verificação das Portas do Servidor executado com sucesso!!!!!"
