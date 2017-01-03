@@ -180,14 +180,7 @@ then
 					 echo -e "Atualização feita com sucesso!!!"
 					 sleep 2
 					 echo
-					 
-					 echo -e "Reinicializando o serviçoo do Apache2"
-					 #Reinicializando o serviço do Apache2 Server
-					 sudo service apache2 restart
-					 echo -e "Serviço reinicializado com sucesso!!!"
-					 sleep 2
-					 echo
-					 
+					 		 
 					 echo -e "Instalação do PhpMyAdmin Feito com Sucesso!!!"
 					 echo
 
@@ -197,15 +190,97 @@ then
 					 clear
 					 echo ============================================================ >> $LOG
 					 
-					 #Em desenvolvimento: 20/12/2016
+					 echo -e "Atualizando as configurações do Apache2"
+					 echo -e "Pressione <Enter> para continuar"
+					 read
+					 sleep 2
+					 clear
+					 
+					 echo -e "Fazendo o backup do arquivo apache2.conf"
 					 #Fazendo o backup do Apache2.conf
 					 cp -v /etc/apache2/apache2.conf /etc/apache2/apache2.conf.old >> $LOG
+					 echo -e "Backup feito com sucesso!!!"
+					 sleep 2
+					 echo
+					 
+					 echo -e "Atualizando o arquivo apache2.conf"
 					 #Atualizando o arquivo do Apache2.conf customizado
-					 #cp -v conf/apache2.conf /etc/apache2/apache2.conf
+					 cp -v conf/apache2.conf /etc/apache2/apache2.conf
+					 echo -e "Arquivo atualizado com sucesso!!!"
+					 sleep 2
+					 echo
+					 
+					 echo -e "Fazendo o backup do arquivo 000-default.conf"
 					 #Fazendo o backup do 000-default.conf
-					 cp -v /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/000-default.conf.old >> $LOG                          
+					 cp -v /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/000-default.conf.old >> $LOG
+					 echo -e "Backup feito com sucesso!!!"
+					 sleep 2
+					 echo
+					 
+					 echo -e "Atualizando o arquivo 000-default.conf"
 					 #Atualizando o arquivo 00-default.conf
-					 #cp -v conf/000-default.conf /etc/apache2/sites-available/000-default.conf >> $LOG
+					 cp -v conf/000-default.conf /etc/apache2/sites-available/000-default.conf >> $LOG
+					 echo -e "Arquivo atualizado com sucesso!!!"
+					 sleep 2
+					 echo
+					 
+					 echo -e "Fazendo o backup do arquivo php.ini"
+					 #Backup do arquivo php.ini
+					 cp -v /etc/php/7.0/apache2/php.ini /etc/php/7.0/apache2/php.ini.old &>> $LOG
+					 echo -e "Backup feito com sucesso!!!"
+					 sleep 2
+					 echo
+					 
+					 echo -e "Atualizando o arquivo php.ini"
+					 #Atualizando o arquivo do php.ini
+					 cp -v conf/php.ini /etc/php/7.0/apache2/php.ini &>> $LOG
+					 echo -e "Atualização feita com sucesso!!!"
+					 sleep 2
+					 echo
+					 
+					 echo -e "Arquivos atualizado com sucesso!!!, pressione <Enter> para continuar."
+					 read
+					 clear
+					 
+					 echo -e "Editando o arquivo apache2.conf, pressione <Enter> para continuar"
+					 read
+					 
+					 #Editando o arquivo apache2.conf
+					 vim /etc/apache2/apache2.conf
+					 
+					 echo -e "Arquivo editado com sucesso!!!, pressione <Enter> para continuar"
+					 read
+					 sleep 2
+					 clear
+
+					 echo -e "Editando o arquivo 000-default.conf, pressione <Enter> para continuar"
+					 read
+					 
+					 #Editando o arquivo 000-default.conf
+					 vim /etc/apache2/sites-available/000-default.conf
+					 
+					 echo -e "Arquivo editado com sucesso!!!, pressione <Enter> para continuar"
+					 read
+					 sleep 2
+					 clear
+					 
+ 					 echo -e "Editando o arquivo php.ini, pressione <Enter> para continuar"
+					 read
+					 
+					 #Editando o arquivo php.ini
+					 vim /etc/php/7.0/apache2/php.ini
+					 
+					 echo -e "Arquivo editado com sucesso!!!, pressione <Enter> para continuar"
+					 read
+					 sleep 2
+					 clear
+
+					 echo -e "Reinicializando o serviço do Apache2"
+					 #Reinicializando o serviço do Apache2 Server
+					 sudo service apache2 restart
+					 echo -e "Serviço reinicializado com sucesso!!!"
+					 sleep 2
+					 echo
 					 
 					 echo ============================================================ >> $LOG
 					 echo -e "Permitir acesso remoto ao MySQL Server"
