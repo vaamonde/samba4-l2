@@ -190,6 +190,8 @@ then
 					 clear
 
 					 echo -e "19. Status de Serviço com SYSTEMCTL do servidor: `hostname`"
+					 echo -e "Pressione <Enter> para continuar"
+					 read
 					 echo
 					 systemctl -t service
 					 echo
