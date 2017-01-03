@@ -40,16 +40,39 @@ then
 					 echo -e "Configurando o Módulo VFS Full Audit do SAMBA-4 no Rsyslog"
 					 echo -e "Pressione <Enter> para editar o arquivo"
 					 read
+					 
+					 echo -e "Criando o arquivo log.samba_fullaudit"
 					 #Criando o arquivo para armazenar os Logs do Módulo VFS do Full Audit do SAMBA-4
 					 touch /var/log/samba/log.samba_fullaudit
+					 echo -e "Arquivo criado com sucesso!!!"
+					 sleep 2
+					 echo
+					 
+					 echo -e "Alterando as permissões do arquivo log.samba_fullaudit"
 					 #Mudando as permissões de dono e grupo do arquivo
 					 chown -v syslog.adm /var/log/samba/log.samba_fullaudit &>> $LOG
+					 echo -e "Permissões alteradas com sucesso!!!"
+					 sleep 2
+					 echo
+					 
+					 echo -e "Atualizando o arquivo sambaaudit.conf"
 					 #Copiando o arquivo de configuração do Rsyslog para o Full Audit
 					 cp -v conf/sambaaudit.conf /etc/rsyslog.d/ &>> $LOG
+					 echo -e "Arquivo atualizado com sucesso!!!"
+					 sleep 2
+					 echo
+					 
 					 #Editando o arquivo de configuração
 					 vim /etc/rsyslog.d/sambaaudit.conf +13
+					 echo
+					 
+					 echo -e "Reinicializando o serviço do Rsyslog"
 					 #Reinicializando o serviço do Rsyslog
 					 sudo service rsyslog restart &>> $LOG
+					 echo -e "Serviço reinicializado com sucesso!!!"
+					 sleep 2
+					 echo
+					 
 					 echo -e "Arquivo editado com sucesso!!!, pressione <Enter> para continuar"
 					 read
 					 sleep 2
