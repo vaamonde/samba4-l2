@@ -59,7 +59,6 @@ then
 					 echo
 					 echo -e "Rodando o Script-05.sh em: `date`" > $LOG
 					 
-					 echo -e "Atualizando as Listas do Apt-Get" >> $LOG
 					 echo -e "Atualizando as Listas do Apt-Get"
 					 # Exportando o recurso de Noninteractive do Debconf
 					 export DEBIAN_FRONTEND=noninteractive
@@ -67,18 +66,13 @@ then
 					 apt-get update &>> $LOG
 					 echo -e "Listas Atualizadas com Sucesso!!!"
 					 echo
-					 echo -e "Listas Atualizadas com Sucesso!!!" >> $LOG
-					 echo >> $LOG
 					 echo ============================================================ >> $LOG
 
-					 echo -e "Atualizando o Sistema" >> $LOG
 					 echo -e "Atualizando o Sistema"
 					 #Fazendo a atualização de todos os pacotes instalados no servidor
 					 apt-get -o Dpkg::Options::="--force-confold" upgrade -q -y --force-yes &>> $LOG
 					 echo -e "Sistema Atualizado com Sucesso!!!"
 					 echo
-					 echo -e "Sistema Atualizado com Sucesso!!!" >> $LOG
-					 echo >> $LOG
 					 echo ============================================================ >> $LOG
 					 
 					 echo -e "Serviços atualizados com sucesso!!!, pressione <Enter> para continuar com o script"
@@ -87,7 +81,6 @@ then
 					 clear
 					 echo ============================================================ >> $LOG
 
-					 echo -e "Atualizando o arquivo INTERFACES" >> $LOG
 					 echo -e "Editando o arquivo /etc/network/interfaces para acrescentar as informações de endereçamento IP"
 					 echo
 					 echo -e "Linhas a serem editadas no arquivo /etc/network/interfaces"
@@ -100,22 +93,31 @@ then
 					 echo -e "Pressione <Enter> para editar o arquivo"
 					 echo 
 					 read
+					 
+					 echo -e "Fazendo o backup do arquivo interfaces"
 					 #Fazendo o backup do arquivo de configuração interfaces
 					 mv -v /etc/network/interfaces /etc/network/interfaces.old >> $LOG
+					 echo -e "Backup feito com sucesso!!!"
+					 sleep 2
+					 echo
+					 
+					 echo -e "Atualizando o arquivo interfaces"
 					 #Copiando o arquivo de configuração interfaces
 					 cp -v conf/interfaces /etc/network/interfaces >> $LOG
+					 echo -e "Arquivo atualizado com sucesso!!!"
+					 sleep 2
+					 echo
+					 
 					 #Editando o arquivo de configuração interfaces
-					 vim +23 /etc/network/interfaces
-					 #Verificando as informações de Interfaces
-					 ifup --verbose --no-act --force --all /etc/network/interfaces >> $LOG
-					 echo -e "Atualização feita com sucesso!!!" >> $LOG
+					 vim +20 /etc/network/interfaces
+					 #Verificando as informações das Interfaces
+					 ifup --verbose --no-act --force --all --interfaces=/etc/network/interfaces $>> $LOG
 					 echo -e "INTERFACES atualizado com sucesso!!!, pressione <Enter> continuando com o script"
 					 read
-					 sleep s
+					 sleep 2
 					 clear
 					 echo ============================================================ >> $LOG
 
-					 echo -e "Atualizando o arquivo HOSTS.ALLOW" >> $LOG
 					 echo -e "Editando o arquivo /etc/hosts.allow para acrescentar as informações de liberação de acesso remoto"
 					 echo
 					 echo -e "Linhas a serem editadas no arquivo /etc/hosts.allow"
@@ -123,20 +125,29 @@ then
 					 echo -e "Pressione <Enter> para editar o arquivo"
 					 echo 
 					 read
+					 
+					 echo -e "Fazendo o backup do arquivo hosts.allow"
 					 #Fazendo o backup do arquivo de configuração hosts.allow
 					 mv -v /etc/hosts.allow /etc/hosts.allow.old >> $LOG
+					 echo -e "Backup feito com sucesso!!!"
+					 sleep 2
+					 echo
+					 
+					 echo -e "Atualizando o arquivo hosts.allow"
 					 #Copiando o arquivo de configuração hosts.allow
 					 cp -v conf/hosts.allow /etc/hosts.allow >> $LOG
+					 echo -e "Arquivo atualizadoo com sucesso!!!"
+					 sleep 2
+					 echo
+					 
 					 #Editando o arquivo de configuração hosts.allow
 					 vim +24 /etc/hosts.allow
-					 echo -e "Atualização feita com sucesso!!!" >> $LOG
 					 echo -e "HOSTS.ALLOW atualizado com sucesso!!!, pressione <Enter> para continuando com o script"
 					 read
 					 sleep 2
 					 clear
 					 echo ============================================================ >> $LOG
 
-					 echo -e "Atualizando o arquivo HOSTS.DENY" >> $LOG
 					 echo -e "Editando o arquivo /etc/hosts.deny para acrescentar as informações de bloqueio de acesso remoto"
 					 echo
 					 echo -e "Linhas a serem editadas no arquivo /etc/hosts.deny"
@@ -144,36 +155,58 @@ then
 					 echo -e "Pressione <Enter> para editar o arquivo"
 					 echo 
 					 read
+					 
+					 echo -e "Fazendo o backup do arquivo hosts.deny"
 					 #Fazendo o backup do arquivo de configuração hosts.deny
 					 mv -v /etc/hosts.deny /etc/hosts.deny.old >> $LOG
+					 echo -e "Backup feito com sucesso!!!"
+					 sleep 2
+					 echo
+					 
+					 echo -e "Atualizando o arquivo hosts.deny"
 					 #Copiando o arquivo de configuração hosts.deny
 					 cp -v conf/hosts.deny /etc/hosts.deny >> $LOG
+					 echo -e "Arquivo atualizado com sucesso!!!"
+					 sleep 2
+					 echo
+					 
 					 #Editando o arquivo de confguração hosts.deny
 					 vim +32 /etc/hosts.deny
-					 echo -e "Atualização feita com sucesso!!!" >> $LOG
 					 echo -e "HOSTS.DENY atualizado com sucesso!!!, pressione <Enter> para continuando com o script"
 					 read
 					 sleep 2
 					 clear
 					 echo ============================================================ >> $LOG
 
-					 echo -e "Atualizando o arquivo SSHD_CONFIG" >> $LOG
 					 echo -e "Editando o arquivo /etc/ssh/sshd_config para acrescentar as informações de acesso remoto seguro"
 					 echo -e "Pressione <Enter> para editar o arquivo"
 					 echo 
 					 read
+					 
+					 echo -e "Fazendo o backup do arquivo sshd_config"
 					 #Fazendo o backup do arquivo de configuração sshd_config
 					 mv -v /etc/ssh/sshd_config /etc/ssh/sshd_config.old >> $LOG
+					 echo -e "Backup feito com sucesso!!!"
+					 sleep 2
+					 echo
+					 
+					 echo -e "Atualizando o arquivo sshd_config"
 					 #Copiando o arquivo de configuração do sshd_config
 					 cp -v conf/sshd_config /etc/ssh/sshd_config >> $LOG
+					 echo -e "Arquivo atualizado com sucesso!!!"
+					 sleep 2
+					 echo
+					 
 					 #Editando o arquivo de configuração do sshd_config
 					 vim /etc/ssh/sshd_config
+					 echo
+					 
 					 echo -e "Atualização feita com sucesso!!!, pressione <Enter> para testar o arquivo sshd_config"
 					 echo -e "Pressione Q para sair"
 					 read
 					 echo
 					 #Verificando as configurações do sshd
-					 sshd -T >> $LOG
+					 sshd -T | less
 					 echo
 					 echo -e "SSHD_CONFIG atualizado com sucesso!!!, pressione <Enter> para continuando com o script"
 					 read
@@ -181,22 +214,31 @@ then
 					 clear
 					 echo ============================================================ >> $LOG
 
-					 echo -e "Atualizando o arquivo DHCPD.CONF" >> $LOG
 					 echo -e "Editando o arquivo /etc/dhcp/dhcpd.conf para acrescentar as informações de rede"
 					 echo -e "Pressione <Enter> para editar o arquivo"
 					 echo 
 					 read
+					 
+					 echo -e "Fazendo o backup do arquivo dhcpd.conf"
 					 #Fazendo o backup do arquivo de configuração dhcpd.conf
 					 mv -v /etc/dhcp/dhcpd.conf /etc/dhcp/dhcpd.conf.old >> $LOG
+					 echo -e "Backup feito com sucesso!!!"
+					 sleep 2
+					 echo
+					 
+					 echo -e "Atualizando o arquivo dhcpd.conf"
 					 #Copiando o arquivo de configuração do dhcpd.conf
 					 cp -v conf/dhcpd.conf /etc/dhcp/dhcpd.conf >> $LOG
+					 echo -e "Arquivo atualizado com sucesso!!!"
+					 
 					 #Editando o arquivo de configuração do dhcpd.conf
 					 vim /etc/dhcp/dhcpd.conf
 					 echo -e "Atualização feita com sucesso!!!, pressione <Enter> para testar o arquivo dhcpd.conf"
+					 echo -e "Pressione Q para sair"
 					 read
 					 echo
 					 #Verificando as configurações do dhcpd
-					 dhcpd -t >> $LOG
+					 dhcpd -t | less
 					 echo
 					 echo -e "DHCPD.CONF atualizado com sucesso!!!, pressione <Enter> para continuando com o script"
 					 read
@@ -204,21 +246,37 @@ then
 					 clear
 					 echo ============================================================ >> $LOG
 
-					 echo -e "Atualizando o arquivo ISSUE.NET é ISSUE" >> $LOG
 					 echo -e "Editando o arquivo /etc/issue.net para acrescentar as informações de acesso remoto"
 					 echo -e "Geração do logo do Ubuntu no arquivo /etc/issue utilizando o screenfetch"
+					 echo
 					 echo -e "Pressione <Enter> para editar o arquivo"
 					 echo 
 					 read
+					 
+					 echo -e "Fazendo o backup do arquivo issue.net"
 					 #Fazendo o backup do arquivo de configuração do issue.net
 					 mv -v /etc/issue.net /etc/issue.net.old >> $LOG
+					 echo -e "Backup feito com sucesso!!!"
+					 sleep 2
+					 echo
+					 
+					 echo -e "Atualizando o arquivo issue.net"
 					 #Copiando o arquivo de configuração do issue.net
 					 cp -v conf/issue.net /etc/issue.net >> $LOG
-					 #Editando o arquivo de configuração do issue.net
-					 vim /etc/issue.net
+					 echo -e "Arquivo atualizado com sucesso!!!"
+					 sleep 2
+					 echo
+					 
+					 echo -e "Atualizando o arquivo issue com o comando screenfetch"
 					 #Atualizando o arquivo de configuração issue para o comando screenfetch, gerando uma imagem do Ubuntu com códigos ASCII
 					 screenfetch > /etc/issue
-					 echo -e "Atualização feita com sucesso!!!" >> $LOG
+					 echo -e "Arquivo atualizado com sucesso!!!"
+					 sleep 2
+					 echo
+
+					 #Editando o arquivo de configuração do issue.net
+					 vim /etc/issue.net
+					 
 					 echo -e "ISSUE.NET atualizado com sucesso!!!, pressione <Enter> continuando com o script"
 					 read
 					 sleep 2
