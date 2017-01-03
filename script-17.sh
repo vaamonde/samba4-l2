@@ -51,9 +51,11 @@ then
 					 echo -e "Criação dos usuários no servidor: `hostname`"
 					 echo -e "Pressione <Enter> para editar o arquivo: usuarios.local"
 					 read
+					 
 					 #Editando o arquivo de usuários
 					 vim $USUARIOS
-					 echo -e "Arquivo editado com sucesso, pressione <Enter> para continuar com o script"
+					 
+					 echo -e "Arquivo editado com sucesso!!!, pressione <Enter> para continuar com o script"
 					 read
 					 sleep 2
 					 clear
@@ -61,9 +63,11 @@ then
 					 echo -e "Criação dos grupos de usuários no servidor: `hostname`"
 					 echo -e "Pressione <Enter> para editar o arquivo: usuarios.group"
 					 read
+					 
 					 #Editando o arquivo de associação de usuários e seus grupos
 					 vim $USUARIOSGROUP
-					 echo -e "Arquivo editado com sucesso, pressione <Enter> para continuar com o script"
+					 
+					 echo -e "Arquivo editado com sucesso!!!, pressione <Enter> para continuar com o script"
 					 read
 					 sleep 2
 					 clear
@@ -76,7 +80,6 @@ then
 					 gawk -F ":" '{ print $2, $3, $4, $5, $6 }' $USUARIOS | while read LISTAUSER;
 					 	do $(echo "/usr/bin/samba-tool user add $LISTAUSER --must-change-at-next-login --use-username-as-cn") &>> $LOG;
 					 done;
-					 echo >> $LOG
 					 echo -e "Total de usuários criados: `wc -l $USUARIOS | cut -d ' ' -f1`"
 					 echo
 					 echo -e "Usuários criados com sucesso!!!, pressione <Enter> para continuar com o script"
@@ -92,7 +95,6 @@ then
 					 gawk -F ":" '{ print $2, $3 }' $USUARIOSGROUP | while read LISTAUSERGROUP;
 					 	do $(echo "/usr/bin/samba-tool group addmembers $LISTAUSERGROUP") &>> $LOG;
 					 done;
-					 echo >> $LOG
 					 echo -e "Total de usuários criados: `wc -l $USUARIOSGROUP | cut -d ' ' -f1`"
 					 echo
 					 echo -e "Usuários associados com sucesso!!!, pressione <Enter> para continuar com o script"
@@ -111,7 +113,7 @@ then
 					 clear
 
 					 echo -e "Fim do Script-17.sh em: `date`" >> $LOG
-					 echo -e "                        Criação Usuários do Sistema"
+					 echo -e "                  Finalização da criação Usuários do Sistema"
 					 echo -e "================================================================================="
 					 echo
 					 # Script para calcular o tempo gasto para a execução do script-17.sh
