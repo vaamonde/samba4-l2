@@ -109,10 +109,13 @@ then
 					 sleep 2
 					 echo
 					 
-					 echo -e ""
+					 echo -e "Removendo o arquivo latest.zip"
 					 #Removendo o arquivo de download zipado do Wordpress
 					 rm -v latest.zip >> $LOG
+					 echo -e "Arquivo removido com sucesso!!!"
+					 sleep 2
 					 echo
+					 
 					 echo -e "Instalação Básica do Wordpress feita com sucesso!!!, pressione <Enter> para continuar"
 					 read
 					 sleep 2
@@ -121,6 +124,8 @@ then
 					 echo -e "Criação da Base de Dados do Wordpress no servidor: `hostname`"
 					 echo -e "Pressione <Enter> para continuar"
 					 read
+					 
+					 echo -e "Criando a base de dados do Wordpress e setando as permissões"
 					 #Criando a variável da criação da Base de Dados do Wordpress
 					 #Variaveis utilizada pelo MySQL para a criação do Bando de Dados
 					 USER="root"
@@ -135,13 +140,18 @@ then
 					 mysql -u $USER -p$PASSWORD -e "$GRANTDATABASE" mysql &>> $LOG
 					 mysql -u $USER -p$PASSWORD -e "$GRANTALL" mysql &>> $LOG
 					 mysql -u $USER -p$PASSWORD -e "$FLUSH" mysql &>> $LOG
+					 echo -e "Base de dados do Wordpress criada com sucesso!!!"
+					 sleep 2
 					 echo
-					 echo -e "Listando o Banco de Dados Criado"
+					 
+					 echo -e "Listando o Banco de Dados criado do Wordpress"
 					 #Criando a variável para exibição da Base de Dados do Wordpress
 					 SHOWSQL="SHOW DATABASES;"
 					 echo
 					 #Listando a Base de Dados criada do Wordpress
 					 mysql -u $USER -p$PASSWORD -e "$SHOWSQL" mysql
+					 echo
+					 echo -e "Base de dados lista com sucesso!!!"
 					 echo
 					 echo -e "Criação da Base de Dados do Wordpress feita com sucesso!!!, pressione <Enter> para continuar"
 					 read
@@ -158,8 +168,10 @@ then
 					 echo -e "DB_COLLATE=''             sem collate"
 					 echo -e "Pressione <Enter> para editar o arquivo: wp-config.php"
 					 read
+					 
 					 #Editando o arquivo de configuração wp-config.php
 					 vim /arquivos/pti.intra/sistema/erp/wp-config.php +16
+					 
 					 echo -e "Arquivo editado com sucesso!!!, pressione <Enter> para continuar"
 					 read
 					 sleep 2
@@ -167,17 +179,32 @@ then
 					 
 					 echo -e "Criando o Virtual Host no Apache2"
 					 echo -e "Pressione <Enter> para criar é editar o arquivo do Virtual Host ERP"
+					 
+					 echo -e "Atualizando o arquivo pti-intra.conf"
 					 #Copiando o arquivo de configuração pti-intra.conf
 					 cp -v conf/pti-intra.conf /etc/apache2/sites-available/ >> $LOG
+					 echo -e "Arquivo atualizado com sucesso!!!"
+					 sleep 2
+					 echo
+					 
 					 #Editando o arquivo de configuração pti-intra.conf
 					 vim /etc/apache2/sites-available/pti-intra.conf +12
+					 echo
+					 
 					 echo -e "Ativando o Virtual Host no Apache2"
 					 #Ativando o Virtual Host no Apache2 Server
 					 a2ensite pti-intra.conf &>> $LOG
+					 echo -e "Virtual Host ativado com sucesso!!!"
+					 sleep 2
+					 echo
+					 
+					 echo -e "Reinicializando o Apache2"
 					 #Reinicializando o serviço do Apache Server
 					 sudo service apache2 restart &>> $LOG
-					 #Atualizando o arquivo apache2.conf com a variável ServerName
-					 echo ServerName localhost >> /etc/apache2/apache2.conf
+					 echo -e "Reinicialização feita com sucesso!!!"
+					 sleep 2
+					 echo
+
 					 echo -e "Arquivo editado com sucesso!!!, pressione <Enter> para testar o Apache2"
 					 read
 					 echo
@@ -192,14 +219,32 @@ then
 					 echo -e "Pressione <Enter> para editar o arquivos de configuração"
 					 read
 					 sleep 2
+					 
+					 echo -e "Fazendo o backup do arquivo proftpd.conf"
 					 #Fazendo o backup do arquivo de configuração proftpd.conf
 					 mv -v /etc/proftpd/proftpd.conf /etc/proftpd/proftpd.conf.old >> $LOG
+					 echo -e "Backup feito com sucesso!!!"
+					 sleep 2
+					 echo
+					 
+					 echo -e "Atualizando o arquivo proftdp.conf"
 					 #Copiando o arquivo de configuração do proftpd.conf
 					 cp -v conf/proftpd.conf /etc/proftpd/ >> $LOG
+					 echo -e "Arquivo atualizado com sucesso!!!"
+					 sleep 2
+					 echo
+					 
 					 #Editando o arquivo de configuração do proftpd.conf
 					 vim /etc/proftpd/proftpd.conf
+					 echo
+					 
+					 echo -e "Reinicializando o serviço do ProfFTPD"
 					 #Reinicializando o serviço do ProFTPD Server
 					 sudo service proftpd restart
+					 echo -e "Serviço reinicializado com sucesso!!!"
+					 sleep 2
+					 echo
+					 
 					 echo -e "Verificando as configurações do ProFTPD, pressione <Enter>"
 					 read
 					 echo
@@ -213,20 +258,20 @@ then
 					 echo -e "Criando o usuário Wordpress com pasta base no sistema de ERP e Grupo www-data"
 					 #Criando o usuário que será utilizado para acessar o FTP no servidor, utilizando o comando useradd
 					 useradd -d /arquivos/pti.intra/sistema/erp -s /bin/bash -M wordpress -G www-data &>> $LOG
-					 echo
 					 echo -e "Usuário criando com sucesso!!!, continuando o script"
+					 sleep 2
 					 echo
+					 
 					 echo -e "Setando a senha para o usuário: wordpress - senha padrão: wordpress"
 					 #Setando a senha padrão para o usuário wordpress com o comando passwd
 					 echo -e "wordpress\nwordpress" | passwd wordpress &>> $LOG
-					 echo
 					 echo -e "Senha setada com sucesso!!!, pressione <Enter> para continuar com o script"
 					 read
 					 sleep 2
 					 clear
 
 					 echo -e "Fim do Script-18.sh em: `date`" >> $LOG
-					 echo -e "                 Instalação e Configuração do Sistema de ERP"
+					 echo -e "         Finalização da instalação e Configuração do Sistema de ERP"
 					 echo -e "================================================================================="
 					 echo
 					 # Script para calcular o tempo gasto para a execução do script-18.sh
