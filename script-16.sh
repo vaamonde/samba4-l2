@@ -58,7 +58,7 @@ then
 					 #Editando o arquivo de grupos globais
 					 vim $GRUPOGLOBAL
 					 
-					 echo -e "Arquivo editado com sucesso, pressione <Enter> para continuar com o script"
+					 echo -e "Arquivo editado com sucesso!!!, pressione <Enter> para continuar com o script"
 					 read
 					 sleep 2
 					 clear
@@ -70,7 +70,7 @@ then
 					 #Editando o arquivo de grupos domínio local
 					 vim $GRUPOLOCAL
 					 
-					 echo -e "Arquivo editado com sucesso, pressione <Enter> para continuar com o script"
+					 echo -e "Arquivo editado com sucesso!!!, pressione <Enter> para continuar com o script"
 					 read
 					 sleep 2
 					 clear
@@ -82,7 +82,7 @@ then
 					 #Editando o arquivo de membro de grupos globais e domínio local
 					 vim $MEMBERS
 					 
-					 echo -e "Arquivo editado com sucesso, pressione <Enter> para continuar com o script"
+					 echo -e "Arquivo editado com sucesso!!!, pressione <Enter> para continuar com o script"
 					 read
 					 sleep 2
 					 clear					 
@@ -176,7 +176,7 @@ then
 					 clear
 
 					 echo -e "Fim do Script-16.sh em: `date`" >> $LOG
-					 echo -e "                        Criação da estrutura de Grupos"
+					 echo -e "                  Finalização da riação da estrutura de Grupos"
 					 echo -e "================================================================================="
 					 echo
 					 # Script para calcular o tempo gasto para a execução do script-16.sh
