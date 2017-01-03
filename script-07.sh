@@ -122,7 +122,8 @@ then
 					 echo -e "=================================================================================" >> $LOG
 					 
 
-					 echo -e "Atualizando os Registros de DNS para o servidor: `hostname`, pressione <Enter> para executar a atualização"
+					 echo -e "Atualizando os Registros de DNS para o servidor: `hostname`"
+					 echo -e "Pressione <Enter> para executar a atualização"
 					 read
 					 #Atualizando todos os registros do DNS no SAMBA-4 utilizando o script samba_dnsupdate
 					 samba_dnsupdate --use-file=/var/lib/samba/private/dns.keytab --verbose --all-names &>> $LOG
