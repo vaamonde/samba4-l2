@@ -136,7 +136,7 @@ then
 					 echo -e "Pressione <Enter> para editar o arquivo"
 					 read
 					 
-					 echo -e "Atualizando o arquivo sambadnsupdate""
+					 echo -e "Atualizando o arquivo sambadnsupdate"
 					 #Copiando o arquivo de agendamento do sambadnsupdate
 					 cp -v conf/sambadnsupdate /etc/cron.d/ >> $LOG
 					 echo -e "Arquivo atualizado com sucesso!!!"
