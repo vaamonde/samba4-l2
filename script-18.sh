@@ -74,21 +74,42 @@ then
 					 echo -e "Tamanho do arquivo: $TAMANHO, pressione <Enter> para continuar"
 					 read
 					 echo
+					 
+					 echo -e "Fazendo o download do: $WORDPRESS aguarde..."
 					 #Fazendo o download do arquivo do Wordpress
 					 wget $WORDPRESS &>> $LOG
 					 echo -e "Download feito com sucesso!!!"
+					 sleep 2
+					 echo
+					 
+					 echo -e "Descompactando o arquivo latest.zip"
 					 #Descompactando o arquivo do Wordpress
 				     	 unzip latest.zip &>> $LOG
+					 echo -e "Descompactação feita com sucesso!!!"
+					 sleep 2
+					 echo
+					 
+					 echo -e "Copiando os arquivo do Wordpress para a pasta de sistema/erp"
 					 #Movendo o contéudo da pasta do wordpress para o diretório erp
 					 mv -v wordpress/ /arquivos/pti.intra/sistema/erp &>> $LOG
 					 #Copiando o arquivo htaccess customizado
 					 cp -v conf/htaccess /arquivos/pti.intra/sistema/erp/.htaccess &>> $LOG
 					 #Copiando o arquivo de configuração wp-config.php
 					 cp -v conf/wp-config.php /arquivos/pti.intra/sistema/erp/ &>> $LOG
+					 echo -e "Arquivos copiados com sucesso!!!"
+					 sleep 2
+					 echo
+					 
+					 echo -e "Alterando as permissões dos arquivos da pasta sistema/erp"
 					 #Alterando as permissões de dono, grupo e outros recursivo no diretório erp
 					 chmod -Rfv 755 /arquivos/pti.intra/sistema/erp &>> $LOG
 					 #Alterando o dono é o grupo recursivo no diretório erp
 					 chown -Rfv www-data.www-data /arquivos/pti.intra/sistema/erp &>> $LOG
+					 echo -e "Permissões alteradas com sucesso!!!"
+					 sleep 2
+					 echo
+					 
+					 echo -e ""
 					 #Removendo o arquivo de download zipado do Wordpress
 					 rm -v latest.zip >> $LOG
 					 echo
