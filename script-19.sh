@@ -50,14 +50,26 @@ then
 					 echo
 					 
 					 echo -e "Configurando o SAMBA-4, editando o arquivo: smb.conf"
-					 echo -e "Pressione <Enter> para editra o arquvivo"
+					 echo -e "Pressione <Enter> para editar o arquvivo"
 					 read
+					 
+					 echo -e "Fazendo o backup do arquivo smb.conf"
 					 #Fazendo backup do arquivo de configuração do smb.conf
 					 cp -v /etc/samba/smb.conf /etc/samba/smb.conf.bkp >> $LOG
+					 echo -e "Backup feito com sucesso!!!"
+					 sleep 2
+					 echo
+					 
+					 echo -e "Atualizando o arquivo smb.conf"
 					 #Copiando o arquivo de configuranção do smb.conf
 					 cp -v conf/smb.conf /etc/samba/smb.conf >> $LOG
+					 echo -e "Arquivo atualizado com sucesso!!!"
+					 sleep 2
+					 echo
+					 
 					 #Editando o arquivo de configuração smb.conf
 					 vim /etc/samba/smb.conf
+					 
 					 echo -e "Arquivo editado com sucesso!!!, pressione <Enter> para continuar com o script"
 					 read
 					 sleep 2
