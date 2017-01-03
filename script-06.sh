@@ -146,7 +146,7 @@ then
 					 sleep 2
 					 echo
 					 
-					 echo -e "Promovendo o controlador de domínio do SAMBA-4
+					 echo -e "Promovendo o controlador de domínio do SAMBA-4"
 					 #Iniciando o processo de promoção do servidor utilizando o comando samba-tool domain provision
 					 samba-tool domain provision --realm=$REALM --domain=$DOMAIN --server-role=$ROLE --dns-backend=$DNS --adminpass=$PASSWORD --function-level=$LEVEL --site=$SITE --host-ip=$IP --option="interfaces = lo eth0" --option="bind interfaces only = yes" --option="allow dns updates = nonsecure and secure" --option="dns forwarder = 192.168.1.10" --option="winbind use default domain = yes" --option="winbind enum users  = yes" --option="winbind enum groups = yes" --option="winbind refresh tickets = yes" --option="server signing = auto" --option="vfs objects = acl_xattr" --option="map acl inherit = yes" --option="store dos attributes = yes" --option="client use spnego = no" --option="use spnego = no" --option="client use spnego principal = no" --use-rfc2307 --use-xattrs=yes &>> $LOG
 					 echo -e "Promoção do Servidor SAMBA-4 feita com Sucesso!!!"
