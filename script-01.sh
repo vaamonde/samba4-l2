@@ -142,8 +142,10 @@ then
 					 clear
 					 echo ============================================================ >> $LOG
 					
-					 echo -e "Configurando o Serviço do NTP"
+					 echo -e "Configurando o Serviço do NTP, pressione <Enter> para continuar"
 					 echo
+					 read
+					 
 					 echo -e "Fazendo o Backup do arquivo ntp.conf"
 					 #Fazendo o backup do arquivos de configuração do NTP Server
 					 mv -v /etc/ntp.conf /etc/ntp.conf.old >> $LOG
@@ -164,9 +166,13 @@ then
 					 #Copiando o arquivo de configuração do NTP Server
 					 cp -v conf/ntp.conf /etc/ntp.conf >> $LOG
 					 echo -e "Arquivo atualizado com sucesso!!!"
+					 sleep 2
+					 echo
 					 
+					 echo -e "Parando o serviço do ntp server"
 					 #Parando o serviço do NTP Server para fazer a sua configuração
 					 sudo service ntp stop
+					 echo -e "Serviço parado com sucesso!!!"
 					 sleep 2
 					 echo 
 					 
@@ -175,24 +181,30 @@ then
 					 read
 					 #Editando o arquivo ntp.conf
 					 vim /etc/ntp.conf
-					 echo -e "Arquivo ntp.conf editado com sucesso!!!"
-					 sleep 2
 					 echo
+					 echo -e "Arquivo ntp.conf editado com sucesso!!!, pressione <Enter> para continuar"
+					 read
+					 sleep 2
+					 clear
 					 
 					 echo -e "Atualizando Data/Hora do Servidor utilizando ntpdate"
+					 echo
 					 #Atualizando data/hora do servidor NTP.br
 					 #d=debug, q=query, u=unprivileged, v=verbose
 					 ntpdate -dquv $NTP
 					 #Iniciando o serviço do NTP Server
 					 sudo service ntp start
+					 echo
 					 echo -e "Data/Hora atualizada com sucesso!!!"
 					 sleep 2
 					 echo
 					 
 					 echo -e "Verificação dos servidores NTP"
+					 echo
 					 #Verificando as informações de Servidores NTP e seu sincronismo
 					 #p=print, n=all andress
 					 ntpq -pn
+					 echo
 					 echo -e "Verificação feita com sucesso!!!"
 					 sleep 2
 					 echo
@@ -200,6 +212,8 @@ then
 					 echo -e "Data/Hora do Hardware do servidor"
 					 #Verificando data/hora de hardware (BIOS)
 					 hwclock
+					 sleep 2
+					 
 					 echo
 					 echo -e "Data/Hora do Sistema Operacional do servidor"
 					 #Verificando data/hora de sistema operacional
@@ -242,6 +256,7 @@ then
 					 
 					 #Editando o arquivo fstab
 					 vim /etc/fstab
+					 
 					 echo -e "FSTAB atualizado com sucesso!!!, pressione <Enter> para continuar com o script"
 					 read
 					 sleep 2
