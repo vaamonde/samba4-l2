@@ -88,9 +88,9 @@ then
 					 #
 					 echo -e "Usuário é `whoami`, continuando a executar o Script-06.sh"
 					 echo
-					 echo -e "Promovendo o SAMBA4 como Controlador de Domínio"
+					 echo -e "Promovendo o SAMBA-4 como Controlador de Domínio"
 					 echo
-					 echo -e "Configurando o SAMBA4 integrado com o BIND9-DNS-SERVER e ISC-DHCP-SERVER"
+					 echo -e "Configurando o SAMBA-4 integrado com o BIND9-DNS-SERVER e ISC-DHCP-SERVER"
 					 echo
 					 echo -e "Nível Funcional do SAMBA-4 como Windows Server 2008 R2"
 					 echo
@@ -300,7 +300,7 @@ then
 					 echo
 					 
 					 #Editando o arquivo de configuração usr.sbi.named
-					 vim /etc/apparmor.d/local/usr.sbin.named +16
+					 vim /etc/apparmor.d/local/usr.sbin.named
 					 echo
 					 
 					 echo -e "Alterando as permissões do arquivo dns.keytab e named.conf"
@@ -387,6 +387,12 @@ then
 					 echo 
 					 read
 					 
+					 echo -e "Fazendo o backup do arquivo named.conf"
+					 cp -v /var/lib/samba/private/named.conf /var/lib/samba/private/named.conf.old &>> $LOG
+					 echo -e "Backup feito com sucesso!!!"
+					 sleep 2
+					 echo
+					 
 					 #Editando o arquivo de configurando do SAMBA-4 named.conf
 					 vim /var/lib/samba/private/named.conf +20
 
@@ -408,6 +414,7 @@ then
 						TEMPO=`date -d @$RESULTADO +%H:%M:%S`
 					 echo -e "Tempo gasto para execução do script-06.sh: $TEMPO"
 					 echo -e "Pressione <Enter> para concluir o processo e reiniciar o servidor."
+					 sleep 3
 					 read
 					 reboot
 					 else
