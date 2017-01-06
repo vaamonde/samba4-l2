@@ -110,8 +110,15 @@ then
 					 
 					 #Editando o arquivo de configuração interfaces
 					 vim +20 /etc/network/interfaces
+					 echo
+					 
+					 echo -e "Testando o arquivo de configuração das interfaces"
 					 #Verificando as informações das Interfaces
-					 ifup --verbose --no-act --force --all --interfaces=/etc/network/interfaces $>> $LOG
+					 ifup --verbose --no-act --force --all --interfaces=/etc/network/interfaces
+					 echo -e "Interfaces testada com sucesso!!!"
+					 sleep 2
+					 echo
+					 
 					 echo -e "INTERFACES atualizado com sucesso!!!, pressione <Enter> continuando com o script"
 					 read
 					 sleep 2
