@@ -232,7 +232,7 @@ then
 					 read
 					 #Editando o arquivo de agendamento de atualização da base de dados do ClamAV
 					 vim /etc/cron.d/freshclam +15
-					 echo -e "FRESHCLAM atualizado com sucesso!!!, pressione <Enter> para continuando com o script"
+					 echo -e "FRESHCLAM atualizado com sucesso!!!, pressione <Enter> para continuar com o script"
 					 read
 					 sleep 2
 					 clear
@@ -259,33 +259,59 @@ then
 					 
 					 #Editando o arquivo de agendamento do ClamAV Não Oficial
 					 vim /etc/cron.d/clamav-uno* +27
-					 echo -e "CLAMAV-UNOFFICIAL-SIGS atualizado com sucesso!!!, pressione <Enter> para continuando com o script"
+					 echo -e "CLAMAV-UNOFFICIAL-SIGS atualizado com sucesso!!!, pressione <Enter> para continuar com o script"
 					 read
 					 sleep 3
 					 clear
 					 
-					 echo -e "Testando o Anti-Vírus ClamAV, utilizar o site: www.eicar.org"
+					 echo -e "Testando o Anti-Vírus ClamAV, utilizando o site: www.eicar.org"
+					 echo
 					 echo -e "Baixando arquivos *.com e *.zip com o vírus: Eicar-Test-Signature"
+					 echo
 					 echo -e "Movendo o conteúdo infectado para a quarentena em: /backup/quarentena"
 					 echo
+					 
+					 echo -e "Fazendo o download do arquivo eicar.com"
 					 #Fazendo o download do arquivo eicar.com e armazenando no diretório /arquivos
 					 wget -c -P /arquivos http://www.eicar.org/download/eicar.com &>> $LOG
+					 echo -e "Download feito com sucesso!!!"
+					 sleep 2
+					 echo
+					 
+					 echo -e "Fazendo o download do arquivo eicar_com.txt"
 					 #Fazendo o download do arquivo eicar_com.txt e armazenando no diretório /arquivos
 					 wget -c -P /arquivos http://www.eicar.org/download/eicar_com.txt &>> $LOG
+					 echo -e "Download feito com sucesso!!!"
+					 sleep 2
+					 echo
+					 
+					 echo -e "Copiando o arquivo eicar.com para diretório /arquivos alterando sua extensão para .bat"
 					 #Copiando o arquivo eicar.com e criando um arquivo com extensão .bat
 					 cp -v /arquivos/eicar.com /arquivos/eicar.bat &>> $LOG
+					 echo -e "Arquivo copiado com sucesso!!!"
+					 sleep 2
+					 echo
+					 
+					 echo -e "Zipando o arquivo eicar.com"
 					 #Zipando o arquivo eicar.bat
 					 bzip2 -v /arquivos/eicar.bat &>> $LOG
+					 echo -e "Arquivo zipado com sucesso!!!"
+					 sleep 2
 					 echo
+					 
 					 echo -e "Executando a verificação de vírus no diretório /arquivos"
 					 echo
 					 #Executando a varredurar de vírus no diretório /arquivos, caso encontre vírus, mover para o diretório /backup/quarentena
 					 clamscan -r -i -v /arquivos --move=/backup/quarentena
+					 sleep 2
 					 echo
+					 
 					 echo -e "Listando o contéudo do diretório /backup/quarentena"
 					 #Listando o contéudo do diretório /backup/quarentena
 					 ls -lha /backup/quarentena
+					 sleep 3
 					 echo
+					 
 					 echo -e "Teste de análise vírus realizada com sucesso!!!, pressione <Enter> para continuar o script"
 					 read
 					 sleep 2
@@ -297,12 +323,16 @@ then
 					 echo
 					 #Verificando o diretório quarentena e removendo os vírus
 					 clamscan -r -i -v /backup/quarentena --remove
+					 sleep 3
 					 echo
+					 
 					 echo -e "Listando o contéudo do diretório /backup/quarentena"
 					 echo
 					 #Listando o conteúdo do diretório /backup/quarentena
 					 ls -lha /backup/quarentena
+					 sleep 2
 					 echo
+					 
 					 echo -e "Remoção do vírus realizada com sucesso!!!, pressione <Enter> para continuar o script"
 					 read
 					 sleep 2
@@ -382,7 +412,7 @@ then
 					 
 					 #Editando o arquivo de configuração do nsswitch.conf
 					 vim /etc/nsswitch.conf
-					 echo -e "NSSWITCH.CONF atualizado com sucesso!!!, Pressione <Enter> continuando com o script"
+					 echo -e "NSSWITCH.CONF atualizado com sucesso!!!, Pressione <Enter> continuar com o script"
 					 read
 					 sleep 2
 					 clear
@@ -414,7 +444,7 @@ then
 					 
 					 #Editando o arquivo de configuração do hostname
 					 vim /etc/hostname +13
-					 echo -e "HOSTNAME atualizado com sucesso!!!, Pressione <Enter> continuando com o script"
+					 echo -e "HOSTNAME atualizado com sucesso!!!, Pressione <Enter> continuar com o script"
 					 read
 					 sleep 2
 					 clear
@@ -448,7 +478,7 @@ then
 					 
 					 #Editando o arquivo de configuração do hosts
 					 vim /etc/hosts +14
-					 echo -e "HOSTS atualizado com sucesso!!!, Pressione <Enter> continuando com o script"
+					 echo -e "HOSTS atualizado com sucesso!!!, Pressione <Enter> continuar com o script"
 					 read
 					 sleep 2
 					 clear
@@ -506,7 +536,7 @@ then
 					 sleep 2
 					 echo
 					 
-					 echo -e "GRUB atualizado com sucesso!!!, Pressione <Enter> continuando com o script"
+					 echo -e "GRUB atualizado com sucesso!!!, Pressione <Enter> continuar com o script"
 					 read
 					 sleep 2
 					 clear
@@ -547,13 +577,13 @@ then
 					 sleep 2
 					 echo
 					 
-					 echo -e "CUPSD.CONF atualizado com sucesso!!!, Pressione <Enter> continuando com o script"
+					 echo -e "CUPSD.CONF atualizado com sucesso!!!, Pressione <Enter> para continuar com o script"
 					 read
 					 sleep 2
 					 clear
 					 echo ============================================================ >> $LOG
 					 
-					 echo -e "Atualizando é editando arquivo CUPS-PDF.CONF, pressione <Enter> para continuar"
+					 echo -e "Atualizando é editando arquivo CUPS-PDF.CONF, pressione <Enter> para continuar com o script"
 					 read
 					 sleep 2
 					 
@@ -584,7 +614,7 @@ then
 					 sleep 2
 					 echo
 					 
-					 echo -e "Arquivos atualizandos com sucesso!!! pressione <Enter> para continuar"
+					 echo -e "Arquivos atualizandos com sucesso!!! pressione <Enter> para continuar com o script"
 					 read
 					 sleep 2
 					 clear
@@ -622,7 +652,7 @@ then
 					 sleep 2
 					 echo
 					 
-					 echo -e "Arquivos atualizandos com sucesso!!! pressione <Enter> para continuar"
+					 echo -e "Arquivos atualizandos com sucesso!!! pressione <Enter> para continuar com o script"
 					 read
 					 sleep 2
 					 clear
