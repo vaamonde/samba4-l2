@@ -194,32 +194,31 @@ then
 					 echo -e "Pressione <Enter> para continuar"
 					 read
 					 sleep 2
-					 clear
 					 
 					 echo -e "Fazendo o backup do arquivo apache2.conf"
 					 #Fazendo o backup do Apache2.conf
-					 cp -v /etc/apache2/apache2.conf /etc/apache2/apache2.conf.old >> $LOG
+					 cp -v /etc/apache2/apache2.conf /etc/apache2/apache2.conf.old &>> $LOG
 					 echo -e "Backup feito com sucesso!!!"
 					 sleep 2
 					 echo
 					 
 					 echo -e "Atualizando o arquivo apache2.conf"
 					 #Atualizando o arquivo do Apache2.conf customizado
-					 cp -v conf/apache2.conf /etc/apache2/apache2.conf
+					 cp -v conf/apache2.conf /etc/apache2/apache2.conf &>> $LOG
 					 echo -e "Arquivo atualizado com sucesso!!!"
 					 sleep 2
 					 echo
 					 
 					 echo -e "Fazendo o backup do arquivo 000-default.conf"
 					 #Fazendo o backup do 000-default.conf
-					 cp -v /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/000-default.conf.old >> $LOG
+					 cp -v /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/000-default.conf.old &>> $LOG
 					 echo -e "Backup feito com sucesso!!!"
 					 sleep 2
 					 echo
 					 
 					 echo -e "Atualizando o arquivo 000-default.conf"
 					 #Atualizando o arquivo 00-default.conf
-					 cp -v conf/000-default.conf /etc/apache2/sites-available/000-default.conf >> $LOG
+					 cp -v conf/000-default.conf /etc/apache2/sites-available/000-default.conf &>> $LOG
 					 echo -e "Arquivo atualizado com sucesso!!!"
 					 sleep 2
 					 echo
@@ -269,11 +268,7 @@ then
 					 
 					 #Editando o arquivo php.ini
 					 vim /etc/php/7.0/apache2/php.ini
-					 
-					 echo -e "Arquivo editado com sucesso!!!, pressione <Enter> para continuar"
-					 read
-					 sleep 2
-					 clear
+					 echo
 
 					 echo -e "Reinicializando o serviço do Apache2"
 					 #Reinicializando o serviço do Apache2 Server
@@ -282,23 +277,30 @@ then
 					 sleep 2
 					 echo
 					 
-					 echo ============================================================ >> $LOG
+					 echo -e "Arquivo editado com sucesso!!!, pressione <Enter> para continuar"
+					 read
+					 sleep 2
+					 clear
+					 
+					 echo ============================================================ &>> $LOG
 					 echo -e "Permitir acesso remoto ao MySQL Server"
+					 echo
 					 echo -e "Comente a linha: bind-address 127.0.0.1"
+					 echo
 					 echo -e "Pressione <Enter> para editar o arquivo"
 					 read
 					 echo
 					 
 					 echo -e "Fazendo o backup do arquivo mysqld.cnf"
 					 #Fazendo o backup do arquivo mysqld.conf
-					 mv -v /etc/mysql/mysql.conf.d/mysqld.cnf /etc/mysql/mysql.conf.d/mysqld.cnf.old
+					 mv -v /etc/mysql/mysql.conf.d/mysqld.cnf /etc/mysql/mysql.conf.d/mysqld.cnf.old &>> $LOG
 					 echo -e "Backup feito com sucesso!!!"
 					 sleep 2
 					 echo
 					 
 					 echo -e "Atualizando o arquivo do mysqld.cnf"
 					 #Atualizando o arquivo das configuração do mysqld.cnf customizado
-					 cp -v conf/mysqld.cnf /etc/mysql/mysql.conf.d/mysqld.cnf
+					 cp -v conf/mysqld.cnf /etc/mysql/mysql.conf.d/mysqld.cnf &>> $LOG
 					 echo -e "Arquivo atualizado com sucesso!!!"
 					 sleep 2
 					 echo
@@ -317,8 +319,10 @@ then
 					 echo
 					 
 					 echo -e "Testando as configurações do MySQLD"
+					 echo
 					 #Verificando as configurações do servidor de MySQL
-					 mysqld --help --verbose | grep /etc &>> $LOG
+					 mysqld --help --verbose | grep /etc 
+					 echo
 					 echo -e "Arquivo testado com sucesso!!!"
 					 sleep 2
 					 echo
