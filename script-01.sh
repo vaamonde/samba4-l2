@@ -229,7 +229,7 @@ then
 
 					 echo -e "Editando o arquivo /etc/fstab para acrescentar as informações de ACL e XATTR"
 					 echo
-					 echo -e "Informações de ACL e XATTR na Raiz e no diretório Var"
+					 echo -e "Informações de ACL e XATTR na Raiz, Var e no diretório Arquivos"
 					 echo 
 					 echo -e "Linhas a serem editadas no arquivo /etc/fstab" 
 					 #Listando a linha 8
