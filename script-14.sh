@@ -182,14 +182,14 @@ then
 					 sleep 2
 					 echo
 
-						 echo -e "Diretório rsync em: $BACKUP/$DIRBASE"
+						 echo -e "Diretório rsync em: $BACKUP/$DIRBASE/rsync"
 						 #Criação da pasta utilizada pelo rsync para fazer o sincronismo dos arquivos de backup
 						 mkdir -v $BACKUP/$DIRBASE/rsync >> $LOG
 						 echo -e "Diretório criado com sucesso"
 						 sleep 2
 					 	 echo
 
-						 echo -e "Diretório bkp em: $BACKUP/$DIRBASE"
+						 echo -e "Diretório bkp em: $BACKUP/$DIRBASE/bkp"
 						 #Criação da pasta utilizada pelo Backupninja para fazer o  backup dos arquivos
 						 mkdir -v $BACKUP/$DIRBASE/bkp >> $LOG
 						 echo -e "Diretório criado com sucesso"
