@@ -97,8 +97,12 @@ then
 					 echo -e "Instalando o Webmin, aguarde..."
 					 #Instalando o webmin utilizando o comando dpkg
 					 dpkg -i $VERSAO &>> $LOG
+					 
+					 echo -e "Remoção do download do Webmin"
 					 #Removendo o arquivo de instalação do webmin
 					 rm -v $VERSAO &>> $LOG
+					 echo
+					 
 					 echo -e "Instalação do Webmin Feito com Sucesso!!!"
 					 echo 
 					 echo ============================================================ >> $LOG
