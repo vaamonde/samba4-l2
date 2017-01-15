@@ -39,6 +39,8 @@
 # Outro software que está sendo testado para essa utilização o Easy LDAP Manager
 # Site: https://www.ldap-account-manager.org/lamcms/
 #
+# Configurações do Apache2 e MySQL customizadas para Alto-Desempenho (Tuning)
+#
 # Utilizar o comando: sudo -i para executar o script
 #
 # Caminho para o Log do Script-04.sh
@@ -121,17 +123,19 @@ then
 					 echo -e "Variáveis configuradas com sucesso!!!"
 					 sleep 2
 					 echo
+					 
 					 #Mostrando as configuração do Debconf para o MySQL
 					 debconf-show mysql-server-5.7 >> $LOG
-					 echo  >> $LOG
-
+					 
+					 echo -e "Instalando o LAMP Server"
 					 #Instalando o LAMP-Server com as variáveis do MySQL
 					 apt-get -y install lamp-server^ perl python links2 &>> $LOG
 					 echo -e "Instalação do LAMP-SERVER Feito com Sucesso!!!"
 					 echo
+					 sleep 2
 					 echo ============================================================ >> $LOG
 
-					 echo -e "Instalando o ProFTPD"
+					 echo -e "Instalação do Servidor de ProFTPD"
 					 echo
 					 
 					 echo -e "Configurando as variáveis do ProFTPD para o apt-get"
@@ -143,11 +147,13 @@ then
 					 
 					 #Mostrando as configuração do Debconf para o ProFTPD
 					 debconf-show proftpd-basic >> $LOG
-					 echo  >> $LOG
+					 
+					 echo -e "Instalando o ProFTPD"
 					 #Instalando o ProFTPD Server
 					 apt-get -y install proftpd &>> $LOG
 					 echo -e "Instalação do ProFTPD Feito com Sucesso!!!"
 					 echo
+					 sleep 2
 					 echo ============================================================ >> $LOG
 
 					 echo -e "Instalando o PhpMyAdmin"
@@ -168,10 +174,13 @@ then
 					 
 					 #Mostrando as configuração do Debconf para o PhpMyAdmin
 					 debconf-show phpmyadmin >> $LOG
-					 echo  >> $LOG
+					 
+					 echo -e "Instalando o PhpMyAdmin"
 					 #Instalando o PhpMyAdmin
 					 apt-get -y install phpmyadmin php-mbstring php-gettext &>> $LOG
-					 echo  >> $LOG
+					 echo -e "Instalação do PhpMyAdmin feita com sucesso!!!"
+					 sleep 2
+					 echo
 					 					 
 					 echo -e "Atualizando as Dependências do PHP para o PhpMyAdmin"
 					 #Atualizando as dependências do PhpMyAdmin, ativando os recursos de módulos do PHP no Apache2
@@ -181,9 +190,6 @@ then
 					 sleep 2
 					 echo
 					 		 
-					 echo -e "Instalação do PhpMyAdmin Feito com Sucesso!!!"
-					 echo
-
 					 echo -e "Serviços instalando com sucesso!!!, pressione <Enter> para continuar com o script"
 					 read
 					 sleep 2
@@ -277,7 +283,7 @@ then
 					 sleep 2
 					 echo
 					 
-					 echo -e "Arquivo editado com sucesso!!!, pressione <Enter> para continuar"
+					 echo -e "APACHE2 configurado com sucesso!!!, pressione <Enter> para continuar"
 					 read
 					 sleep 2
 					 clear
@@ -310,7 +316,7 @@ then
 					 sleep 2
 					 echo
 					 
-					 echo -e "Permitindo o usuário Root se logar remoto no servidor de MySQL"
+					 echo -e "Permitindo o usuário Root se logar remotamente no servidor de MySQL"
 					 #Permitindo o usuário Root acessar o servidor do MySQL remoto
 					 #Alterando o Banco de Dados do MySQL
 					 mysql -u $USER -p$PASSWORD -e "$GRANTALL" mysql &>> $LOG
@@ -341,7 +347,9 @@ then
 					 echo ============================================================ >> $LOG
 
 					 echo -e "Testando o Apache2 Server é o suporte ao PHP"
+					 echo
 					 echo -e "Pressione <Enter> para abrir a página de teste"
+					 echo
 					 echo -e "Pressione Q para sair"
 					 read
 					 echo
@@ -356,10 +364,10 @@ then
 					 #Utilizando o navegador de modo texto links2 para testar a página em PHP
 					 links2 http://localhost/phpinfo.php
 					 echo
+					 
 					 echo -e "Teste do Apache e PHP feito com sucesso!!!, pressione <Enter> para continuar"
 					 read
 					 sleep 2
-					 echo >> $LOG
 					 echo ============================================================ >> $LOG
 
 					 echo -e "Fim do Script-04.sh em: `date`" >> $LOG
