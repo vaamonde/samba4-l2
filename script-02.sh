@@ -689,6 +689,70 @@ then
 					 clear
 					 echo ============================================================ >> $LOG
 					 
+					 echo -e "Atualizando é editando arquivo SNMP.CONF, pressione <Enter> para continuar com o script"
+					 read
+					 sleep 2
+					 
+					 echo -e "Fazendo o backup do arquivo snmp.conf"
+					 #Fazendo o backup do arquivo original
+					 mv -v /etc/cups/snmp.conf /etc/cups/snmp.conf.old >> $LOG
+					 echo -e "Backup feito com sucesso!!!"
+					 sleep 2
+					 echo
+					 
+					 echo -e "Atualizando o arquivo do snmp.conf"
+					 #Atualizando o arquivo
+					 cp -v conf/snmp.conf /etc/cups/snmp.conf >> $LOG
+					 echo -e "Arquivo atualizado com sucesso!!!"
+					 sleep 2
+					 echo
+					 
+					 echo -e "Editando o arquivo snmp.conf"
+					 #Editando o arquivo
+					 vim /etc/cups/snmp.conf
+					 echo
+					 echo -e "Arquivo editado com sucesso!!!"
+					 sleep 2
+					 echo
+					 			 
+					 echo -e "Arquivo atualizandos com sucesso!!! pressione <Enter> para continuar com o script"
+					 read
+					 sleep 2
+					 clear
+					 echo ============================================================ >> $LOG
+					 
+					 echo -e "Atualizando é editando arquivo CUPS-FILES.CONF, pressione <Enter> para continuar com o script"
+					 read
+					 sleep 2
+					 
+					 echo -e "Fazendo o backup do arquivo cups-files.conf"
+					 #Fazendo o backup do arquivo original
+					 mv -v /etc/cups/cups-files.conf /etc/cups/cups-files.conf.old >> $LOG
+					 echo -e "Backup feito com sucesso!!!"
+					 sleep 2
+					 echo
+					 
+					 echo -e "Atualizando o arquivo do snmp.conf"
+					 #Atualizando o arquivo
+					 cp -v conf/cups-files.conf /etc/cups/cups-files.conf >> $LOG
+					 echo -e "Arquivo atualizado com sucesso!!!"
+					 sleep 2
+					 echo
+					 
+					 echo -e "Editando o arquivo cups-files.conf"
+					 #Editando o arquivo
+					 vim /etc/cups/cups-files.conf
+					 echo
+					 echo -e "Arquivo editado com sucesso!!!"
+					 sleep 2
+					 echo
+					 			 
+					 echo -e "Arquivo atualizandos com sucesso!!! pressione <Enter> para continuar com o script"
+					 read
+					 sleep 2
+					 clear
+					 echo ============================================================ >> $LOG
+					 
 					 echo -e "Atualizando é editando arquivo USR.SBIN.CUPSD, pressione <Enter> para continuar"
 					 read
 					 sleep 2
