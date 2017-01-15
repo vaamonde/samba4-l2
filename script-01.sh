@@ -136,13 +136,14 @@ then
 					 echo
 					 echo ============================================================ >> $LOG
 					 
-					 echo -e "Instalação dos principais software feita com sucesso!!!, pressione <Enter> para continuar"
+					 echo -e "Instalação dos principais software de rede feita com sucesso!!!, pressione <Enter> para continuar"
 					 read
 					 sleep 2
 					 clear
 					 echo ============================================================ >> $LOG
 					
-					 echo -e "Configurando o Serviço do NTP, pressione <Enter> para continuar"
+					 echo -e "Configurando o Serviço do NTP"
+					 echo -e "Pressione <Enter> para continuar"
 					 echo
 					 read
 					 
@@ -179,10 +180,13 @@ then
 					 echo -e "Editando o arquivo /etc/ntp.conf para acescentar as informações de Servidores NTP"
 					 echo -e "Pressione <Enter> para editar o arquivo"
 					 read
+					 
 					 #Editando o arquivo ntp.conf
 					 vim /etc/ntp.conf
+					 
 					 echo
-					 echo -e "Arquivo ntp.conf editado com sucesso!!!, pressione <Enter> para continuar"
+					 echo -e "Arquivo ntp.conf editado com sucesso!!!"
+					 echo -e "Pressione <Enter> para continuar"
 					 read
 					 sleep 2
 					 clear
@@ -247,6 +251,7 @@ then
 					 echo -e "Pressione <Enter> para editar o arquivo"
 					 echo 
 					 read
+					 sleep 2
 					 
 					 echo -e "Fazendo o backup do arquivo fstab"
 					 #Fazendo o backup do arquivo fstab
@@ -254,8 +259,10 @@ then
 					 echo -e "Backup feito com sucesso!!!"
 					 sleep 2
 					 
+					 echo -e "Editando o arquivo fstab"
 					 #Editando o arquivo fstab
 					 vim /etc/fstab
+					 echo
 					 
 					 echo -e "FSTAB atualizado com sucesso!!!, pressione <Enter> para continuar com o script"
 					 read
@@ -263,7 +270,7 @@ then
 					 clear
 					 echo ============================================================ >> $LOG
 
-					 echo -e "Editando o arquivo /etc/krb5.conf para acrescentar as informações SAMBA4"
+					 echo -e "Editando o arquivo /etc/krb5.conf para acrescentar as informações SAMBA-4"
 					 echo
 					 echo -e "Linha a ser editada no arquivo /etc/krb5.conf" 
 					 echo -e "`cat -n /etc/krb5.conf | head -n2`"
@@ -272,6 +279,7 @@ then
 					 echo -e "Pressione <Enter> para editar o arquivo"
 					 echo 
 					 read
+					 sleep 2
 					 
 					 echo -e "Fazendo o Backup do arquivo krb5.conf"
 					 #Fazendo o backup do arquivo de confguração do Kerberos
@@ -290,6 +298,8 @@ then
 					 echo -e "Editando o arquivo krb5.conf"
 					 #Editando o arquivo de configuração do Kerberos
 					 vim /etc/krb5.conf
+					 echo
+					 
 					 echo -e "KRB5.CONF atualizado com sucesso!!!, pressione <Enter> para continuar com o script"
 					 read
 					 sleep 2
