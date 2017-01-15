@@ -17,6 +17,13 @@
 # Instalando o Webmin via dpkg
 # Porta padrão de acesso ao Webmin: https://SEU_ENDEREÇO_IP:10000
 #
+# Outras soluções de gerenciamento de servidor:
+#
+# Ajenti Server Admin Panel: http://ajenti.org/
+# ISPConfig Hosting Control Panel: http://www.ispconfig.org/
+# ZPanel | The free web hosting panel: http://www.zpanelcp.com/
+# Virtualmin: Open Source Web Hosting and Cloud Control Panels: https://www.virtualmin.com/
+#
 # Utilizar o comando: sudo -i para executar o script
 #
 # Caminho para o Log do Script-03.sh
