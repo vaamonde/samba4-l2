@@ -82,16 +82,17 @@ then
 					 # Exportação da variável de configuração
 					 FQDN=".pti.intra"
 					 #
+					 
 					 echo -e "Usuário é `whoami`, continuando a executar o Script-02.sh"
 					 echo
-					 echo -e "Instalação dos software: SAMBA4, DNS, CUPS, DHCP, WINBIND e QUOTA"
+					 echo -e "Instalação dos software: SAMBA-4, DNS, CUPS, DHCP, WINBIND e QUOTA"
 					 echo
-					 echo -e "SAMBA4 (Server Message Block) Serviço de Armazenamento e Gerenciamento de Arquivos e Usuários"
+					 echo -e "SAMBA-4 (Server Message Block) Serviço de Armazenamento e Gerenciamento de Arquivos e Usuários"
 					 echo -e "DNS (Domain Name System) Serviço de Domínio de Nomes"
 					 echo -e "CUPS (Common Unix Printing System) Serviços de Impressão"
 					 echo -e "Para testar o CUPS após a instalação acesse a URL: http://`hostname -I`:631"
 					 echo -e "DHCP (Dynamic Host Configuration Protocol) Configuração Dinâmica de Computadores"
-					 echo -e "WINBIND Integração SAMBA + Linux"
+					 echo -e "WINBIND Integração SAMBA-4 + Linux"
 					 echo -e "QUOTA Criação de Quotas de Discos"
 					 echo -e "CLAMAV Sistema de Anti-Vírus Open Source"
 					 echo -e "Configuração do FSTAB para suporte a Quota"
@@ -152,6 +153,7 @@ then
 					 echo -e "Caso o processo demora mais que o previsto, execute os comandos:"
 					 echo -e "ps -aux | grep freshclam"
 					 echo -e "kill ID_PROCESSO_FRESHCLAM"
+					 
 					 #Atualizando a base de dados de vírus do ClamAV, esse processo demora um pouco
 					 freshclam &>> $LOG
 					 echo
@@ -162,8 +164,11 @@ then
 					 echo
 					 echo -e "Para verificar o andamento do download, digite em outro terminal o comando:"
 					 echo -e "tail -f /var/log/script-02.log"
+					 echo
+					 echo -e "Caso o processo demora mais que o previsto, execute os comandos:"
 					 echo -e "ps -aux | grep clamav-unofficial"
 					 echo -e "kill ID_PROCESSO_CLAMAV-UNOFFICIAL"
+					 
 					 #Atualizando a base de dados de vírus do ClamAV não Ofícial, esse processo demora um pouco
 					 clamav-unofficial-sigs &>> $LOG
 					 echo
@@ -178,11 +183,11 @@ then
 					 #Iniciando o serviço do Freshclam que faz a atualização do ClamAV
 					 sudo service clamav-freshclam restart
 					 
-					 echo -e "Serviços reiniciados com sucesso!!!"
+					 echo -e "Serviços reinicializados com sucesso!!!"
 					 sleep 2
 					 echo 
 					 
-					 echo -e "Criando o diretório de quarentena"
+					 echo -e "Criando o diretório de quarentena e: /backup/quarentena"
 					 #Criando o diretório para armazenar os arquivos com vírus
 					 mkdir -v /backup/quarentena >> $LOG
 					 echo -e "Diretório de quarentena criado com sucesso!!!"
@@ -196,10 +201,14 @@ then
 					 echo ============================================================ >> $LOG
 					 
 					 echo -e "Agendamento do scaneamento do ClamAV no diretório /arquivos ás 22:30hs, todos os dias"
+					 echo
 					 echo -e "30 22  * * *    root     clamscan -r -i -v /arquivos --move=/backup/quarentena --log=/var/log/scan-arquivos.log"
 					 echo
+					 echo
 					 echo -e "Agendamento das atualizações do Freshclam ás 21:30hs, todos os dias"
+					 echo
 					 echo -e "30 21  * * *    root     freshclam"
+					 echo
 					 echo
 					 echo -e "Editando o arquivo /etc/cron.d/clamav para acrescentar informações de agendamento do ClamAV"
 					 echo -e "Pressione <Enter> para editar o arquivo"
@@ -220,8 +229,11 @@ then
 					 sleep 2
 					 echo 
 					 
+					 echo -e "Editando o arquivo clamav"
 					 #Editando o arquivo de agendamento de vírus do ClamAV
 					 vim /etc/cron.d/clamav +14
+					 echo
+					 
 					 echo -e "CLAMAV atualizado com sucesso!!!, pressione <Enter> para continuando com o script"
 					 read
 					 sleep 2
@@ -230,8 +242,12 @@ then
 					 echo -e "Editando o arquivo /etc/cron.d/freshclam para acrescentar informações de agendamento das atualizações"
 					 echo -e "Pressione <Enter> para editar o arquivo"
 					 read
+					 sleep 2
+					 
+					 echo -e "Editando o arquivo freshclam"
 					 #Editando o arquivo de agendamento de atualização da base de dados do ClamAV
 					 vim /etc/cron.d/freshclam +15
+					 echo
 					 echo -e "FRESHCLAM atualizado com sucesso!!!, pressione <Enter> para continuar com o script"
 					 read
 					 sleep 2
@@ -243,22 +259,25 @@ then
 					 read
 					 echo
 					 
-					 echo -e "Fazendo backup do arquivo de agendamento do clamav-unofficial-sigs para diretório do cron.d"
+					 echo -e "Fazendo backup do arquivo de agendamento do clamav-unofficial-sigs"
 					 #Fazendo o backup do arquivo de agendamento do ClamAV Não Oficial
 					 mv -v /etc/cron.d/clamav-unofficial-sigs /etc/cron.d/clamav-unofficial-sigs.old >> $LOG
 					 echo -e "Backup feito com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Copiando o arquivo de agendamento do clamav-unofficial-sigs para diretório do cron.d"
+					 echo -e "Atualizando o arquivo de agendamento do clamav-unofficial-sigs"
 					 #Copiando o arquivo de agendamento do ClamAV Não Oficial
 					 cp -v conf/clamav-unofficial-sigs /etc/cron.d/ >> $LOG
-					 echo -e "Copia feita com sucesso!!!"
+					 echo -e "Atualização feita com sucesso!!!"
 					 sleep 2
 					 echo
 					 
+					 echo -e "Editando o arquivo clamav-unofficial-sigs"
 					 #Editando o arquivo de agendamento do ClamAV Não Oficial
 					 vim /etc/cron.d/clamav-uno* +27
+					 echo
+					 
 					 echo -e "CLAMAV-UNOFFICIAL-SIGS atualizado com sucesso!!!, pressione <Enter> para continuar com o script"
 					 read
 					 sleep 3
@@ -266,10 +285,11 @@ then
 					 
 					 echo -e "Testando o Anti-Vírus ClamAV, utilizando o site: www.eicar.org"
 					 echo
-					 echo -e "Baixando arquivos *.com e *.zip com o vírus: Eicar-Test-Signature"
+					 echo -e "Baixando os arquivos *.com e *.zip com o vírus: Eicar-Test-Signature"
 					 echo
-					 echo -e "Movendo o conteúdo infectado para a quarentena em: /backup/quarentena"
+					 echo -e "Movendo o conteúdo infectado para o diretório de quarentena em: /backup/quarentena"
 					 echo
+					 sleep 2
 					 
 					 echo -e "Fazendo o download do arquivo eicar.com"
 					 #Fazendo o download do arquivo eicar.com e armazenando no diretório /arquivos
@@ -285,14 +305,14 @@ then
 					 sleep 2
 					 echo
 					 
-					 echo -e "Copiando o arquivo eicar.com para diretório /arquivos alterando sua extensão para .bat"
+					 echo -e "Copiando o arquivo eicar.com para diretório /arquivos e alterando sua extensão para .bat"
 					 #Copiando o arquivo eicar.com e criando um arquivo com extensão .bat
 					 cp -v /arquivos/eicar.com /arquivos/eicar.bat &>> $LOG
 					 echo -e "Arquivo copiado com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Zipando o arquivo eicar.com"
+					 echo -e "Zipando o arquivo eicar.bat"
 					 #Zipando o arquivo eicar.bat
 					 bzip2 -v /arquivos/eicar.bat &>> $LOG
 					 echo -e "Arquivo zipado com sucesso!!!"
@@ -303,12 +323,17 @@ then
 					 echo
 					 #Executando a varredurar de vírus no diretório /arquivos, caso encontre vírus, mover para o diretório /backup/quarentena
 					 clamscan -r -i -v /arquivos --move=/backup/quarentena
+					 echo
+					 echo -e "Verificação feita com sucesso!!!"
 					 sleep 2
 					 echo
+					 
 					 
 					 echo -e "Listando o contéudo do diretório /backup/quarentena"
 					 #Listando o contéudo do diretório /backup/quarentena
 					 ls -lha /backup/quarentena
+					 echo
+					 echo -e "Listagem feita com sucesso!!!"
 					 sleep 3
 					 echo
 					 
@@ -317,12 +342,16 @@ then
 					 sleep 2
 					 clear
 					 
-					 echo -e "Removendo o conteúdo infectado da quarentena em: /backup/quarentena"
+					 echo -e "Removendo o conteúdo infectado do diretório de quarentena em: /backup/quarentena"
 					 echo
 					 echo -e "Executanndo a remoção do vírus do diretório /backup/quarentena"
 					 echo
+					 
+					 echo -e "Verificando o diretório quarentena"
 					 #Verificando o diretório quarentena e removendo os vírus
 					 clamscan -r -i -v /backup/quarentena --remove
+					 echo
+					 echo -e "Verificação feita com sucesso!!!"
 					 sleep 3
 					 echo
 					 
@@ -330,6 +359,8 @@ then
 					 echo
 					 #Listando o conteúdo do diretório /backup/quarentena
 					 ls -lha /backup/quarentena
+					 echo
+					 echo -e "Listagem feita com sucesso!!!"
 					 sleep 2
 					 echo
 					 
@@ -340,6 +371,7 @@ then
 					 echo ============================================================ >> $LOG
 
 					 echo -e "Editando o arquivo /etc/fstab para acrescentar as informações de Quota"
+					 echo
 					 echo -e "Sistemas de arquivos BTRFS o sistema de Quota e diferente, deixar o padrão"
 					 echo
 					 echo -e "Linha a ser editada no arquivo /etc/fstab"
@@ -350,6 +382,7 @@ then
 					 echo -e "Pressione <Enter> para editar o arquivo"
 					 echo 
 					 read
+					 sleep 2
 					 
 					 echo -e "Fazendo o backup do arquivo fstab"
 					 cp -v /etc/fstab /etc/fstab.old.1 &>> $LOG
@@ -357,8 +390,11 @@ then
 					 sleep 2
 					 echo
 					 
+					 echo -e "Editando o arquivo fstab"
 					 #Editando o arquivo fstab
 					 vim /etc/fstab
+					 echo
+					 echo -e "Arquivo editado com sucesso!!!"
 					 sleep 2
 					 echo
 					 
@@ -369,10 +405,10 @@ then
 					 sleep 2
 					 echo
 					 
-					 echo -e "Habilitando os recursos de quota de disco no ponto de montagem /arquivos"
+					 echo -e "Habilitando o recurso de quota de disco no ponto de montagem /arquivos"
 					 #Habilitando o recurso de quota e criando os arquivos quota.user e quota.group
 					 quotacheck -ugcv /arquivos &>> $LOG
-					 echo -e "Quota habilitada com sucesso!!!"
+					 echo -e "Quota de Disco habilitada com sucesso!!!"
 					 sleep 2
 					 echo
 					 
@@ -388,6 +424,7 @@ then
 					 echo -e "`cat -n /etc/nsswitch.conf | head -n9 | tail -n3`"
 					 echo
 					 echo -e "Informações a serem acrescentadas depois de compact: winbind"
+					 echo
 					 echo -e "Linha a ser editada no arquivo /etc/nsswitch.conf"
 					 echo -e "`cat -n /etc/nsswitch.conf | head -n12 | tail -n1`"
 					 echo
@@ -395,6 +432,7 @@ then
 					 echo -e "Pressione <Enter> para editar o arquivo"
 					 echo 
 					 read
+					 sleep 2
 					 
 					 echo -e "Fazendo o backup do arquivo nsswitch.conf"
 					 #Fazendo o backup do arquivo de configuração do nsswitch.conf
@@ -410,8 +448,11 @@ then
 					 sleep 2
 					 echo
 					 
+					 echo -e "Editando o arquivo nsswitch.con"
 					 #Editando o arquivo de configuração do nsswitch.conf
 					 vim /etc/nsswitch.conf
+					 echo
+					 
 					 echo -e "NSSWITCH.CONF atualizado com sucesso!!!, Pressione <Enter> continuar com o script"
 					 read
 					 sleep 2
@@ -442,8 +483,11 @@ then
 					 sleep 2
 					 echo
 					 
+					 echo -e "Editando o arquivo hostname"
 					 #Editando o arquivo de configuração do hostname
 					 vim /etc/hostname +13
+					 echo
+					 
 					 echo -e "HOSTNAME atualizado com sucesso!!!, Pressione <Enter> continuar com o script"
 					 read
 					 sleep 2
@@ -476,8 +520,11 @@ then
 					 sleep 2
 					 echo
 					 
+					 echo -e "Editando o arquivo hosts"
 					 #Editando o arquivo de configuração do hosts
 					 vim /etc/hosts +14
+					 echo
+					 
 					 echo -e "HOSTS atualizado com sucesso!!!, Pressione <Enter> continuar com o script"
 					 read
 					 sleep 2
@@ -508,8 +555,11 @@ then
 					 sleep 2
 					 echo
 					 
+					 echo -e "Editando o arquivo grub"
 					 #Editando o arquivo de configuração do grub
 					 vim /etc/default/grub +24
+					 echo
+					 echo -e "Arquivo editado com sucesso!!!!"
 					 sleep 2
 					 echo
 					 
@@ -546,6 +596,7 @@ then
 					 echo -e "Pressione <Enter> para editar o arquivo"
 					 echo 
 					 read
+					 sleep 2
 					 
 					 echo -e "Fazendo o backup do arquivo do cupsd.conf"
 					 #Fazendo o backup do arquivo de configuração do cupsd.conf
@@ -561,20 +612,35 @@ then
 					 sleep 2
 					 echo
 					 
+					 echo -e "Editando o arquivo cupsd.conf"
 					 #Editando o arquivo de configuração do cupsd.conf
 					 vim /etc/cups/cupsd.conf
+					 echo
+					 echo -e "Arquivo editado com sucesso!!!"
+					 sleep 2
+					 echo
 					 
+					 echo -e "Verificando as informações de impressoras"
 					 #Verificando informações de impressoras
-					 lpinfo -vm >> $LOG
+					 lpinfo -vm
+					 echo
+					 echo -e "Verificação feita com sucesso!!!"
+					 sleep 3
+					 echo
+					 
+					 echo -e "Verificando o status das impressoras"
 					 #Verificando os status das impressoras
-					 lpstat -t >> $LOG
+					 lpstat -t
+					 echo
+					 echo -e "Verificação feita com sucesso!!!"
+					 sleep 3
 					 echo
 					 
 					 echo -e "Testando as configurações do arquivo: cupsd.conf"
 					 #Testando as configurações do arquivo cupsd.conf
 					 cupsd -t
 					 echo -e "Configurações testadas com sucesso!!!"
-					 sleep 2
+					 sleep 3
 					 echo
 					 
 					 echo -e "CUPSD.CONF atualizado com sucesso!!!, Pressione <Enter> para continuar com o script"
@@ -601,12 +667,15 @@ then
 					 sleep 2
 					 echo
 					 
+					 echo -e "Editando o arquivo cups-pdf.conf"
 					 #Editando o arquivo CUPS-PDF
 					 vim /etc/cups/cups-pdf.conf
+					 echo
+					 echo -e "Arquivo editado com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Reinicializando os serviços do CUPS"
+					 echo -e "Reinicializando os serviços do CUPS e CUPS-BROWSED"
 					 #Reinicializando os serviços do CUPS
 					 sudo service cups restart
 					 sudo service cups-browsed restart
@@ -638,8 +707,11 @@ then
 					 sleep 2
 					 echo
 					 
-					 #Editando o arquivo CUPS-PDF
+					 echo -e "Editando o arquivo usr.sbin.cupsd"
+					 #Editando o arquivo USR.SBIN.CUPSD
 					 vim /etc/apparmor.d/usr.sbin.cupsd +183
+					 echo
+					 echo -e "Arquivo editado com sucesso!!!"
 					 sleep 2
 					 echo
 					 
