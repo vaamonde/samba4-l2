@@ -288,7 +288,7 @@ Scripts de configuração do SAMBA-4 Level 2 para o projeto do Curso do AulaEAD.
 <td style="text-align: left;" valign="top" width="640">AULA BÔNUS – 07 – Ingressando Máquinas GNU/Linux Mint no Domínio</td>
 </tr>
 <tr>
-<td style="text-align: left;" valign="top" width="163">AULA 60</td>
+<td style="text-align: left;" valign="top" width="163">AULA 65</td>
 <td style="text-align: left;" valign="top" width="640">Questionário de Avaliação</td>
 </tr>
 </tbody>
