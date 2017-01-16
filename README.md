@@ -265,7 +265,27 @@ Scripts de configuração do SAMBA-4 Level 2 para o projeto do Curso do AulaEAD.
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 59</td>
-<td style="text-align: left;" valign="top" width="640">AULA BÔNUS – 02 – BÔNUS – Criação de GPO de Mapeamento de Rede</td>
+<td style="text-align: left;" valign="top" width="640">AULA BÔNUS – 02 – Criação de GPO de Mapeamento de Rede</td>
+</tr>
+<tr>
+<td style="text-align: left;" valign="top" width="163">AULA 60</td>
+<td style="text-align: left;" valign="top" width="640">AULA BÔNUS – 03 – Implementação do Firewall IPTables</td>
+</tr>
+<tr>
+<td style="text-align: left;" valign="top" width="163">AULA 61</td>
+<td style="text-align: left;" valign="top" width="640">AULA BÔNUS – 04 – Criação de GPO de Redirecionamento de Pastas</td>
+</tr>
+<tr>
+<td style="text-align: left;" valign="top" width="163">AULA 62</td>
+<td style="text-align: left;" valign="top" width="640">AULA BÔNUS – 05 – Habilitar o Recycle Bin do Active Directory</td>
+</tr>
+<tr>
+<td style="text-align: left;" valign="top" width="163">AULA 63</td>
+<td style="text-align: left;" valign="top" width="640">AULA BÔNUS – 06 – Ingressando Máquinas GNU/Linux Ubuntu no Domínio</td>
+</tr>
+<tr>
+<td style="text-align: left;" valign="top" width="163">AULA 64</td>
+<td style="text-align: left;" valign="top" width="640">AULA BÔNUS – 07 – Ingressando Máquinas GNU/Linux Mint no Domínio</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 60</td>
