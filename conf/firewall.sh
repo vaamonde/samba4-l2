@@ -95,7 +95,7 @@ echo "ON .................................................[ OK ]"
 #Bloquear ataque do tipo SYN-FLOOD
 echo "0" > /proc/sys/net/ipv4/tcp_syncookies
 $IPTABLES -N syn-flood
-$IPTABLES -A INPUT -i $WAN -p tcp --syn -j syn-flood
+$IPTABLES -A INPUT -i $LAN -p tcp --syn -j syn-flood
 $IPTABLES -A syn-flood -m limit --limit 1/s --limit-burst 4 -j RETURN
 $IPTABLES -A syn-flood -j DROP
 echo "ativado o bloqueio a tentativa de ataque do tipo SYN-FLOOD"
@@ -103,7 +103,7 @@ echo "ON .................................................[ OK ]"
 
 #Bloqueio de ataque ssh de força bruta
 $IPTABLES -N SSH-BRUT-FORCE
-$IPTABLES -A INPUT -i $WAN -p tcp --dport 22 -j SSH-BRUT-FORCE
+$IPTABLES -A INPUT -i $LAN -p tcp --dport 22 -j SSH-BRUT-FORCE
 $IPTABLES -A SSH-BRUT-FORCE -m limit --limit 1/s --limit-burst 4 -j RETURN
 $IPTABLES -A SSH-BRUT-FORCE -j DROP
 echo "ativado o bloqueio a tentativa de ataque do tipo SSH-BRUT-FORCE"
@@ -111,16 +111,16 @@ echo "ON .................................................[ OK ]"
 
 #Bloqueio de portas
 for i in `cat $PORTSBLO`; do
-	$IPTABLES -A INPUT -p tcp -i $WAN --dport $i -j DROP
-	$IPTABLES -A INPUT -p udp -i $WAN --dport $i -j DROP
+	$IPTABLES -A INPUT -p tcp -i $LAN --dport $i -j DROP
+	$IPTABLES -A INPUT -p udp -i $LAN --dport $i -j DROP
 	$IPTABLES -A FORWARD -p tcp --dport $i -j DROP
 done
 
 #Bloqueio Anti-Spoofings
-$IPTABLES -A INPUT -s 10.0.0.0/8 -i $WAN -j DROP
-$IPTABLES -A INPUT -s 127.0.0.0/8 -i $WAN -j DROP
-$IPTABLES -A INPUT -s 172.16.0.0/12 -i $WAN -j DROP
-$IPTABLES -A INPUT -s 192.168.1.0/16 -i $WAN -j DROP
+$IPTABLES -A INPUT -s 10.0.0.0/8 -i $LAN -j DROP
+$IPTABLES -A INPUT -s 127.0.0.0/8 -i $LAN -j DROP
+$IPTABLES -A INPUT -s 172.16.0.0/12 -i $LAN -j DROP
+$IPTABLES -A INPUT -s 192.168.1.0/16 -i $LAN -j DROP
 echo "ativado o bloqueio de tentativa de ataque do tipo Anti-spoofings"
 echo "ON .................................................[ OK ]"
 
