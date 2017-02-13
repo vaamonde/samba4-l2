@@ -732,7 +732,7 @@ then
 					 sleep 2
 					 echo
 					 
-					 echo -e "Atualizando o arquivo do snmp.conf"
+					 echo -e "Atualizando o arquivo do cups-files.conf"
 					 #Atualizando o arquivo
 					 cp -v conf/cups-files.conf /etc/cups/cups-files.conf >> $LOG
 					 echo -e "Arquivo atualizado com sucesso!!!"
