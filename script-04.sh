@@ -5,7 +5,7 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 31/05/2016
-# Data de atualização: 15/01/2017
+# Data de atualização: 13/03/2017
 # Versão: 0.8
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
@@ -38,6 +38,9 @@
 #
 # Outro software que está sendo testado para essa utilização o Easy LDAP Manager
 # Site: https://www.ldap-account-manager.org/lamcms/
+#
+# Software para alteração de Senhas via Web
+# Site: https://ltb-project.org/doku.php
 #
 # Configurações do Apache2 e MySQL customizadas para Alto-Desempenho (Tuning)
 #
