@@ -5,7 +5,7 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 31/05/2016
-# Data de atualização: 15/01/2017
+# Data de atualização: 13/03/2017
 # Versão: 0.8
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
@@ -45,8 +45,8 @@ then
 				then		
 					 clear
 					 # Versão do Webmin para ser feito download
-					 VERSAO="webmin_1.801_all.deb"
-					 TAMANHO="15.1 MB"
+					 VERSAO="webmin_1.831_all.deb"
+					 TAMANHO="14.8 MB"
 					 #
 					 echo -e "Usuário é `whoami`, continuando a executar o Script-03.sh"
 					 echo
