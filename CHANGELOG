@@ -9,7 +9,7 @@ Versão: 0.8
 Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 Kernel >= 4.4.x
 
-13/03/2017  - Criação do script-23.sh para configuração das regras de Firewall, atualização da versão do Webmin no script-04.sh . Robson Vaamonde
+13/03/2017  - Criação do script-23.sh para configuração das regras de Firewall, atualização da versão do Webmin agora com suporte ao Bootstrap e Monitoramento do servidor no script-04.sh . Robson Vaamonde
 
 15/01/2017  - Melhoria do script-02.sh, configurações do CUPS e impressoras. Robson Vaamonde
 
