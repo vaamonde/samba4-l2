@@ -75,9 +75,6 @@ PubkeyAuthentication yes
 # Especifica se a autenticação de senha é permitida. O padrão é yes.
 PasswordAuthentication no
 
-# Ativar a verificação do nome reverso
-VerifyReverseMapping yes
-
 # Evitar o uso de diretórios residenciais inseguros e permissões de arquivos de chaves
 StrictModes yes
 
