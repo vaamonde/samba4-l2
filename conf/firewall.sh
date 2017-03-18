@@ -5,7 +5,7 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 31/05/2016
-# Data de atualização: 28/12/2016
+# Data de atualização: 17/03/2017
 # Versão: 0.4
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
@@ -21,9 +21,9 @@ IPTABLES="/sbin/iptables"
 PROGRAMA="/etc/init.d/firewall.sh"
 
 #Portas liberadas e bloqueadas
-PORTSLIB="$FIREWALL/portslib"
+PORTSLIBTCP="$FIREWALL/portslibtcp"
+PORTSLIBUDP="$FIREWALL/portslibudp"
 PORTSBLO="$FIREWALL/portsblo"
-RANGEPORT="$FIREWALL/rangeport"
 
 #Interfaces de Rede
 LAN=eth1
@@ -49,7 +49,7 @@ $IPTABLES -X
 echo "limpeza das tabelas do iptables"
 echo "ON .................................................[ OK ]"
 
-#Zerando os contadores das cadeias
+#Zerando os contadores das cadeias ed regras
 $IPTABLES -t nat -Z
 $IPTABLES -t mangle -Z
 $IPTABLES -t filter -Z
@@ -58,7 +58,7 @@ echo "ON .................................................[ OK ]"
 
 #Setando as políticas padrão das tabelas do iptables
 $IPTABLES -P INPUT DROP
-$IPTABLES -P OUTPUT ACCEPT
+$IPTABLES -P OUTPUT DROP
 $IPTABLES -P FORWARD DROP
 echo "setando as políticas padrão das tabelas do iptables"
 echo "ON .................................................[ OK ]"
@@ -69,8 +69,8 @@ $IPTABLES -I OUTPUT -o lo -j ACCEPT
 echo "ativado o fluxo interno entre os processos"
 echo "ON .................................................[ OK ]"
 
-#Liberar as portas principais do servidor
-for i in `cat $PORTSLIB`; do
+#Liberar as portas TCP principais do servidor
+for i in `cat $PORTSLIBTCP`; do
 	$IPTABLES -A INPUT -p tcp --dport $i -j ACCEPT
 	$IPTABLES -A FORWARD -p tcp --dport $i -j ACCEPT
 	$IPTABLES -A OUTPUT -p tcp --sport $i -j ACCEPT
@@ -79,6 +79,18 @@ done
 	$IPTABLES -I INPUT -m state --state RELATED -j ACCEPT
 	$IPTABLES -I OUTPUT -p icmp -o $LAN -j ACCEPT
 	$IPTABLES -I INPUT -p icmp -j ACCEPT
+	
+#Liberar as portas UDP principais do servidor
+for i in `cat $PORTSLIBUDP`; do
+	$IPTABLES -A INPUT -p udp --dport $i -j ACCEPT
+	$IPTABLES -A FORWARD -p udp --dport $i -j ACCEPT
+	$IPTABLES -A OUTPUT -p udp --sport $i -j ACCEPT
+done
+	$IPTABLES -I INPUT -m state --state ESTABLISHED -j ACCEPT
+	$IPTABLES -I INPUT -m state --state RELATED -j ACCEPT
+	$IPTABLES -I OUTPUT -p icmp -o $LAN -j ACCEPT
+	$IPTABLES -I INPUT -p icmp -j ACCEPT	
+
 echo "ativado as portas abertas para estabelecer conexões"
 echo "ativado a liberação das portas principais do servidor $HOSTNAME"
 echo "ON .................................................[ OK ]"
