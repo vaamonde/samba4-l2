@@ -9,6 +9,7 @@
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
+# Verificando se o Servidor do SSHD tem suporte ao TCPWrappers: ldd /usr/sbin/sshd | grep libwrap
 # Negando o acesso a todas as rede para o acesso remoto no SSH
 # Logando as informações de acesso no arquivo de log: /var/log/tcpwrappers-deny-ssh.log
 #
