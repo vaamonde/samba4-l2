@@ -4,12 +4,12 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 31/05/2016
-# Data de atualização: 17/12/2016
+# Data de atualização: 24/03/2017
 # Versão: 0.4
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
-# Agendamento das atualização AWSTats - estáticas do Apache2, a cada 5 minutos, todos os dias
+# Agendamento das atualização AWSTats - estátisticas do Apache2, a cada 5 minutos, todos os dias
 */5 * * * * root root /usr/lib/cgi-bin/awstats.pl -config=pti.intra -update > /var/log/apache2/awstats.log
 
 #Fim do agendamento, obrigatório ter uma linha no final para a execução correta.
