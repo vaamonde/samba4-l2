@@ -5,7 +5,7 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 31/05/2016
-# Data de atualização: 17/03/2017
+# Data de atualização: 27/03/2017
 # Versão: 0.4
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
@@ -33,10 +33,9 @@ case "$1" in
 start)
 
 #Mensagem de inicialização
-echo "=========================================================|"
-echo "|:INICIANDO A CONFIGURAÇÃO DO FIREWALL NETFILTER ATRAVÉS:|"
-echo "|:                    DO IPTABLES                       :|"
-echo "=========================================================|"
+echo "=====================================================================|"
+echo "|:INICIANDO A CONFIGURAÇÃO DO FIREWALL NETFILTER ATRAVÉS DO IPTABLES:|"
+echo "=====================================================================|"
 
 #Limpando todas as regras das tabelas do iptables
 $IPTABLES -F
@@ -47,27 +46,27 @@ $IPTABLES -t mangle -F
 $IPTABLES -t nat -F
 $IPTABLES -X
 echo "limpeza das tabelas do iptables"
-echo "ON .................................................[ OK ]"
+echo "ON .............................................................[ OK ]"
 
 #Zerando os contadores das cadeias ed regras
 $IPTABLES -t nat -Z
 $IPTABLES -t mangle -Z
 $IPTABLES -t filter -Z
 echo "zerando os contadores das cadeiras"
-echo "ON .................................................[ OK ]"
+echo "ON .............................................................[ OK ]"
 
 #Setando as políticas padrão das tabelas do iptables
 $IPTABLES -P INPUT DROP
 $IPTABLES -P OUTPUT DROP
 $IPTABLES -P FORWARD DROP
 echo "setando as políticas padrão das tabelas do iptables"
-echo "ON .................................................[ OK ]"
+echo "ON .............................................................[ OK ]"
 
 #Habilitando o fluxo interno entre os processos
 $IPTABLES -I INPUT -i lo -j ACCEPT
 $IPTABLES -I OUTPUT -o lo -j ACCEPT
 echo "ativado o fluxo interno entre os processos"
-echo "ON .................................................[ OK ]"
+echo "ON .............................................................[ OK ]"
 
 #Liberar as portas TCP principais do servidor
 for i in `cat $PORTSLIBTCP`; do
@@ -93,7 +92,7 @@ done
 
 echo "ativado as portas abertas para estabelecer conexões"
 echo "ativado a liberação das portas principais do servidor $HOSTNAME"
-echo "ON .................................................[ OK ]"
+echo "ON ...........................................................[ OK ]"
 
 #Bloqueio ping da morte
 echo "0" > /proc/sys/net/ipv4/icmp_echo_ignore_all
@@ -102,7 +101,7 @@ $IPTABLES -A INPUT -p icmp --icmp-type echo-request -j PING-MORTE
 $IPTABLES -A PING-MORTE -m limit --limit 1/s --limit-burst 4 -j RETURN
 $IPTABLES -A PING-MORTE -j DROP
 echo "ativado o bloqueio a tentativa de ataque do tipo ping da morte"
-echo "ON .................................................[ OK ]"
+echo "ON ...........................................................[ OK ]"
 
 #Bloquear ataque do tipo SYN-FLOOD
 echo "0" > /proc/sys/net/ipv4/tcp_syncookies
@@ -111,7 +110,7 @@ $IPTABLES -A INPUT -i $LAN -p tcp --syn -j syn-flood
 $IPTABLES -A syn-flood -m limit --limit 1/s --limit-burst 4 -j RETURN
 $IPTABLES -A syn-flood -j DROP
 echo "ativado o bloqueio a tentativa de ataque do tipo SYN-FLOOD"
-echo "ON .................................................[ OK ]"
+echo "ON ..........................................................[ OK ]"
 
 #Bloqueio de ataque ssh de força bruta
 $IPTABLES -N SSH-BRUT-FORCE
@@ -119,7 +118,7 @@ $IPTABLES -A INPUT -i $LAN -p tcp --dport 22 -j SSH-BRUT-FORCE
 $IPTABLES -A SSH-BRUT-FORCE -m limit --limit 1/s --limit-burst 4 -j RETURN
 $IPTABLES -A SSH-BRUT-FORCE -j DROP
 echo "ativado o bloqueio a tentativa de ataque do tipo SSH-BRUT-FORCE"
-echo "ON .................................................[ OK ]"
+echo "ON ..........................................................[ OK ]"
 
 #Bloqueio de portas
 for i in `cat $PORTSBLO`; do
@@ -134,20 +133,20 @@ $IPTABLES -A INPUT -s 127.0.0.0/8 -i $LAN -j DROP
 $IPTABLES -A INPUT -s 172.16.0.0/12 -i $LAN -j DROP
 $IPTABLES -A INPUT -s 192.168.1.0/16 -i $LAN -j DROP
 echo "ativado o bloqueio de tentativa de ataque do tipo Anti-spoofings"
-echo "ON .................................................[ OK ]"
+echo "ON .........................................................[ OK ]"
 
 #Bloqueio de scanners ocultos (Shealt Scan)
 $IPTABLES -A FORWARD -p tcp --tcp-flags SYN,ACK, FIN,  -m limit --limit 1/s -j ACCEPT
 echo "bloqueado scanners ocultos"
-echo "ON .................................................[ OK ]"
+echo "ON .........................................................[ OK ]"
 
 echo
-echo "==========================================================|"
-echo "::TERMINADA A CONFIGURAÇÃO DO FIREWALL NETFILTER ATRAVÉS::|"
-echo "::                  DO IPTABLES                         ::|"
-echo "==========================================================|"
+echo "======================================================================|"
+echo "::TERMINADA A CONFIGURAÇÃO DO FIREWALL NETFILTER ATRAVÉS DO IPTABLES::|"
+echo "======================================================================|"
 echo "FIREWALL ATIVADO - SISTEMA PREPARADO"
 echo "SCRIPT DE FIREWALL CRIADO POR :-) MARCELO MAGNO :-)"
+echo "SCRIPT DE FIREWALL MODIFICADO POR: ROBSON VAAMONDE - Procedimentos em TI"
 ;;
 
 stop)
