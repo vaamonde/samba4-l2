@@ -49,13 +49,13 @@ then
 					 clear
 					 
 					 echo -e "Copiando o arquivo firewall.sh"
-					 cp -v conf/firewall.sh /etc/init.d/ >> $LOG
+					 cp -v conf/firewall /etc/init.d/ >> $LOG
 					 echo -e "Arquivo copiado com sucesso!!!"
 					 echo
 					 sleep 2
 					 
 					 echo -e "Alterando os permissões do arquivo firewall.sh"
-					 chmod -v +x /etc/init.d/firewall.sh >> $LOG
+					 chmod -v +x /etc/init.d/firewall >> $LOG
 					 echo -e "Permissões alteradas com sucesso!!!"
 					 echo
 					 sleep 2
@@ -98,6 +98,7 @@ then
 					 echo -e "Inicializando o Firewall"
 					 sudo service firewall.sh start
 					 echo -e "Firewall inicializado com sucesso!!!"
+					 sleep 2
 					 
 					 echo -e "Fim do Script-23.sh em: `date`" >> $LOG
 					 echo -e "                Finalização da Configuração da Regra de Firewall"
