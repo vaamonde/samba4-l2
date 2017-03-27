@@ -43,7 +43,61 @@ then
 					 echo -e "                     Configuração da Regra de Firewall"
 					 echo -e "================================================================================="
 					 echo
+					 echo -e "Pressione <Enter> para iniciar as configurações"
+					 read
+					 sleep 2
+					 clear
 					 
+					 echo -e "Copiando o arquivo firewall.sh"
+					 cp -v conf/firewall.sh /etc/init.d/ >> $LOG
+					 echo -e "Arquivo copiado com sucesso!!!"
+					 echo
+					 sleep 2
+					 
+					 echo -e "Alterando os permissões do arquivo firewall.sh"
+					 chmod -v +x /etc/init.d/firewall.sh >> $LOG
+					 echo -e "Permissões alteradas com sucesso!!!"
+					 echo
+					 sleep 2
+					 
+					 echo -e "Criando o diretório firewall em: /etc"
+					 mkdir -v /etc/firewall >> $LOG
+					 echo -e "Diretório criado com sucesso!!!"
+					 echo
+					 sleep 2
+					 
+					 echo -e "Copiando os arquivos de configuração do firewall"
+					 cp -v conf/portslibtcp /etc/firewall >> $LOG
+					 cp -v conf/portslibudp /etc/firewall >> $LOG
+					 cp -v conf/portsblo /etc/firewall >> $LOG
+					 echo -e "Arquivos copiados com sucesso!!!"
+					 echo
+					 sleep 2
+					 
+					 echo -e "Atualizando as listas do apt-get"
+					 apt-get update >> $LOG
+					 echo -e "Listas atualziadas com sucesso!!!"
+					 echo
+					 sleep 2
+					 
+					 echo -e "Instalando o sysv-rc-conf"
+					 apt-get -y install sysv-rc-conf >> $LOG
+					 echo -e "sysv-rc-conf instalado com sucesso!!!"
+					 echo
+					 sleep 2
+					 
+					 echo -e "Configurando a inicialização do Firewall, pressione <Enter>"
+					 echo -e "Na tela de configuração do sysv-rc-conf, marque as opções: 2, 3, 4 e 5"
+					 echo -e "Pressione Q (quit) para sair"
+					 read
+					 sleep 2
+					 sysv-rc-conf
+					 echo -e "sysv-rc-conf atualizado com sucesso!!!"
+					 sleep 2
+					 
+					 echo -e "Inicializando o Firewall"
+					 sudo service firewall.sh start
+					 echo -e "Firewall inicializado com sucesso!!!"
 					 
 					 echo -e "Fim do Script-23.sh em: `date`" >> $LOG
 					 echo -e "                Finalização da Configuração da Regra de Firewall"
