@@ -189,7 +189,7 @@ then
 					 
 					 echo -e "Criando o diretório de quarentena e: /backup/quarentena"
 					 #Criando o diretório para armazenar os arquivos com vírus
-					 mkdir -v /backup/quarentena >> $LOG
+					 mkdir -pv /backup/quarentena >> $LOG
 					 echo -e "Diretório de quarentena criado com sucesso!!!"
 					 sleep 2
 					 echo
