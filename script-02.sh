@@ -54,7 +54,7 @@
 #	service clamav-daemon start
 #	service clamav-freshclam start
 #
-# Melhor anti-vírus para GNU/Linux, indicação: Shopos Antivirus for GNU/Linux
+# Melhor anti-vírus para GNU/Linux, indicação: Sophos Antivirus for GNU/Linux
 # Download: https://www.sophos.com/en-us/products/free-tools/sophos-antivirus-for-linux.aspx
 # Instalação: https://www.sophos.com/en-us/support/knowledgebase/14378.aspx
 # No Level-3 estarei utilizando ele nas configurações
