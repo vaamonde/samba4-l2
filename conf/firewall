@@ -75,8 +75,7 @@ echo "ON .............................................................[ OK ]"
 echo
 
 #Liberando a resolução de servidores DNS
-for i in $DNSSERVER
-do
+for i in `cat $DNSSERVER`; do
 	$IPTABLES -A OUTPUT -p udp -d $i --dport 53 -m state --state NEW,ESTABLISHED -j ACCEPT
 	$IPTABLES -A INPUT  -p udp -s $i --sport 53 -m state --state ESTABLISHED     -j ACCEPT
 	$IPTABLES -A OUTPUT -p tcp -d $i --dport 53 -m state --state NEW,ESTABLISHED -j ACCEPT
