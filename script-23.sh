@@ -74,6 +74,7 @@ then
 					 cp -v conf/portslibtcp /etc/firewall >> $LOG
 					 cp -v conf/portslibudp /etc/firewall >> $LOG
 					 cp -v conf/portsblo /etc/firewall >> $LOG
+					 cp -v conf/dnsserver /etc/firewall >> $LOG
 					 echo -e "Arquivos copiados com sucesso!!!"
 					 echo
 					 sleep 2
