@@ -26,7 +26,7 @@ PORTSLIBUDP="$FIREWALL/portslibudp"
 PORTSBLO="$FIREWALL/portsblo"
 
 #Interfaces de Rede
-LAN=eth1
+LAN=eth0
 REDE="192.168.1.0/24"
 
 case "$1" in
