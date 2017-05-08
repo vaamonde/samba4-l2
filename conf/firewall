@@ -25,6 +25,7 @@ PROGRAMA="/etc/init.d/firewall"
 PORTSLIBTCP="$FIREWALL/portslibtcp"
 PORTSLIBUDP="$FIREWALL/portslibudp"
 PORTSBLO="$FIREWALL/portsblo"
+DNSSERVER="$FIREWALL/dnsserver"
 
 #Interfaces de Rede
 LAN=eth0
@@ -69,9 +70,22 @@ echo
 #Habilitando o fluxo interno entre os processos
 $IPTABLES -I INPUT -i lo -j ACCEPT
 $IPTABLES -I OUTPUT -o lo -j ACCEPT
-echo "ativado o fluxo interno entre os processos"
+echo "ativando o fluxo interno entre os processos"
 echo "ON .............................................................[ OK ]"
 echo
+
+#Liberando a resolução de servidores DNS
+for i in $DNSSERVER
+do
+	$IPTABLES -A OUTPUT -p udp -d $i --dport 53 -m state --state NEW,ESTABLISHED -j ACCEPT
+	$IPTABLES -A INPUT  -p udp -s $i --sport 53 -m state --state ESTABLISHED     -j ACCEPT
+	$IPTABLES -A OUTPUT -p tcp -d $i --dport 53 -m state --state NEW,ESTABLISHED -j ACCEPT
+	$IPTABLES -A INPUT  -p tcp -s $i --sport 53 -m state --state ESTABLISHED     -j ACCEPT
+done
+	$IPTABLES -I INPUT -m state --state ESTABLISHED -j ACCEPT
+	$IPTABLES -I INPUT -m state --state RELATED -j ACCEPT
+	$IPTABLES -I OUTPUT -p icmp -o $LAN -j ACCEPT
+	$IPTABLES -I INPUT -p icmp -j ACCEPT
 
 #Liberar as portas TCP principais do servidor
 for i in `cat $PORTSLIBTCP`; do
@@ -95,8 +109,9 @@ done
 	$IPTABLES -I OUTPUT -p icmp -o $LAN -j ACCEPT
 	$IPTABLES -I INPUT -p icmp -j ACCEPT	
 
-echo "ativado as portas abertas para estabelecer conexões"
-echo "ativado a liberação das portas principais do servidor $HOSTNAME"
+echo "ativando as portas abertas para estabelecer conexões"
+echo "ativando a liberação das portas principais do servidor $HOSTNAME"
+echo "ativando a liberação dos servidores de DNS"
 echo "ON .............................................................[ OK ]"
 echo
 
@@ -106,7 +121,7 @@ $IPTABLES -N PING-MORTE
 $IPTABLES -A INPUT -p icmp --icmp-type echo-request -j PING-MORTE
 $IPTABLES -A PING-MORTE -m limit --limit 1/s --limit-burst 4 -j RETURN
 $IPTABLES -A PING-MORTE -j DROP
-echo "ativado o bloqueio a tentativa de ataque do tipo ping da morte"
+echo "ativando o bloqueio a tentativa de ataque do tipo ping da morte"
 echo "ON .............................................................[ OK ]"
 echo
 
@@ -116,7 +131,7 @@ $IPTABLES -N syn-flood
 $IPTABLES -A INPUT -i $LAN -p tcp --syn -j syn-flood
 $IPTABLES -A syn-flood -m limit --limit 1/s --limit-burst 4 -j RETURN
 $IPTABLES -A syn-flood -j DROP
-echo "ativado o bloqueio a tentativa de ataque do tipo SYN-FLOOD"
+echo "ativando o bloqueio a tentativa de ataque do tipo SYN-FLOOD"
 echo "ON .............................................................[ OK ]"
 echo
 
@@ -125,7 +140,7 @@ $IPTABLES -N SSH-BRUT-FORCE
 $IPTABLES -A INPUT -i $LAN -p tcp --dport 22 -j SSH-BRUT-FORCE
 $IPTABLES -A SSH-BRUT-FORCE -m limit --limit 1/s --limit-burst 4 -j RETURN
 $IPTABLES -A SSH-BRUT-FORCE -j DROP
-echo "ativado o bloqueio a tentativa de ataque do tipo SSH-BRUT-FORCE"
+echo "ativando o bloqueio a tentativa de ataque do tipo SSH-BRUT-FORCE"
 echo "ON .............................................................[ OK ]"
 echo
 
@@ -141,13 +156,23 @@ $IPTABLES -A INPUT -s 10.0.0.0/8 -i $LAN -j DROP
 $IPTABLES -A INPUT -s 127.0.0.0/8 -i $LAN -j DROP
 $IPTABLES -A INPUT -s 172.16.0.0/12 -i $LAN -j DROP
 $IPTABLES -A INPUT -s 192.168.1.0/16 -i $LAN -j DROP
-echo "ativado o bloqueio de tentativa de ataque do tipo Anti-spoofings"
+echo "ativando o bloqueio de tentativa de ataque do tipo Anti-spoofings"
 echo "ON ............................................................[ OK ]"
 echo
 
 #Bloqueio de scanners ocultos (Shealt Scan)
 $IPTABLES -A FORWARD -p tcp --tcp-flags SYN,ACK, FIN,  -m limit --limit 1/s -j ACCEPT
 echo "bloqueado scanners ocultos"
+echo "ON ............................................................[ OK ]"
+echo
+
+#Configuração dos Log's de Bloqueio
+$IPT -A INPUT  -j LOG  -m limit --limit 12/min --log-level 4 --log-prefix 'IP INPUT drop: '
+$IPT -A INPUT  -j DROP
+
+$IPT -A OUTPUT -j LOG  -m limit --limit 12/min --log-level 4 --log-prefix 'IP OUTPUT drop: '
+$IPT -A OUTPUT -j DROP
+echo "log de pacotes dropados"
 echo "ON ............................................................[ OK ]"
 echo
 
