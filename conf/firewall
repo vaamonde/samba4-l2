@@ -166,11 +166,11 @@ echo "ON ............................................................[ OK ]"
 echo
 
 #Configuração dos Log's de Bloqueio
-$IPT -A INPUT  -j LOG  -m limit --limit 12/min --log-level 4 --log-prefix 'IP INPUT drop: '
-$IPT -A INPUT  -j DROP
+$IPTABLES -A INPUT  -j LOG  -m limit --limit 12/min --log-level 4 --log-prefix 'IP INPUT drop: '
+$IPTABLES -A INPUT  -j DROP
 
-$IPT -A OUTPUT -j LOG  -m limit --limit 12/min --log-level 4 --log-prefix 'IP OUTPUT drop: '
-$IPT -A OUTPUT -j DROP
+$IPTABLES -A OUTPUT -j LOG  -m limit --limit 12/min --log-level 4 --log-prefix 'IP OUTPUT drop: '
+$IPTABLES -A OUTPUT -j DROP
 echo "log de pacotes dropados"
 echo "ON ............................................................[ OK ]"
 echo
