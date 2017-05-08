@@ -18,7 +18,7 @@
 PATH=/sbin:/bin:/usr/sbin:/usr/bin
 FIREWALL="/etc/firewall"
 IPTABLES="/sbin/iptables"
-PROGRAMA="/etc/init.d/firewall.sh"
+PROGRAMA="/etc/init.d/firewall"
 
 #Portas liberadas e bloqueadas
 PORTSLIBTCP="$FIREWALL/portslibtcp"
