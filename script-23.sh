@@ -100,7 +100,9 @@ then
 					 sleep 2
 					 
 					 echo -e "Inicializando o Firewall"
-					 sudo service firewall.sh start
+					 echo
+					 . /etc/init.d/firewall start
+					 echo
 					 echo -e "Firewall inicializado com sucesso!!!"
 					 sleep 2
 					 
