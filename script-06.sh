@@ -40,6 +40,8 @@
 # BIND9_DLZ		= Configurações de DNS integrado em SAMBA4 é o BIND
 # NONE			= Sem configuração de DNS
 #
+#Versões do Schema do Active Directory suportador pelo SAMBA-4: https://wiki.samba.org/index.php/AD_Schema_Version_Support
+#
 # Informações sobre o FSMO Roles (Flexible Single Master Operation Roles)
 # 1. Schema Master (Mestre de Esquema);
 # 2. Domain Name Master (Mestre de Nomeação de Domínio);
