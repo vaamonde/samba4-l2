@@ -4,10 +4,12 @@ Facebook: facebook.com/ProcedimentosEmTI
 Facebook: facebook.com/BoraParaPratica
 YouTube: youtube.com/BoraParaPratica
 Data de criação: 31/05/2016
-Data de atualização: 17/03/2017
+Data de atualização: 24/05/2017
 Versão: 0.8
 Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
-Kernel >= 4.4.x
+Kernel >= 4.5.x
+
+24/05/2017  - Melhoria no script-23.sh, regras de firewall para leberação das portas RPC. Robson Vaammonde
 
 08/05/2017  - Atualização do script-23.sh para finalização dos vídeos e correções de bugs do Iptables. Robson Vaamonde
 
