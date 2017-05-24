@@ -16,6 +16,7 @@
 # Utilizar o arquivo /etc/firewall/portslibudp para as portas liberadas do protocolo UDP 
 # Utilizar o arquivo /etc/firewall/portsblo para as portas bloqueadas TCP/UDP
 # Utilizar o arquivo /etc/firewall/dnsseerver para os IP do Servidores de DNS liberados
+# Utilizar o arquivo /etc/firewall/multiportslibtcp para o range de portas liberadas do protocolo TCP
 #
 # Utilizar o comando: sudo -i para executar o script
 #
@@ -76,6 +77,7 @@ then
 					 cp -v conf/portslibudp /etc/firewall >> $LOG
 					 cp -v conf/portsblo /etc/firewall >> $LOG
 					 cp -v conf/dnsserver /etc/firewall >> $LOG
+					 cp -v conf/multiportslibtcp /etc/firewall >> $LOG
 					 echo -e "Arquivos copiados com sucesso!!!"
 					 echo
 					 sleep 2
