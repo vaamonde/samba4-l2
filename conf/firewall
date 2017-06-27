@@ -77,6 +77,13 @@ echo "ativando o fluxo interno entre os processos"
 echo "ON .............................................................[ OK ]"
 echo
 
+#Liberando atualizações do Apt-Get
+	$IPTABLES -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+	$IPTABLES -A OUTPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+	$IPTABLES -A OUTPUT -p tcp --dport 21 -m state --state NEW -j ACCEPT
+	$IPTABLES -A OUTPUT -p tcp --dport 80 -m state --state NEW -j ACCEPT
+	$IPTABLES -A OUTPUT -p tcp --dport 443 -m state --state NEW -j ACCEPT
+
 #Liberando a resolução de servidores DNS
 for i in `cat $DNSSERVER`; do
 	$IPTABLES -A OUTPUT -p udp -d $i --dport 53 -m state --state NEW,ESTABLISHED -j ACCEPT
