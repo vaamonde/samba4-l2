@@ -9,7 +9,7 @@ Versão: 0.10
 Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 Kernel >= 4.5.x
 
-03/03/2018  - Vários relatos de falha de conexão do SSH, correção do arquivo sshd_config na opção: PasswordAuthentication, estava no e alterou para yes. Robson Vaamonde
+03/03/2018  - Vários relatos de falha de conexão do SSH, correção do arquivo sshd_config na opção: PasswordAuthentication, estava no e alterou para yes, PubkeyAuthentication, estava yes alterou para no. Robson Vaamonde
 
 09/06/2017  - Melhoria nas configurações do smb.conf para proteção do Malware/Ransomware WannaCry. Robson Vaamonde
 
