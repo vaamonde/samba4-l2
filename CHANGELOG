@@ -9,11 +9,41 @@ Versão: 0.11
 Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 Kernel >= 4.4.x
 
+27/09/2018  - Auditoria do script-17.sh: script funcionando perfeitamente, análise de LOG sem falhas. Robson Vaamonde
+(Todos os softwares e arquivos conf's estão funcionando perfeitamente, sem necessidade de atualização)
+
+27/09/2018  - Auditoria do script-16.sh: script funcionando perfeitamente, análise de LOG sem falhas. Robson Vaamonde
+(Todos os softwares e arquivos conf's estão funcionando perfeitamente, sem necessidade de atualização)
+
+27/09/2018  - Auditoria do script-15.sh: script funcionando perfeitamente, análise de LOG sem falhas. Robson Vaamonde
+(Todos os softwares e arquivos conf's estão funcionando perfeitamente, sem necessidade de atualização)
+
+27/09/2018  - Auditoria do script-14.sh: script funcionando perfeitamente, análise de LOG sem falhas. Robson Vaamonde
+(Todos os softwares e arquivos conf's estão funcionando perfeitamente, sem necessidade de atualização)
+
+27/09/2018  - Auditoria do script-13.sh: script funcionando perfeitamente, análise de LOG sem falhas. Robson Vaamonde
+(Todos os softwares e arquivos conf's estão funcionando perfeitamente, sem necessidade de atualização)
+
+27/09/2018  - Auditoria do script-12.sh: script funcionando perfeitamente, análise de LOG sem fahas. Robson Vaamonde
+
+27/09/2018  - Auditoria do script-11.sh: script funcionando perfeitamente, análise de LOG sem falhas. Robson Vaamonde
+(Nessa análise o foco foi verificar os serviços do samba-ad-dc, smbd, nmbd, bind9, apparmor)
+
+27/09/2018  - Auditoria do script-10.sh: script funcionando perfeitamente, análise de LOG sem falhas. Robson Vaamonde
+(Nessa análise o foco foi verificar o percentual de ocupação do disco em relação a HD 8GB e nova configuração com 20GB)
+
+27/09/2018  - Auditoria do script-09.sh: script funcionando perfeitamente, análise de LOG sem falhas. Robson Vaamonde
+(Auditoria feita na versão do Ubuntu 16.04.5, Kernel 4.4.0-135, SAMBA 4.3.11, Bind 9.10.3)
+
+27/09/2018  - Auditoria do script-08.sh: script funcionando perfeitamente, análise de LOG sem falhas. Robson Vaamonde
+(Todas as portas de serviços estão funcionando perfeitamente)
+
 27/09/2018  - Auditoria do script-07.sh: script funcionando perfeitamente, análise de LOG sem falhas. Robson Vaamonde
 (Todos os softwares e arquivos conf's estão funcionando perfeitamente, sem necessidade de atualização)
 
 27/09/2018  - Auditoria do arquivo /var/log/syslog, análise de erros referente ao BIND9 (named) e SAMBA4 (samba, samba-ad-dc, ). Robson Vaamonde
-              Auditoria dos arquivos /var/log/samba/*, análise de erros nos serviços de smbd, nmbd, winbind. Robson Vaamonde
+
+27/09/2018  - Auditoria dos arquivos /var/log/samba/*, análise de erros nos serviços de smbd, nmbd, winbind. Robson Vaamonde
 
 27/09/2018  - Auditoria do script-06.sh: script funcionando perfeitamente, obs: melhorar a documentação dos conf's, análise de LOG sem falhas. Robson Vaamonde
 (Todos os softwares e arquivos conf's estão funcionando perfeitamente, sem necessidade de atualização)
