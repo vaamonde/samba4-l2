@@ -1,0 +1,27 @@
+# Autor: Robson Vaamonde
+# Site: www.procedimentosemti.com.br
+# Facebook: facebook.com/ProcedimentosEmTI
+# Facebook: facebook.com/BoraParaPratica
+# YouTube: youtube.com/BoraParaPratica
+# Data de criação: 26/09/2018
+# Data de atualização: 27/09/2018
+# Versão: 0.1
+# Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
+# Kernel >= 4.4.x
+
+Nova tabela de Disco e Particionamento:
+
+Disco Sistema Operacional:	ptispo01dc01-01		20GB	Discos configurados em RAID-1
+							ptispo01dc01-02		20GB
+							
+Disco Arquivos				arquivos-01			10GB	Discos configurados em RAID-1
+							arquivos-02			10GB
+							
+Disco Backup				backup				15GB	Disco sem RAID
+
+Particionamento:			raiz "/"			 9.0GB	RAID-1, LVM, EXT4
+							swap				 1.0GB	RAID-1, LVM, EXT4
+							tmp					 1.0GB	RAID-1, LVM, EXT4
+							var					 9.0GB	RAID-1, LVM, EXT4
+							arquivos			10.0GB	RAID-1, LVM, EXT4
+							backup				15.0GB	LVM, EXT4
