@@ -10,6 +10,11 @@ Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 Testado e homologado para a versão fo Ubuntu Server 16.04.5 LTS x64
 Kernel >= 4.4.x
 
+27/09/2018  - Ingresso de Máquinas Microsoft no Domínio do GNU/Linux Ubuntu Server 16.04.5 e SAMBA-4 4.3.11. Robson Vaamonde
+(Análise do arquivo de Log: sudo tail -f /var/log/syslog para monitorar o ingresso das máquinas no domínio)
+(Mensagens de DHCP, DNS, SMBD_AUDIT de ingresso no Domínio tudo perfeitamente)
+(Sistemas Operacionais Windows XP, Windows 7 e Windows 10, não foi testado o Windows 8/8.1)
+
 27/09/2018  - Criação do Script da limpeza da fila de e-mail do Postfix, script será adicionado no script-20.sh. Robson Vaamonde
 Script: https://github.com/vaamonde/samba4-l2/blob/master/script-20.sh
 
