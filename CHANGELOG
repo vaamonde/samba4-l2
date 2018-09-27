@@ -5,10 +5,13 @@ Facebook: facebook.com/BoraParaPratica
 YouTube: youtube.com/BoraParaPratica
 Data de criação: 31/05/2016
 Data de atualização: 27/09/2018
-Versão: 0.21
+Versão: 0.22
 Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 Testado e homologado para a versão fo Ubuntu Server 16.04.5 LTS x64
 Kernel >= 4.4.x
+
+27/09/2018  - Análise de desempenho utilizando o Netdata, constatado que os daemons: clamav-dademon e postfix estão consumindo muito a memória RAM do servidor. Robson Vaamonde
+(Serviços parados para análise: sudo service postfix stop | sudo service clamav-daemon stop, após a parada dos serviços o servidor diminuiu cerca de 80% do consumo de RAM)
 
 27/09/2018  - Análise do arquivo /var/log/syslog em relação ao escanamento do NMAP utilizando o comando: nmap -O -sV -sT --packet-trace 192.168.1.10. Robson Vaamonde
 (Comando: sudo cat /var/log/syslog | grep -i "DENIED", após execução analisando mensagem: SMBD: NT_STATUS_END_OF_FILE)
