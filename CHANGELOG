@@ -25,7 +25,7 @@ Kernel >= 4.4.x
 (No vídeo não consta o script para limpeza da pasta de lixeira, esse script foi acrescentado depois da gravação)
 
 27/09/2018  - Falhas de acesso aos compartilhamentos do SAMBA-4, comentado as linhas: #Proteção contra códigos maliciosos: WannaCry for SAMBA-4 e #Liberando as a rede 192.168.1.0/24 ter acesso aos compartilhamentos do SAMBA-4, negando todas as outras do arquivo /etc/samba/smb.conf. Robson Vaamonde
-(Após comentar essas linhas o acesso aos compartilhamento foi feito com sucesso, analisar falhas de configuração referente aos protocolos e libração de acesso)
+(Após comentar essas linhas o acesso aos compartilhamento foi feito com sucesso, analisar falhas de configuração referente aos protocolos e liberação de acesso e proteção contra WannaCry)
 
 27/09/2018  - Auditoria no script-19.sh: falha na execução do teste: smbclient -L localhost -N - erro: protocol negotiation failed: NT_STATUS_INVALID_NETWORK_RESPONSE. Robson Vaamonde
 (Executando o comando: sudo service samba-ad-dc status - linha de erro de: Denied Connection from ::1 (loopback)
