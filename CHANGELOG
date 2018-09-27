@@ -160,6 +160,7 @@ Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/fstab
 Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/particionamento
 
 26/09/2018  - Aumento da Memória RAM do Servidor de 512MB para 1.0GB. Robson Vaamonde
+(Após todos os testes feitos em todos os aplicativos atuais, recomendo o servidor Ubuntu Server utilizar 2.0GB de RAM)
 
 26/09/2018  - Utilização da ISO do Ubuntu Server 16.04.5 LTS, aumento do tamanho do Hard Disk do Sistema Operacional de 8GB para 20GB. Robson Vaamonde
 Site: http://releases.ubuntu.com/16.04.5/ubuntu-16.04.5-server-amd64.iso
