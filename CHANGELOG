@@ -135,6 +135,8 @@ Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/fstab
 26/09/2018  - Aumento do tamanho das partições do sistema operacional: 10GB "/" raiz, 1.0GB swap, 1.0GB /tmp e 8GB /var. Robson Vaamonde
 Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/particionamento
 
+26/09/2018  - Aumento da Memória RAM do Servidor de 512MB para 1.0GB. Robson Vaamonde
+
 26/09/2018  - Utilização da ISO do Ubuntu Server 16.04.5 LTS, aumento do tamanho do Hard Disk do Sistema Operacional de 8GB para 20GB. Robson Vaamonde
 Site: http://releases.ubuntu.com/16.04.5/ubuntu-16.04.5-server-amd64.iso
 Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/particionamento
