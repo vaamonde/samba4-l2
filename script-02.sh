@@ -5,8 +5,8 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 31/05/2016
-# Data de atualização: 15/01/2017
-# Versão: 0.8
+# Data de atualização: 27/09/2018
+# Versão: 0.9
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
@@ -578,6 +578,14 @@ then
 					 echo -e "Serviço desabilitado com sucesso!!!"
 					 sleep 2
 					 echo
+					 
+ 					 echo -e "Desinstalando o Serviço do SNAPD"
+					 #Desinstalando o serviço de SNAPD que vem habilitado como padrão
+					 sudo apt-get purge -y snapd &>> $LOG
+					 echo -e "Serviço desinstalado com sucesso!!!"
+					 sleep 2
+					 echo
+
 					 
 					 echo -e "Atualizando o GRUB"
 					 #Atualizando o grub com as novas modificações feitas no arquivo grub, atualizar Kernel e Initrd
