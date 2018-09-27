@@ -5,8 +5,8 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 31/05/2016
-# Data de atualização: 30/12/2016
-# Versão: 0.8
+# Data de atualização: 27/09/2018
+# Versão: 0.9
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
@@ -260,6 +260,8 @@ then
 					 
 					 #Editando o arquivo do agendamento
 					 vim /etc/cron.d/cleanrecycle +13
+					 
+					 #ESPAÇO RESERVADO PARA CRIAÇÃO DO SCRIPT DE LIMPEZA DA FILA DE EMAIL DO POSTFIX
 					 
 					 echo -e "Arquivo editado com sucesso!!!, pressione <Enter> para continuar"
 					 read
