@@ -12,16 +12,16 @@
 Nova tabela de Disco e Particionamento:
 
 Disco Sistema Operacional:	ptispo01dc01-01		20GB	Discos configurados em RAID-1
-							ptispo01dc01-02		20GB
+				ptispo01dc01-02		20GB
 							
-Disco Arquivos				arquivos-01			10GB	Discos configurados em RAID-1
-							arquivos-02			10GB
+Disco Arquivos			arquivos-01		10GB	Discos configurados em RAID-1
+				arquivos-02		10GB
 							
-Disco Backup				backup				15GB	Disco sem RAID
+Disco Backup			backup			15GB	Disco sem RAID
 
-Particionamento:			raiz "/"			 9.0GB	RAID-1, LVM, EXT4
-							swap				 1.0GB	RAID-1, LVM, EXT4
-							tmp					 1.0GB	RAID-1, LVM, EXT4
-							var					 9.0GB	RAID-1, LVM, EXT4
-							arquivos			10.0GB	RAID-1, LVM, EXT4
-							backup				15.0GB	LVM, EXT4
+Particionamento:		raiz "/"		9.0GB	RAID-1, LVM, EXT4
+				swap			1.0GB	RAID-1, LVM, EXT4
+				tmp			1.0GB	RAID-1, LVM, EXT4
+				var			9.0GB	RAID-1, LVM, EXT4
+				arquivos		10.0GB	RAID-1, LVM, EXT4
+				backup			15.0GB	LVM, EXT4
