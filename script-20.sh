@@ -15,6 +15,7 @@
 # Configuração do sistema de Monitoramente utilizando o Netdata
 # Configuração da limpeza da Pasta Público
 # Configuração da limpeza da Pasta Lixeira
+# Configuração da limpeza das Filas de Email do Postfix (EM DESENSOLVIMENTO)
 #
 # Utilizar o comando: sudo -i para executar o script
 #
