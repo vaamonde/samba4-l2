@@ -9,7 +9,17 @@ Versão: 0.11
 Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 Kernel >= 4.4.x
 
-26/09/2018  - Auditoria do script-01.sh: script funcionando perfeitamente, obs: atualização do arquivo /etc/fstab, análise de LOG sem falhas. Robson Vaamonde
+27/09/2018  - Auditoria do arquivo /var/log/syslog, analise de erros referente ao BIND9 e SAMBA. Robson Vaamonde
+
+27/09/2018  - Auditoria do script-05.sh: script funcionando perfeitamente, obs: melhorar a documentação dos conf's, análise de LOG sem falhas. Robson Vaamonde
+
+27/09/2018  - Auditoria do script-04.sh: script funcionando perfeitamente, análise de LOG sem falhas. Robson Vaamonde
+
+27/09/2018  - Auditoria do script-03.sh: script funcionando perfeitamente, obs: atualização da versão do Webmin - webmin_1.890_all.deb, análise de LOG sem falhas. Robson Vaamonde
+
+26/09/2018  - Auditoria do script-02.sh: script funcionando perfeitamente, obs: atualização do arquivo /etc/hostname - remoção das linhas de comentários, adicionado a remoção do serviço SNAPD no script-02.sh, análise de LOG sem falhas. Robson Vaamonde
+
+26/09/2018  - Auditoria do script-01.sh: script funcionando perfeitamente, obs: atualização do arquivo /etc/fstab - acrescimento da opção barrier=1 na partição /backup, análise de LOG sem falhas. Robson Vaamonde
 
 26/09/2018  - Auditoria do script-00.sh: script funcionando perfeitamente, obs: atualização do Kernel para a versão 4.4.0.135, análise de LOG sem falhas. Robson Vaamonde
 
