@@ -5,7 +5,7 @@ Facebook: facebook.com/BoraParaPratica
 YouTube: youtube.com/BoraParaPratica
 Data de criação: 31/05/2016
 Data de atualização: 27/09/2018
-Versão: 0.14
+Versão: 0.15
 Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 Testado e homologado para a versão fo Ubuntu Server 16.04.5 LTS x64
 Kernel >= 4.4.x
@@ -34,11 +34,14 @@ Kernel >= 4.4.x
 27/09/2018  - Auditoria do script-20.sh: script funcionando perfeitamente, análise de LOG sem falhas. Robson Vaamonde
 (No vídeo não consta o script para limpeza da pasta de lixeira, esse script foi acrescentado depois da gravação)
 
-27/09/2018  - Falhas de acesso aos compartilhamentos do SAMBA-4, comentado as linhas: #Proteção contra códigos maliciosos: WannaCry for SAMBA-4 e #Liberando as a rede 192.168.1.0/24 ter acesso aos compartilhamentos do SAMBA-4, negando todas as outras do arquivo /etc/samba/smb.conf. Robson Vaamonde
+27/09/2018  - Falhas de acesso aos compartilhamentos do SAMBA-4, comentado as linhas a partir de 45: #Proteção contra códigos maliciosos: WannaCry for SAMBA-4 e #Liberando as a rede 192.168.1.0/24 ter acesso aos compartilhamentos do SAMBA-4, negando todas as outras do arquivo /etc/samba/smb.conf. Robson Vaamonde
 (Após comentar essas linhas o acesso aos compartilhamento foi feito com sucesso, analisar falhas de configuração referente aos protocolos e liberação de acesso e proteção contra WannaCry)
 
 27/09/2018  - Auditoria no script-19.sh: falha na execução do teste: smbclient -L localhost -N - erro: protocol negotiation failed: NT_STATUS_INVALID_NETWORK_RESPONSE. Robson Vaamonde
-(Executando o comando: sudo service samba-ad-dc status - linha de erro de: Denied Connection from ::1 (loopback)
+(Executando o comando: sudo service samba-ad-dc status - linha de erro de: Denied Connection from ::1 (loopback))
+(Encontro possível falha para máquinas não ingressar no domínio, pois os comparilhamentos não são apresentados)
+(Erro causado após a atualização do arquivos smb/conf)
+Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/smb.conf
 
 27/09/2018  - Auditoria do script-18.sh: script funcionando perfeitamente, análise de LOG sem falhas. Robson Vaamonde
 (Todos os softwares e arquivos conf's estão funcionando perfeitamente, sem necessidade de atualização)
@@ -59,6 +62,7 @@ Kernel >= 4.4.x
 (Todos os softwares e arquivos conf's estão funcionando perfeitamente, sem necessidade de atualização)
 
 27/09/2018  - Auditoria do script-12.sh: script funcionando perfeitamente, análise de LOG sem fahas. Robson Vaamonde
+(Todos os softwares e arquivos conf's estão funcionando perfeitamente, sem necessidade de atualização)
 
 27/09/2018  - Auditoria do script-11.sh: script funcionando perfeitamente, análise de LOG sem falhas. Robson Vaamonde
 (Nessa análise o foco foi verificar os serviços do samba-ad-dc, smbd, nmbd, bind9, apparmor)
@@ -67,7 +71,7 @@ Kernel >= 4.4.x
 (Nessa análise o foco foi verificar o percentual de ocupação do disco em relação a HD 8GB e nova configuração com 20GB)
 
 27/09/2018  - Auditoria do script-09.sh: script funcionando perfeitamente, análise de LOG sem falhas. Robson Vaamonde
-(Auditoria feita na versão do Ubuntu 16.04.5, Kernel 4.4.0-135, SAMBA 4.3.11, Bind 9.10.3)
+(Auditoria feita na versão do Ubuntu 16.04.5, Kernel 4.4.0-135, SAMBA 4.3.11, Bind 9.10.3, demais serviços tudo OK)
 
 27/09/2018  - Auditoria do script-08.sh: script funcionando perfeitamente, análise de LOG sem falhas. Robson Vaamonde
 (Todas as portas de serviços estão funcionando perfeitamente)
@@ -76,10 +80,10 @@ Kernel >= 4.4.x
 (Todos os softwares e arquivos conf's estão funcionando perfeitamente, sem necessidade de atualização)
 
 27/09/2018  - Auditoria do arquivo /var/log/syslog, análise de erros referente ao BIND9 (named) e SAMBA4 (samba, samba-ad-dc, ). Robson Vaamonde
-(Não foi encontrado nenhuma mensagem de erro)
+(Não foi encontrado nenhuma mensagem de erro, todo o log até o script-06.sh está correto)
 
 27/09/2018  - Auditoria dos arquivos /var/log/samba/*, análise de erros nos serviços de smbd, nmbd, winbind. Robson Vaamonde
-(Não foi encontrado nenhuma mensagem de erro)
+(Não foi encontrado nenhuma mensagem de erro, todos os log estão corretos)
 
 27/09/2018  - Auditoria do script-06.sh: script funcionando perfeitamente, obs: melhorar a documentação dos conf's, análise de LOG sem falhas. Robson Vaamonde
 (Todos os softwares e arquivos conf's estão funcionando perfeitamente, sem necessidade de atualização)
@@ -92,12 +96,15 @@ Kernel >= 4.4.x
 
 27/09/2018  - Auditoria do script-03.sh: script funcionando perfeitamente, obs: atualização da versão do Webmin - webmin_1.890_all.deb, análise de LOG sem falhas. Robson Vaamonde
 (Todos os softwares e arquivos conf's estão funcionando perfeitamente, sem necessidade de atualização)
+Site: https://prdownloads.sourceforge.net/webadmin/webmin_1.890_all.deb
 
 26/09/2018  - Auditoria do script-02.sh: script funcionando perfeitamente, obs: atualização do arquivo /etc/hostname - remoção das linhas de comentários, adicionado a remoção do serviço SNAPD no script-02.sh, análise de LOG sem falhas. Robson Vaamonde
 (Todos os softwares e arquivos conf's estão funcionando perfeitamente, sem necessidade de atualização)
+Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/hostname
 
 26/09/2018  - Auditoria do script-01.sh: script funcionando perfeitamente, obs: atualização do arquivo /etc/fstab - acrescimento da opção barrier=1 na partição /backup, análise de LOG sem falhas. Robson Vaamonde
 (Todos os softwares e arquivos conf's estão funcionando perfeitamente, sem necessidade de atualização)
+Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/fstab
 
 26/09/2018  - Auditoria do script-00.sh: script funcionando perfeitamente, obs: atualização do Kernel para a versão 4.4.0.135, análise de LOG sem falhas. Robson Vaamonde
 (Todos os softwares e arquivos conf's estão funcionando perfeitamente, sem necessidade de atualização)
@@ -105,10 +112,14 @@ Kernel >= 4.4.x
 26/09/2018  - Na versão do Ubuntu 16.04.5 após o login, já está informando como atualizar para a versão 18.04.1, não executar o comando sugerido: sudo do-release-upgrade. Robson Vaamonde
 
 26/09/2018  - Atualização de segurança, na partição /tmp marcar as opções: noatime e nodiratime. Robson Vaamonde
+Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/fstab
 
 26/09/2018  - Aumento do tamanho das partições do sistema operacional: 10GB "/" raiz, 1.0GB swap, 1.0GB /tmp e 8GB /var. Robson Vaamonde
+Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/particionamento
 
 26/09/2018  - Utilização da ISO do Ubuntu Server 16.04.5 LTS, aumento do tamanho do Hard Disk do Sistema Operacional de 8GB para 20GB. Robson Vaamonde
+Site: http://releases.ubuntu.com/16.04.5/ubuntu-16.04.5-server-amd64.iso
+Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/particionamento
 
 ===========================================GRANDE ATUALIZAÇÃO DOS SCRIPT E CONF - 26/09/2018===========================================
 
