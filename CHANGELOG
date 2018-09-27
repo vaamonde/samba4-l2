@@ -19,6 +19,7 @@ Kernel >= 4.4.x
 (Executando testes nos script de criação das impressoras PDF, recomendado utilizar o Cups-PDF).
 
 27/09/2018  - Auditoria do script-21.sh: script funcionando perfeitamente, análise de LOG sem falhas. Robson Vaamonde
+(Todos os softwares e arquivos conf's estão funcionando perfeitamente, sem necessidade de atualização)
 
 27/09/2018  - Auditoria do script-20.sh: script funcionando perfeitamente, análise de LOG sem falhas. Robson Vaamonde
 (No vídeo não consta o script para limpeza da pasta de lixeira, esse script foi acrescentado depois da gravação)
