@@ -5,10 +5,16 @@ Facebook: facebook.com/BoraParaPratica
 YouTube: youtube.com/BoraParaPratica
 Data de criação: 31/05/2016
 Data de atualização: 27/09/2018
-Versão: 0.22
+Versão: 0.24
 Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 Testado e homologado para a versão fo Ubuntu Server 16.04.5 LTS x64
 Kernel >= 4.4.x
+
+27/09/2018  - Criação do Script da limpeza da fila de e-mail do Postfix, script será adicionado script-20.sh. Robson Vaamonde
+Script: https://github.com/vaamonde/samba4-l2/blob/master/script-20.sh
+
+27/09/2018  - Serviço do Postfix após análise será mantido, alem de ser dependência do BackNinja, analisando o log: sudo tail -f /var/log/syslog | grep -i postfix foi constatado a falta da liberação da porta 25 no Firewall. Robson Vaamonde
+Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/portslibtcp
 
 27/09/2018  - Análise de desempenho utilizando o Netdata, constatado que os daemons: clamav-dademon e postfix estão consumindo muito a memória RAM do servidor. Robson Vaamonde
 (Serviços parados para análise: sudo service postfix stop | sudo service clamav-daemon stop, após a parada dos serviços o servidor diminuiu cerca de 80% do consumo de RAM)
@@ -62,7 +68,7 @@ Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/portslibtcp
 
 27/09/2018  - Auditoria no script-19.sh: falha na execução do teste: smbclient -L localhost -N - erro: protocol negotiation failed: NT_STATUS_INVALID_NETWORK_RESPONSE. Robson Vaamonde
 (Executando o comando: sudo service samba-ad-dc status - linha de erro de: Denied Connection from ::1 (loopback))
-(Encontro possível falha para máquinas não ingressar no domínio, pois os comparilhamentos não são apresentados)
+(Encontrado possível falha para que as máquinas windows não consegue ingressar no domínio, pois os comparilhamentos não são apresentados)
 (Erro causado após a atualização do arquivos smb.conf)
 (Datas de atualização do acrescimo das linhas conforme o Changelog em: 09/06/2017 e 25/05/2017 nesse período os teste funcionaram perfeitamente)
 Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/smb.conf
