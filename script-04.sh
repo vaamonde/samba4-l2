@@ -5,8 +5,8 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 31/05/2016
-# Data de atualização: 27/12/2017
-# Versão: 0.8
+# Data de atualização: 28/09/2018
+# Versão: 0.9
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
@@ -41,6 +41,9 @@
 #
 # Outro software que está sendo testado para essa utilização e o LDAPAdmin com suporte ao SAMBA-4 a paritr da versão 1.8.
 # Site: http://www.ldapadmin.org/
+#
+# Outro software que está sendo testado para essa utilizando e o LDAP Account Manager com suprote ao SAMBA-4 a partir da versão 6.0
+# Site: https://www.ldap-account-manager.org/lamcms/
 #
 # Software para alteração de Senhas via Web
 # Site: https://ltb-project.org/doku.php
