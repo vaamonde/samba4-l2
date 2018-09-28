@@ -5,8 +5,8 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 31/05/2016
-# Data de atualização: 27/06/2017
-# Versão: 0.6
+# Data de atualização: 28/09/2018
+# Versão: 0.7
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
@@ -76,6 +76,10 @@ $IPTABLES -I OUTPUT -o lo -j ACCEPT
 echo "ativando o fluxo interno entre os processos"
 echo "ON .............................................................[ OK ]"
 echo
+
+#Logando todas as informações de INPUT e OUTPUT
+#	$IPTABLES -A INPUT -i $LAN -j LOG --log-prefix "$LAN trafego aceito de INPUT"
+#	$IPTABLES -A OUTPUT -o $LAN -j LOG --log-prefix "$LAN trafego aceito de OUTPUT"
 
 #Liberando atualizações do Apt-Get
 	$IPTABLES -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
