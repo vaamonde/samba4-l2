@@ -13,7 +13,7 @@ Kernel >= 4.4.x
 28/09/2018  - Começando a análise novamente todos os software para ingressar máquinas GNU/Linux no Domínio do SAMBA-4. Robson Vaamonde
 Links abaixo de indicação de software que serão testados no GNU/Linux Mint e Ubuntu Desktop
 Site: https://sourceforge.net/projects/c-i-d/ <-- Já testado no GNU/Linux Mint 19 Tara, funcionando perfeitamente.
-Site: https://github.com/BeyondTrust/pbis-open/releases <-- Link novo da versão Open Source do BeyondTrust PBIS.
+Site: https://github.com/BeyondTrust/pbis-open/releases <-- Já testado no GNU/Linux Mint 19 Tara, funcionando perfeitamente.
 Site: https://www.centrify.com/express/linux/download-files/#accordion-download-express-02 <-- Não existe mais a versão para Linux Mint somente Ubuntu Desktop, mais server perfeitamente no Linux Mint, agora com suporte a versão 18.04
 Site: https://github.com/univention/univention-domain-join <-- Cliente utilizado no meu curso de Hands On UCS Univention Corporate Server SAMBA-4.
 
