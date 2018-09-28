@@ -6,7 +6,7 @@
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 31/05/2016
 # Data de atualização: 28/09/2018
-# Versão: 0.9
+# Versão: 0.10
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
@@ -15,7 +15,7 @@
 # Configuração do sistema de Monitoramente utilizando o Netdata
 # Configuração da limpeza da Pasta Público
 # Configuração da limpeza da Pasta Lixeira
-# Configuração da limpeza das Filas de Email do Postfix (EM DESENSOLVIMENTO)
+# Configuração da limpeza das Filas de Email do Postfix
 #
 # Utilizar o comando: sudo -i para executar o script
 #
@@ -267,39 +267,38 @@ then
 					 sleep 2
 					 clear
 					 
-					 #ESPAÇO RESERVADO PARA CRIAÇÃO DO SCRIPT DE LIMPEZA DA FILA DE EMAIL DO POSTFIX
-					 #echo -e "Agendamento da Limpeza dos E-mail do Postifix"
-					 #echo -e "Pressione <Enter> para editar o arquivo"
-					 #read
+					 echo -e "Agendamento da Limpeza dos E-mail do Postifix"
+					 echo -e "Pressione <Enter> para editar o arquivo"
+					 read
 					 
-					 #echo -e "Atualizando o arquivo postfix_queue"
+					 echo -e "Atualizando o arquivo postfix_queue"
 					 #Copiando os script da limpeza da dos e-mail do postfix
-					 #cp -v conf/postfix_queue /usr/sbin >> $LOG
-					 #echo -e "Arquivo atualizado com sucesso!!!"
-					 #sleep 2
-					 #echo
+					 cp -v conf/postfix_queue /usr/sbin >> $LOG
+					 echo -e "Arquivo atualizado com sucesso!!!"
+					 sleep 2
+					 echo
 					 
-					 #echo -e "Alterando as permissões do arquivo postfix_queue"
+					 echo -e "Alterando as permissões do arquivo postfix_queue"
 					 #Aplicando as permissões
-					 #chmod -v 750 /usr/sbin/postfix_queue >> $LOG
-					 #echo -e "Permissões alteradas com sucesso!!!"
-					 #sleep 2
-					 #echo
+					 chmod -v 750 /usr/sbin/postfix_queue >> $LOG
+					 echo -e "Permissões alteradas com sucesso!!!"
+					 sleep 2
+					 echo
 					 
-					 #echo -e "Atualizando o arquivo postfixqueue"
+					 echo -e "Atualizando o arquivo postfixqueue"
 					 #Copiando o agendamento da limpeza dos e-mail do postfix
-					 #cp -v conf/postfixqueue /etc/cron.d/ >> $LOG
-					 #echo -e "Arquivo atualizado com sucesso!!!"
-					 #sleep 2
-					 #echo
+					 cp -v conf/postfixqueue /etc/cron.d/ >> $LOG
+					 echo -e "Arquivo atualizado com sucesso!!!"
+					 sleep 2
+					 echo
 					 
-					 #Editando o arquivo do agendamento
-					 #vim /etc/cron.d/postfixqueue +13
+					 #Editando o arquivo do agendamento do postfix
+					 vim /etc/cron.d/postfixqueue +13
 					 
-					 #echo -e "Arquivo editado com sucesso!!!, pressione <Enter> para continuar"
-					 #read
-					 #sleep 2
-					 #clear
+					 echo -e "Arquivo editado com sucesso!!!, pressione <Enter> para continuar"
+					 read
+					 sleep 2
+					 clear
 
 					 echo -e "Fim do Script-20.sh em: `date`" >> $LOG
 					 echo -e "        Instalação e Configuração do Sistema de Backup e Monitoramento"
