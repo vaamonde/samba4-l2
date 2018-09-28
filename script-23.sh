@@ -6,7 +6,7 @@
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 13/03/2017
 # Data de atualização: 28/09/2018
-# Versão: 0.9
+# Versão: 0.10
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
@@ -79,6 +79,25 @@ then
 					 cp -v conf/dnsserver /etc/firewall >> $LOG
 					 cp -v conf/multiportslibtcp /etc/firewall >> $LOG
 					 echo -e "Arquivos copiados com sucesso!!!"
+					 echo
+					 sleep 2
+					 
+					 echo -e "Copiando o arquivo firewall.conf"
+					 cp -v conf/firewall.conf /etc/rsyslog.d/ >> $LOG
+					 echo -e "Arquivo copiado com sucesso!!!"
+					 echo
+					 sleep 2
+					 
+					 echo -e "Criando o arquivo firewall.log"
+					 touch /var/log/firewall.log >> $LOG
+					 chown -v syslog.adm /var/log/firewall.log >> $LOG
+					 echo -e "Arquivo criado com sucesso!!!"
+					 echo
+					 sleep 2
+					 
+					 echo -e "Reinicializando o serviço do Rsyslog"
+					 sudo service rsyslog restart >> $LOG
+					 echo -e "Serviço Reinicializado com sucesso!!!"
 					 echo
 					 sleep 2
 					 
