@@ -25,14 +25,15 @@
 # Kerberos (Network Authentication Protocol - Portas padrão: TCP/UDP 88 é TCP/UDP 464)
 # NTP (Network Time Protocol - Porta padrão: UDP 123)
 # DHCP (Dynamic Host Configuration Protocol - Porta padrão: UDP 67)
-# CUPS (Common Unix Printing System - Porta padrão: UDP 631 TCP 9100)
+# CUPS (Common Unix Printing System - Porta padrão: TCP/UDP 631 TCP 9100)
 # WEBMIN (Web-based System Configuration - Porta padrão: TCP/UDP 10000)
 # APACHE (Apache HTTP Server - Porta padrão: TCP 80)
 # MYSQL (Open-Source Relational Database Nanagement System - Porta padrão: TCP 3306)
-# FTP (File Transfer Protocol - Porta padrão: TCP 21)
+# FTP (File Transfer Protocol - Porta padrão: TCP 20 e 21)
 # NFS (Network File System - Porta padrão: TCP/UDP 2049)
 # RPC (Remote Procedure Call - Portas dinâmicas de: TCP 1024 até 5000)
 # Netdata (Sistema de Monitoramento - Porta padrão: TCP/UDP 19999)
+# Postfix SMTP (Simple Mail Transfer Protocol - Porta padrão: TCP 25)
 # 
 # Utilizar o comando: sudo -i para executar o script
 #
