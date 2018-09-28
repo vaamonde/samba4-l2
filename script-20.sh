@@ -262,12 +262,44 @@ then
 					 #Editando o arquivo do agendamento
 					 vim /etc/cron.d/cleanrecycle +13
 					 
-					 #ESPAÇO RESERVADO PARA CRIAÇÃO DO SCRIPT DE LIMPEZA DA FILA DE EMAIL DO POSTFIX
-					 
 					 echo -e "Arquivo editado com sucesso!!!, pressione <Enter> para continuar"
 					 read
 					 sleep 2
 					 clear
+					 
+					 #ESPAÇO RESERVADO PARA CRIAÇÃO DO SCRIPT DE LIMPEZA DA FILA DE EMAIL DO POSTFIX
+					 #echo -e "Agendamento da Limpeza dos E-mail do Postifix"
+					 #echo -e "Pressione <Enter> para editar o arquivo"
+					 #read
+					 
+					 #echo -e "Atualizando o arquivo postfix_queue"
+					 #Copiando os script da limpeza da dos e-mail do postfix
+					 #cp -v conf/postfix_queue /usr/sbin >> $LOG
+					 #echo -e "Arquivo atualizado com sucesso!!!"
+					 #sleep 2
+					 #echo
+					 
+					 #echo -e "Alterando as permissões do arquivo postfix_queue"
+					 #Aplicando as permissões
+					 #chmod -v 750 /usr/sbin/postfix_queue >> $LOG
+					 #echo -e "Permissões alteradas com sucesso!!!"
+					 #sleep 2
+					 #echo
+					 
+					 #echo -e "Atualizando o arquivo postfixqueue"
+					 #Copiando o agendamento da limpeza dos e-mail do postfix
+					 #cp -v conf/postfixqueue /etc/cron.d/ >> $LOG
+					 #echo -e "Arquivo atualizado com sucesso!!!"
+					 #sleep 2
+					 #echo
+					 
+					 #Editando o arquivo do agendamento
+					 #vim /etc/cron.d/postfixqueue +13
+					 
+					 #echo -e "Arquivo editado com sucesso!!!, pressione <Enter> para continuar"
+					 #read
+					 #sleep 2
+					 #clear
 
 					 echo -e "Fim do Script-20.sh em: `date`" >> $LOG
 					 echo -e "        Instalação e Configuração do Sistema de Backup e Monitoramento"
