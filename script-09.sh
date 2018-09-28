@@ -354,8 +354,20 @@ then
 					 read
 					 sleep 2
 					 clear
+					 
+					 echo -e "26. Listando computadores do SAMBA4 para o servidor: `hostname`"
+					 echo -e "Pressione <Enter> para continuar"
+					 read
+					 ldbsearch -H /var/lib/samba/private/sam.ldb '(objectclass=computer)' dn | grep dn
+					 echo
+					 smbtree -N
+					 echo
+					 echo -e "Pressione <Enter> para continuar"
+					 read
+					 sleep 2
+					 clear
 
-					 echo -e "26. Listando GPO do SAMBA4 para o servidor: `hostname`"
+					 echo -e "27. Listando GPO do SAMBA4 para o servidor: `hostname`"
 					 echo
 					 samba-tool gpo listall
 					 echo
@@ -364,7 +376,7 @@ then
 					 sleep 2
 					 clear
 
-					 echo -e "27. Testando o arquivo de Configuração do SAMBA4 para o servidor: `hostname`"
+					 echo -e "28. Testando o arquivo de Configuração do SAMBA4 para o servidor: `hostname`"
 					 echo
 					 samba-tool testparm
 					 echo
@@ -373,7 +385,7 @@ then
 					 sleep 2
 					 clear
 
-					 echo -e "28. Listando usuários do Winbind para o servidor: `hostname`"
+					 echo -e "29. Listando usuários do Winbind para o servidor: `hostname`"
 					 echo
 					 wbinfo -u
 					 echo
@@ -382,7 +394,7 @@ then
 					 sleep 2
 					 clear
 
-					 echo -e "29. Listando grupos do Winbind para o servidor: `hostname`"
+					 echo -e "30. Listando grupos do Winbind para o servidor: `hostname`"
 					 echo
 					 wbinfo -g
 					 echo
@@ -391,7 +403,7 @@ then
 					 sleep 2
 					 clear
 
-					 echo -e "30. Checando as chaves de segurança do Winbind para o servidor: `hostname`"		 
+					 echo -e "31. Checando as chaves de segurança do Winbind para o servidor: `hostname`"		 
 					 echo -e "Status padrão do Winbind: succeeded"
 					 echo
 					 wbinfo -t
@@ -401,7 +413,7 @@ then
 					 sleep 2
 					 clear
 
-					 echo -e "31. Informações do Domínio do Winbind para o servidor: `hostname`"
+					 echo -e "32. Informações do Domínio do Winbind para o servidor: `hostname`"
 					 echo
 					 net ads info
 					 echo
@@ -410,7 +422,7 @@ then
 					 sleep 2
 					 clear
 
-					 echo -e "32. Listando usuários do Winbind integrado com o Linux para o servidor: `hostname`"
+					 echo -e "33. Listando usuários do Winbind integrado com o Linux para o servidor: `hostname`"
 					 echo -e "Pressione <Enter> para continuar"
 					 read
 					 getent passwd | less
@@ -420,7 +432,7 @@ then
 					 sleep 2
 					 clear
 
-					 echo -e "33. Listando grupos do Winbind integrado com o Linux para o servidor: `hostname`"
+					 echo -e "34. Listando grupos do Winbind integrado com o Linux para o servidor: `hostname`"
 					 echo -e "Pressione <Enter> para continuar"
 					 read
 					 getent group | less
@@ -431,7 +443,7 @@ then
 					 clear
 
 					 echo
-					 echo -e "34. Verificando as permissões aplicadas para o usuário: $USER no servidor: `hostname`"
+					 echo -e "35. Verificando as permissões aplicadas para o usuário: $USER no servidor: `hostname`"
 					 echo -e "Pressione <Enter> para continuar"
 					 read
 					 echo
@@ -443,7 +455,7 @@ then
 					 clear
 
 					 echo
-					 echo -e "35. Verificando o acesso aos compartilhamentos locais do SAMBA4 para o servidor: `hostname`"
+					 echo -e "36. Verificando o acesso aos compartilhamentos locais do SAMBA4 para o servidor: `hostname`"
 					 echo
 					 echo -e "Utilizando o endereço de: localhost"
 					 echo
@@ -455,7 +467,7 @@ then
 					 clear
 
 					 echo
-					 echo -e "36. Verificando o acesso aos compartilhamentos locais do SAMBA4 para o servidor: `hostname`"
+					 echo -e "37. Verificando o acesso aos compartilhamentos locais do SAMBA4 para o servidor: `hostname`"
 					 echo
 					 echo -e "Utilizando o endereço de: $IP"
 					 echo
@@ -467,7 +479,7 @@ then
 					 clear
 
 					 echo
-					 echo -e "37. Verificando o acesso aos compartilhamentos locais do SAMBA4 para o servidor: `hostname`"
+					 echo -e "38. Verificando o acesso aos compartilhamentos locais do SAMBA4 para o servidor: `hostname`"
 					 echo
 					 echo -e "Utilizando o endereço de: $DOMAIN"
 					 echo
@@ -479,7 +491,7 @@ then
 					 clear
 
 					 echo
-					 echo -e "38. Verificando o acesso aos compartilhamentos locais do SAMBA4 para o servidor: `hostname`"
+					 echo -e "39. Verificando o acesso aos compartilhamentos locais do SAMBA4 para o servidor: `hostname`"
 					 echo
 					 echo -e "Utilizando o endereço de: $HOSTNAME"
 					 echo
@@ -491,7 +503,7 @@ then
 					 clear
 
 					 echo
-					 echo -e "39. Verificando o acesso aos compartilhamentos locais do SAMBA4 para o servidor: `hostname`"
+					 echo -e "40. Verificando o acesso aos compartilhamentos locais do SAMBA4 para o servidor: `hostname`"
 					 echo
 					 echo -e "Utilizando o endereço de: $FQDN"
 					 echo
@@ -503,7 +515,7 @@ then
 					 clear
 
 					 echo
-					 echo -e "40. Acessando o compartilhamento Netlogon com o usuário: $USER e listando seu contéudo para o servidor: `hostname`"
+					 echo -e "41. Acessando o compartilhamento Netlogon com o usuário: $USER e listando seu contéudo para o servidor: `hostname`"
 					 echo
 					 echo -e "Utilizando o usuário $USER"
 					 echo
@@ -515,9 +527,19 @@ then
 					 clear
 					 
  					 echo
-					 echo -e "41. Verificando o Status de Conexões para o servidor: `hostname`"
+					 echo -e "42. Verificando o Status de Conexões para o servidor: `hostname`"
 					 echo
 					 smbstatus -v
+					 echo
+					 echo -e "Pressione <Enter> para continuar"
+					 read
+					 sleep 2
+					 clear
+					 
+					 echo
+					 echo -e "42. Localização importante dos arquivos do SAMBA-4: `hostname`"
+					 echo
+					 samba -b
 					 echo
 					 echo -e "Pressione <Enter> para continuar"
 					 read
