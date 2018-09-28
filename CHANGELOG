@@ -12,11 +12,11 @@ Kernel >= 4.4.x
 
 ======================FINALIZAÇÃO DOS SOFTWARE PARA INGRESSAR MÁQUINAS GNU/LINUX NO DOMÍNIO - 28/09/2018========================
 
-28/09/2018  - Começando a análisar novamente todos os software para ingressar máquinas GNU/Linux no Domínio do SAMBA-4. Robson Vaamonde
+28/09/2018  - Começando a analisar novamente todos os software para ingressar máquinas GNU/Linux no Domínio do SAMBA-4. Robson Vaamonde
 Links abaixo de indicação de software que serão testados no GNU/Linux Mint e Ubuntu Desktop
 
 Site: https://sourceforge.net/projects/c-i-d/ <-- Já testado no GNU/Linux Mint 19 Tara, funcionando perfeitamente.
-(Instalação e fácil, rápido e sem complicações ou dependências, já altera automáticamente a tela de login, sem precisar fazer alterações em arquivos conf)
+(Instalação e fácil, rápido e sem complicações ou dependências, já altera automaticamente a tela de login, sem precisar fazer alterações em arquivos conf)
 (Possui ambiente gráfico para ingressar máquina no domínio)
 
 Site: https://github.com/BeyondTrust/pbis-open/releases <-- Já testado no GNU/Linux Mint 19 Tara, funcionando perfeitamente.
@@ -24,11 +24,11 @@ Site: https://github.com/BeyondTrust/pbis-open/releases <-- Já testado no GNU/L
 (Não possui ambiente gráfico para ingressar máquina no domínio)
 
 Site: https://www.centrify.com/express/linux/download-files/#accordion-download-express-02 <-- Já testado no GNU/Linux Mint 19 Tara, funcionando perfeitamente.
-(Para instalar no Linux Mint 19 e necessário alterar os arquivos lsb_release e os_release, já altera automáticamente a tela de login, sem precisar fazer alterações em arquivos conf)
+(Para instalar no Linux Mint 19 e necessário alterar os arquivos lsb_release e os_release, já altera automaticamente a tela de login, sem precisar fazer alterações em arquivos conf)
 (Não possui ambiente gráfico para ingressar máquina no domínio)
 
 Site: https://github.com/univention/univention-domain-join <-- Cliente utilizado no meu curso de Hands On UCS Univention Corporate Server SAMBA-4.
-(Cliente só funciona corretamente quando utilizado o Servidor UCS Univention, Instalação e fácil, rápido e sem complicações ou dependências, já altera automáticamente a tela de login, sem precisar fazer alterações em arquivos conf)
+(Cliente só funciona corretamente quando utilizado o Servidor UCS Univention, Instalação e fácil, rápido e sem complicações ou dependências, já altera automaticamente a tela de login, sem precisar fazer alterações em arquivos conf)
 (Possui ambiente gráfico para ingressar máquina no domínio)
 
 Procedimentos de instalar as dependências e configurações de arquivos conf para Ingressar Máquinas Manualmente no Domínio do SAMBA-4. Robson Vaamonde
