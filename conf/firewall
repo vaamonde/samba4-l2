@@ -77,9 +77,9 @@ echo "ativando o fluxo interno entre os processos"
 echo "ON .............................................................[ OK ]"
 echo
 
-#Logando todas as informações de INPUT e OUTPUT
-#	$IPTABLES -A INPUT -i $LAN -j LOG --log-prefix "$LAN trafego aceito de INPUT"
-#	$IPTABLES -A OUTPUT -o $LAN -j LOG --log-prefix "$LAN trafego aceito de OUTPUT"
+#Logando todas as informações de INPUT e OUTPUT no arquivo de LOG: /var/log/firewall.log
+	$IPTABLES -A INPUT -i $LAN -j LOG --log-prefix "$LAN trafego aceito de INPUT"
+	$IPTABLES -A OUTPUT -o $LAN -j LOG --log-prefix "$LAN trafego aceito de OUTPUT"
 
 #Liberando atualizações do Apt-Get
 	$IPTABLES -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
