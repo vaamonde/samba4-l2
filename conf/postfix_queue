@@ -1,0 +1,24 @@
+#!/bin/sh
+# Criado por: Matthieu Patou
+# Site: https://goo.gl/PAamQV
+# Modificador por: Robson Vaamonde
+# Site: www.procedimentosemti.com.br
+# Facebook: facebook.com/ProcedimentosEmTI
+# Facebook: facebook.com/BoraParaPratica
+# YouTube: youtube.com/BoraParaPratica
+# Data de criação: 28/09/2018
+# Data de atualização: 28/09/2018
+# Versão: 0.8
+# Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
+# Kernel >= 4.4.x
+
+#Criação das variáveis para o Postfix
+LOG=/var/log/log.postfix_queue
+
+#Removendo todas as mensagens da fila
+postsuper -d ALL
+
+#Removendo todos os e-mails na fila adiada
+postsuper -d ALL deferred
+
+echo -e "Fim da Limpeza dos E-mail do Postfix em: `date`" >> $LOG
