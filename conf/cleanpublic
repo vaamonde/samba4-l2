@@ -10,6 +10,6 @@
 # Kernel >= 4.4.x
 #
 # Agendamento da Limpeza da Pasta Público /arquivos/pti.intra/publico as 23:30hs, todos os domingos
-30 23 * * sum root /usr/bin/clean_public
+30 23 * * 0 root /usr/bin/clean_public
 
 #Fim do agendamento, obrigatório ter uma linha no final para a execução correta.
