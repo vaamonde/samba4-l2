@@ -5,8 +5,8 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 13/03/2017
-# Data de atualização: 24/05/2017
-# Versão: 0.8
+# Data de atualização: 28/09/2018
+# Versão: 0.9
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
@@ -105,9 +105,11 @@ then
 					 
 					 echo -e "Inicializando o Firewall"
 					 echo
-					 . /etc/init.d/firewall start
+					 sh /etc/init.d/firewall start
+					 echo
 					 echo
 					 echo -e "Firewall inicializado com sucesso!!!"
+					 echo
 					 sleep 2
 					 
 					 echo -e "Fim do Script-23.sh em: `date`" >> $LOG
