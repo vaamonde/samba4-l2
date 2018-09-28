@@ -39,7 +39,14 @@ Site de referência: https://www.starwindsoftware.com/blog/ubuntu-join-a-server-
 
 ==============================FINALIZAÇÃO DA GRANDE ATUALIZAÇÃO DOS SCRIPT E CONF - 27/09/2018=============================
 
-28/09/2018  - Atualização do script-08.sh, acrescimento apenas do descritivo que no final da instalação e configuração de todos os serviços, a quantidade de portas no servidor sobre de 31 para 34. Robson Vaamonde
+28/09/2018  - Diagnosticado falha no serviço do CRON utilizando o comando: sudo service cron status. Robson Vaamonde
+(Correção dos arquivos de agendamento, arquivos que são executado de domingo estáva com a palavra sum, no CRON não aceita mais nomes, somente número)
+Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/cleancups
+Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/cleanpdf
+Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/cleanpublic
+Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/cleanrecycle
+
+28/09/2018  - Atualização do script-08.sh, acréscimo apenas do descritivo que no final da instalação e configuração de todos os serviços, a quantidade de portas no servidor sobre de 31 para 34. Robson Vaamonde
 Conf: https://github.com/vaamonde/samba4-l2/blob/master/script-08.sh
 
 28/09/2018  - Atualização do script-09.sh, criação do recurso de listar os computadores do domínio e informações de localização dos arquivos importantes do SAMBA-4. Robson Vaamonde
