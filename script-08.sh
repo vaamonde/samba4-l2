@@ -67,6 +67,7 @@ then
 					 nmap `hostname` -sS -sU | head -n37 | tail -n31 | cat -n
 					 
 					 echo -e "Quantida de portas padrão que devem ser listadas no servidor `hostname`: 31 (portas)"
+					 echo -e "Após todos os serviços instalados e configurados o número de porta aumenta para 34"
 					 echo -e "Caso o número de portas seja diferente, verificar os status dos serviços de rede"
 					 echo -e "Pressione <Enter> para verificar as regras de Firewall"
 					 read
