@@ -17,13 +17,14 @@ Kernel >= 4.4.x
 01. GPO de Redirecionamento de Pastas Meus Documentos e Desktop para o Home Profile dos Usuários
 Para cilitar quando utilizado com o Home Profile de usuário em computadores remotos
 
-02. Habilitar o Recurso de Lixeira do Active Directory
+02. Habilitar o Recurso de Lixeira do Active Directory (SEM SUPORTE NO SAMBA-4, TESTE FEITO EM 29/09/2018)
 AD-DC:	Habilitar o Recycle Bin (Lixeira) o Active Directory
 			1) start
 			2) administrative tools
 			3) Active Directory Module for Windows PowerShell
 			4) run to administrator
 			5) Enable-ADOptionalFeature –Identity ‘CN=Recycle Bin Feature,CN=Optional Features,CN=Directory Service,CN=Windows NT,CN=Services,CN=Configuration,DC=pti,DC=intra’ –Scope ForestOrConfigurationSet –Target ‘pti.intra’
+			6) https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd392261(v%3dws.10)
 
 03. GPO de Script de Logon Personalizado .bat e .vbs
 Script de mapeamento, atualização de hora e instalação de software simples
