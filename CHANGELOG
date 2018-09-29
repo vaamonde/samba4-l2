@@ -4,8 +4,8 @@ Facebook: facebook.com/ProcedimentosEmTI
 Facebook: facebook.com/BoraParaPratica
 YouTube: youtube.com/BoraParaPratica
 Data de criação: 31/05/2016
-Data de atualização: 28/09/2018
-Versão: 0.32
+Data de atualização: 29/09/2018
+Versão: 0.33
 Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 Testado e homologado para a versão fo Ubuntu Server 16.04.5 LTS x64
 Kernel >= 4.4.x
@@ -37,7 +37,22 @@ Site de referência: https://www.starwindsoftware.com/blog/ubuntu-join-a-server-
 
 =============================SOFTWARE PARA INGRESSAR MÁQUINAS GNU/LINUX NO DOMÍNIO - 28/09/2018============================
 
-==============================FINALIZAÇÃO DA GRANDE ATUALIZAÇÃO DOS SCRIPT E CONF - 27/09/2018=============================
+==============================FINALIZAÇÃO DA GRANDE ATUALIZAÇÃO DOS SCRIPT E CONF - 29/09/2018=============================
+
+29/09/2018  - Atualização do todos os agendamento do CRON, para desativação de envio de email para o usuário. Robosn Vaamonde
+(Criação de variável: MAILTO="" e acréscimo nas linhas de agendamento da opção: > /dev/null 2>&1 || true)
+Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/awstatsupdate
+Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/clamav
+Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/clamav-unofficial-sigs
+Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/cleancups
+Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/cleanpdf
+Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/cleanpublic
+Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/cleanrecycle
+Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/freshclam
+Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/postfixqueue
+Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/rsyncsamba
+Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/sambabackup
+Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/sambadnsupdate
 
 28/09/2018  - Diagnosticado falha no serviço do CRON utilizando o comando: sudo service cron status. Robson Vaamonde
 (Correção dos arquivos de agendamento, arquivos que são executado de domingo estáva com a palavra sum, no CRON não aceita mais nomes, somente número)
@@ -52,7 +67,7 @@ Conf: https://github.com/vaamonde/samba4-l2/blob/master/script-08.sh
 28/09/2018  - Atualização do script-09.sh, criação do recurso de listar os computadores do domínio e informações de localização dos arquivos importantes do SAMBA-4. Robson Vaamonde
 Conf: https://github.com/vaamonde/samba4-l2/blob/master/script-09.sh
 
-28/09/2018  - Atualização do script-23.sh, criação do recurso de Log das regras de IPtables. Robson Vaamonde
+28/09/2018  - Atualização do script-23.sh, criação do recurso de Log das regras de IPtables para facilitar a auditória de bloqueio de portas. Robson Vaamonde
 Script: https://github.com/vaamonde/samba4-l2/blob/master/script-23.sh
 Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/firewall.conf
 
