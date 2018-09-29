@@ -5,8 +5,8 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 31/05/2016
-# Data de atualização: 15/01/2017
-# Versão: 0.8
+# Data de atualização: 29/09/2018
+# Versão: 0.9
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
@@ -28,7 +28,7 @@
 #
 # Após o reboot configurar o arquivo /etc/ntp.conf para atualizar data e hora dos servidores do NTP.br
 #	 mv /etc/ntp.conf /etc/ntp.conf.old
-#	 cp ntp.drift /etc/
+#	 cp ntp.drift /var/lib/ntp/ntp.drift
 #	 cp ntp.conf /etc/
 #
 # Na instalação fazer a criação do REALM do Kerberos
@@ -156,9 +156,11 @@ then
 					 
 					 echo -e "Criando o arquivo ntp.drift"
 					 #Copiando o arquivo ntp.drift
-					 cp -v conf/ntp.drift /etc/ntp.drift >> $LOG
+					 cp -v conf/ntp.drift /var/lib/ntp/ntp.drift >> $LOG
 					 #Adicionando o contéudo de 0.0 dentro do arquivo ntp.drift
 					 echo 0.0 > /etc/ntp.drift
+					 #Alterando o dono e grupo de arquivo nto.drift
+					 chown -v ntp.ntp /var/lib/ntp/ntp.drift >> $LOG
 					 echo -e "Arquivo ntp.drift criado com sucesso!!!"
 					 sleep 2
 					 echo
