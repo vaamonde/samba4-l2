@@ -61,6 +61,12 @@ https://github.com/floriandejonckheere/fusequota
 
 ======================FINALIZAÇÃO DOS SOFTWARE PARA INGRESSAR MÁQUINAS GNU/LINUX NO DOMÍNIO - 28/09/2018========================
 
+29/09/2018  - Após auditória no arquivo /var/log/syslog encontrado mensagem de erro do NTP: ntp frequency file /etc/ntp/drift.temp permission denied. Robson Vaamonde
+(Correção do arquivo de configuração ntp.conf, alteração da linha: driftfile /var/lib/ntp/ntp.drift)
+(Correção do arquivo de script-01.sh, alteração das linhas: cp conf/ntp.drift /var/lib/ntp/ntp.drift | chown ntp.ntp /var/lib/ntp/ntp.drift)
+Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/ntp.conf
+Conf: https://github.com/vaamonde/samba4-l2/blob/master/script-01.sh
+
 28/09/2018  - Começando a analisar novamente todos os software para ingressar máquinas GNU/Linux no Domínio do SAMBA-4. Robson Vaamonde
 Links abaixo de indicação de software que serão testados no GNU/Linux Mint e Ubuntu Desktop
 
