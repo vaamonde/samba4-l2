@@ -5,10 +5,55 @@ Facebook: facebook.com/BoraParaPratica
 YouTube: youtube.com/BoraParaPratica
 Data de criação: 31/05/2016
 Data de atualização: 29/09/2018
-Versão: 0.33
+Versão: 0.34
 Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 Testado e homologado para a versão fo Ubuntu Server 16.04.5 LTS x64
 Kernel >= 4.4.x
+
+=====================FINALIZAÇÃO DA CRIAÇÃO DE NOVOS RECURSOS PARA O CURSO DE SAMBA-4 LEVEL 2 - 29/09/2018=======================
+
+29/09/2018  - Trabalhando nas configurações dos serviços abaixo para gravação de novos vídeos para o curso de SAMBA-4 Level 2. Robson Vaamonde
+
+01. GPO de Redirecionamento de Pastas Meus Documentos e Desktop para o Home Profile dos Usuários
+Para cilitar quando utilizado com o Home Profile de usuário em computadores remotos
+
+02. Habilitar o Recurso de Lixeira do Active Directory
+AD-DC:	Habilitar o Recycle Bin (Lixeira) o Active Directory
+			1) start
+			2) administrative tools
+			3) Active Directory Module for Windows PowerShell
+			4) run to administrator
+			5) Enable-ADOptionalFeature –Identity ‘CN=Recycle Bin Feature,CN=Optional Features,CN=Directory Service,CN=Windows NT,CN=Services,CN=Configuration,DC=pti,DC=intra’ –Scope ForestOrConfigurationSet –Target ‘pti.intra’
+
+03. GPO de Script de Logon Personalizado .bat e .vbs
+Script de mapeamento, atualização de hora e instalação de software simples
+
+04. Configuração do Gerenciador de Impressoras
+https://wiki.samba.org/index.php/Setting_up_Automatic_Printer_Driver_Downloads_for_Windows_Clients
+https://wiki.samba.org/index.php/Setting_up_Samba_as_a_Print_Server
+
+05. Melhorias na Configuração do CUPS
+Foco em desempenho e drivers de impressoras
+
+06. Ingressando o Linux Mint 19 e Ubuntu 18.04 no Domínio
+Utilizando o CID pois o mesmo já configura todos os recursos automáticamente.
+Centrify Express e PowerBroker Open e necessário configuração de conf's e personalização de ambiente gráfico
+
+Obs: O recurso de Shadow Copy (Cópia de Sombra) Snapshoots não funciona com sistema de arquivos Ext4, somente com LVM formatado com XFS
+https://wiki.samba.org/index.php/Rotating_LVM_snapshots_for_shadow_copy
+
+Obs: Identificação automática de arquivos que não fazem parte da política de triagem, desenvolvendo script para essa finalidade
+find /Public/ -type f -print0 | xargs -0 file -s | egrep -i ‘(audio file|video|executable|image)’ | cut -d/ -f2 | cut -d: -1 > /tmp/limpeza_diretorios.log
+
+Obs: Recurso de Troca de Senha de usuário via Web, testando solução LDAP Tool Box project
+https://ltb-project.org/documentation/self-service-password
+
+Obs: Recurso de Gerenciamento do LDAP, testado solução Easy LDAP Account Manager
+https://www.ldap-account-manager.org/lamcms/
+
+Obs: Quota em Sub-Diretório igual ao Windows Server com a Ferramenta FSRM, não tem suporte no Linux e nem no SAMBA-4
+
+==========================CRIAÇÃO DE NOVOS RECURSOS PARA O CURSO DE SAMBA-4 LEVEL 2 - 29/09/2018==============================
 
 ======================FINALIZAÇÃO DOS SOFTWARE PARA INGRESSAR MÁQUINAS GNU/LINUX NO DOMÍNIO - 28/09/2018========================
 
