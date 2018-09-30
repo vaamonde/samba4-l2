@@ -60,6 +60,20 @@ Obs: Quota em Sub-Diretório igual ao Windows Server com a Ferramenta FSR.(SEM S
 (Existe projeto de terceiros e criação de diretórios em loop de arquivo de imagem *.img ou de loop, não recomendado)
 https://github.com/floriandejonckheere/fusequota
 
+Exemplo-01
+mkdir -p /quota
+mkdir -p /usr/disk-img
+dd if=/dev/zero of=/usr/disk-img/disk-quota.ext4 count=40960
+/sbin/mkfs -t ext4 -q /usr/disk-img/disk-quota.ext4 -F
+mount -o loop,rw,usrquota,grpquota /usr/disk-img/disk-quota.ext4 /quota
+
+Exemplo-02
+mkdir /var/virtual_disks/directory_with_size_limit
+touch /var/virtual_disks/directory_with_size_limit.ext4
+dd if=/dev/zero of=/var/virtual_disks/directory_with_size_limit.ext4 bs=QUOTA_SIZE count=1
+mkfs.ext4 /var/virtual_disks/directory_with_size_limit.ext4
+mount -o loop,rw,usrquota,grpquota /var/virtual_disks/directory_with_size_limit.ext4 /path/of/mount/point
+
 ==========================CRIAÇÃO DE NOVOS RECURSOS PARA O CURSO DE SAMBA-4 LEVEL 2 - 29/09/2018==============================
 
 ======================FINALIZAÇÃO DOS SOFTWARE PARA INGRESSAR MÁQUINAS GNU/LINUX NO DOMÍNIO - 28/09/2018========================
