@@ -5,8 +5,8 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 31/05/2016
-# Data de atualização: 30/12/2016
-# Versão: 0.8
+# Data de atualização: 01/10/2018
+# Versão: 0.9
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
@@ -59,7 +59,7 @@ then
 					 echo
 					 echo -e "Rodando o Script-05.sh em: `date`" > $LOG
 					 
-					 echo -e "Atualizando as Listas do Apt-Get"
+					 echo -e "Atualizando as Listas do Apt-Get, aguarde..."
 					 # Exportando o recurso de Noninteractive do Debconf
 					 export DEBIAN_FRONTEND=noninteractive
 					 #Atualizando as listas do apt-get
@@ -68,7 +68,7 @@ then
 					 echo
 					 echo ============================================================ >> $LOG
 
-					 echo -e "Atualizando o Sistema"
+					 echo -e "Atualizando o Sistema, aguarde..."
 					 #Fazendo a atualização de todos os pacotes instalados no servidor
 					 apt-get -o Dpkg::Options::="--force-confold" upgrade -q -y --force-yes &>> $LOG
 					 echo -e "Sistema Atualizado com Sucesso!!!"
@@ -90,18 +90,19 @@ then
 					 echo -e "No procedimento: script-02.sh foi executado a mudança do GRUB"
 					 echo
 					 echo -e "Interface padrão no GNU/Linux Ubuntu Server versão: $UBUNTU: `lshw -class network | grep -i "logical name" | cut -d: -f2`"
+					 echo
 					 echo -e "Pressione <Enter> para editar o arquivo"
 					 echo 
 					 read
 					 
-					 echo -e "Fazendo o backup do arquivo interfaces"
+					 echo -e "Fazendo o backup do arquivo interfaces, aguarde..."
 					 #Fazendo o backup do arquivo de configuração interfaces
 					 mv -v /etc/network/interfaces /etc/network/interfaces.old >> $LOG
 					 echo -e "Backup feito com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Atualizando o arquivo interfaces"
+					 echo -e "Atualizando o arquivo interfaces, aguarde..."
 					 #Copiando o arquivo de configuração interfaces
 					 cp -v conf/interfaces /etc/network/interfaces >> $LOG
 					 echo -e "Arquivo atualizado com sucesso!!!"
@@ -112,9 +113,11 @@ then
 					 vim +20 /etc/network/interfaces
 					 echo
 					 
-					 echo -e "Testando o arquivo de configuração das interfaces"
+					 echo -e "Testando o arquivo de configuração das interfaces, aguarde..."
+					 echo
 					 #Verificando as informações das Interfaces
 					 ifup --verbose --no-act --force --all --interfaces=/etc/network/interfaces
+					 echo
 					 echo -e "Interfaces testada com sucesso!!!"
 					 sleep 2
 					 echo
@@ -127,20 +130,20 @@ then
 
 					 echo -e "Editando o arquivo /etc/hosts.allow para acrescentar as informações de liberação de acesso remoto"
 					 echo
-					 echo -e "Linhas a serem editadas no arquivo /etc/hosts.allow"
+					 echo -e "Linhas a serem editadas no arquivo /etc/hosts.allow, aguarde..."
 					 echo -e "`cat -n /etc/hosts.allow`"
 					 echo -e "Pressione <Enter> para editar o arquivo"
 					 echo 
 					 read
 					 
-					 echo -e "Fazendo o backup do arquivo hosts.allow"
+					 echo -e "Fazendo o backup do arquivo hosts.allow, aguarde..."
 					 #Fazendo o backup do arquivo de configuração hosts.allow
 					 mv -v /etc/hosts.allow /etc/hosts.allow.old >> $LOG
 					 echo -e "Backup feito com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Atualizando o arquivo hosts.allow"
+					 echo -e "Atualizando o arquivo hosts.allow, aguarde..."
 					 #Copiando o arquivo de configuração hosts.allow
 					 cp -v conf/hosts.allow /etc/hosts.allow >> $LOG
 					 echo -e "Arquivo atualizadoo com sucesso!!!"
@@ -163,14 +166,14 @@ then
 					 echo 
 					 read
 					 
-					 echo -e "Fazendo o backup do arquivo hosts.deny"
+					 echo -e "Fazendo o backup do arquivo hosts.deny, aguarde..."
 					 #Fazendo o backup do arquivo de configuração hosts.deny
 					 mv -v /etc/hosts.deny /etc/hosts.deny.old >> $LOG
 					 echo -e "Backup feito com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Atualizando o arquivo hosts.deny"
+					 echo -e "Atualizando o arquivo hosts.deny, aguarde..."
 					 #Copiando o arquivo de configuração hosts.deny
 					 cp -v conf/hosts.deny /etc/hosts.deny >> $LOG
 					 echo -e "Arquivo atualizado com sucesso!!!"
@@ -190,7 +193,7 @@ then
 					 echo 
 					 read
 					 
-					 echo -e "Fazendo o backup do arquivo sshd_config"
+					 echo -e "Fazendo o backup do arquivo sshd_config, aguarde..."
 					 #Fazendo o backup do arquivo de configuração sshd_config
 					 mv -v /etc/ssh/sshd_config /etc/ssh/sshd_config.old >> $LOG
 					 echo -e "Backup feito com sucesso!!!"
@@ -226,14 +229,14 @@ then
 					 echo 
 					 read
 					 
-					 echo -e "Fazendo o backup do arquivo dhcpd.conf"
+					 echo -e "Fazendo o backup do arquivo dhcpd.conf, aguarde..."
 					 #Fazendo o backup do arquivo de configuração dhcpd.conf
 					 mv -v /etc/dhcp/dhcpd.conf /etc/dhcp/dhcpd.conf.old >> $LOG
 					 echo -e "Backup feito com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Atualizando o arquivo dhcpd.conf"
+					 echo -e "Atualizando o arquivo dhcpd.conf, aguarde..."
 					 #Copiando o arquivo de configuração do dhcpd.conf
 					 cp -v conf/dhcpd.conf /etc/dhcp/dhcpd.conf >> $LOG
 					 echo -e "Arquivo atualizado com sucesso!!!"
@@ -260,31 +263,38 @@ then
 					 echo 
 					 read
 					 
-					 echo -e "Fazendo o backup do arquivo issue.net"
+					 echo -e "Fazendo o backup do arquivo issue.net, aguarde..."
 					 #Fazendo o backup do arquivo de configuração do issue.net
 					 mv -v /etc/issue.net /etc/issue.net.old >> $LOG
 					 echo -e "Backup feito com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Atualizando o arquivo issue.net"
+					 echo -e "Atualizando o arquivo issue.net, aguarde..."
 					 #Copiando o arquivo de configuração do issue.net
 					 cp -v conf/issue.net /etc/issue.net >> $LOG
 					 echo -e "Arquivo atualizado com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Atualizando o arquivo issue com o comando screenfetch"
+					 echo -e "Atualizando o arquivo issue com o comando screenfetch, aguarde..."
 					 #Atualizando o arquivo de configuração issue para o comando screenfetch, gerando uma imagem do Ubuntu com códigos ASCII
 					 screenfetch > /etc/issue
 					 echo -e "Arquivo atualizado com sucesso!!!"
 					 sleep 2
 					 echo
 
-					 #Editando o arquivo de configuração do issue.net
+					 #Editando o arquivo de configuração do /etc/issue.net utilizado pelo SSH
 					 vim /etc/issue.net
+					 sleep 2
+					 echo
 					 
-					 echo -e "ISSUE.NET atualizado com sucesso!!!, pressione <Enter> continuando com o script"
+					 #Editando o arquivo de configuração do /etc/issue utilizado no Login via TTY
+					 vim /etc/issue.net
+					 sleep 2
+					 echo					 
+					 
+					 echo -e "ISSUE.NET ISSUE atualizados com sucesso!!!, pressione <Enter> continuando com o script"
 					 read
 					 sleep 2
 					 clear
