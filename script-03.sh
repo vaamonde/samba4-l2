@@ -5,8 +5,8 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 31/05/2016
-# Data de atualização: 27/09/2018
-# Versão: 0.9
+# Data de atualização: 01/10/2018
+# Versão: 0.10
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
@@ -58,7 +58,7 @@ then
 					 echo
 					 echo -e "Rodando o Script-03.sh em: `date`" > $LOG
 					 
-					 echo -e "Atualizando as Listas do Apt-Get"
+					 echo -e "Atualizando as Listas do Apt-Get, aguarde..."
 					 #Exportando o recurso de Noninteractive do Debconf
 					 export DEBIAN_FRONTEND=noninteractive
 					 #Atualizando as listas do apt-get
@@ -67,21 +67,21 @@ then
 					 echo
 					 echo ============================================================ >> $LOG
 
-					 echo -e "Atualizando o Sistema"
+					 echo -e "Atualizando o Sistema, aguarde..."
 					 #Fazendo a atualização de todos os pacotes instalados no servidor
 					 apt-get -o Dpkg::Options::="--force-confold" upgrade -q -y --force-yes &>> $LOG
 					 echo -e "Sistema Atualizado com Sucesso!!!"
 					 echo
 					 echo ============================================================ >> $LOG
 
-					 echo -e "Instalando as Dependências do Webmin"
+					 echo -e "Instalando as Dependências do Webmin, aguarde..."
 					 #Instalando as dependências do Webmin
 					 apt-get -y install perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions python &>> $LOG
 					 echo -e "Instalação das Dependências do Webmin Feito com Sucesso!!!"
 					 echo
 					 echo ============================================================ >> $LOG
 
-					 echo -e "Limpando o Cache do Apt-Get"
+					 echo -e "Limpando o Cache do Apt-Get, aguarde..."
 					 #Limpando o diretório de cache do apt-get
 					 apt-get clean &>> $LOG
 					 echo -e "Cache Limpo com Sucesso!!!"
@@ -105,7 +105,7 @@ then
 					 #Instalando o webmin utilizando o comando dpkg
 					 dpkg -i $VERSAO &>> $LOG
 					 
-					 echo -e "Remoção do download do Webmin"
+					 echo -e "Remoção do download do Webmin, aguarde..."
 					 #Removendo o arquivo de instalação do webmin
 					 rm -v $VERSAO &>> $LOG
 					 echo
