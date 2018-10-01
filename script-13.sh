@@ -5,8 +5,8 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 31/05/2016
-# Data de atualização: 30/12/2016
-# Versão: 0.8
+# Data de atualização: 01/10/2018
+# Versão: 0.9
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
@@ -52,21 +52,21 @@ then
 					 echo -e "Copiando o Script de Backup do SAMBA-4 do servidor: `hostname`"
 					 echo
 					 
-					 echo -e "Atualizando o arquivo samba_backup"
+					 echo -e "Atualizando o arquivo samba_backup, aguarde..."
 					 #Copiando o arquivo de script do samba_backup
 					 cp -v conf/samba_backup /usr/sbin >> $LOG
 					 echo -e "Arquivo atualizado com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Alterando as permissões do arquivo samba_backup"
+					 echo -e "Alterando as permissões do arquivo samba_backup, aguarde..."
 					 #Alterando suas permissões de dono, grupo e outros
 					 chmod -v 750 /usr/sbin/samba_backup >> $LOG
 					 echo -e "Permissões alteradas com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Criando os diretórios de backup"
+					 echo -e "Criando os diretórios de backup, aguarde..."
 					 #Criando o diretório de Backup para o SAMBA-4 em /backup/samba4
 					 mkdir -v $BACKUP >> $LOG
 					 #Criando o diretório /etc dentro da localização dos arquivos de configuraçao do SAMBA-4
@@ -92,14 +92,14 @@ then
 					 sleep 2
 					 clear
 					 
-					 echo -e "Executando o Backup do SAMBA-4"
+					 echo -e "Executando o Backup do SAMBA-4, aguarde..."
 					 #Executando o backup do samba utilizando o script
 					 samba_backup
 					 echo -e "Backup do SAMBA-4 executado com sucesso!!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Verificando os arquivos de Backup do SAMBA-4"
+					 echo -e "Verificando os arquivos de Backup do SAMBA-4, aguarde..."
 					 echo
 					 #Listando o contéudo do diretório de backup
 					 ls -lha $BACKUP
@@ -114,7 +114,7 @@ then
 					 read
 					 echo
 					 
-					 echo -e "Atualizando o arquivo sambackup"
+					 echo -e "Atualizando o arquivo sambackup, aguarde..."
 					 #Copiando o arquivo de agendamento do sambabackup
 					 cp -v conf/sambabackup /etc/cron.d/ >> $LOG
 					 echo -e "Arquivo atualizado com sucesso!!!"
