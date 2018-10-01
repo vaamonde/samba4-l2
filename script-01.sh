@@ -5,8 +5,8 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 31/05/2016
-# Data de atualização: 29/09/2018
-# Versão: 0.9
+# Data de atualização: 01/10/2018
+# Versão: 0.10
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
@@ -80,20 +80,19 @@ then
 					 echo -e "Configuração do FSTAB para suporte a ACL e XATTR"
 					 echo
 					 echo -e "Após o término o Servidor será reinicializado"
-					 echo
 					 echo -e "Aguarde..."
 					 echo
 					 echo -e "Rodando o Script-01.sh em: `date`" > $LOG
 					 echo ============================================================ >> $LOG
 					 
-					 echo -e "Atualizando as Listas do Apt-Get"
+					 echo -e "Atualizando as Listas do Apt-Get, aguarde..."
 					 #Atualizando as listas do apt-get
 					 apt-get update &>> $LOG
 					 echo -e "Listas Atualizadas com Sucesso!!!"
 					 echo
 					 echo ============================================================ >> $LOG
 
-					 echo -e "Atualizando o Sistema"
+					 echo -e "Atualizando o Sistema, aguarde..."
 					 #Fazendo a atualização de todos os pacotes instalados no servidor
 					 apt-get -o Dpkg::Options::="--force-confold" upgrade -q -y --force-yes &>> $LOG
 					 echo -e "Sistema Atualizado com Sucesso!!!"
@@ -107,7 +106,7 @@ then
 					 echo
 					 echo ============================================================ >> $LOG
 
-					 echo -e "Configurando os parâmetros do apt-get para a instalação do Kerberos"
+					 echo -e "Configurando os parâmetros do apt-get para a instalação do Kerberos, aguarde..."
 					 #Configurando o Debconf para a configurações do Kerberos trabalhar com Nointeractive
 					 echo "krb5-config krb5-config/default_realm string $REALM" |  debconf-set-selections
 					 echo "krb5-config krb5-config/kerberos_servers string $SERVERS" |  debconf-set-selections
@@ -122,39 +121,38 @@ then
 					 echo
 					 echo ============================================================ >> $LOG
 					 
-					 echo -e "Instalando o Kerberos"
+					 echo -e "Instalando o Kerberos, aguarde..."
 					 #Instalando o Kerberos
 					 apt-get -y install krb5-user krb5-config &>> $LOG
 					 echo -e "Kerberos instalado com Sucesso!!!"
 					 echo
 					 echo ============================================================ >> $LOG
 					 
-					 echo -e "Limpando o Cache do Apt-Get"
+					 echo -e "Limpando o Cache do Apt-Get, aguarde..."
 					 #Limpando o diretório de cache do apt-get
 					 apt-get clean &>> $LOG
 					 echo -e "Cache Limpo com Sucesso!!!"
 					 echo
 					 echo ============================================================ >> $LOG
 					 
-					 echo -e "Instalação dos principais software de rede feita com sucesso!!!, pressione <Enter> para continuar"
+					 echo -e "Instalação dos principais software de rede feita com sucesso!!!, pressione <Enter> para continuar."
 					 read
 					 sleep 2
 					 clear
 					 echo ============================================================ >> $LOG
 					
-					 echo -e "Configurando o Serviço do NTP"
-					 echo -e "Pressione <Enter> para continuar"
+					 echo -e "Configurando o Serviço do Servidor NTPD, Pressione <Enter> para continuar"
 					 echo
 					 read
 					 
-					 echo -e "Fazendo o Backup do arquivo ntp.conf"
+					 echo -e "Fazendo o Backup do arquivo ntp.conf, aguarde..."
 					 #Fazendo o backup do arquivos de configuração do NTP Server
 					 mv -v /etc/ntp.conf /etc/ntp.conf.old >> $LOG
 					 echo -e "Backup do arquivo ntp.conf feito com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Criando o arquivo ntp.drift"
+					 echo -e "Criando o arquivo ntp.drift, aguarde..."
 					 #Copiando o arquivo ntp.drift
 					 cp -v conf/ntp.drift /var/lib/ntp/ntp.drift >> $LOG
 					 #Adicionando o contéudo de 0.0 dentro do arquivo ntp.drift
@@ -165,14 +163,14 @@ then
 					 sleep 2
 					 echo
 					 
-					 echo -e "Atualizando o arquivo ntp.conf"
+					 echo -e "Atualizando o arquivo ntp.conf, aguarde..."
 					 #Copiando o arquivo de configuração do NTP Server
 					 cp -v conf/ntp.conf /etc/ntp.conf >> $LOG
 					 echo -e "Arquivo atualizado com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Parando o serviço do ntp server"
+					 echo -e "Parando o serviço do ntp server, aguarde..."
 					 #Parando o serviço do NTP Server para fazer a sua configuração
 					 sudo service ntp stop
 					 echo -e "Serviço parado com sucesso!!!"
@@ -193,7 +191,7 @@ then
 					 sleep 2
 					 clear
 					 
-					 echo -e "Atualizando Data/Hora do Servidor utilizando ntpdate"
+					 echo -e "Atualizando Data/Hora do Servidor utilizando ntpdate, aguarde..."
 					 echo
 					 #Atualizando data/hora do servidor NTP.br
 					 #d=debug, q=query, u=unprivileged, v=verbose
@@ -205,7 +203,7 @@ then
 					 sleep 2
 					 echo
 					 
-					 echo -e "Verificação dos servidores NTP"
+					 echo -e "Verificação dos servidores NTP, aguarde..."
 					 echo
 					 #Verificando as informações de Servidores NTP e seu sincronismo
 					 #p=print, n=all andress
@@ -215,7 +213,9 @@ then
 					 sleep 2
 					 echo
 					 
-					 echo -e "Data/Hora do Hardware do servidor"
+					 echo -e "Data/Hora do Hardware do servidor, aguarde..."
+					 #Atualizando a data/hora do hardware com a data/hora do sistema operacional
+					 hwclock --systohc
 					 #Verificando data/hora de hardware (BIOS)
 					 hwclock
 					 sleep 2
@@ -255,13 +255,13 @@ then
 					 read
 					 sleep 2
 					 
-					 echo -e "Fazendo o backup do arquivo fstab"
+					 echo -e "Fazendo o backup do arquivo fstab, aguarde..."
 					 #Fazendo o backup do arquivo fstab
 					 cp -v /etc/fstab /etc/fstab.old >> $LOG
 					 echo -e "Backup feito com sucesso!!!"
 					 sleep 2
 					 
-					 echo -e "Editando o arquivo fstab"
+					 echo -e "Editando o arquivo fstab, aguarde..."
 					 #Editando o arquivo fstab
 					 vim /etc/fstab
 					 echo
@@ -283,21 +283,21 @@ then
 					 read
 					 sleep 2
 					 
-					 echo -e "Fazendo o Backup do arquivo krb5.conf"
+					 echo -e "Fazendo o Backup do arquivo krb5.conf, aguarde..."
 					 #Fazendo o backup do arquivo de confguração do Kerberos
 					 mv -v /etc/krb5.conf /etc/krb5.conf.old >> $LOG
 					 echo -e "Backup feito com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Atualizando o arquivo krb5.conf"
+					 echo -e "Atualizando o arquivo krb5.conf, aguarde..."
 					 #Atualizando o arquivo de configuração do Kerberos
 					 cp -v conf/krb5.conf /etc/krb5.conf >> $LOG
 					 echo -e "Atualizado com sucesso!!!"
 					 sleep 2
 					 echo 
 					 
-					 echo -e "Editando o arquivo krb5.conf"
+					 echo -e "Editando o arquivo krb5.conf, aguarde..."
 					 #Editando o arquivo de configuração do Kerberos
 					 vim /etc/krb5.conf
 					 echo
