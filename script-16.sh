@@ -5,8 +5,8 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 31/05/2016
-# Data de atualização: 30/12/2016
-# Versão: 0.8
+# Data de atualização: 01/10/2018
+# Versão: 0.9
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
@@ -141,7 +141,7 @@ then
 					 echo -e "Pressione <Enter> para listar os Grupos Globais"
 					 read
 					 #Listando todos dos grupos globais utilizando o comando samba-tool com filtro
-					 samba-tool group list -v | grep GG
+					 samba-tool group list -v | grep GG | sort | cat -n
 					 echo
 					 echo -e "Pressione <Enter> para continuar com o script"
 					 read
@@ -151,7 +151,7 @@ then
 					 echo -e "Pressione <Enter> para listar os Grupos Locais"
 					 read
 					 #Listando todos dos grupos domínio local utilizando o comando samba-tool com filtro
-					 samba-tool group list -v | grep ACL
+					 samba-tool group list -v | grep ACL | sort | cat -n
 					 echo
 					 echo -e "Pressione <Enter> para continuar com o script"
 					 read
