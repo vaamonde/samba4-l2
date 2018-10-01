@@ -5,8 +5,8 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 31/05/2016
-# Data de atualização: 30/12/2016
-# Versão: 0.8
+# Data de atualização: 01/10/2018
+# Versão: 0.9
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
@@ -101,13 +101,13 @@ then
 					 echo -e "3. PDC Emulator (Emulador de Controlador de Domínio Primário);"
 					 echo -e "4. RID Master (Mestre ID Relativo - SID);"
 					 echo -e "5. Infra-Structure Master (Mestre de Infra-Estrutura);"
-					 echo -e "6. GC Global Catalog (Catalogo Global)."
+					 echo -e "6. GC Global Catalog (Catálogo Global)."
 					 echo
 					 echo -e "Aguarde..."
 					 echo
 					 echo -e "Rodando o Script-06.sh em: `date`" > $LOG
 					 
-					 echo -e "Atualizando as Listas do Apt-Get"
+					 echo -e "Atualizando as Listas do Apt-Get, aguarde..."
 					 # Exportando o recurso de Noninteractive do Debconf
 					 export DEBIAN_FRONTEND=noninteractive
 					 #Atualizando as listas do apt-get
@@ -116,7 +116,7 @@ then
 					 echo
 					 echo ============================================================ >> $LOG
 
-					 echo -e "Atualizando o Sistema"
+					 echo -e "Atualizando o Sistema, aguarde..."
 					 #Fazendo a atualização de todos os pacotes instalados no servidor
 					 apt-get -o Dpkg::Options::="--force-confold" upgrade -q -y --force-yes &>> $LOG
 					 echo -e "Sistema Atualizado com Sucesso!!!"
@@ -134,31 +134,31 @@ then
 					 read
 					 echo
 					 
-					 echo -e "Parando o serviço do SAMBA-4"
+					 echo -e "Parando o serviço do SAMBA-4, aguarde..."
 					 #Parando o serviço do SAMBA-4
 					 sudo service samba stop &>> $LOG
 					 echo -e "Serviço parado com sucesso!!!"
 					 sleep 2
 					 echo 
 					 
-					 echo -e "Fazendo o backup do arquivo smb.conf"
+					 echo -e "Fazendo o backup do arquivo smb.conf, aguarde..."
 					 #Fazendo o backup do arquivo de configuração smb.conf
 					 mv -v /etc/samba/smb.conf /etc/samba/smb.conf.old >> $LOG
 					 echo -e "Backup feito com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Promovendo o controlador de domínio do SAMBA-4"
+					 echo -e "Promovendo o controlador de domínio do SAMBA-4, aguarde..."
 					 #Iniciando o processo de promoção do servidor utilizando o comando samba-tool domain provision
 					 samba-tool domain provision --realm=$REALM --domain=$DOMAIN --server-role=$ROLE --dns-backend=$DNS --adminpass=$PASSWORD --function-level=$LEVEL --site=$SITE --host-ip=$IP --option="interfaces = lo eth0" --option="bind interfaces only = yes" --option="allow dns updates = nonsecure and secure" --option="dns forwarder = 192.168.1.10" --option="winbind use default domain = yes" --option="winbind enum users  = yes" --option="winbind enum groups = yes" --option="winbind refresh tickets = yes" --option="server signing = auto" --option="vfs objects = acl_xattr" --option="map acl inherit = yes" --option="store dos attributes = yes" --option="client use spnego = no" --option="use spnego = no" --option="client use spnego principal = no" --use-rfc2307 --use-xattrs=yes &>> $LOG
 					 echo -e "Promoção do Servidor SAMBA-4 feita com Sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Verificando as informações do Controlador de Domínio do SAMBA-4"
+					 echo -e "Verificando as informações do Controlador de Domínio do SAMBA-4, aguarde..."
 					 echo
 					 #Verificando informações do domínio.
-					 tail -n6 $LOG | head -n5
+					 tail -n6 $LOG | head -n6
 					 echo
 					 echo -e "Servidor SAMBA-4 promovido como Controlador de Domínio com Sucesso!!!"
 					 echo -e "Pressione <Enter> para continuar com o script"
@@ -167,7 +167,7 @@ then
 					 clear
 					 echo ============================================================ >> $LOG
 					 
-					 echo -e "Desabilitando a expiração da senha do usuário Administrator"
+					 echo -e "Desabilitando a expiração da senha do usuário Administrator, aguarde..."
 					 #Desativando a expiração da senha do usuário administrator
 					 samba-tool user setexpiry administrator --noexpiry &>> $LOG
 					 echo -e "Senha desabilitada com sucesso!!!, pressione <Enter> continuando com o script"
@@ -175,20 +175,20 @@ then
 					 sleep 2
 					 clear
 					 
-					 echo -e "Editando o arquivo NAMED.CONF"
+					 echo -e "Editando o arquivo NAMED.CONF, aguarde..."
 					 echo -e "Acrescentar a linha: include "/var/lib/samba/private/named.conf" no final arquivo named.conf"
 					 echo -e "Pressione <Enter> para editar o arquivo"
 					 echo 
 					 read
 					 
-					 echo -e "Fazendo o backup do arquivo named.conf"
+					 echo -e "Fazendo o backup do arquivo named.conf, aguarde..."
 					 #Fazendo o backup do arquivo de configuração named.conf
 					 mv -v /etc/bind/named.conf /etc/bind/named.conf.old >> $LOG
 					 echo -e "Backup feito com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Atualizando o arquivo named.conf"
+					 echo -e "Atualizando o arquivo named.conf, aguarde..."
 					 #Copiando o arquivo de configuração named.conf
 					 cp -v conf/named.conf /etc/bind/named.conf >> $LOG
 					 echo -e "Arquivo atualizado com sucesso!!!"
@@ -210,14 +210,14 @@ then
 					 echo 
 					 read
 					 
-					 echo -e "Fazendo o backup do arquivo named.conf.options"
+					 echo -e "Fazendo o backup do arquivo named.conf.options, aguarde..."
 					 #Fazendo o backup do arquivo de configuração named.conf.options
 					 mv -v /etc/bind/named.conf.options /etc/bind/named.conf.options.old >> $LOG
 					 echo -e "Backup feito com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Atualizando o arquivo named.conf.options"
+					 echo -e "Atualizando o arquivo named.conf.options, aguarde..."
 					 #Copiando o arquivo de configuração named.conf.options
 					 cp -v conf/named.conf.options /etc/bind/named.conf.options >> $LOG
 					 echo -e "Arquivo atualizado com sucesso!!!"
@@ -241,14 +241,14 @@ then
 					 echo
 					 read
 					 
-					 echo -e "Fazendo o backup do arquivo named.conf.local"
+					 echo -e "Fazendo o backup do arquivo named.conf.local, aguarde..."
 					 #Fazendo o backup do arquivo de configuração named.conf.local
 					 mv -v /etc/bind/named.conf.local /etc/bind/named.conf.local.old >> $LOG
 					 echo -e "Backup feito com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Atualizando o arquivo named.conf.local"
+					 echo -e "Atualizando o arquivo named.conf.local, aguarde..."
 					 #Copiando o arquivo de confguração named.conf.local
 					 cp -v conf/named.conf.local /etc/bind/named.conf.local >> $LOG
 					 echo -e "Arquivo atualizado com sucesso!!!"
@@ -262,7 +262,7 @@ then
 					 #Recurso de geração de chaves do Bind, recurso desativado em: 19/07/2016, falha na geração
 					 #rndc-confgen -a
 					 
-					 echo -e "Alterando as permissões do arquivo rndc.key"
+					 echo -e "Alterando as permissões do arquivo rndc.key, aguarde..."
 					 #Alterando as permissões de dono e grupo do arquivo de chaves rndc.key
 					 chown -v root:bind /etc/bind/rndc.key >> $LOG
 					 #Alterando as permissões de acesso do arquivo de chaves rndc.key
@@ -287,14 +287,14 @@ then
 					 echo 
 					 read
 					 
-					 echo -e "Fazendo o backup do arquivo usr.sbin.named"
+					 echo -e "Fazendo o backup do arquivo usr.sbin.named, aguarde..."
 					 #Fazendo o backup do arquivo de configuração usr.sbin.named
 					 mv -v /etc/apparmor.d/local/usr.sbin.named /etc/apparmor.d/local/usr.sbin.named.old >> $LOG
 					 echo -e "Backup feito com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Atualizando o arquivo usr.sbin.named"
+					 echo -e "Atualizando o arquivo usr.sbin.named, aguarde..."
 					 #Copiando o arquivo de configuração do usr.sbi.named
 					 cp -v conf/usr.sbin.named /etc/apparmor.d/local/usr.sbin.named >> $LOG
 					 echo -e "Arquivo atualizado com sucesso!!!"
@@ -305,7 +305,7 @@ then
 					 vim /etc/apparmor.d/local/usr.sbin.named
 					 echo
 					 
-					 echo -e "Alterando as permissões do arquivo dns.keytab e named.conf"
+					 echo -e "Alterando as permissões do arquivo dns.keytab e named.conf, aguarde..."
 					 #Alterando as permissões de dono e grupo do arquivo de chaves dns.keytab
 					 chown -v bind:bind /var/lib/samba/private/dns.keytab >> $LOG
 					 #Alterando as permissões de acesso ao grupo no arquivo de chves dns.keytab
@@ -328,14 +328,14 @@ then
 					 echo -e "Pressione <Enter> para editar o arquivo"
 					 read
 					 
-					 echo -e "Fazendo o backup do arquivo sysctl.conf"
+					 echo -e "Fazendo o backup do arquivo sysctl.conf, aguarde..."
 					 #Fazendo o backup do arquivo de configuração sysctl.conf
 					 mv -v /etc/sysctl.conf /etc/sysctl.conf.old >> $LOG
 					 echo -e "Backup feito com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Atualizando o arquivo sysctl.conf"
+					 echo -e "Atualizando o arquivo sysctl.conf, aguarde..."
 					 #Copiando o arquivo de configuração sysctl.conf
 					 cp -v conf/sysctl.conf /etc/sysctl.conf >> $LOG
 					 echo -e "Arquivo atualizado com sucesso!!!"
@@ -357,14 +357,14 @@ then
 					 echo -e "Pressione <Enter> para editar o arquivo"
 					 read
 					 
-					 echo -e "Fazendo o backup do arquivo limits.conf"
+					 echo -e "Fazendo o backup do arquivo limits.conf, aguarde..."
 					 #Fazendo o backup do arquivo de configuração limits.conf
 					 mv -v /etc/security/limits.conf /etc/security/limits.conf.old >> $LOG
 					 echo -e "Backup feito com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Atualizando o arquivo limits.conf"
+					 echo -e "Atualizando o arquivo limits.conf, aguarde..."
 					 #Copiando o arquivo de configuração limits.conf
 					 cp -v conf/limits.conf /etc/security/limits.conf >>$LOG
 					 echo -e "Arquivo atualizado com sucesso!!!"
@@ -389,7 +389,7 @@ then
 					 echo 
 					 read
 					 
-					 echo -e "Fazendo o backup do arquivo named.conf"
+					 echo -e "Fazendo o backup do arquivo named.conf, aguarde..."
 					 cp -v /var/lib/samba/private/named.conf /var/lib/samba/private/named.conf.old &>> $LOG
 					 echo -e "Backup feito com sucesso!!!"
 					 sleep 2
