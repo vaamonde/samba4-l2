@@ -64,11 +64,12 @@ then
 
 					 echo -e "Portas  Num.Porta Status        Serviço"
 					 #Executando o comando map para explorar as Portas TCP e UDP abertas
-					 nmap `hostname` -sS -sU | head -n37 | tail -n31 | cat -n
+					 nmap `hostname` -sS -sU | grep open | cat -n
 					 
-					 echo -e "Quantida de portas padrão que devem ser listadas no servidor `hostname`: 31 (portas)"
-					 echo -e "Após todos os serviços instalados e configurados o número de porta aumenta para 34"
+					 echo -e "Quantida de portas padrão que devem ser listadas no servidor `hostname`: 33 (portas)"
+					 echo -e "Após todos os serviços instalados e configurados o número de porta aumenta para 34 (portas)"   
 					 echo -e "Caso o número de portas seja diferente, verificar os status dos serviços de rede"
+					 echo -e "Rodar esse script novamente no final de todas as configurações do servidor"
 					 echo -e "Pressione <Enter> para verificar as regras de Firewall"
 					 read
 					 sleep 2
