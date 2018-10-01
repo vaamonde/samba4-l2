@@ -5,8 +5,8 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 31/05/2016
-# Data de atualização: 30/12/2016
-# Versão: 0.8
+# Data de atualização: 01/10/2018
+# Versão: 0.9
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
@@ -53,14 +53,14 @@ then
 					 echo -e "Pressione <Enter> para editar o arquvivo"
 					 read
 					 
-					 echo -e "Fazendo o backup do arquivo smb.conf"
+					 echo -e "Fazendo o backup do arquivo smb.conf, aguarde..."
 					 #Fazendo backup do arquivo de configuração do smb.conf
 					 cp -v /etc/samba/smb.conf /etc/samba/smb.conf.bkp >> $LOG
 					 echo -e "Backup feito com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Atualizando o arquivo smb.conf"
+					 echo -e "Atualizando o arquivo smb.conf, aguarde..."
 					 #Copiando o arquivo de configuranção do smb.conf
 					 cp -v conf/smb.conf /etc/samba/smb.conf >> $LOG
 					 echo -e "Arquivo atualizado com sucesso!!!"
@@ -85,7 +85,7 @@ then
 					 sleep 2
 					 clear
 					 
-					 echo -e "Reinicializando os serviços do SAMBA-4"
+					 echo -e "Reinicializando os serviços do SAMBA-4, aguarde..."
 					 #Reinicializando todas as alterações no arquivo de configuração smb.conf sem parar o serviço do SAMBA-4
 					 smbcontrol all reload-config
 					 echo -e "Serviços reinicializados com sucesso!!!, pressione <Enter> para continuar"
