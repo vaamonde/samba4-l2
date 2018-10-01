@@ -5,7 +5,7 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 31/05/2016
-# Data de atualização: 23/01/2017
+# Data de atualização: 01/10/2018
 # Versão: 0.8
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
@@ -72,9 +72,10 @@ then
 					 echo -e "Versão do Kernel atual: `uname -r`"
 					 #Fazendo a atualização do Kernel
 					 apt-get -o Dpkg::Options::="--force-confold" dist-upgrade -q -y --force-yes &>> $LOG
+					 echo
 					 echo -e "Listando os Kernel instalados"
 					 #Listando as imagens dos Kernel instalados
-					 dpkg --list | grep linux-image
+					 dpkg --list | grep linux-image | cut -d" " -f3
 					 echo
 					 echo -e "Kernel Atualizado com Sucesso!!!"
 					 echo
