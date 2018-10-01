@@ -5,8 +5,8 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 31/05/2016
-# Data de atualização: 30/12/2016
-# Versão: 0.8
+# Data de atualização: 10/10/2018
+# Versão: 0.9
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
@@ -102,14 +102,14 @@ then
 					 clear
 					 echo -e "=================================================================================" >> $LOG
 					 
-					 echo -e "Criando a Zona Reversa para o servidor: `hostname`"
+					 echo -e "Criando a Zona Reversa para o servidor: `hostname`, aguarde..."
 					 #Criando a Zona de Pesquisa Reversar utilizando o comando samba-tool
 					 samba-tool dns zonecreate $DOMAIN $ARPA -U $USER --password=$PASSWORD &>> $LOG
 					 echo -e "Zona Reversa criada com sucesso!!!!"
 					 echo
 					 echo -e "=================================================================================" >> $LOG
 
-					 echo -e "Criando o Ponteiro na Zona Reversa para o servidor: `hostname`"
+					 echo -e "Criando o Ponteiro na Zona Reversa para o servidor: `hostname`, aguarde..."
 					 #Criando o Ponteiro do endereço IP do Servidor na Zona de Pesquisa Reversar utilizando o comando samba-tool
 					 samba-tool dns add $DOMAIN $ARPA $ARPAIP PTR $FQDN -U $USER --password=$PASSWORD &>> $LOG
 					 echo -e "Ponteiro criado com sucesso!!!!"
@@ -122,7 +122,7 @@ then
 					 echo -e "=================================================================================" >> $LOG
 					 
 
-					 echo -e "Atualizando os Registros de DNS para o servidor: `hostname`"
+					 echo -e "Atualizando os Registros de DNS para o servidor: `hostname`, aguarde..."
 					 echo -e "Pressione <Enter> para executar a atualização"
 					 read
 					 #Atualizando todos os registros do DNS no SAMBA-4 utilizando o script samba_dnsupdate
@@ -137,7 +137,7 @@ then
 					 echo -e "Pressione <Enter> para editar o arquivo"
 					 read
 					 
-					 echo -e "Atualizando o arquivo sambadnsupdate"
+					 echo -e "Atualizando o arquivo sambadnsupdate, aguarde..."
 					 #Copiando o arquivo de agendamento do sambadnsupdate
 					 cp -v conf/sambadnsupdate /etc/cron.d/ >> $LOG
 					 echo -e "Arquivo atualizado com sucesso!!!"
@@ -165,7 +165,7 @@ then
 					 clear
 					 echo -e "=================================================================================" >> $LOG
 
-					 echo -e "Permitindo que o Grupo Domain Admins gerencie os discos do servidor: `hostname`"
+					 echo -e "Permitindo que o Grupo Domain Admins gerencie os discos do servidor: `hostname`, aguarde..."
 					 #Permitindo que o grupo Domains Admins administre os discos do servidor, isso será utilizado nas permissões de compartilhamentos, utilizando o comando net rpc
 					 net rpc rights grant 'PTI\Domain Admins' SeDiskOperatorPrivilege -U $USER%$PASSWORD &>> $LOG
 					 echo -e "Permissão de Gerenciamento de Disco feita com sucesso!!!!"
@@ -173,7 +173,7 @@ then
 					 echo
 					 echo -e "=================================================================================" >> $LOG
 
-					 echo -e "Permitindo que o Grupo Domain Admins gerencie as impressoras do servidor: `hostname`"
+					 echo -e "Permitindo que o Grupo Domain Admins gerencie as impressoras do servidor: `hostname`, aguarde..."
 					 #Permitindo que o grupo Domains Admins administre as impressoras no servidor, isso será utilizado nos compartilhamentos de drivers e impressoras na rede, utilizando o comando net rpc
 					 net rpc rights grant 'PTI\Domain Admins' SePrintOperatorPrivilege -U $USER%$PASSWORD &>> $LOG
 					 echo -e "Permissão de Gerenciamento de Impressoras feita com sucesso!!!!"
@@ -181,7 +181,7 @@ then
 					 echo
 					 echo -e "=================================================================================" >> $LOG
 
-					 echo -e "Criação do Usuário DHCP para integração com o DNS do SAMBA-4"
+					 echo -e "Criação do Usuário DHCP para integração com o DNS do SAMBA-4, aguarde..."
 					 #Criando usuário dhcp para integração do SAMBA4, DNS e DHCP utilizando o comando samba-tool
 					 samba-tool user create $DHCPDUSER $PASSWORD --description="Integração SAMBA4, DNS e DHCP" &>> $LOG
 					 #Desabilitando a expiração de senha do usuário dhcp com o comando samba-tool
@@ -193,7 +193,7 @@ then
 					 echo
 					 echo -e "=================================================================================" >> $LOG
 
-					 echo -e "Criação do diretório /etc/dhcp/dhcpd para manter as configurações de integrações"
+					 echo -e "Criação do diretório /etc/dhcp/dhcpd para manter as configurações de integrações, aguarde..."
 					 #Criando o diretório para a integração do DHCP com o DNS
 					 mkdir -v /etc/dhcp/dhcpd >> $LOG
 					 echo -e "Criação do diretório do DHCPD feita com sucesso!!!!"
@@ -201,7 +201,7 @@ then
 					 echo
 					 echo -e "=================================================================================" >> $LOG
 
-					 echo -e "Atualizando os arquivos de integração do DNS e DHCP"
+					 echo -e "Atualizando os arquivos de integração do DNS e DHCP, aguarde..."
 					 #Copiando o arquivo de configuração do dhcpd-update-samba-dns.conf
 					 cp -v conf/dhcpd-update-samba-dns.conf /etc/dhcp/dhcpd >> $LOG
 					 #Copiando o script de integração do dhcpd-update-samba-dns.sh
@@ -212,7 +212,7 @@ then
 					 sleep 2
 					 echo
 					 
-					 echo -e "Alterando as permissões dos arquivo de integração do DNS e DHCP"
+					 echo -e "Alterando as permissões dos arquivo de integração do DNS e DHCP, aguarde..."
 					 #Alteração as permissões de execução para os scripts com extensão .sh
 					 chmod -v +x /etc/dhcp/dhcpd/*.sh >> $LOG
 					 #Alteração as permissões de execução para os arquivos de configuração com extensão .conf
@@ -221,21 +221,21 @@ then
 					 sleep 2
 					 echo
 					 
-					 echo -e "Fazendo o backup do arquivo usr.sbin.dhcpd"
+					 echo -e "Fazendo o backup do arquivo usr.sbin.dhcpd, aguarde..."
 					 #Fazendo o backup do arquivo de configuração usr.sbin.dhcpd
 					 mv -v /etc/apparmor.d/local/usr.sbin.dhcpd /etc/apparmor.d/local/usr.sbin.dhcpd.old &>> $LOG
 					 echo -e "Backup feito com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Atualizano o arquivo usr.sbin.dhcpd"
+					 echo -e "Atualizano o arquivo usr.sbin.dhcpd, aguarde..."
 					 #Copiando o arquivo de configuração usr.sbin.dhcpd
 					 cp -v conf/usr.sbin.dhcpd /etc/apparmor.d/local/ >> $LOG
 					 echo -e "Arquivo atualizado com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Reinicializando os serviços do AppArmor e DHCPD"
+					 echo -e "Reinicializando os serviços do AppArmor e DHCPD, aguarde..."
 					 #Reinicializando o serviço do AppAmor
 					 sudo service apparmor restart
 					 #Reinicializando o servidor do ISC DHCP Server
@@ -258,7 +258,7 @@ then
 					 #Editando o arquivo de configuração dhcpd-update-samba-dns.conf
 					 vim /etc/dhcp/dhcpd/dhcpd-update-samba-dns.conf +14
 					 
-					 echo -e "Configurando feita com sucesso!!!, pressione <Enter> para continuar com o script"
+					 echo -e "Configuração feita com sucesso!!!, pressione <Enter> para continuar com o script"
 					 read
 					 sleep 2
 					 clear
@@ -271,7 +271,7 @@ then
 					 #Editando o arquivo de configuração usr.sbin.dhcpd
 					 vim /etc/apparmor.d/local/usr.sbin.dhcpd +16
 					 
-					 echo -e "Configurando feita com sucesso!!!, pressione <Enter> para continuar com o script"
+					 echo -e "Configuração feita com sucesso!!!, pressione <Enter> para continuar com o script"
 					 read
 					 sleep 2
 					 clear
