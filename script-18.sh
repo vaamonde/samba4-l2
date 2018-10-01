@@ -5,8 +5,8 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 31/05/2016
-# Data de atualização: 30/12/2016
-# Versão: 0.8
+# Data de atualização: 01/10/2018
+# Versão: 0.9
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
@@ -75,21 +75,21 @@ then
 					 read
 					 echo
 					 
-					 echo -e "Fazendo o download do: $WORDPRESS aguarde..."
+					 echo -e "Fazendo o download do: $WORDPRESS, aguarde..."
 					 #Fazendo o download do arquivo do Wordpress
 					 wget $WORDPRESS &>> $LOG
 					 echo -e "Download feito com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Descompactando o arquivo latest.zip"
+					 echo -e "Descompactando o arquivo latest.zip, aguarde..."
 					 #Descompactando o arquivo do Wordpress
 				     	 unzip latest.zip &>> $LOG
 					 echo -e "Descompactação feita com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Copiando os arquivo do Wordpress para a pasta de sistema/erp"
+					 echo -e "Copiando os arquivo do Wordpress para a pasta de sistema/erp, aguarde..."
 					 #Movendo o contéudo da pasta do wordpress para o diretório erp
 					 mv -v wordpress/ /arquivos/pti.intra/sistema/erp &>> $LOG
 					 #Copiando o arquivo htaccess customizado
@@ -100,7 +100,7 @@ then
 					 sleep 2
 					 echo
 					 
-					 echo -e "Alterando as permissões dos arquivos da pasta sistema/erp"
+					 echo -e "Alterando as permissões dos arquivos da pasta sistema/erp, aguarde..."
 					 #Alterando as permissões de dono, grupo e outros recursivo no diretório erp
 					 chmod -Rfv 755 /arquivos/pti.intra/sistema/erp &>> $LOG
 					 #Alterando o dono é o grupo recursivo no diretório erp
@@ -109,7 +109,7 @@ then
 					 sleep 2
 					 echo
 					 
-					 echo -e "Removendo o arquivo latest.zip"
+					 echo -e "Removendo o arquivo latest.zip, aguarde..."
 					 #Removendo o arquivo de download zipado do Wordpress
 					 rm -v latest.zip >> $LOG
 					 echo -e "Arquivo removido com sucesso!!!"
@@ -125,7 +125,7 @@ then
 					 echo -e "Pressione <Enter> para continuar"
 					 read
 					 
-					 echo -e "Criando a base de dados do Wordpress e setando as permissões"
+					 echo -e "Criando a base de dados do Wordpress e setando as permissões, aguarde..."
 					 #Criando a variável da criação da Base de Dados do Wordpress
 					 #Variaveis utilizada pelo MySQL para a criação do Bando de Dados
 					 USER="root"
@@ -144,14 +144,14 @@ then
 					 sleep 2
 					 echo
 					 
-					 echo -e "Listando o Banco de Dados criado do Wordpress"
+					 echo -e "Listando o Banco de Dados criado do Wordpress, aguarde..."
 					 #Criando a variável para exibição da Base de Dados do Wordpress
 					 SHOWSQL="SHOW DATABASES;"
 					 echo
 					 #Listando a Base de Dados criada do Wordpress
 					 mysql -u $USER -p$PASSWORD -e "$SHOWSQL" mysql
 					 echo
-					 echo -e "Base de dados lista com sucesso!!!"
+					 echo -e "Base de dados listada com sucesso!!!"
 					 echo
 					 echo -e "Criação da Base de Dados do Wordpress feita com sucesso!!!, pressione <Enter> para continuar"
 					 read
@@ -184,7 +184,7 @@ then
 					 read
 					 sleep 2
 					 
-					 echo -e "Atualizando o arquivo pti-intra.conf"
+					 echo -e "Atualizando o arquivo pti-intra.conf, aguarde..."
 					 #Copiando o arquivo de configuração pti-intra.conf
 					 cp -v conf/pti-intra.conf /etc/apache2/sites-available/ >> $LOG
 					 echo -e "Arquivo atualizado com sucesso!!!"
@@ -195,14 +195,14 @@ then
 					 vim /etc/apache2/sites-available/pti-intra.conf +12
 					 echo
 					 
-					 echo -e "Ativando o Virtual Host no Apache2"
+					 echo -e "Ativando o Virtual Host no Apache2, aguarde..."
 					 #Ativando o Virtual Host no Apache2 Server
 					 a2ensite pti-intra.conf &>> $LOG
 					 echo -e "Virtual Host ativado com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Reinicializando o Apache2"
+					 echo -e "Reinicializando o Apache2, aguarde..."
 					 #Reinicializando o serviço do Apache Server
 					 sudo service apache2 restart &>> $LOG
 					 echo -e "Reinicialização feita com sucesso!!!"
@@ -224,14 +224,14 @@ then
 					 read
 					 sleep 2
 					 
-					 echo -e "Fazendo o backup do arquivo proftpd.conf"
+					 echo -e "Fazendo o backup do arquivo proftpd.conf, aguarde..."
 					 #Fazendo o backup do arquivo de configuração proftpd.conf
 					 mv -v /etc/proftpd/proftpd.conf /etc/proftpd/proftpd.conf.old >> $LOG
 					 echo -e "Backup feito com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Atualizando o arquivo proftdp.conf"
+					 echo -e "Atualizando o arquivo proftdp.conf, aguarde..."
 					 #Copiando o arquivo de configuração do proftpd.conf
 					 cp -v conf/proftpd.conf /etc/proftpd/ >> $LOG
 					 echo -e "Arquivo atualizado com sucesso!!!"
@@ -242,7 +242,7 @@ then
 					 vim /etc/proftpd/proftpd.conf
 					 echo
 					 
-					 echo -e "Reinicializando o serviço do ProfFTPD"
+					 echo -e "Reinicializando o serviço do ProfFTPD, aguarde..."
 					 #Reinicializando o serviço do ProFTPD Server
 					 sudo service proftpd restart
 					 echo -e "Serviço reinicializado com sucesso!!!"
@@ -259,14 +259,14 @@ then
 					 sleep 2
 					 clear
 					 
-					 echo -e "Criando o usuário Wordpress com pasta base no sistema de ERP e Grupo www-data"
+					 echo -e "Criando o usuário Wordpress com pasta base no sistema de ERP e Grupo www-data, aguarde..."
 					 #Criando o usuário que será utilizado para acessar o FTP no servidor, utilizando o comando useradd
 					 useradd -d /arquivos/pti.intra/sistema/erp -s /bin/bash -M wordpress -G www-data &>> $LOG
 					 echo -e "Usuário criando com sucesso!!!, continuando o script"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Setando a senha para o usuário: wordpress - senha padrão: wordpress"
+					 echo -e "Setando a senha para o usuário: wordpress - senha padrão: wordpress, aguarde..."
 					 #Setando a senha padrão para o usuário wordpress com o comando passwd
 					 echo -e "wordpress\nwordpress" | passwd wordpress &>> $LOG
 					 echo -e "Senha setada com sucesso!!!, pressione <Enter> para continuar com o script"
