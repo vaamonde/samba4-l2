@@ -5,8 +5,8 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 31/05/2016
-# Data de atualização: 27/09/2018
-# Versão: 0.9
+# Data de atualização: 01/10/2018
+# Versão: 0.10
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
@@ -95,6 +95,7 @@ then
 					 echo -e "WINBIND Integração SAMBA-4 + Linux"
 					 echo -e "QUOTA Criação de Quotas de Discos"
 					 echo -e "CLAMAV Sistema de Anti-Vírus Open Source"
+					 echo
 					 echo -e "Configuração do FSTAB para suporte a Quota"
 					 echo -e "Configuração do NSSWITCH para suporte a Winbind"
 					 echo -e "Configuração do CLAMAV para suporte a Anti-vírus"
@@ -107,7 +108,7 @@ then
 					 echo 
 					 echo -e "Rodando o Script-02.sh em: `date`" > $LOG
 					 
-					 echo -e "Atualizando as Listas do Apt-Get (apt-get update)"
+					 echo -e "Atualizando as Listas do Apt-Get (apt-get update), aguarde..."
 					 #Exportando o recurso de Noninteractive do Debconf
 					 export DEBIAN_FRONTEND=noninteractive
 					 #Atualizando as listas do apt-get
@@ -116,7 +117,7 @@ then
 					 echo
 					 echo ============================================================ >> $LOG
 
-					 echo -e "Atualizando os Software instlados (apt-get upgrade)"
+					 echo -e "Atualizando os Software instlados (apt-get upgrade), aguarde..."
 					 #Fazendo a atualização de todos os pacotes instalados no servidor
 					 apt-get -o Dpkg::Options::="--force-confold" upgrade -q -y --force-yes &>> $LOG
 					 echo -e "Sistema Atualizado com Sucesso!!!"
@@ -130,7 +131,7 @@ then
 					 echo
 					 echo ============================================================ >> $LOG 
 
-					 echo -e "Limpando o Cache do Apt-Get (apt-get autoremove && apt-get autoclean && apt-get clean)"
+					 echo -e "Limpando o Cache do Apt-Get (apt-get autoremove && apt-get autoclean && apt-get clean), aguarde..."
 					 #Limpando o diretório de cache do apt-get
 					 apt-get -y autoremove &>> $LOG
 					 apt-get -y autoclean &>> $LOG
@@ -175,11 +176,11 @@ then
 					 echo -e "Base de dados não oficial atualizada com sucesso!!!"
 					 echo
 					 
-					 echo -e "Iniciando o Serviço do ClamAV-Daemon"
+					 echo -e "Iniciando o Serviço do ClamAV-Daemon, aguarde..."
 					 #Iniciando o serviço do ClamAV Antivírus
 					 sudo service clamav-daemon restart
 					 
-					 echo -e "Iniciando o Serviço do ClamAV-Freshclam"
+					 echo -e "Iniciando o Serviço do ClamAV-Freshclam, aguarde..."
 					 #Iniciando o serviço do Freshclam que faz a atualização do ClamAV
 					 sudo service clamav-freshclam restart
 					 
@@ -187,7 +188,7 @@ then
 					 sleep 2
 					 echo 
 					 
-					 echo -e "Criando o diretório de quarentena e: /backup/quarentena"
+					 echo -e "Criando o diretório de quarentena em: /backup/quarentena, aguarde..."
 					 #Criando o diretório para armazenar os arquivos com vírus
 					 mkdir -pv /backup/quarentena >> $LOG
 					 echo -e "Diretório de quarentena criado com sucesso!!!"
@@ -215,21 +216,21 @@ then
 					 read
 					 sleep 2
 					 
-					 echo -e "Copiando o arquivo de agendamento do clamav para diretório do cron.d"
+					 echo -e "Copiando o arquivo de agendamento do clamav para diretório do cron.d, aguarde..."
 					 #Copiando o arquivo de agendamento do ClamAV
 					 cp -v conf/clamav /etc/cron.d/ >> $LOG
 					 echo -e "Arquivo copiado com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Copiando o arquivo de agendamento do freshclam para diretório do cron.d"
+					 echo -e "Copiando o arquivo de agendamento do freshclam para diretório do cron.d, aguarde..."
 					 #Copiando o arquivo de agendamento do Freshclam
 					 cp -v conf/freshclam /etc/cron.d/ >> $LOG
 					 echo -e "Arquivo copiado com sucesso!!!"
 					 sleep 2
 					 echo 
 					 
-					 echo -e "Editando o arquivo clamav"
+					 echo -e "Editando o arquivo clamav, aguarde..."
 					 #Editando o arquivo de agendamento de vírus do ClamAV
 					 vim /etc/cron.d/clamav +14
 					 echo
@@ -244,7 +245,7 @@ then
 					 read
 					 sleep 2
 					 
-					 echo -e "Editando o arquivo freshclam"
+					 echo -e "Editando o arquivo freshclam, aguarde..."
 					 #Editando o arquivo de agendamento de atualização da base de dados do ClamAV
 					 vim /etc/cron.d/freshclam +15
 					 echo
@@ -259,21 +260,21 @@ then
 					 read
 					 echo
 					 
-					 echo -e "Fazendo backup do arquivo de agendamento do clamav-unofficial-sigs"
+					 echo -e "Fazendo backup do arquivo de agendamento do clamav-unofficial-sigs, aguarde..."
 					 #Fazendo o backup do arquivo de agendamento do ClamAV Não Oficial
 					 mv -v /etc/cron.d/clamav-unofficial-sigs /etc/cron.d/clamav-unofficial-sigs.old >> $LOG
 					 echo -e "Backup feito com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Atualizando o arquivo de agendamento do clamav-unofficial-sigs"
+					 echo -e "Atualizando o arquivo de agendamento do clamav-unofficial-sigs, aguarde..."
 					 #Copiando o arquivo de agendamento do ClamAV Não Oficial
 					 cp -v conf/clamav-unofficial-sigs /etc/cron.d/ >> $LOG
 					 echo -e "Atualização feita com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Editando o arquivo clamav-unofficial-sigs"
+					 echo -e "Editando o arquivo clamav-unofficial-sigs, aguarde..."
 					 #Editando o arquivo de agendamento do ClamAV Não Oficial
 					 vim /etc/cron.d/clamav-uno* +27
 					 echo
@@ -291,35 +292,35 @@ then
 					 echo
 					 sleep 2
 					 
-					 echo -e "Fazendo o download do arquivo eicar.com"
+					 echo -e "Fazendo o download do arquivo eicar.com, aguarde..."
 					 #Fazendo o download do arquivo eicar.com e armazenando no diretório /arquivos
 					 wget -c -P /arquivos http://www.eicar.org/download/eicar.com &>> $LOG
 					 echo -e "Download feito com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Fazendo o download do arquivo eicar_com.txt"
+					 echo -e "Fazendo o download do arquivo eicar_com.txt, aguarde..."
 					 #Fazendo o download do arquivo eicar_com.txt e armazenando no diretório /arquivos
 					 wget -c -P /arquivos http://www.eicar.org/download/eicar_com.txt &>> $LOG
 					 echo -e "Download feito com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Copiando o arquivo eicar.com para diretório /arquivos e alterando sua extensão para .bat"
+					 echo -e "Copiando o arquivo eicar.com para diretório /arquivos e alterando sua extensão para .bat, aguarde..."
 					 #Copiando o arquivo eicar.com e criando um arquivo com extensão .bat
 					 cp -v /arquivos/eicar.com /arquivos/eicar.bat &>> $LOG
 					 echo -e "Arquivo copiado com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Zipando o arquivo eicar.bat"
+					 echo -e "Zipando o arquivo eicar.bat, aguarde..."
 					 #Zipando o arquivo eicar.bat
 					 bzip2 -v /arquivos/eicar.bat &>> $LOG
 					 echo -e "Arquivo zipado com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Executando a verificação de vírus no diretório /arquivos"
+					 echo -e "Executando a verificação de vírus no diretório /arquivos, aguarde..."
 					 echo
 					 #Executando a varredurar de vírus no diretório /arquivos, caso encontre vírus, mover para o diretório /backup/quarentena
 					 clamscan -r -i -v /arquivos --move=/backup/quarentena
@@ -329,7 +330,7 @@ then
 					 echo
 					 
 					 
-					 echo -e "Listando o contéudo do diretório /backup/quarentena"
+					 echo -e "Listando o contéudo do diretório /backup/quarentena, aguarde..."
 					 #Listando o contéudo do diretório /backup/quarentena
 					 ls -lha /backup/quarentena
 					 echo
@@ -347,7 +348,7 @@ then
 					 echo -e "Executanndo a remoção do vírus do diretório /backup/quarentena"
 					 echo
 					 
-					 echo -e "Verificando o diretório quarentena"
+					 echo -e "Verificando o diretório quarentena, aguarde..."
 					 #Verificando o diretório quarentena e removendo os vírus
 					 clamscan -r -i -v /backup/quarentena --remove
 					 echo
@@ -355,7 +356,7 @@ then
 					 sleep 3
 					 echo
 					 
-					 echo -e "Listando o contéudo do diretório /backup/quarentena"
+					 echo -e "Listando o contéudo do diretório /backup/quarentena, aguarde..."
 					 echo
 					 #Listando o conteúdo do diretório /backup/quarentena
 					 ls -lha /backup/quarentena
@@ -384,13 +385,13 @@ then
 					 read
 					 sleep 2
 					 
-					 echo -e "Fazendo o backup do arquivo fstab"
+					 echo -e "Fazendo o backup do arquivo fstab, aguarde..."
 					 cp -v /etc/fstab /etc/fstab.old.1 &>> $LOG
 					 echo -e "Backup feito com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Editando o arquivo fstab"
+					 echo -e "Editando o arquivo fstab, aguarde..."
 					 #Editando o arquivo fstab
 					 vim /etc/fstab
 					 echo
@@ -398,14 +399,14 @@ then
 					 sleep 2
 					 echo
 					 
-					 echo -e "Remontando o ponto de montagem: /arquivos"
+					 echo -e "Remontando o ponto de montagem: /arquivos, aguarde..."
 					 #Remontando a partição /arquivos com as novas opções de quota
 					 mount -v -o remount /arquivos &>> $LOG
 					 echo -e "Remontagem feita com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Habilitando o recurso de quota de disco no ponto de montagem /arquivos"
+					 echo -e "Habilitando o recurso de quota de disco no ponto de montagem /arquivos, aguarde..."
 					 #Habilitando o recurso de quota e criando os arquivos quota.user e quota.group
 					 quotacheck -ugcv /arquivos &>> $LOG
 					 echo -e "Quota de Disco habilitada com sucesso!!!"
@@ -434,21 +435,21 @@ then
 					 read
 					 sleep 2
 					 
-					 echo -e "Fazendo o backup do arquivo nsswitch.conf"
+					 echo -e "Fazendo o backup do arquivo nsswitch.conf, aguarde..."
 					 #Fazendo o backup do arquivo de configuração do nsswitch.conf
 					 mv -v /etc/nsswitch.conf /etc/nsswitch.conf.old >> $LOG
 					 echo -e "Backup feito com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Atualizando o arquivo nsswitch.conf"
+					 echo -e "Atualizando o arquivo nsswitch.conf, aguarde..."
 					 #Copiando o arquivo de configuração do nsswitch.conf
 					 cp -v conf/nsswitch.conf /etc/nsswitch.conf >> $LOG
 					 echo -e "Arquivo atualizado com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Editando o arquivo nsswitch.con"
+					 echo -e "Editando o arquivo nsswitch.con, aguarde..."
 					 #Editando o arquivo de configuração do nsswitch.conf
 					 vim /etc/nsswitch.conf
 					 echo
@@ -469,21 +470,21 @@ then
 					 echo 
 					 read
 					 
-					 echo -e "Fazendo o backup do arquivo hostname"
+					 echo -e "Fazendo o backup do arquivo hostname, aguarde..."
 					 #Fazendo o backup do arquivo de configuração hostname
 					 mv -v /etc/hostname /etc/hostname.old >> $LOG
 					 echo -e "Backup feito com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Atualizando o arquivo hostname"
+					 echo -e "Atualizando o arquivo hostname, aguarde..."
 					 #Copiando o arquivo de configuração do hostname
 					 cp -v conf/hostname /etc/hostname >> $LOG
 					 echo -e "Arquivo atualizado com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Editando o arquivo hostname"
+					 echo -e "Editando o arquivo hostname, aguarde..."
 					 #Editando o arquivo de configuração do hostname
 					 vim /etc/hostname +13
 					 echo
@@ -506,21 +507,21 @@ then
 					 echo 
 					 read
 					 
-					 echo -e "Fazendo o backup do arquivo hosts"
+					 echo -e "Fazendo o backup do arquivo hosts, aguarde..."
 					 #Fazendo o backup do arquivo de configuração do hosts
 					 mv -v /etc/hosts /etc/hosts.old >> $LOG
 					 echo -e "Backup feito com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Atualizando o arquivo hosts"
+					 echo -e "Atualizando o arquivo hosts, aguarde..."
 					 #Copiando o arquivo de configuração do hosts
 					 cp -v conf/hosts /etc/hosts >> $LOG
 					 echo -e "Arquivos atualizado com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Editando o arquivo hosts"
+					 echo -e "Editando o arquivo hosts, aguarde..."
 					 #Editando o arquivo de configuração do hosts
 					 vim /etc/hosts +14
 					 echo
@@ -541,21 +542,21 @@ then
 					 echo 
 					 read
 					 
-					 echo -e "Fazendo o backup do arquivo grub"
+					 echo -e "Fazendo o backup do arquivo grub, aguarde..."
 					 #Fazendo o backup do arquivo de configuração do grub
 					 mv -v /etc/default/grub /etc/default/grub.old >> $LOG
 					 echo -e "Backup feito com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Atualizando o arquivo do grub"
+					 echo -e "Atualizando o arquivo do grub, aguarde..."
 					 #Copiando o arquivo de configuração do grub
 					 cp -v conf/grub /etc/default/grub >> $LOG
 					 echo -e "Arquivo atualizado com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Editando o arquivo grub"
+					 echo -e "Editando o arquivo grub, aguarde..."
 					 #Editando o arquivo de configuração do grub
 					 vim /etc/default/grub +24
 					 echo
@@ -563,14 +564,14 @@ then
 					 sleep 2
 					 echo
 					 
-					 echo -e "Desativando o Serviço do LXD-CONTAINERS"
+					 echo -e "Desativando o Serviço do LXD-CONTAINERS, aguarde..."
 					 #Desabilitando o serviço de LXD Containers que vem habilitado como padrão
 					 systemctl disable lxd-containers.service &>> $LOG
 					 echo -e "Serviço desabilitado com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Desativando o CTRL+ALT+DEL (para não reinicializar o servidor)"
+					 echo -e "Desativando o CTRL+ALT+DEL (para não reinicializar o servidor), aguarde..."
 					 #Desabilitando o recurso de pressione CTRL+ALT+DEL para reinicializar o servidor 
 					 systemctl mask ctrl-alt-del.target &>> $LOG
 					 #Restartando todos os serviços
@@ -579,7 +580,7 @@ then
 					 sleep 2
 					 echo
 					 
- 					 echo -e "Desinstalando o Serviço do SNAPD"
+ 					 echo -e "Desinstalando o Serviço do SNAPD, aguarde..."
 					 #Desinstalando o serviço de SNAPD que vem habilitado como padrão
 					 sudo apt-get purge -y snapd &>> $LOG
 					 echo -e "Serviço desinstalado com sucesso!!!"
@@ -587,7 +588,7 @@ then
 					 echo
 
 					 
-					 echo -e "Atualizando o GRUB"
+					 echo -e "Atualizando o GRUB, aguarde..."
 					 #Atualizando o grub com as novas modificações feitas no arquivo grub, atualizar Kernel e Initrd
 					 update-grub &>> $LOG
 					 echo -e "Atualização feita com sucesso!!!"
@@ -606,21 +607,21 @@ then
 					 read
 					 sleep 2
 					 
-					 echo -e "Fazendo o backup do arquivo do cupsd.conf"
+					 echo -e "Fazendo o backup do arquivo do cupsd.conf, aguarde..."
 					 #Fazendo o backup do arquivo de configuração do cupsd.conf
 					 mv -v /etc/cups/cupsd.conf /etc/cups/cupsd.conf.old >> $LOG
 					 echo -e "Backup feito com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Atualizando o arquivo do cupsd.conf"
+					 echo -e "Atualizando o arquivo do cupsd.conf, aguarde..."
 					 #Copiando o arquivo de configuração do cupsd.conf
 					 cp -v conf/cupsd.conf /etc/cups/cupsd.conf >> $LOG
 					 echo -e "Arquivo atualizado com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Editando o arquivo cupsd.conf"
+					 echo -e "Editando o arquivo cupsd.conf, aguarde..."
 					 #Editando o arquivo de configuração do cupsd.conf
 					 vim /etc/cups/cupsd.conf
 					 echo
@@ -628,7 +629,7 @@ then
 					 sleep 2
 					 echo
 					 
-					 echo -e "Verificando as informações de impressoras"
+					 echo -e "Verificando as informações de impressoras, aguarde..."
 					 #Verificando informações de impressoras
 					 lpinfo -vm
 					 echo
@@ -636,7 +637,7 @@ then
 					 sleep 3
 					 echo
 					 
-					 echo -e "Verificando o status das impressoras"
+					 echo -e "Verificando o status das impressoras, aguarde..."
 					 #Verificando os status das impressoras
 					 lpstat -t
 					 echo
@@ -644,7 +645,7 @@ then
 					 sleep 3
 					 echo
 					 
-					 echo -e "Testando as configurações do arquivo: cupsd.conf"
+					 echo -e "Testando as configurações do arquivo: cupsd.conf, aguarde..."
 					 #Testando as configurações do arquivo cupsd.conf
 					 cupsd -t
 					 echo -e "Configurações testadas com sucesso!!!"
@@ -661,21 +662,21 @@ then
 					 read
 					 sleep 2
 					 
-					 echo -e "Fazendo o backup do arquivo cups-pdf.conf"
+					 echo -e "Fazendo o backup do arquivo cups-pdf.conf, aguarde..."
 					 #Fazendo o backup do arquivo original
 					 mv -v /etc/cups/cups-pdf.conf /etc/cups/cups-pdf.conf.old >> $LOG
 					 echo -e "Backup feito com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Atualizando o arquivo do cups-pdf.conf"
+					 echo -e "Atualizando o arquivo do cups-pdf.conf, aguarde..."
 					 #Atualizando o arquivo
 					 cp -v conf/cups-pdf.conf /etc/cups/cups-pdf.conf >> $LOG
 					 echo -e "Arquivo atualizado com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Editando o arquivo cups-pdf.conf"
+					 echo -e "Editando o arquivo cups-pdf.conf, aguarde..."
 					 #Editando o arquivo CUPS-PDF
 					 vim /etc/cups/cups-pdf.conf
 					 echo
@@ -683,7 +684,7 @@ then
 					 sleep 2
 					 echo
 					 
-					 echo -e "Reinicializando os serviços do CUPS e CUPS-BROWSED"
+					 echo -e "Reinicializando os serviços do CUPS e CUPS-BROWSED, aguarde..."
 					 #Reinicializando os serviços do CUPS
 					 sudo service cups restart
 					 sudo service cups-browsed restart
@@ -701,21 +702,21 @@ then
 					 read
 					 sleep 2
 					 
-					 echo -e "Fazendo o backup do arquivo snmp.conf"
+					 echo -e "Fazendo o backup do arquivo snmp.conf, aguarde..."
 					 #Fazendo o backup do arquivo original
 					 mv -v /etc/cups/snmp.conf /etc/cups/snmp.conf.old >> $LOG
 					 echo -e "Backup feito com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Atualizando o arquivo do snmp.conf"
+					 echo -e "Atualizando o arquivo do snmp.conf, aguarde..."
 					 #Atualizando o arquivo
 					 cp -v conf/snmp.conf /etc/cups/snmp.conf >> $LOG
 					 echo -e "Arquivo atualizado com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Editando o arquivo snmp.conf"
+					 echo -e "Editando o arquivo snmp.conf, aguarde..."
 					 #Editando o arquivo
 					 vim /etc/cups/snmp.conf
 					 echo
@@ -733,21 +734,21 @@ then
 					 read
 					 sleep 2
 					 
-					 echo -e "Fazendo o backup do arquivo cups-files.conf"
+					 echo -e "Fazendo o backup do arquivo cups-files.conf, aguarde..."
 					 #Fazendo o backup do arquivo original
 					 mv -v /etc/cups/cups-files.conf /etc/cups/cups-files.conf.old >> $LOG
 					 echo -e "Backup feito com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Atualizando o arquivo do cups-files.conf"
+					 echo -e "Atualizando o arquivo do cups-files.conf, aguarde..."
 					 #Atualizando o arquivo
 					 cp -v conf/cups-files.conf /etc/cups/cups-files.conf >> $LOG
 					 echo -e "Arquivo atualizado com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Editando o arquivo cups-files.conf"
+					 echo -e "Editando o arquivo cups-files.conf, aguarde..."
 					 #Editando o arquivo
 					 vim /etc/cups/cups-files.conf
 					 echo
@@ -765,21 +766,21 @@ then
 					 read
 					 sleep 2
 					 
-					 echo -e "Fazendo o backup do arquivo usr.sbin.cupsd"
+					 echo -e "Fazendo o backup do arquivo usr.sbin.cupsd, aguarde..."
 					 #Fazendo o backup do arquivo original
 					 mv -v /etc/apparmor.d/usr.sbin.cupsd /etc/apparmor.d/usr.sbin.cupsd.old >> $LOG
 					 echo -e "Backup feito com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Atualizando o arquivo usr.sbin.cupsd"
+					 echo -e "Atualizando o arquivo usr.sbin.cupsd, aguarde..."
 					 #Atualizando o arquivo
 					 cp -v conf/usr.sbin.cupsd /etc/apparmor.d/usr.sbin.cupsd >> $LOG
 					 echo -e "Arquivo atualizado com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Editando o arquivo usr.sbin.cupsd"
+					 echo -e "Editando o arquivo usr.sbin.cupsd, aguarde..."
 					 #Editando o arquivo USR.SBIN.CUPSD
 					 vim /etc/apparmor.d/usr.sbin.cupsd +183
 					 echo
@@ -787,7 +788,7 @@ then
 					 sleep 2
 					 echo
 					 
-					 echo -e "Reinicializando os serviços do CUPS e do APPARMOR"
+					 echo -e "Reinicializando os serviços do CUPS e do APPARMOR, aguarde..."
 					 #Reinicializando os serviços do CUPS
 					 sudo service apparmor restart
 					 sudo service cups restart
