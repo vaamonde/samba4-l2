@@ -5,8 +5,8 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 31/05/2016
-# Data de atualização: 30/12/2016
-# Versão: 0.8
+# Data de atualização: 10/10/2018
+# Versão: 0.9
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
@@ -72,7 +72,7 @@ then
 
 					 echo -e "03. Informação dos Volumes Físicos do LVM: `hostname`"
 					 echo
-					 pvdisplay -v
+					 pvdisplay -v | less
 					 echo
 					 echo -e "Pressione <Enter> para continuar"
 					 read
