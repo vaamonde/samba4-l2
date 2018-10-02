@@ -5,8 +5,8 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 07/12/2016
-# Data de atualização: 30/12/2016
-# Versão: 0.8
+# Data de atualização: 01/10/2018
+# Versão: 0.9
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
@@ -45,21 +45,21 @@ then
 					 echo -e "Configurando a Limpeza da Pasta PDF, pressione <Enter> para continuar"
 					 read
 					 
-					 echo -e "Atualizando o arquivo clean_pdf"
+					 echo -e "Atualizando o arquivo clean_pdf, aguarde..."
 					 #Copiando o arquivo de limpeza da pasta PDF
 					 cp -v conf/clean_pdf /usr/sbin >> $LOG
 					 echo -e "Arquivo atualizado com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Alterando as permissões do arquivo clean_pdf"
+					 echo -e "Alterando as permissões do arquivo clean_pdf, aguarde..."
 					 #Aplicando as permissões de execução
 					 chmod -v +x /usr/sbin/clean_pdf >> $LOG
 					 echo -e "Permissões alteradas com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Atualizando o arquivo cleanpdf"
+					 echo -e "Atualizando o arquivo cleanpdf, aguarde..."
 					 #Copiando o arquivo de agendamento da limpeza da pasta PDF
 					 cp -v conf/cleanpdf /etc/cron.d/ >> $LOG
 					 echo -e "Arquivo atualizado com sucesso!!!"
@@ -83,14 +83,14 @@ then
 					 read
 					 sleep 2
 					 
-					 echo -e "Atualizando o arquivo clean_cups"
+					 echo -e "Atualizando o arquivo clean_cups, aguarde..."
 					 #Copiando o arquivo de limpeza do cups
 					 cp -v conf/clean_cups /usr/sbin >> $LOG
 					 echo -e "Arquivo atualizado com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Alterando as permissões do arquivo clean_cups"
+					 echo -e "Alterando as permissões do arquivo clean_cups, aguarde..."
 					 #Aplicando as permissões de execução
 					 chmod -v +x /usr/sbin/clean_cups >> $LOG
 					 echo -e "Permissões alteradas com sucesso!!!"
@@ -114,35 +114,35 @@ then
 					 read
 					 sleep 2
 					 
-					 echo -e "Atualizando as listas do apt-get"
+					 echo -e "Atualizando as listas do apt-get, aguarde..."
 					 #Atualizando as listas do apt-get
 					 apt-get update >> $LOG
 					 echo -e "Listas do apt-get atualizadas com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Instalando o AWStats e suas dependências"
+					 echo -e "Instalando o AWStats e suas dependências, aguarde..."
 					 #Instalando o pacote do awstats
 					 apt-get -y install awstats libgeo-ipfree-perl libnet-ip-perl libgeoip1 >> $LOG
 					 echo -e "Instalação concluída com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Habilitando o módulo do CGI no Apache"
+					 echo -e "Habilitando o módulo do CGI no Apache, aguarde..."
 					 #Habilitar o recurso de CGI no Apache2
 					 a2enmod cgi >> $LOG
 					 echo -e "Módulo habilitado com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Atualizando o diretório cgi-bin para o html"
+					 echo -e "Atualizando o diretório cgi-bin para o html, aguarde..."
 					 #Copiando o diretório do CGI para o Apache
 					 cp -r /usr/lib/cgi-bin /var/www/html/ >> $LOG
 					 echo -e "Diretório atualizado com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Alterando as permissões do diretório cgi-bin"
+					 echo -e "Alterando as permissões do diretório cgi-bin, aguarde..."
 					 #Mudando o dono e grupo do diretório cgi
 					 chown -Rv www-data:www-data /var/www/html/cgi-bin/ >> $LOG
 					 #Alterando as permissões do diretório
@@ -151,14 +151,14 @@ then
 					 sleep 2
 					 echo
 					 
-					 echo -e "Atualizando o arquivo awstats.pti.intra.conf"
+					 echo -e "Atualizando o arquivo awstats.pti.intra.conf, aguarde..."
 					 #Atualizando o arquivo de configuração personalizado do awstats
 					 cp -v conf/awstats.pti.intra.conf /etc/awstats/awstats.pti.intra.conf >> $LOG
 					 echo -e "Arquivo atualizado com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Atualizando o arquivo awstatsupdate"
+					 echo -e "Atualizando o arquivo awstatsupdate, aguarde..."
 					 #Copiando o arquivo de agendamento das atualizações do awstats
 					 cp -v conf/awstatsupdate /etc/cron.d/ >> $LOG
 					 echo -e "Arquivo atualizado com sucesso!!!"
@@ -192,14 +192,14 @@ then
 					 sleep 2
 					 clear
 					 
-					 echo -e "Reinicializando o serviço do Apache2"
+					 echo -e "Reinicializando o serviço do Apache2, aguarde..."
 					 #Reinicializando o Apache2
 					 sudo service apache2 restart >> $LOG
 					 echo -e "Serviço reinicializado com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Atualizando as estatísticas do AWStats"
+					 echo -e "Atualizando as estatísticas do AWStats, aguarde..."
 					 #Atualizando as estatística do AWStats
 					 /usr/lib/cgi-bin/awstats.pl -config=pti.intra -update >> $LOG
 					 echo -e "Estatísticas atualizadas com sucesso!!!"
@@ -215,14 +215,14 @@ then
 					 read
 					 sleep 2
 					 
-					 echo -e "Atualizando o arquivo printpdf e sambapdf"
+					 echo -e "Atualizando o arquivo printpdf e sambapdf, aguarde..."
 					 #Copiando os arquivos para /usr/sbin
 					 cp -v conf/printpdf conf/sambapdf /usr/sbin >> $LOG
 					 echo -e "Arquivos atualizados com sucesso!!!"
 					 sleep 2
 					 echo
 					 
-					 echo -e "Alterando as permissões do arquivo printpdf e sambapdf"
+					 echo -e "Alterando as permissões do arquivo printpdf e sambapdf, aguarde..."
 					 #Aplicando as permissões de execução
 					 chmod -v +x /usr/sbin/printpdf >> $LOG
 					 chmod -v +x /usr/sbin/sambapdf >> $LOG
