@@ -46,6 +46,9 @@ Script: https://github.com/vaamonde/samba4-l2/blob/master/script-17.sh
 python python-pip python-dev python3-dev libmysqlclient-dev
 Script: https://github.com/vaamonde/samba4-l2/blob/master/script-20.sh
 
+echo > /var/mail/root
+Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/postfix_queue
+
 02/10/2018  - Atualização do arquivo proftpd.conf, acréscimo de linhas em branco no final do arquivo para corrigir falha. Robson Vaamonde
 (Mensagens de erro no /var/log/syslog e no comando: sudo service proftpd status)
 ProFTPD warning: handling possibly truncated configuration data at line proftpd.conf
