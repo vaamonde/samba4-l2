@@ -1,0 +1,20 @@
+#Link da ajuda do SAMBA-4 Level 2
+
+#Site Oficial do samba.org
+https://wiki.samba.org/index.php/Main_Page
+https://wiki.samba.org/index.php/User_Documentation
+
+#Site Não Oficial do samba.org
+https://www.mankier.com/package/samba#System_Administration
+https://www.mankier.com/package/samba-client#System_Administration
+https://www.mankier.com/package/samba-common-tools#System_Administration
+https://www.mankier.com/package/samba-dc#System_Administration
+https://www.mankier.com/package/samba-krb5-printing#System_Administration
+https://www.mankier.com/package/samba-vfs-cephfs#System_Administration
+https://www.mankier.com/package/samba-vfs-glusterfs#System_Administration
+https://www.mankier.com/package/samba-winbind#System_Administration
+https://www.mankier.com/package/samba-winbind-clients#System_Administration
+https://www.mankier.com/package/samba-winbind-krb5-locator#System_Administration
+https://www.mankier.com/package/samba-winbind-modules#System_Administration
+https://www.mankier.com/1/smbstatus
+https://www.mankier.com/8/samba-tool
