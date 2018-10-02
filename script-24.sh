@@ -130,11 +130,13 @@ then
 					 #Descompactando LogAnalyzer
 					 tar -xzvf $LOGANALYZER >> $LOG
 					 #Movendo o LogAnalyzer para o diretório /var/www/html/loganalyzer/
-					 mv -v $LOGANALYZER/src/* /var/www/html/loganalyzer/
+					 mv -v $LOGANALYZER/src/* /var/www/html/loganalyzer/ >> $LOG
+					 #Atualização do arquivo config.php
+					 cp -v conf/config.php /var/www/html/loganalyzer/ >> $LOG
 					 #Alterando as permissões do arquico config.php
-					 chmod -v 666 /var/www/html/loganalyzer/config.php
+					 chmod -v 666 /var/www/html/loganalyzer/config.php >> $LOG
 					 #Alterando o dono e grupo do diretório loganalyzer
-					 chow -Rv www-data.www-data /var/www/html/loganalyzer/
+					 chown -Rv www-data.www-data /var/www/html/loganalyzer/ >> $LOG
 					 echo -e "Instalação feita com sucesso!!!, pressione <Enter> para continuar com o script"
 					 read
 					 sleep 2
