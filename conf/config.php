@@ -1,5 +1,18 @@
 <?php
 /*
+	# Autor: Robson Vaamonde
+	# Site: www.procedimentosemti.com.br
+	# Facebook: facebook.com/ProcedimentosEmTI
+	# Facebook: facebook.com/BoraParaPratica
+	# YouTube: youtube.com/BoraParaPratica
+	# Data de criação: 02/10/2018
+	# Data de atualização: 02/10/2018
+	# Versão: 0.1
+	# Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
+	# Kernel >= 4.4.x
+
+	# Configurações Globais
+
 	*********************************************************************
 	* LogAnalyzer - http://loganalyzer.adiscon.com
 	* -----------------------------------------------------------------
@@ -46,6 +59,7 @@ if ( !defined('IN_PHPLOGCON') )
 *	All Options below the UserDB options here will not be used, unless a setting
 *	is missing in the database. 
 */
+// Configuração do acesso ao base de dados do LogAnalyzer no MySQL
 $CFG['UserDBEnabled'] = true;
 $CFG['UserDBServer'] = 'localhost';
 $CFG['UserDBPort'] = 3306;
@@ -55,15 +69,15 @@ $CFG['UserDBUser'] = 'loganalyzer';
 $CFG['UserDBPass'] = 'loganalyzer';
 $CFG['UserDBLoginRequired'] = false;
 $CFG['UserDBAuthMode'] = 0;	// USERDB_AUTH_INTERNAL means LogAnalyzer Internal Auth
-												// USERDB_AUTH_LDAP means Auth via LDAP Server
 
+// USERDB_AUTH_LDAP means Auth via LDAP Server
 // LDAP Auth options
 $CFG['LDAPServer'] = '127.0.0.1';					// LDAP server hostname or IP
 $CFG['LDAPPort'] = 389;								// LDAP port, 389 or 636 for SSL
 $CFG['LDAPBaseDN'] = 'CN=Users,DC=domain,DC=local';	// Base DN for LDAP Search, this is a typical ActiveDirectory sample
 $CFG['LDAPSearchFilter'] = '(objectClass=user)';	// Basic Search filter
 $CFG['LDAPUidAttribute'] = 'sAMAccountName';		// The LDAP attribute used in the search to find the user, example: uid, cn or sAMAccountName (Active Directory)
-													// DN of the privileged user for the search
+							// DN of the privileged user for the search
 $CFG['LDAPBindDN'] = 'CN=Searchuser,CN=Users,DC=domain,DC=local'; // "Searchuser" = the privilegied user used to query LDAP Directory
 $CFG['LDAPBindPassword'] = 'Password';				// Password of the privilegied user
 // --- 
@@ -170,8 +184,8 @@ $CFG['DiskAllowed'][] = "/var/log/";
 	$CFG['Sources']['Source2']['ViewID'] = "SYSLOG";
 */
 
+// Configuração do acesso ao base de dados do Rsyslog no MySQL
 $CFG['DefaultSourceID'] = 'Source1';
-
 $CFG['Sources']['Source1']['ID'] = 'Source1';
 $CFG['Sources']['Source1']['Name'] = 'pti.intra';
 $CFG['Sources']['Source1']['ViewID'] = 'SYSLOG';
