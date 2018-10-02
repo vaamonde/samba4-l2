@@ -25,8 +25,11 @@
 # Configuração do Serviço de DHCPD, arquivo dhcpd.conf
 #	vim /etc/dhcp/dhcpd.conf
 #
-# Configuração dos avisos de acesso remoto, arquivo issue.net
+# Configuração do aviso de acesso remoto, arquivo issue.net
 #	vim /etc/issue.net
+#
+# Configuração do aviso de acesso físico, arquivo issue
+#	vim /etc/issue
 #
 # Utilizar o comando: sudo -i para executar o script
 #
@@ -290,7 +293,7 @@ then
 					 echo
 					 
 					 #Editando o arquivo de configuração do /etc/issue utilizado no Login via TTY
-					 vim /etc/issue.net
+					 vim /etc/issue
 					 sleep 2
 					 echo					 
 					 
