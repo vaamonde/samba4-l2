@@ -91,7 +91,7 @@ then
 					 
 					 echo -e "Instalação das dependências do Netdata, aguarde..."
 					 #Instalando as dependências do Netdata
-					 apt-get -y install zlib1g-dev gcc make git autoconf autogen automake pkg-config uuid-dev &>> $LOG
+					 apt-get -y install zlib1g-dev gcc make git autoconf autogen automake pkg-config uuid-dev python python-pip python-dev python3-dev libmysqlclient-dev &>> $LOG
 					 echo -e "Instalação das dependêncais do Netdata feita com sucesso!!!"
 					 sleep 2
 					 echo
@@ -129,14 +129,38 @@ then
 					 sleep 2
 					 echo
 					 
-					 #EM DESENVOLVIMENTO, PLUGINS DE GERENCIAMENTO DO ISC-DHCPD E MYSQL
-					 #cp -v conf/
-					 #cp -v conf/
+					 #EM DESENVOLVIMENTO AS CONFIGURAÇÕES DOS PLUGUINS DO NETDATA 01/10/2018
+					 #echo -e "Instalando os recursos de acesso ao Banco de Dados MySQL, agaurde..."
+					 #Utilizando o comando pip para instalar os pluguins do Python para acesso ao MySQL
+					 #Atualizando o PIP
+					 #pip2.7 install --upgrade pip >> $LOG
 					 #
+					 #Instalando o MySQLClient
+					 #pip2.7 install mysqlclient >> $LOG
 					 #
+					 #Instalando o PyMySQL
+					 #pip2.7 install pymysql
 					 #
+					 #Fazendo o Backup do Arquivo de Configuração Original
+					 #mv -v &>> $LOG
+					 #mv -v &>> $LOG
+					 #mv -v &>> $LOG
 					 #
+					 #Copiando os arquivos de Configuração do MySQL, ISC-DHCPD e Bind
+					 #cp -v conf/mysql.conf &>> $LOG
+					 #cp -v conf/isc_dhcpd.conf &>> $LOG
+					 #cp -v conf/bind_rndc.conf &>> $LOG
+					 #cp -v conf/bind-rndc &>> $LOG
 					 #
+					 #Copiando o arquivo do AppArmos do Named.
+					 #cp -v conf/usr.sbin.named &>> $LOG
+					 #
+					 #Copiando o arquivo do Logrotate do Rndc
+					 #cp -v conf/bind-rdc &>> $LOG
+					 #
+					 #Criação do diretório, arquivo de estáticas e alteração das permissões feita no script-.sh
+					 #
+					 #Alterando as permissões do arquivo rndc.keys
 					 
 					 echo -e "Instalação do Netdata feita com sucesso!!!, pressione <Enter> para continuar"
 					 read
