@@ -5,13 +5,16 @@ Facebook: facebook.com/BoraParaPratica
 YouTube: youtube.com/BoraParaPratica
 Data de criação: 31/05/2016
 Data de atualização: 02/10/2018
-Versão: 0.39
+Versão: 0.40
 Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 Testado e homologado para a versão fo Ubuntu Server 16.04.5 LTS x64
 Kernel >= 4.4.x
 
-02/10/2018  - Criação do script-24.sh, instalação do LogAnalyzer. Robson Vaamonde
+02/10/2018  - Criação do script-24.sh, instalação do LogAnalyzer integrado com Rsyslog. Robson Vaamonde
 Script: https://github.com/vaamonde/samba4-l2/blob/master/script-24.sh
+Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/config.php
+Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/mysql.conf
+Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/rsyslog.conf
 
 02/10/2018  - Melhorias nos scripts de instalação e configuração do SAMBA-4 Level-2. Robson Vaamonde
 
