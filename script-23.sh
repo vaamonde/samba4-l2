@@ -5,8 +5,8 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 13/03/2017
-# Data de atualização: 28/09/2018
-# Versão: 0.10
+# Data de atualização: 01/10/2018
+# Versão: 0.11
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
@@ -54,25 +54,25 @@ then
 					 sleep 2
 					 clear
 					 
-					 echo -e "Copiando o arquivo firewall.sh"
+					 echo -e "Copiando o arquivo firewall.sh, aguarde..."
 					 cp -v conf/firewall /etc/init.d/ >> $LOG
 					 echo -e "Arquivo copiado com sucesso!!!"
 					 echo
 					 sleep 2
 					 
-					 echo -e "Alterando os permissões do arquivo firewall.sh"
+					 echo -e "Alterando os permissões do arquivo firewall.sh, aguarde..."
 					 chmod -v +x /etc/init.d/firewall >> $LOG
 					 echo -e "Permissões alteradas com sucesso!!!"
 					 echo
 					 sleep 2
 					 
-					 echo -e "Criando o diretório firewall em: /etc"
+					 echo -e "Criando o diretório firewall em: /etc, aguarde..."
 					 mkdir -v /etc/firewall >> $LOG
 					 echo -e "Diretório criado com sucesso!!!"
 					 echo
 					 sleep 2
 					 
-					 echo -e "Copiando os arquivos de configuração do firewall"
+					 echo -e "Copiando os arquivos de configuração do firewall, aguarde..."
 					 cp -v conf/portslibtcp /etc/firewall >> $LOG
 					 cp -v conf/portslibudp /etc/firewall >> $LOG
 					 cp -v conf/portsblo /etc/firewall >> $LOG
@@ -82,32 +82,32 @@ then
 					 echo
 					 sleep 2
 					 
-					 echo -e "Copiando o arquivo firewall.conf"
+					 echo -e "Copiando o arquivo firewall.conf, aguarde..."
 					 cp -v conf/firewall.conf /etc/rsyslog.d/ >> $LOG
 					 echo -e "Arquivo copiado com sucesso!!!"
 					 echo
 					 sleep 2
 					 
-					 echo -e "Criando o arquivo firewall.log"
+					 echo -e "Criando o arquivo firewall.log, aguarde..."
 					 touch /var/log/firewall.log >> $LOG
 					 chown -v syslog.adm /var/log/firewall.log >> $LOG
 					 echo -e "Arquivo criado com sucesso!!!"
 					 echo
 					 sleep 2
 					 
-					 echo -e "Reinicializando o serviço do Rsyslog"
+					 echo -e "Reinicializando o serviço do Rsyslog, aguarde..."
 					 sudo service rsyslog restart >> $LOG
 					 echo -e "Serviço Reinicializado com sucesso!!!"
 					 echo
 					 sleep 2
 					 
-					 echo -e "Atualizando as listas do apt-get"
+					 echo -e "Atualizando as listas do apt-get, aguarde..."
 					 apt-get update >> $LOG
 					 echo -e "Listas atualziadas com sucesso!!!"
 					 echo
 					 sleep 2
 					 
-					 echo -e "Instalando o sysv-rc-conf"
+					 echo -e "Instalando o sysv-rc-conf, aguarde..."
 					 apt-get -y install sysv-rc-conf >> $LOG
 					 echo -e "sysv-rc-conf instalado com sucesso!!!"
 					 echo
@@ -122,7 +122,7 @@ then
 					 echo -e "sysv-rc-conf atualizado com sucesso!!!"
 					 sleep 2
 					 
-					 echo -e "Inicializando o Firewall"
+					 echo -e "Inicializando o Firewall, aguarde..."
 					 echo
 					 sh /etc/init.d/firewall start
 					 echo
