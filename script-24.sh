@@ -52,6 +52,24 @@ then
 					 sleep 2
 					 clear
 					 
+					 echo -e "Instalando as Dependências do LogAnalyzer, aguarde..."
+					 
+					 echo -e "Atualizando as listas do apt-get, aguarde..."
+					 apt-get update &>> $LOG
+					 echo -e "Listas atualizadas com sucesso!!!!, continuando o script"
+					 
+					 echo -e "Instalando as dependências do LogAnalyzer, aguarde..."
+					 #Exportando o recurso de Noninteractive do Debconf
+					 export DEBIAN_FRONTEND="noninteractive"
+					 #Configuração as variáveis do deconf para não aparecer a tela de confirmação da base dedados
+					 echo "rsyslog-mysql rsyslog-mysql/dbconfig-install boolean false" |  debconf-set-selections
+					 #Instalando a dependência do LogAnalyzer
+					 apt-get -y install rsyslog-mysql &>> $LOG
+					 echo -e "Dependências instaladas com sucesso, pressione <Enter> para continuar"
+					 read
+					 sleep 2
+					 clear
+					 
 					 echo -e "Criando a base de dados do Rsyslog e setando as permissões, aguarde..."
 					 #Criando a variável da criação da Base de Dados do Rsyslog
 					 #Variaveis utilizada pelo MySQL para a criação do Bando de Dados
@@ -104,9 +122,12 @@ then
 					 clear
 					 
 					 echo -e "Atualizando os arquivos de Configuração do Rsyslog, aguarde..."
+					 echo
+					 
+					 echo -e "Atualizando a Base de Dados do Rsyslog, aguarde..."
 					 #Importando as tabelas da base de dados do Rsyslog
 					 mysql -u $RSYSLOG -D syslog -p$RSYSLOG < /usr/share/dbconfig-common/data/rsyslog-mysql/install/mysql
-					 echo -e "Atualização da Base de Dadas feita com sucesso!!!, continuando o script"
+					 echo -e "Atualização da Base de Dados feita com sucesso!!!, continuando o script"
 					 echo
 					 
 					 echo -e "Atualizando o arquivo de configuração do Rsyslog.conf, aguarde..."
