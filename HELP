@@ -21,3 +21,7 @@ https://www.mankier.com/8/samba-tool
 
 #Pacotes do SAMBA-4
 https://launchpad.net/samba/+packages
+
+#Nova versão do SAMBA-4 >=4.9
+https://wiki.samba.org/index.php/Samba_4.9_Features_added/changed#Samba_4.9.1
+https://wiki.samba.org/index.php/Raising_the_Functional_Levels
