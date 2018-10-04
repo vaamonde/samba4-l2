@@ -5,10 +5,19 @@ Facebook: facebook.com/BoraParaPratica
 YouTube: youtube.com/BoraParaPratica
 Data de criação: 31/05/2016
 Data de atualização: 04/10/2018
-Versão: 0.41
+Versão: 0.42
 Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 Testado e homologado para a versão do Ubuntu Server 16.04.5 LTS x64
 Kernel >= 4.4.x
+
+04/10/2018  - Criação do script-25.sh, configuração do PAM integrado com Winbind e SAMBA-4. Robson Vaamonde
+Script:  https://github.com/vaamonde/samba4-l2/blob/master/script-24.sh
+
+
+Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/common-password
+
+template shell = /bin/bash
+Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/smb.conf
 
 04/10/2018  - Atualização dos conf's referente ao CUPS. Robson Vaamonde
 
