@@ -5,8 +5,8 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 31/05/2016
-# Data de atualização: 01/10/2018
-# Versão: 0.10
+# Data de atualização: 04/10/2018
+# Versão: 0.11
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
@@ -16,7 +16,8 @@
 # DNS (Domain Name System) Serviço de Domínio de Nomes
 # CUPS (Common Unix Printing System) Serviços de Impressão
 # DHCP (Dynamic Host Configuration Protocol) Configuração Dinâmica de Computadores
-# WINBIND Integração SAMBA4 + Linux
+# WINBIND Integração SAMBA-4 + Linux
+# PAM (Pluggable Authentication Modules for Linux)
 # QUOTA Criação de Quotas de Discos
 # CLAMAV - sistema de anti-vírus
 #
@@ -92,6 +93,7 @@ then
 					 echo -e "CUPS (Common Unix Printing System) Serviços de Impressão"
 					 echo -e "Para testar o CUPS após a instalação acesse a URL: http://`hostname -I`:631"
 					 echo -e "DHCP (Dynamic Host Configuration Protocol) Configuração Dinâmica de Computadores"
+					 echo -e "PAM (Pluggable Authentication Modules for Linux) Autenticação integrada"
 					 echo -e "WINBIND Integração SAMBA-4 + Linux"
 					 echo -e "QUOTA Criação de Quotas de Discos"
 					 echo -e "CLAMAV Sistema de Anti-Vírus Open Source"
