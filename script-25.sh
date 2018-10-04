@@ -4,18 +4,18 @@
 # Facebook: facebook.com/ProcedimentosEmTI
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
-# Data de criação: 02/10/2018
-# Data de atualização: 02/10/2018
+# Data de criação: 04/10/2018
+# Data de atualização: 04/10/2018
 # Versão: 0.1
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
-# Instalação e Configuração LogAnalyzer
+# Configuração do PAM () integrado com Winbind e SAMBA-4
 #
 # Utilizar o comando: sudo -i para executar o script
 #
-# Caminho para o Log do Script-24.sh
-LOG="/var/log/script-24.log"
+# Caminho para o Log do Script-25.sh
+LOG="/var/log/script-25.log"
 #
 # Variável da Data Inicial para calcular tempo de execução do Script
 DATAINICIAL=`date +%s`
@@ -37,31 +37,30 @@ then
 					 #
 					 USER="root"
 					 PASSWORD="pti@2016"
-					 RSYSLOG="rsyslog"
-					 LOGANALYZER="loganalyzer-4.1.6.tar.gz"
+					 ADMIN="administrator"
 					 
-					 echo -e "Usuário é `whoami`, continuando a executar o Script-23.sh"
+					 echo -e "Usuário é `whoami`, continuando a executar o Script-25.sh"
 					 echo
-					 echo -e "Rodando o Script-24.sh em: `date`" > $LOG
+					 echo -e "Rodando o Script-25.sh em: `date`" > $LOG
 					 echo -e "================================================================================="
-					 echo -e "                     Instalação do LogAnalyzer"
+					 echo -e "           Configuração da Integração do PAM com Winbind e SAMBA4"
 					 echo -e "================================================================================="
 					 echo
-					 echo -e "Pressione <Enter> para iniciar a instalação e configuração"
+					 echo -e "Pressione <Enter> para iniciar a configuração"
 					 read
 					 sleep 2
 					 clear
 					 
-					 echo -e "Fim do Script-24.sh em: `date`" >> $LOG
-					 echo -e "                Finalização da Configuração do LogAnalyzer"
+					 echo -e "Fim do Script-25.sh em: `date`" >> $LOG
+					 echo -e "     Finalização da Configuração da Integração do PAM com Winbind e SAMBA4"
 					 echo -e "================================================================================="
 					 echo
-					 # Script para calcular o tempo gasto para a execução do script-24.sh
+					 # Script para calcular o tempo gasto para a execução do script-25.sh
 						DATAFINAL=`date +%s`
 						SOMA=`expr $DATAFINAL - $DATAINICIAL`
 						RESULTADO=`expr 10800 + $SOMA`
 						TEMPO=`date -d @$RESULTADO +%H:%M:%S`
-					 echo -e "Tempo gasto para execução do script-24.sh: $TEMPO"
+					 echo -e "Tempo gasto para execução do script-25.sh: $TEMPO"
 					 echo -e "Pressione <Enter> para concluir o processo."
 					 read
 					 else
