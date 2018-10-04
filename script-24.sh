@@ -40,7 +40,7 @@ then
 					 RSYSLOG="rsyslog"
 					 LOGANALYZER="loganalyzer-4.1.6.tar.gz"
 					 
-					 echo -e "Usuário é `whoami`, continuando a executar o Script-23.sh"
+					 echo -e "Usuário é `whoami`, continuando a executar o Script-24.sh"
 					 echo
 					 echo -e "Rodando o Script-24.sh em: `date`" > $LOG
 					 echo -e "================================================================================="
