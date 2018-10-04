@@ -13,7 +13,7 @@ Kernel >= 4.4.x
 04/10/2018  - Criação do script-25.sh, configuração do PAM integrado com Winbind e SAMBA-4. Robson Vaamonde
 Script:  https://github.com/vaamonde/samba4-l2/blob/master/script-24.sh
 
-
+password        [success=1 default=ignore]      pam_winbind.so try_first_pass
 Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/common-password
 
 template shell = /bin/bash
