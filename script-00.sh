@@ -5,8 +5,8 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 31/05/2016
-# Data de atualização: 01/10/2018
-# Versão: 0.8
+# Data de atualização: 06/10/2018
+# Versão: 0.9
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
@@ -48,27 +48,26 @@ then
 					 echo -e "05. Limpando o repositório Local do Apt-Get (Cache)"
 					 echo
 					 echo -e "Após o término o Servidor será reinicializado"
-					 echo -e "Aguarde..."
 					 echo
 					 echo  ============================================================ >> $LOG
 					 
-					 echo -e "Atualizando as Listas do Apt-Get (apt-get update)"
+					 echo -e "Atualizando as Listas do Apt-Get (apt-get update), aguarde..."
 					 #Exportando a variável do Debian Frontend Noninteractive para não solicitar interação com o usuário
 					 export DEBIAN_FRONTEND=noninteractive
 					 #Atualizando as listas do apt-get
 					 apt-get update &>> $LOG
-					 echo -e "Listas Atualizadas com Sucesso!!!"
+					 echo -e "Listas Atualizadas com Sucesso!!!, continuando o script..."
 					 echo					 
 					 echo  ============================================================ >> $LOG
 
-					 echo -e "Atualização dos Aplicativos Instalados (apt-get upgrade)"
+					 echo -e "Atualização dos Aplicativos Instalados (apt-get upgrade), aguarde..."
 					 #Fazendo a atualização de todos os pacotes instalados no servidor
 					 apt-get -o Dpkg::Options::="--force-confold" upgrade -q -y --force-yes &>> $LOG
-					 echo -e "Sistema Atualizado com Sucesso!!!"
+					 echo -e "Sistema Atualizado com Sucesso!!!, continuando o script..."
 					 echo
 					 echo  ============================================================ >> $LOG
 
-					 echo -e "Atualização da Distribuição Ubuntu Server Kernel (apt-get dist-upgrade)"
+					 echo -e "Atualização da Distribuição Ubuntu Server Kernel (apt-get dist-upgrade), aguarde..."
 					 echo -e "Versão do Kernel atual: `uname -r`"
 					 #Fazendo a atualização do Kernel
 					 apt-get -o Dpkg::Options::="--force-confold" dist-upgrade -q -y --force-yes &>> $LOG
@@ -77,22 +76,22 @@ then
 					 #Listando as imagens dos Kernel instalados
 					 dpkg --list | grep linux-image | cut -d" " -f3
 					 echo
-					 echo -e "Kernel Atualizado com Sucesso!!!"
+					 echo -e "Kernel Atualizado com Sucesso!!!, continuando o script..."
 					 echo
 					 echo ============================================================ >> $LOG
 
-					 echo -e "Autoremoção dos Aplicativos desnecessários instalados (apt-get autoremove)"
+					 echo -e "Autoremoção dos Aplicativos desnecessários instalados (apt-get autoremove), aguarde..."
 					 #Removendo aplicativos que não estão sendo mais usados
 					 apt-get -y autoremove &>> $LOG
-					 echo -e "Remoção feita com Sucesso!!!"
+					 echo -e "Remoção feita com Sucesso!!!, continuando o script..."
 					 echo
 					 echo ============================================================ >> $LOG
 					 
-					 echo -e "Limpando o Cache do Apt-Get (download dos arquivos *.deb | apt-get autoclean e apt-get clean)"
+					 echo -e "Limpando o Cache do Apt-Get (download dos arquivos *.deb | apt-get autoclean e apt-get clean), aguarde..."
 					 #Limpando o diretório de cache do apt-get
 					 apt-get autoclean &>> $LOG
 					 apt-get clean &>> $LOG
-					 echo -e "Cache Limpo com Sucesso!!!"
+					 echo -e "Cache Limpo com Sucesso!!!, continuando o script..."
 					 echo
 					 echo ============================================================ >> $LOG
 
