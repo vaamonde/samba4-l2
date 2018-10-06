@@ -111,14 +111,14 @@ then
 					 echo -e "Atualizando as Listas do Apt-Get, aguarde..."
 					 #Atualizando as listas do apt-get
 					 apt-get update &>> $LOG
-					 echo -e "Listas Atualizadas com Sucesso!!!"
+					 echo -e "Listas Atualizadas com Sucesso!!!, continuando o script..."
 					 echo
 					 echo ============================================================ >> $LOG
 
 					 echo -e "Atualizando o Sistema, aguarde..."
 					 #Fazendo a atualização de todos os pacotes instalados no servidor
 					 apt-get -o Dpkg::Options::="--force-confold" upgrade -q -y --force-yes &>> $LOG
-					 echo -e "Sistema Atualizado com Sucesso!!!"
+					 echo -e "Sistema Atualizado com Sucesso!!!, continuando o script..."
 					 echo
 					 echo ============================================================ >> $LOG
 
@@ -129,7 +129,7 @@ then
 					 #Configurando as variáveis do Debconf para a instalação do MySQL em modo Noninteractive
 					 echo "mysql-server-5.7 mysql-server/root_password password $PASSWORD" |  debconf-set-selections
 					 echo "mysql-server-5.7 mysql-server/root_password_again password $AGAIN" |  debconf-set-selections
-					 echo -e "Variáveis configuradas com sucesso!!!"
+					 echo -e "Variáveis configuradas com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
@@ -139,7 +139,7 @@ then
 					 echo -e "Instalando o LAMP Server, aguarde..."
 					 #Instalando o LAMP-Server com as variáveis do MySQL
 					 apt-get -y install lamp-server^ perl python links2 &>> $LOG
-					 echo -e "Instalação do LAMP-SERVER Feito com Sucesso!!!"
+					 echo -e "Instalação do LAMP-SERVER Feito com Sucesso!!!, continuando o script..."
 					 echo
 					 sleep 2
 					 echo ============================================================ >> $LOG
@@ -150,7 +150,7 @@ then
 					 echo -e "Configurando as variáveis do ProFTPD para o apt-get, aguarde..."
 					 #Configurando as variáveis do Debconf para a instalação do ProFTPD em modo Noninteractive
 					 echo "proftpd-basic shared/proftpd/inetd_or_standalone select $INETD" |  debconf-set-selections
-					 echo -e "Variáveis configuradas com sucesso!!!"
+					 echo -e "Variáveis configuradas com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
@@ -160,7 +160,7 @@ then
 					 echo -e "Instalando o ProFTPD, aguarde..."
 					 #Instalando o ProFTPD Server
 					 apt-get -y install proftpd &>> $LOG
-					 echo -e "Instalação do ProFTPD Feito com Sucesso!!!"
+					 echo -e "Instalação do ProFTPD Feito com Sucesso!!!, continuando o script..."
 					 echo
 					 sleep 2
 					 echo ============================================================ >> $LOG
@@ -168,7 +168,7 @@ then
 					 echo -e "Instalando o PhpMyAdmin, aguarde..."
 					 echo
 					 
-					 echo -e "Configurando as váriaveis do PhpMyAdmin para o apt-get"
+					 echo -e "Configurando as váriaveis do PhpMyAdmin para o apt-get, aguarde..."
 					 #Configurando as variáveis do Debconf para a instalação do PhpMyAdmin em modo Noninteractive
 					 echo "phpmyadmin phpmyadmin/internal/skip-preseed boolean true" |  debconf-set-selections
 					 echo "phpmyadmin phpmyadmin/dbconfig-install boolean true" |  debconf-set-selections
@@ -177,7 +177,7 @@ then
 					 echo "phpmyadmin phpmyadmin/mysql/admin-user string $ADMINUSER" |  debconf-set-selections
 					 echo "phpmyadmin phpmyadmin/mysql/admin-pass password $ADMIN_PASS" |  debconf-set-selections
 					 echo "phpmyadmin phpmyadmin/mysql/app-pass password $APP_PASS" |  debconf-set-selections
-					 echo -e "Variáveis configuradas com sucesso!!!"
+					 echo -e "Variáveis configuradas com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
@@ -187,7 +187,7 @@ then
 					 echo -e "Instalando o PhpMyAdmin, aguarde..."
 					 #Instalando o PhpMyAdmin
 					 apt-get -y install phpmyadmin php-mbstring php-gettext &>> $LOG
-					 echo -e "Instalação do PhpMyAdmin feita com sucesso!!!"
+					 echo -e "Instalação do PhpMyAdmin feita com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 					 
@@ -195,7 +195,7 @@ then
 					 #Atualizando as dependências do PhpMyAdmin, ativando os recursos de módulos do PHP no Apache2
 					 phpenmod mcrypt
 					 phpenmod mbstring
-					 echo -e "Atualização feita com sucesso!!!"
+					 echo -e "Atualização feita com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 		 
@@ -213,42 +213,42 @@ then
 					 echo -e "Fazendo o backup do arquivo apache2.conf, aguarde..."
 					 #Fazendo o backup do Apache2.conf
 					 cp -v /etc/apache2/apache2.conf /etc/apache2/apache2.conf.old &>> $LOG
-					 echo -e "Backup feito com sucesso!!!"
+					 echo -e "Backup feito com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
 					 echo -e "Atualizando o arquivo apache2.conf, aguarde..."
 					 #Atualizando o arquivo do Apache2.conf customizado
 					 cp -v conf/apache2.conf /etc/apache2/apache2.conf &>> $LOG
-					 echo -e "Arquivo atualizado com sucesso!!!"
+					 echo -e "Arquivo atualizado com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
 					 echo -e "Fazendo o backup do arquivo 000-default.conf, aguarde..."
 					 #Fazendo o backup do 000-default.conf
 					 cp -v /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/000-default.conf.old &>> $LOG
-					 echo -e "Backup feito com sucesso!!!"
+					 echo -e "Backup feito com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
 					 echo -e "Atualizando o arquivo 000-default.conf, aguarde..."
 					 #Atualizando o arquivo 00-default.conf
 					 cp -v conf/000-default.conf /etc/apache2/sites-available/000-default.conf &>> $LOG
-					 echo -e "Arquivo atualizado com sucesso!!!"
+					 echo -e "Arquivo atualizado com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
 					 echo -e "Fazendo o backup do arquivo php.ini, aguarde..."
 					 #Backup do arquivo php.ini
 					 cp -v /etc/php/7.0/apache2/php.ini /etc/php/7.0/apache2/php.ini.old &>> $LOG
-					 echo -e "Backup feito com sucesso!!!"
+					 echo -e "Backup feito com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
 					 echo -e "Atualizando o arquivo php.ini, aguarde..."
 					 #Atualizando o arquivo do php.ini
 					 cp -v conf/php.ini /etc/php/7.0/apache2/php.ini &>> $LOG
-					 echo -e "Atualização feita com sucesso!!!"
+					 echo -e "Atualização feita com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
@@ -285,10 +285,10 @@ then
 					 vim /etc/php/7.0/apache2/php.ini
 					 echo
 
-					 echo -e "Reinicializando o serviço do Apache2"
+					 echo -e "Reinicializando o serviço do Apache2, aguarde..."
 					 #Reinicializando o serviço do Apache2 Server
 					 sudo service apache2 restart
-					 echo -e "Serviço reinicializado com sucesso!!!"
+					 echo -e "Serviço reinicializado com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
@@ -309,14 +309,14 @@ then
 					 echo -e "Fazendo o backup do arquivo mysqld.cnf, aguarde..."
 					 #Fazendo o backup do arquivo mysqld.conf
 					 mv -v /etc/mysql/mysql.conf.d/mysqld.cnf /etc/mysql/mysql.conf.d/mysqld.cnf.old &>> $LOG
-					 echo -e "Backup feito com sucesso!!!"
+					 echo -e "Backup feito com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
 					 echo -e "Atualizando o arquivo do mysqld.cnf, aguarde..."
 					 #Atualizando o arquivo das configuração do mysqld.cnf customizado
 					 cp -v conf/mysqld.cnf /etc/mysql/mysql.conf.d/mysqld.cnf &>> $LOG
-					 echo -e "Arquivo atualizado com sucesso!!!"
+					 echo -e "Arquivo atualizado com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
@@ -329,7 +329,7 @@ then
 					 #Permitindo o usuário Root acessar o servidor do MySQL remoto
 					 #Alterando o Banco de Dados do MySQL
 					 mysql -u $USER -p$PASSWORD -e "$GRANTALL" mysql &>> $LOG
-					 echo -e "Permissão aplicada com sucesso!!!"
+					 echo -e "Permissão aplicada com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
@@ -338,14 +338,14 @@ then
 					 #Verificando as configurações do servidor de MySQL
 					 mysqld --help --verbose | grep /etc 
 					 echo
-					 echo -e "Arquivo testado com sucesso!!!"
+					 echo -e "Arquivo testado com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
 					 echo -e "Reinicializando o servidor do MySQL, aguarde..."
 					 #Reinicializando o serviço do MySQL Server
 					 sudo service mysql restart
-					 echo -e "Serviços do MySQL reinicializado com sucesso!!!"
+					 echo -e "Serviços do MySQL reinicializado com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
@@ -366,7 +366,7 @@ then
 					 echo -e "Copiando o arquivo phpinfo.php, aguarde..."
 					 #Copiando o arquivo phpinfo.php para testar o servidor Apache2 e também o suporte ao PHP
 					 cp -v conf/phpinfo.php /var/www/html >> $LOG
-					 echo -e "Arquivo copiado com sucesso!!!"
+					 echo -e "Arquivo copiado com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
