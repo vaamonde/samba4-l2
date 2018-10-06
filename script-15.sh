@@ -5,8 +5,8 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 31/05/2016
-# Data de atualização: 01/10/2018
-# Versão: 0.9
+# Data de atualização: 06/10/2018
+# Versão: 0.10
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
@@ -81,7 +81,7 @@ then
 					 read
 					 echo
 					 #Localizando os objetivos das unidades organizacionais da base de dados do SAMBA-4 utilizando o comando ldbsearch filtrando sua saída
-					 ldbsearch -H $SAMBA4LDB | grep "dn: OU" | | cat -n | less
+					 ldbsearch -H $SAMBA4LDB | grep "dn: OU" | cat -n | less
 					 echo
 					 echo -e "Listas das Unidades Organizacionais feita com sucesso!!!, pressione <Enter> para continuar"
 					 read
