@@ -10,7 +10,7 @@ Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 Testado e homologado para a versão do Ubuntu Server 16.04.5 LTS x64
 Kernel >= 4.4.x
 
-06/10/2018  - Identifiado pelos alunos falha no script-15.sh, erro de execução na linha 84. Robson Vaamonde
+06/10/2018  - Identificado pelos alunos falha no script-15.sh, erro de execução na linha 84. Robson Vaamonde
 Falha: linha 84 do script: ldbsearch -H $SAMBA4LDB | grep "dn: OU" | | cat -n | less (tinha dois Pipe)
 Correção: ldbsearch -H $SAMBA4LDB | grep "dn: OU" | cat -n | less
 
