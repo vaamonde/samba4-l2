@@ -11,8 +11,9 @@ Testado e homologado para a versão do Ubuntu Server 16.04.5 LTS x64
 Kernel >= 4.4.x
 
 06/10/2018  - Identificado pelos alunos falha no script-15.sh, erro de execução na linha 84. Robson Vaamonde
-Falha: linha 84 do script: ldbsearch -H $SAMBA4LDB | grep "dn: OU" | | cat -n | less (tinha dois Pipe)
+Falha: linha 84 do script: ldbsearch -H $SAMBA4LDB | grep "dn: OU" | | cat -n | less (tinha dois Pipes)
 Correção: ldbsearch -H $SAMBA4LDB | grep "dn: OU" | cat -n | less
+Script: https://github.com/vaamonde/samba4-l2/blob/master/script-15.sh
 
 04/10/2018  - Criação do script-25.sh, configuração do PAM integrado com Winbind e SAMBA-4. Robson Vaamonde
 Script:  https://github.com/vaamonde/samba4-l2/blob/master/script-24.sh
