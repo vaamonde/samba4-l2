@@ -5,8 +5,8 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 31/05/2016
-# Data de atualização: 01/10/2018
-# Versão: 0.11
+# Data de atualização: 06/10/2018
+# Versão: 0.12
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
@@ -56,14 +56,14 @@ then
 					 echo -e "Atualização as listas do Apt-Get, aguarde..."
 					 #Fazendo a atualização das listas do apt-get
 					 apt-get update &>> $LOG
-					 echo -e "Atualização das lista do apt-get feita com sucesso!!!"
+					 echo -e "Atualização das lista do apt-get feita com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
 					 echo -e "Atualizando os software instalados, aguarde..."
 					 #Fazendo a atualização de todos os software do servidor
 					 apt-get -o Dpkg::Options::="--force-confold" upgrade -q -y --force-yes &>> $LOG
-					 echo -e "Atualização do sistema feita com sucesso!!!"
+					 echo -e "Atualização do sistema feita com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
@@ -71,7 +71,7 @@ then
 					 #Setando as configurações do debconf para o postfix funcionar no modo Noninteractive
 					 echo -e "postfix postfix/mailname string ptispo01dc01.pti.intra" | debconf-set-selections &>> $LOG
 					 echo -e "postfix postfix/main_mailer_type string Internet Site" | debconf-set-selections &>> $LOG
-					 echo -e "Configurações setadas com sucesso!!!"
+					 echo -e "Configurações setadas com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
@@ -92,21 +92,21 @@ then
 					 echo -e "Instalação das dependências do Netdata, aguarde..."
 					 #Instalando as dependências do Netdata
 					 apt-get -y install zlib1g-dev gcc make git autoconf autogen automake pkg-config uuid-dev python python-pip python-dev python3-dev libmysqlclient-dev &>> $LOG
-					 echo -e "Instalação das dependêncais do Netdata feita com sucesso!!!"
+					 echo -e "Instalação das dependêncais do Netdata feita com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
 					 echo -e "Limpando as informações do cache do apt-get, aguarde..."
 					 #Limpando o cache do apt-get
 					 apt-get clean >> $LOG
-					 echo -e "Limpeza do cache do apt-get feito com sucesso!!!"
+					 echo -e "Limpeza do cache do apt-get feito com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
 					 echo -e "Clonando o projeto do Netdata do Github, aguarde..."
 					 #Clonando o site do GitHub do Netdata
 					 git clone https://github.com/firehol/netdata.git --depth=1 &>> $LOG
-					 echo -e "Clonagem do software do Netdata feito com sucesso!!!"
+					 echo -e "Clonagem do software do Netdata feito com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
@@ -125,7 +125,7 @@ then
 					 echo -e "Removendo o diretório do Netdata, aguarde..."
 					 #Removendo o diretório do Netdata
 					 rm -Rfv netdata/ >> $LOG
-					 echo -e "Diretório removido com sucesso!!!"
+					 echo -e "Diretório removido com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
@@ -186,7 +186,7 @@ then
 					 echo -e "Fazendo o backup do arquivo rsync, aguarde..."
 					 #Fazendo o backup do arquivo de configuração do rsync
 					 cp -v /etc/default/rsync /etc/default/rsync.old &>> $LOG
-					 echo -e "Backup feito com sucesso!!!"
+					 echo -e "Backup feito com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
@@ -197,7 +197,7 @@ then
 					 echo -e "Reinicializando o serviço do Rsync, aguarde..."
 					 #Reinicializando o serviço do rsync
 					 sudo service rsync restart
-					 echo -e "Serviço reinicializado com sucesso!!!"
+					 echo -e "Serviço reinicializado com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
@@ -214,21 +214,21 @@ then
 					 echo -e "Atualizando o arquivo do rsync_samba, aguarde..."
 					 #Copiando o script do sincronismo do rsync do samba
 					 cp -v conf/rsync_samba /usr/sbin >> $LOG
-					 echo -e "Arquivo atualizado com sucesso!!!"
+					 echo -e "Arquivo atualizado com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
 					 echo -e "Alterando as permissões do arquivo rsync_samba, aguarde..."
 					 #Aplicando as permissões
 					 chmod -v 750 /usr/sbin/rsync_samba >> $LOG
-					 echo -e "Permissões alteradas com sucesso!!!"
+					 echo -e "Permissões alteradas com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
 					 echo -e "Atualizando o arquivo rsyncsamba, aguarde..."
 					 #Copiando o agendamento do sincronismo do rsync do samba
 					 cp -v conf/rsyncsamba /etc/cron.d/ >> $LOG
-					 echo -e "Arquivo atualizado com sucesso!!!"
+					 echo -e "Arquivo atualizado com sucesso!!!, continuando o script..."
 					 
 					 #Editando o arquivo do sincronismo
 					 vim /etc/cron.d/rsyncsamba +13
@@ -245,21 +245,21 @@ then
 					 echo -e "Atualizando o arquivo clean_public, aguarde..."
 					 #Copiando o script da limpeza da pasta público
 					 cp -v conf/clean_public /usr/sbin >> $LOG
-					 echo -e "Arquivo atualizado com sucesso!!!"
+					 echo -e "Arquivo atualizado com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
 					 echo -e "Alterando as permissões do arquivo clean_public, aguarde..."
 					 #Aplicando as permissões
 					 chmod -v 750 /usr/sbin/clean_public >> $LOG
-					 echo -e "Permissões alteradas com sucesso!!!"
+					 echo -e "Permissões alteradas com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
 					 echo -e "Atualizando o arquivo cleanpublic, aguarde..."
 					 #Copiando o agendamento da limpeza da pasta público
 					 cp -v conf/cleanpublic /etc/cron.d/ >> $LOG
-					 echo -e "Arquivo atualizado com sucesso!!!"
+					 echo -e "Arquivo atualizado com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
@@ -278,21 +278,21 @@ then
 					 echo -e "Atualizando o arquivo clean_recycle, aguarde..."
 					 #Copiando os script da limpeza da pasta lixeira
 					 cp -v conf/clean_recycle /usr/sbin >> $LOG
-					 echo -e "Arquivo atualizado com sucesso!!!"
+					 echo -e "Arquivo atualizado com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
 					 echo -e "Alterando as permissões do arquivo clean_recycle, aguarde..."
 					 #Aplicando as permissões
 					 chmod -v 750 /usr/sbin/clean_recycle >> $LOG
-					 echo -e "Permissões alteradas com sucesso!!!"
+					 echo -e "Permissões alteradas com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
 					 echo -e "Atualizando o arquivo cleanrecycle, aguarde..."
 					 #Copiando o agendamento da limpeza da pasta lixeira
 					 cp -v conf/cleanrecycle /etc/cron.d/ >> $LOG
-					 echo -e "Arquivo atualizado com sucesso!!!"
+					 echo -e "Arquivo atualizado com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
@@ -311,21 +311,21 @@ then
 					 echo -e "Atualizando o arquivo postfix_queue, aguarde..."
 					 #Copiando os script da limpeza da dos e-mail do postfix
 					 cp -v conf/postfix_queue /usr/sbin >> $LOG
-					 echo -e "Arquivo atualizado com sucesso!!!"
+					 echo -e "Arquivo atualizado com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
 					 echo -e "Alterando as permissões do arquivo postfix_queue, aguarde..."
 					 #Aplicando as permissões
 					 chmod -v 750 /usr/sbin/postfix_queue >> $LOG
-					 echo -e "Permissões alteradas com sucesso!!!"
+					 echo -e "Permissões alteradas com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
 					 echo -e "Atualizando o arquivo postfixqueue, aguarde..."
 					 #Copiando o agendamento da limpeza dos e-mail do postfix
 					 cp -v conf/postfixqueue /etc/cron.d/ >> $LOG
-					 echo -e "Arquivo atualizado com sucesso!!!"
+					 echo -e "Arquivo atualizado com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
