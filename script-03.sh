@@ -5,8 +5,8 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 31/05/2016
-# Data de atualização: 01/10/2018
-# Versão: 0.10
+# Data de atualização: 06/10/2018
+# Versão: 0.11
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
@@ -63,28 +63,28 @@ then
 					 export DEBIAN_FRONTEND=noninteractive
 					 #Atualizando as listas do apt-get
 					 apt-get update &>> $LOG
-					 echo -e "Listas Atualizadas com Sucesso!!!"
+					 echo -e "Listas Atualizadas com Sucesso!!!, continuando o script..."
 					 echo
 					 echo ============================================================ >> $LOG
 
 					 echo -e "Atualizando o Sistema, aguarde..."
 					 #Fazendo a atualização de todos os pacotes instalados no servidor
 					 apt-get -o Dpkg::Options::="--force-confold" upgrade -q -y --force-yes &>> $LOG
-					 echo -e "Sistema Atualizado com Sucesso!!!"
+					 echo -e "Sistema Atualizado com Sucesso!!!, continuando o script..."
 					 echo
 					 echo ============================================================ >> $LOG
 
 					 echo -e "Instalando as Dependências do Webmin, aguarde..."
 					 #Instalando as dependências do Webmin
 					 apt-get -y install perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions python &>> $LOG
-					 echo -e "Instalação das Dependências do Webmin Feito com Sucesso!!!"
+					 echo -e "Instalação das Dependências do Webmin Feito com Sucesso!!!, continuando o script..."
 					 echo
 					 echo ============================================================ >> $LOG
 
 					 echo -e "Limpando o Cache do Apt-Get, aguarde..."
 					 #Limpando o diretório de cache do apt-get
 					 apt-get clean &>> $LOG
-					 echo -e "Cache Limpo com Sucesso!!!"
+					 echo -e "Cache Limpo com Sucesso!!!, continuando o script..."
 					 echo
 					 echo -e "Pressione <Enter> para continuar com o script"
 					 read
@@ -97,7 +97,7 @@ then
 					 wget http://prdownloads.sourceforge.net/webadmin/$VERSAO &>> $LOG
 					 #Listando o arquivo após fazer o download
 					 ls -lha $VERSAO >> $LOG
-					 echo -e "Download feito com sucesso!!!"
+					 echo -e "Download feito com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 
