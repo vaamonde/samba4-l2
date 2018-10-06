@@ -5,8 +5,8 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 31/05/2016
-# Data de atualização: 01/10/2018
-# Versão: 0.9
+# Data de atualização: 06/10/2018
+# Versão: 0.10
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
@@ -67,14 +67,14 @@ then
 					 export DEBIAN_FRONTEND=noninteractive
 					 #Atualizando as listas do apt-get
 					 apt-get update &>> $LOG
-					 echo -e "Listas Atualizadas com Sucesso!!!"
+					 echo -e "Listas Atualizadas com Sucesso!!!, continuando o script..."
 					 echo
 					 echo ============================================================ >> $LOG
 
 					 echo -e "Atualizando o Sistema, aguarde..."
 					 #Fazendo a atualização de todos os pacotes instalados no servidor
 					 apt-get -o Dpkg::Options::="--force-confold" upgrade -q -y --force-yes &>> $LOG
-					 echo -e "Sistema Atualizado com Sucesso!!!"
+					 echo -e "Sistema Atualizado com Sucesso!!!, continuando o script..."
 					 echo
 					 echo ============================================================ >> $LOG
 					 
@@ -101,14 +101,14 @@ then
 					 echo -e "Fazendo o backup do arquivo interfaces, aguarde..."
 					 #Fazendo o backup do arquivo de configuração interfaces
 					 mv -v /etc/network/interfaces /etc/network/interfaces.old >> $LOG
-					 echo -e "Backup feito com sucesso!!!"
+					 echo -e "Backup feito com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
 					 echo -e "Atualizando o arquivo interfaces, aguarde..."
 					 #Copiando o arquivo de configuração interfaces
 					 cp -v conf/interfaces /etc/network/interfaces >> $LOG
-					 echo -e "Arquivo atualizado com sucesso!!!"
+					 echo -e "Arquivo atualizado com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
@@ -121,7 +121,7 @@ then
 					 #Verificando as informações das Interfaces
 					 ifup --verbose --no-act --force --all --interfaces=/etc/network/interfaces
 					 echo
-					 echo -e "Interfaces testada com sucesso!!!"
+					 echo -e "Interfaces testada com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
@@ -142,14 +142,14 @@ then
 					 echo -e "Fazendo o backup do arquivo hosts.allow, aguarde..."
 					 #Fazendo o backup do arquivo de configuração hosts.allow
 					 mv -v /etc/hosts.allow /etc/hosts.allow.old >> $LOG
-					 echo -e "Backup feito com sucesso!!!"
+					 echo -e "Backup feito com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
 					 echo -e "Atualizando o arquivo hosts.allow, aguarde..."
 					 #Copiando o arquivo de configuração hosts.allow
 					 cp -v conf/hosts.allow /etc/hosts.allow >> $LOG
-					 echo -e "Arquivo atualizadoo com sucesso!!!"
+					 echo -e "Arquivo atualizadoo com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
@@ -172,14 +172,14 @@ then
 					 echo -e "Fazendo o backup do arquivo hosts.deny, aguarde..."
 					 #Fazendo o backup do arquivo de configuração hosts.deny
 					 mv -v /etc/hosts.deny /etc/hosts.deny.old >> $LOG
-					 echo -e "Backup feito com sucesso!!!"
+					 echo -e "Backup feito com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
 					 echo -e "Atualizando o arquivo hosts.deny, aguarde..."
 					 #Copiando o arquivo de configuração hosts.deny
 					 cp -v conf/hosts.deny /etc/hosts.deny >> $LOG
-					 echo -e "Arquivo atualizado com sucesso!!!"
+					 echo -e "Arquivo atualizado com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
@@ -199,14 +199,14 @@ then
 					 echo -e "Fazendo o backup do arquivo sshd_config, aguarde..."
 					 #Fazendo o backup do arquivo de configuração sshd_config
 					 mv -v /etc/ssh/sshd_config /etc/ssh/sshd_config.old >> $LOG
-					 echo -e "Backup feito com sucesso!!!"
+					 echo -e "Backup feito com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
 					 echo -e "Atualizando o arquivo sshd_config"
 					 #Copiando o arquivo de configuração do sshd_config
 					 cp -v conf/sshd_config /etc/ssh/sshd_config >> $LOG
-					 echo -e "Arquivo atualizado com sucesso!!!"
+					 echo -e "Arquivo atualizado com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
@@ -235,14 +235,14 @@ then
 					 echo -e "Fazendo o backup do arquivo dhcpd.conf, aguarde..."
 					 #Fazendo o backup do arquivo de configuração dhcpd.conf
 					 mv -v /etc/dhcp/dhcpd.conf /etc/dhcp/dhcpd.conf.old >> $LOG
-					 echo -e "Backup feito com sucesso!!!"
+					 echo -e "Backup feito com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
 					 echo -e "Atualizando o arquivo dhcpd.conf, aguarde..."
 					 #Copiando o arquivo de configuração do dhcpd.conf
 					 cp -v conf/dhcpd.conf /etc/dhcp/dhcpd.conf >> $LOG
-					 echo -e "Arquivo atualizado com sucesso!!!"
+					 echo -e "Arquivo atualizado com sucesso!!!, continuando o script..."
 					 
 					 #Editando o arquivo de configuração do dhcpd.conf
 					 vim /etc/dhcp/dhcpd.conf
@@ -269,21 +269,21 @@ then
 					 echo -e "Fazendo o backup do arquivo issue.net, aguarde..."
 					 #Fazendo o backup do arquivo de configuração do issue.net
 					 mv -v /etc/issue.net /etc/issue.net.old >> $LOG
-					 echo -e "Backup feito com sucesso!!!"
+					 echo -e "Backup feito com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
 					 echo -e "Atualizando o arquivo issue.net, aguarde..."
 					 #Copiando o arquivo de configuração do issue.net
 					 cp -v conf/issue.net /etc/issue.net >> $LOG
-					 echo -e "Arquivo atualizado com sucesso!!!"
+					 echo -e "Arquivo atualizado com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
 					 echo -e "Atualizando o arquivo issue com o comando screenfetch, aguarde..."
 					 #Atualizando o arquivo de configuração issue para o comando screenfetch, gerando uma imagem do Ubuntu com códigos ASCII
 					 screenfetch > /etc/issue
-					 echo -e "Arquivo atualizado com sucesso!!!"
+					 echo -e "Arquivo atualizado com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 
