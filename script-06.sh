@@ -5,8 +5,8 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 31/05/2016
-# Data de atualização: 01/10/2018
-# Versão: 0.9
+# Data de atualização: 06/10/2018
+# Versão: 0.10
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
@@ -112,14 +112,14 @@ then
 					 export DEBIAN_FRONTEND=noninteractive
 					 #Atualizando as listas do apt-get
 					 apt-get update &>> $LOG
-					 echo -e "Listas Atualizadas com Sucesso!!!"
+					 echo -e "Listas Atualizadas com Sucesso!!!, continuando o script..."
 					 echo
 					 echo ============================================================ >> $LOG
 
 					 echo -e "Atualizando o Sistema, aguarde..."
 					 #Fazendo a atualização de todos os pacotes instalados no servidor
 					 apt-get -o Dpkg::Options::="--force-confold" upgrade -q -y --force-yes &>> $LOG
-					 echo -e "Sistema Atualizado com Sucesso!!!"
+					 echo -e "Sistema Atualizado com Sucesso!!!, continuando o script..."
 					 echo
 					 echo ============================================================ >> $LOG
 					 
@@ -137,21 +137,21 @@ then
 					 echo -e "Parando o serviço do SAMBA-4, aguarde..."
 					 #Parando o serviço do SAMBA-4
 					 sudo service samba stop &>> $LOG
-					 echo -e "Serviço parado com sucesso!!!"
+					 echo -e "Serviço parado com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo 
 					 
 					 echo -e "Fazendo o backup do arquivo smb.conf, aguarde..."
 					 #Fazendo o backup do arquivo de configuração smb.conf
 					 mv -v /etc/samba/smb.conf /etc/samba/smb.conf.old >> $LOG
-					 echo -e "Backup feito com sucesso!!!"
+					 echo -e "Backup feito com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
 					 echo -e "Promovendo o controlador de domínio do SAMBA-4, aguarde..."
 					 #Iniciando o processo de promoção do servidor utilizando o comando samba-tool domain provision
 					 samba-tool domain provision --realm=$REALM --domain=$DOMAIN --server-role=$ROLE --dns-backend=$DNS --adminpass=$PASSWORD --function-level=$LEVEL --site=$SITE --host-ip=$IP --option="interfaces = lo eth0" --option="bind interfaces only = yes" --option="allow dns updates = nonsecure and secure" --option="dns forwarder = 192.168.1.10" --option="winbind use default domain = yes" --option="winbind enum users  = yes" --option="winbind enum groups = yes" --option="winbind refresh tickets = yes" --option="server signing = auto" --option="vfs objects = acl_xattr" --option="map acl inherit = yes" --option="store dos attributes = yes" --option="client use spnego = no" --option="use spnego = no" --option="client use spnego principal = no" --use-rfc2307 --use-xattrs=yes &>> $LOG
-					 echo -e "Promoção do Servidor SAMBA-4 feita com Sucesso!!!"
+					 echo -e "Promoção do Servidor SAMBA-4 feita com Sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
@@ -184,14 +184,14 @@ then
 					 echo -e "Fazendo o backup do arquivo named.conf, aguarde..."
 					 #Fazendo o backup do arquivo de configuração named.conf
 					 mv -v /etc/bind/named.conf /etc/bind/named.conf.old >> $LOG
-					 echo -e "Backup feito com sucesso!!!"
+					 echo -e "Backup feito com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
 					 echo -e "Atualizando o arquivo named.conf, aguarde..."
 					 #Copiando o arquivo de configuração named.conf
 					 cp -v conf/named.conf /etc/bind/named.conf >> $LOG
-					 echo -e "Arquivo atualizado com sucesso!!!"
+					 echo -e "Arquivo atualizado com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
@@ -213,14 +213,14 @@ then
 					 echo -e "Fazendo o backup do arquivo named.conf.options, aguarde..."
 					 #Fazendo o backup do arquivo de configuração named.conf.options
 					 mv -v /etc/bind/named.conf.options /etc/bind/named.conf.options.old >> $LOG
-					 echo -e "Backup feito com sucesso!!!"
+					 echo -e "Backup feito com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
 					 echo -e "Atualizando o arquivo named.conf.options, aguarde..."
 					 #Copiando o arquivo de configuração named.conf.options
 					 cp -v conf/named.conf.options /etc/bind/named.conf.options >> $LOG
-					 echo -e "Arquivo atualizado com sucesso!!!"
+					 echo -e "Arquivo atualizado com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
@@ -244,14 +244,14 @@ then
 					 echo -e "Fazendo o backup do arquivo named.conf.local, aguarde..."
 					 #Fazendo o backup do arquivo de configuração named.conf.local
 					 mv -v /etc/bind/named.conf.local /etc/bind/named.conf.local.old >> $LOG
-					 echo -e "Backup feito com sucesso!!!"
+					 echo -e "Backup feito com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
 					 echo -e "Atualizando o arquivo named.conf.local, aguarde..."
 					 #Copiando o arquivo de confguração named.conf.local
 					 cp -v conf/named.conf.local /etc/bind/named.conf.local >> $LOG
-					 echo -e "Arquivo atualizado com sucesso!!!"
+					 echo -e "Arquivo atualizado com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
@@ -271,7 +271,7 @@ then
 					 ln -v /etc/bind/rndc.key /etc/dhcp/ddns-keys/rndc.key >> $LOG
 					 #Alterando as permissões de dono e grupo do link simbólico do arquivo de chaves rndc.key
 					 chown -v root:bind /etc/dhcp/ddns-keys/rndc.key >> $LOG
-					 echo -e "Permissões alteradas com sucesso!!!"
+					 echo -e "Permissões alteradas com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
@@ -290,14 +290,14 @@ then
 					 echo -e "Fazendo o backup do arquivo usr.sbin.named, aguarde..."
 					 #Fazendo o backup do arquivo de configuração usr.sbin.named
 					 mv -v /etc/apparmor.d/local/usr.sbin.named /etc/apparmor.d/local/usr.sbin.named.old >> $LOG
-					 echo -e "Backup feito com sucesso!!!"
+					 echo -e "Backup feito com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
 					 echo -e "Atualizando o arquivo usr.sbin.named, aguarde..."
 					 #Copiando o arquivo de configuração do usr.sbi.named
 					 cp -v conf/usr.sbin.named /etc/apparmor.d/local/usr.sbin.named >> $LOG
-					 echo -e "Arquivo atualizado com sucesso!!!"
+					 echo -e "Arquivo atualizado com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
@@ -312,7 +312,7 @@ then
 					 chmod -v g+r /var/lib/samba/private/dns.keytab >> $LOG
 					 #Alterando o dono grupo do arquivo de configuração do SAMBA4 named.conf
 					 chown -v bind:bind /var/lib/samba/private/named.conf >> $LOG
-					 echo -e "Permissões alteradas com sucesso!!!"
+					 echo -e "Permissões alteradas com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
@@ -331,14 +331,14 @@ then
 					 echo -e "Fazendo o backup do arquivo sysctl.conf, aguarde..."
 					 #Fazendo o backup do arquivo de configuração sysctl.conf
 					 mv -v /etc/sysctl.conf /etc/sysctl.conf.old >> $LOG
-					 echo -e "Backup feito com sucesso!!!"
+					 echo -e "Backup feito com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
 					 echo -e "Atualizando o arquivo sysctl.conf, aguarde..."
 					 #Copiando o arquivo de configuração sysctl.conf
 					 cp -v conf/sysctl.conf /etc/sysctl.conf >> $LOG
-					 echo -e "Arquivo atualizado com sucesso!!!"
+					 echo -e "Arquivo atualizado com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
@@ -360,14 +360,14 @@ then
 					 echo -e "Fazendo o backup do arquivo limits.conf, aguarde..."
 					 #Fazendo o backup do arquivo de configuração limits.conf
 					 mv -v /etc/security/limits.conf /etc/security/limits.conf.old >> $LOG
-					 echo -e "Backup feito com sucesso!!!"
+					 echo -e "Backup feito com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
 					 echo -e "Atualizando o arquivo limits.conf, aguarde..."
 					 #Copiando o arquivo de configuração limits.conf
 					 cp -v conf/limits.conf /etc/security/limits.conf >>$LOG
-					 echo -e "Arquivo atualizado com sucesso!!!"
+					 echo -e "Arquivo atualizado com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
@@ -391,7 +391,7 @@ then
 					 
 					 echo -e "Fazendo o backup do arquivo named.conf, aguarde..."
 					 cp -v /var/lib/samba/private/named.conf /var/lib/samba/private/named.conf.old &>> $LOG
-					 echo -e "Backup feito com sucesso!!!"
+					 echo -e "Backup feito com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
