@@ -115,7 +115,7 @@ then
 					 export DEBIAN_FRONTEND=noninteractive
 					 #Atualizando as listas do apt-get
 					 apt-get update &>> $LOG
-					 echo -e "Listas Atualizadas com Sucesso!!!"
+					 echo -e "Listas Atualizadas com Sucesso!!!, continuando o script..."
 					 echo
 					 echo ============================================================ >> $LOG
 
