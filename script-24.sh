@@ -5,8 +5,8 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 02/10/2018
-# Data de atualização: 02/10/2018
-# Versão: 0.1
+# Data de atualização: 06/10/2018
+# Versão: 0.2
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
@@ -37,8 +37,9 @@ then
 					 #
 					 USER="root"
 					 PASSWORD="pti@2016"
-					 RSYSLOG="rsyslog"
+					 RSYSLOG="syslog"
 					 LOGANALYZER="loganalyzer-4.1.6.tar.gz"
+					 FILELOGANALYZER="loganalyzer-4.1.6"
 					 
 					 echo -e "Usuário é `whoami`, continuando a executar o Script-24.sh"
 					 echo
@@ -53,10 +54,12 @@ then
 					 clear
 					 
 					 echo -e "Instalando as Dependências do LogAnalyzer, aguarde..."
+					 echo
 					 
 					 echo -e "Atualizando as listas do apt-get, aguarde..."
 					 apt-get update &>> $LOG
-					 echo -e "Listas atualizadas com sucesso!!!!, continuando o script"
+					 echo -e "Listas atualizadas com sucesso!!!!, continuando o script.."
+					 echo
 					 
 					 echo -e "Instalando as dependências do LogAnalyzer, aguarde..."
 					 #Exportando o recurso de Noninteractive do Debconf
@@ -84,7 +87,7 @@ then
 					 mysql -u $USER -p$PASSWORD -e "$GRANTDATABASE1" mysql &>> $LOG
 					 mysql -u $USER -p$PASSWORD -e "$GRANTALL1" mysql &>> $LOG
 					 mysql -u $USER -p$PASSWORD -e "$FLUSH1" mysql &>> $LOG
-					 echo -e "Base de dados do Rsyslog criada com sucesso!!!"
+					 echo -e "Base de dados do Rsyslog criada com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
@@ -103,7 +106,7 @@ then
 					 mysql -u $USER -p$PASSWORD -e "$GRANTDATABASE2" mysql &>> $LOG
 					 mysql -u $USER -p$PASSWORD -e "$GRANTALL2" mysql &>> $LOG
 					 mysql -u $USER -p$PASSWORD -e "$FLUSH2" mysql &>> $LOG
-					 echo -e "Base de dados do LogAnalyzer criada com sucesso!!!"
+					 echo -e "Base de dados do LogAnalyzer criada com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo					 
 					 
@@ -126,7 +129,7 @@ then
 					 
 					 echo -e "Atualizando a Base de Dados do Rsyslog, aguarde..."
 					 #Importando as tabelas da base de dados do Rsyslog
-					 mysql -u $RSYSLOG -D syslog -p$RSYSLOG < /usr/share/dbconfig-common/data/rsyslog-mysql/install/mysql
+					 mysql -u$RSYSLOG -D syslog -p$RSYSLOG < /usr/share/dbconfig-common/data/rsyslog-mysql/install/mysql
 					 echo -e "Atualização da Base de Dados feita com sucesso!!!, continuando o script"
 					 echo
 					 
@@ -147,11 +150,13 @@ then
 					 
 					 echo -e "Baixando, instalando e configurando o LogAnalyzer, aguarde..."
 					 #Download do LogAnalyzer
-					 wget http://download.adiscon.com/loganalyzer/$LOGANALYZER >> $LOG
+					 wget http://download.adiscon.com/loganalyzer/$LOGANALYZER &>> $LOG
 					 #Descompactando LogAnalyzer
-					 tar -xzvf $LOGANALYZER >> $LOG
+					 tar -xzvf $LOGANALYZER &>> $LOG
+					 #Criando o diretório do LogAnalyzer
+					 mkdir -v /var/www/html/loganalyzer/ >> $LOG
 					 #Movendo o LogAnalyzer para o diretório /var/www/html/loganalyzer/
-					 mv -v $LOGANALYZER/src/* /var/www/html/loganalyzer/ >> $LOG
+					 mv -v $FILELOGANALYZER/src/* /var/www/html/loganalyzer/ >> $LOG
 					 #Atualização do arquivo config.php
 					 cp -v conf/config.php /var/www/html/loganalyzer/ >> $LOG
 					 #Alterando as permissões do arquico config.php
