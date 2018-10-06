@@ -96,10 +96,17 @@ then
 					 #Verificando as configurações de integração do Winbindo do usuário administrator
 					 wbinfo -i $ADMIN
 					 echo
-					 echo -e "Informações do Winbind obtidas com sucesso!!!, continuando com o script..."
+					 echo -e "Informações do Winbind obtidas com sucesso!!!, pressione <Enter> para continuar..."
+					 read
+					 sleep 2
+					 clear
 					 echo
 					 
-					 echo -e "Criando o diretório base do usuário $ADMIN, agaurde..."
+					 echo -e "Criando o diretório base do usuário $ADMIN"
+					 echo -e "Pressione <Enter> para continuar"
+					 echo -e "Para sair do login do usuário $ADMIN, digite exit <Enter>"
+					 read
+					 sleep 2
 					 #Criando a estruura de diretório e acesso a pasta pessoal
 					 su - $ADMIN >> $LOG
 					 echo -e "Diretório criado com sucesso!!!, continuando o script..."
