@@ -5,8 +5,8 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 31/05/2016
-# Data de atualização: 01/10/2018
-# Versão: 0.9
+# Data de atualização: 06/10/2018
+# Versão: 0.10
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
@@ -78,14 +78,14 @@ then
 					 echo -e "Fazendo o download do: $WORDPRESS, aguarde..."
 					 #Fazendo o download do arquivo do Wordpress
 					 wget $WORDPRESS &>> $LOG
-					 echo -e "Download feito com sucesso!!!"
+					 echo -e "Download feito com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
 					 echo -e "Descompactando o arquivo latest.zip, aguarde..."
 					 #Descompactando o arquivo do Wordpress
 				     	 unzip latest.zip &>> $LOG
-					 echo -e "Descompactação feita com sucesso!!!"
+					 echo -e "Descompactação feita com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
@@ -96,7 +96,7 @@ then
 					 cp -v conf/htaccess /arquivos/pti.intra/sistema/erp/.htaccess &>> $LOG
 					 #Copiando o arquivo de configuração wp-config.php
 					 cp -v conf/wp-config.php /arquivos/pti.intra/sistema/erp/ &>> $LOG
-					 echo -e "Arquivos copiados com sucesso!!!"
+					 echo -e "Arquivos copiados com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
@@ -105,14 +105,14 @@ then
 					 chmod -Rfv 755 /arquivos/pti.intra/sistema/erp &>> $LOG
 					 #Alterando o dono é o grupo recursivo no diretório erp
 					 chown -Rfv www-data.www-data /arquivos/pti.intra/sistema/erp &>> $LOG
-					 echo -e "Permissões alteradas com sucesso!!!"
+					 echo -e "Permissões alteradas com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
 					 echo -e "Removendo o arquivo latest.zip, aguarde..."
 					 #Removendo o arquivo de download zipado do Wordpress
 					 rm -v latest.zip >> $LOG
-					 echo -e "Arquivo removido com sucesso!!!"
+					 echo -e "Arquivo removido com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
@@ -140,7 +140,7 @@ then
 					 mysql -u $USER -p$PASSWORD -e "$GRANTDATABASE" mysql &>> $LOG
 					 mysql -u $USER -p$PASSWORD -e "$GRANTALL" mysql &>> $LOG
 					 mysql -u $USER -p$PASSWORD -e "$FLUSH" mysql &>> $LOG
-					 echo -e "Base de dados do Wordpress criada com sucesso!!!"
+					 echo -e "Base de dados do Wordpress criada com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
@@ -151,7 +151,7 @@ then
 					 #Listando a Base de Dados criada do Wordpress
 					 mysql -u $USER -p$PASSWORD -e "$SHOWSQL" mysql
 					 echo
-					 echo -e "Base de dados listada com sucesso!!!"
+					 echo -e "Base de dados listada com sucesso!!!, continuando o script..."
 					 echo
 					 echo -e "Criação da Base de Dados do Wordpress feita com sucesso!!!, pressione <Enter> para continuar"
 					 read
@@ -187,7 +187,7 @@ then
 					 echo -e "Atualizando o arquivo pti-intra.conf, aguarde..."
 					 #Copiando o arquivo de configuração pti-intra.conf
 					 cp -v conf/pti-intra.conf /etc/apache2/sites-available/ >> $LOG
-					 echo -e "Arquivo atualizado com sucesso!!!"
+					 echo -e "Arquivo atualizado com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
@@ -198,14 +198,14 @@ then
 					 echo -e "Ativando o Virtual Host no Apache2, aguarde..."
 					 #Ativando o Virtual Host no Apache2 Server
 					 a2ensite pti-intra.conf &>> $LOG
-					 echo -e "Virtual Host ativado com sucesso!!!"
+					 echo -e "Virtual Host ativado com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
 					 echo -e "Reinicializando o Apache2, aguarde..."
 					 #Reinicializando o serviço do Apache Server
 					 sudo service apache2 restart &>> $LOG
-					 echo -e "Reinicialização feita com sucesso!!!"
+					 echo -e "Reinicialização feita com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 
@@ -227,14 +227,14 @@ then
 					 echo -e "Fazendo o backup do arquivo proftpd.conf, aguarde..."
 					 #Fazendo o backup do arquivo de configuração proftpd.conf
 					 mv -v /etc/proftpd/proftpd.conf /etc/proftpd/proftpd.conf.old >> $LOG
-					 echo -e "Backup feito com sucesso!!!"
+					 echo -e "Backup feito com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
 					 echo -e "Atualizando o arquivo proftdp.conf, aguarde..."
 					 #Copiando o arquivo de configuração do proftpd.conf
 					 cp -v conf/proftpd.conf /etc/proftpd/ >> $LOG
-					 echo -e "Arquivo atualizado com sucesso!!!"
+					 echo -e "Arquivo atualizado com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
@@ -245,7 +245,7 @@ then
 					 echo -e "Reinicializando o serviço do ProfFTPD, aguarde..."
 					 #Reinicializando o serviço do ProFTPD Server
 					 sudo service proftpd restart
-					 echo -e "Serviço reinicializado com sucesso!!!"
+					 echo -e "Serviço reinicializado com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
@@ -262,7 +262,7 @@ then
 					 echo -e "Criando o usuário Wordpress com pasta base no sistema de ERP e Grupo www-data, aguarde..."
 					 #Criando o usuário que será utilizado para acessar o FTP no servidor, utilizando o comando useradd
 					 useradd -d /arquivos/pti.intra/sistema/erp -s /bin/bash -M wordpress -G www-data &>> $LOG
-					 echo -e "Usuário criando com sucesso!!!, continuando o script"
+					 echo -e "Usuário criando com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
