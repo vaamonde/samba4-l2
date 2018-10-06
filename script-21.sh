@@ -5,8 +5,8 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 26/09/2016
-# Data de atualização: 01/10/2018
-# Versão: 0.9
+# Data de atualização: 06/10/2018
+# Versão: 0.10
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
@@ -44,21 +44,21 @@ then
 					 echo -e "Criando o arquivo log.samba_fullaudit, aguarde..."
 					 #Criando o arquivo para armazenar os Logs do Módulo VFS do Full Audit do SAMBA-4
 					 touch /var/log/samba/log.samba_fullaudit
-					 echo -e "Arquivo criado com sucesso!!!"
+					 echo -e "Arquivo criado com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
 					 echo -e "Alterando as permissões do arquivo log.samba_fullaudit, aguarde..."
 					 #Mudando as permissões de dono e grupo do arquivo
 					 chown -v syslog.adm /var/log/samba/log.samba_fullaudit &>> $LOG
-					 echo -e "Permissões alteradas com sucesso!!!"
+					 echo -e "Permissões alteradas com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
 					 echo -e "Atualizando o arquivo sambaaudit.conf, aguarde..."
 					 #Copiando o arquivo de configuração do Rsyslog para o Full Audit
 					 cp -v conf/sambaaudit.conf /etc/rsyslog.d/ &>> $LOG
-					 echo -e "Arquivo atualizado com sucesso!!!"
+					 echo -e "Arquivo atualizado com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
@@ -69,7 +69,7 @@ then
 					 echo -e "Reinicializando o serviço do Rsyslog, aguarde..."
 					 #Reinicializando o serviço do Rsyslog
 					 sudo service rsyslog restart &>> $LOG
-					 echo -e "Serviço reinicializado com sucesso!!!"
+					 echo -e "Serviço reinicializado com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
