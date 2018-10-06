@@ -5,8 +5,8 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 31/05/2016
-# Data de atualização: 01/10/2018
-# Versão: 0.9
+# Data de atualização: 06/10/2018
+# Versão: 0.10
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
@@ -56,14 +56,14 @@ then
 					 echo -e "Fazendo o backup do arquivo smb.conf, aguarde..."
 					 #Fazendo backup do arquivo de configuração do smb.conf
 					 cp -v /etc/samba/smb.conf /etc/samba/smb.conf.bkp >> $LOG
-					 echo -e "Backup feito com sucesso!!!"
+					 echo -e "Backup feito com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
 					 echo -e "Atualizando o arquivo smb.conf, aguarde..."
 					 #Copiando o arquivo de configuranção do smb.conf
 					 cp -v conf/smb.conf /etc/samba/smb.conf >> $LOG
-					 echo -e "Arquivo atualizado com sucesso!!!"
+					 echo -e "Arquivo atualizado com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
