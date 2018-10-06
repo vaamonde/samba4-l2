@@ -75,7 +75,6 @@ then
 					 echo -e "Listando os Kernel instalados"
 					 #Listando as imagens dos Kernel instalados
 					 dpkg --list | grep linux-image | cut -d" " -f3
-					 echo
 					 echo -e "Kernel Atualizado com Sucesso!!!, continuando o script..."
 					 echo
 					 echo ============================================================ >> $LOG
