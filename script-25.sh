@@ -5,8 +5,8 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 04/10/2018
-# Data de atualização: 04/10/2018
-# Versão: 0.1
+# Data de atualização: 06/10/2018
+# Versão: 0.2
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
@@ -53,7 +53,7 @@ then
 					 clear
 					 
 					 echo -e "Atualizando as configuarações do PAM, pressione <Enter>."
-					 echo -e "Habilitar o recerso de: Create home directory on login"
+					 echo -e "Habilitar o recurso de: Create home directory on login"
 					 read
 					 sleep 2
 					 clear
@@ -75,12 +75,14 @@ then
 					 #Atualizando o arquivo de configuração
 					 cp -v conf/common-password /etc/pam.d/common-password >> $LOG
 					 echo -e "Arquivo e atualizado com sucesso!!!, continuando o script..."
+					 sleep 2
 					 echo
 					 
 					 echo -e "Reinicializando o serviço do Winbind, aguarde..."
 					 #Reinicializando o serviço
 					 sudo service winbind restart >> $LOG
-					 3cho -e "Serviços reinicializado com sucesso!!!, contiuando o script..."
+					 echo -e "Serviços reinicializado com sucesso!!!, contiuando o script..."
+					 sleep 2
 					 echo
 					 
 					 echo -e "Adicionando o usuário $ADMIN ao grupo do SUDO, aguarde..."
@@ -99,8 +101,8 @@ then
 					 
 					 echo -e "Criando o diretório base do usuário $ADMIN, agaurde..."
 					 #Criando a estruura de diretório e acesso a pasta pessoal
-					 su - administrator >> $LOG
-					 echo -e "Diretório criado com sucesso!!!"
+					 su - $ADMIN >> $LOG
+					 echo -e "Diretório criado com sucesso!!!, continuando o script..."
 					 echo
 					 
 					 echo -e "Fim do Script-25.sh em: `date`" >> $LOG
