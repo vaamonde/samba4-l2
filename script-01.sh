@@ -5,8 +5,8 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 31/05/2016
-# Data de atualização: 01/10/2018
-# Versão: 0.10
+# Data de atualização: 06/10/2018
+# Versão: 0.11
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
@@ -80,7 +80,6 @@ then
 					 echo -e "Configuração do FSTAB para suporte a ACL e XATTR"
 					 echo
 					 echo -e "Após o término o Servidor será reinicializado"
-					 echo -e "Aguarde..."
 					 echo
 					 echo -e "Rodando o Script-01.sh em: `date`" > $LOG
 					 echo ============================================================ >> $LOG
@@ -296,8 +295,11 @@ then
 					 echo -e "Atualizado com sucesso!!!"
 					 sleep 2
 					 echo 
-					 
-					 echo -e "Editando o arquivo krb5.conf, aguarde..."
+
+					 echo -e "Editando o arquivo /etc/krb5.conf para acescentar as informações de Servidores de Kerberos"
+					 echo -e "Pressione <Enter> para editar o arquivo"
+					 read
+
 					 #Editando o arquivo de configuração do Kerberos
 					 vim /etc/krb5.conf
 					 echo
