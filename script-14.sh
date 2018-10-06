@@ -5,8 +5,8 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 31/05/2016
-# Data de atualização: 01/10/2018
-# Versão: 0.9
+# Data de atualização: 06/10/2018
+# Versão: 0.10
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
@@ -66,14 +66,14 @@ then
 					 #Criando os diretórios para armazenar as informações da rede
 					 #Criação da raiz do diretório /arquivos/pti.intra
 					 mkdir -v $ARQUIVOS/$DIRBASE >> $LOG
-					 echo -e "Diretório criado com sucesso"
+					 echo -e "Diretório criado com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
 					 echo -e "Diretório publico em: $ARQUIVOS/$DIRBASE/publico, aguarde..."
 					 #Criação do diretório público, será utilizado como pasta temporária na rede, seus arquivos deverão ser deletados todos os domingos
 					 mkdir -v $ARQUIVOS/$DIRBASE/publico >> $LOG
-					 echo -e "Diretório criado com sucesso"
+					 echo -e "Diretório criado com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
@@ -84,84 +84,84 @@ then
 					 chmod -v 0777 $ARQUIVOS/$DIRBASE/pdf >> $LOG
 					 #Alterando dono e grupo da pasta
 					 chgrp -v lpadmin $ARQUIVOS/$DIRBASE/pdf >> $LOG
-					 echo -e "Diretório criado com sucesso"
+					 echo -e "Diretório criado com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 
 					 echo -e "Diretório gestao em: $ARQUIVOS/$DIRBASE/gestao, aguarde..."
 					 #Criação do diretório gestão, que vai armazenar todos as informações dos departamentos da empresa, será utilizado recursos como Access Based Enumerator e quebra de Herança nas permissões
 					 mkdir -v $ARQUIVOS/$DIRBASE/gestao >> $LOG
-					 echo -e "Diretório criado com sucesso"
+					 echo -e "Diretório criado com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 
 						 echo -e "Diretório gestao em: $ARQUIVOS/$DIRBASE/gestao/Vendas, aguarde..."
 						 mkdir -v $ARQUIVOS/$DIRBASE/gestao/Vendas >> $LOG
-						 echo -e "Diretório criado com sucesso"
+						 echo -e "Diretório criado com sucesso!!!, continuando o script..."
 						 sleep 2
 					 	 echo
 
 						 echo -e "Diretório gestao em: $ARQUIVOS/$DIRBASE/gestao/Compras, aguarde..."
 						 mkdir -v $ARQUIVOS/$DIRBASE/gestao/Compras >> $LOG
-						 echo -e "Diretório criado com sucesso"
+						 echo -e "Diretório criado com sucesso!!!, continuando o script..."
 						 sleep 2
 					 	 echo
 
 						 echo -e "Diretório gestao em: $ARQUIVOS/$DIRBASE/gestao/Desenvolvimento, aguarde..."
 						 mkdir -v $ARQUIVOS/$DIRBASE/gestao/Desenvolvimento >> $LOG
-						 echo -e "Diretório criado com sucesso"
+						 echo -e "Diretório criado com sucesso!!!, continuando o script..."
 						 sleep 2
 					 	 echo
 
 						 echo -e "Diretório gestao em: $ARQUIVOS/$DIRBASE/gestao/RH, aguarde..."
 						 mkdir -v $ARQUIVOS/$DIRBASE/gestao/RH >> $LOG
-						 echo -e "Diretório criado com sucesso"
+						 echo -e "Diretório criado com sucesso!!!, continuando o script..."
 						 sleep 2
 					 	 echo
 
 						 echo -e "Diretório gestao em: $ARQUIVOS/$DIRBASE/gestao/Gerencia, aguarde..."
 						 mkdir -v $ARQUIVOS/$DIRBASE/gestao/Gerencia >> $LOG
-						 echo -e "Diretório criado com sucesso"
+						 echo -e "Diretório criado com sucesso!!!, continuando o script..."
 						 sleep 2
 					 	 echo
 
 						 echo -e "Diretório gestao em: $ARQUIVOS/$DIRBASE/gestao/Diretoria, aguarde..."
 						 mkdir -v $ARQUIVOS/$DIRBASE/gestao/Diretoria >> $LOG
-						 echo -e "Diretório criado com sucesso"
+						 echo -e "Diretório criado com sucesso!!!, continuando o script..."
 						 sleep 2
 					 	 echo
 						 
  						 echo -e "Diretório gestao em: $ARQUIVOS/$DIRBASE/gestao/.lixeira, aguarde..."
 						 mkdir -v $ARQUIVOS/$DIRBASE/gestao/.lixeira >> $LOG
-						 echo -e "Diretório criado com sucesso"
+						 echo -e "Diretório criado com sucesso!!!, continuando o script..."
 						 sleep 2
 					 	 echo
 
 					 echo -e "Diretório sistema em: $ARQUIVOS/$DIRBASE/sistema, aguarde..."
 					 #Criação do diretório sistema, onde vai ficar o sistema de gestão empresarial da empresa instalado
 					 mkdir -v $ARQUIVOS/$DIRBASE/sistema >> $LOG
-					 echo -e "Diretório criado com sucesso"
+					 echo -e "Diretório criado com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 
 					 echo -e "Diretório usuarios em: $ARQUIVOS/$DIRBASE/usuarios, aguarde..."
 					 #Criação da pasta raiz dos usuários na rede, vai armazenar o Perfil dos Usuários, Pasta Base e Redirecionamento de Pastas.
 					 mkdir -v $ARQUIVOS/$DIRBASE/usuarios >> $LOG
-					 echo -e "Diretório criado com sucesso"
+					 echo -e "Diretório criado com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
 						 echo -e "Diretório usuarios em: $ARQUIVOS/$DIRBASE/usuarios/home, aguarde..."
 						 #Criação da pasta Home dos usuários.
 						 mkdir -v $ARQUIVOS/$DIRBASE/usuarios/home >> $LOG
-						 echo -e "Diretório criado com sucesso"
+						 echo -e "Diretório criado com sucesso!!!, continuando o script..."
 						 sleep 2
 					 	 echo
 						 
  						 echo -e "Diretório usuarios em: $ARQUIVOS/$DIRBASE/usuarios/profile, aguarde..."
 						 #Criação da pasta Home Profile.
 						 mkdir -v $ARQUIVOS/$DIRBASE/usuarios/profile >> $LOG
-						 echo -e "Diretório criado com sucesso"
+						 echo -e "Diretório criado com sucesso!!!, continuando o script..."
 						 sleep 2
 					 	 echo
 
@@ -172,28 +172,28 @@ then
 					 ln -sv $ARQUIVOS/$DIRBASE/publico/.lixeira/ $ARQUIVOS/$DIRBASE/lixeira/Lixeira_Publico >> $LOG
 					 ln -sv $ARQUIVOS/$DIRBASE/gestao/.lixeira/ $ARQUIVOS/$DIRBASE/lixeira/Lixeira_Gestao >> $LOG
 					 ln -sv $ARQUIVOS/$DIRBASE/sistema/.lixeira/ $ARQUIVOS/$DIRBASE/lixeira/Lixeira_Sistema >> $LOG
-					 echo -e "Diretório criado com sucesso"
+					 echo -e "Diretório criado com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 
 					 echo -e "Diretório $DIRBASE em: $BACKUP/$DIRBASE, aguarde..."
 					 #Criação da pasta raiz do backup
 					 mkdir -v $BACKUP/$DIRBASE >> $LOG
-					 echo -e "Diretório criado com sucesso"
+					 echo -e "Diretório criado com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 
 						 echo -e "Diretório rsync em: $BACKUP/$DIRBASE/rsync, aguarde..."
 						 #Criação da pasta utilizada pelo rsync para fazer o sincronismo dos arquivos de backup
 						 mkdir -v $BACKUP/$DIRBASE/rsync >> $LOG
-						 echo -e "Diretório criado com sucesso"
+						 echo -e "Diretório criado com sucesso!!!, continuando o script..."
 						 sleep 2
 					 	 echo
 
 						 echo -e "Diretório bkp em: $BACKUP/$DIRBASE/bkp, aguarde..."
 						 #Criação da pasta utilizada pelo Backupninja para fazer o  backup dos arquivos
 						 mkdir -v $BACKUP/$DIRBASE/bkp >> $LOG
-						 echo -e "Diretório criado com sucesso"
+						 echo -e "Diretório criado com sucesso!!!, continuando o script..."
 						 sleep 2
 					 	 echo
 					 
