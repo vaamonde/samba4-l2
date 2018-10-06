@@ -157,13 +157,14 @@ then
 					 mkdir -v /var/www/html/loganalyzer/ >> $LOG
 					 #Movendo o LogAnalyzer para o diretório /var/www/html/loganalyzer/
 					 mv -v $FILELOGANALYZER/src/* /var/www/html/loganalyzer/ >> $LOG
-					 #Atualização do arquivo config.php
-					 cp -v conf/config.php /var/www/html/loganalyzer/ >> $LOG
+					 #Criando o arquivo config.php
+					 touch /var/www/html/loganalyzer/config.php >> $LOG
 					 #Alterando as permissões do arquico config.php
 					 chmod -v 666 /var/www/html/loganalyzer/config.php >> $LOG
 					 #Alterando o dono e grupo do diretório loganalyzer
 					 chown -Rv www-data.www-data /var/www/html/loganalyzer/ >> $LOG
 					 echo -e "Instalação feita com sucesso!!!, pressione <Enter> para continuar com o script"
+					 echo -e "Finaliza a instalaçao acessando a URL: http://`hostname`/loganalyzer/"
 					 read
 					 sleep 2
 					 clear
