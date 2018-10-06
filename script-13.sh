@@ -5,8 +5,8 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 31/05/2016
-# Data de atualização: 01/10/2018
-# Versão: 0.9
+# Data de atualização: 06/10/2018
+# Versão: 0.10
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
@@ -55,14 +55,14 @@ then
 					 echo -e "Atualizando o arquivo samba_backup, aguarde..."
 					 #Copiando o arquivo de script do samba_backup
 					 cp -v conf/samba_backup /usr/sbin >> $LOG
-					 echo -e "Arquivo atualizado com sucesso!!!"
+					 echo -e "Arquivo atualizado com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
 					 echo -e "Alterando as permissões do arquivo samba_backup, aguarde..."
 					 #Alterando suas permissões de dono, grupo e outros
 					 chmod -v 750 /usr/sbin/samba_backup >> $LOG
-					 echo -e "Permissões alteradas com sucesso!!!"
+					 echo -e "Permissões alteradas com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
@@ -71,7 +71,7 @@ then
 					 mkdir -v $BACKUP >> $LOG
 					 #Criando o diretório /etc dentro da localização dos arquivos de configuraçao do SAMBA-4
 					 mkdir -v /var/lib/samba/etc/ >> $LOG
-					 echo -e "Diretórios criados com sucesso!!!"
+					 echo -e "Diretórios criados com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
@@ -95,7 +95,7 @@ then
 					 echo -e "Executando o Backup do SAMBA-4, aguarde..."
 					 #Executando o backup do samba utilizando o script
 					 samba_backup
-					 echo -e "Backup do SAMBA-4 executado com sucesso!!!!"
+					 echo -e "Backup do SAMBA-4 executado com sucesso!!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
@@ -117,7 +117,7 @@ then
 					 echo -e "Atualizando o arquivo sambackup, aguarde..."
 					 #Copiando o arquivo de agendamento do sambabackup
 					 cp -v conf/sambabackup /etc/cron.d/ >> $LOG
-					 echo -e "Arquivo atualizado com sucesso!!!"
+					 echo -e "Arquivo atualizado com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
