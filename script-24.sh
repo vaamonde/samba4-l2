@@ -5,8 +5,8 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 02/10/2018
-# Data de atualização: 06/10/2018
-# Versão: 0.2
+# Data de atualização: 07/10/2018
+# Versão: 0.3
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
@@ -131,43 +131,132 @@ then
 					 #Importando as tabelas da base de dados do Rsyslog
 					 mysql -u$RSYSLOG -D syslog -p$RSYSLOG < /usr/share/dbconfig-common/data/rsyslog-mysql/install/mysql
 					 echo -e "Atualização da Base de Dados feita com sucesso!!!, continuando o script"
+					 sleep 2
 					 echo
 					 
-					 echo -e "Atualizando o arquivo de configuração do Rsyslog.conf, aguarde..."
-					 #Fazendo o backup de arquivo de configuração Rsyslog
+					 echo -e "Atualizando os arquivos de configuração do Rsyslog.conf, aguarde..."
+					 
+					 echo -e "Fazendo o backup do arquivo de configuração Rsyslog, aguarde..."
+					 #Fazendo o backup do arquivo de configuração Rsyslog
 					 cp -v /etc/rsyslog.conf /etc/rsyslog.conf.old  >> $LOG
+					 echo -e "Backup do arquivo feito com sucesso!!!, continuando o script..."
+					 sleep 2
+					 echo
+					 
+					 echo -e "Atualizando o arquivo de configuração Rsyslog, aguarde..."
 					 #Atualizando o arquivo de configuração Rsyslog
 					 cp -v conf/rsyslog.conf /etc/rsyslog.conf  >> $LOG
+					 echo -e "Atualização do arquivo feito com sucesso!!!, continuando o script..."
+					 sleep 2
+					 echo
+					 
+					 echo -e "Fazendo o backup do arquivo de configuração do MySQL, aguarde..."
+					 #Fazendo o backup do arquivo de configuração do MySQL
+					 cp -v /etc/rsyslog.d/mysql.conf /etc/rsyslog.d/mysql.conf.old >> $LOG
+					 echo -e "Backup do arquivo feito com sucesso!!!, continuando o script..."
+					 sleep 2
+					 echo
+					 
+					 echo -e "Atualizando o arquivo de configuração do mysql, aguarde..."
 					 #Atualizando o arquivo de configuração do mysql
 					 cp -v conf/mysql.conf /etc/rsyslog.d/mysql.conf >> $LOG
+					 echo -e "Atualização do arquivo feito com sucesso!!!, continuando o script..."
+					 sleep 2
+					 echo
+					 
+					 echo -e "Reinicializando o serviço do Rsyslog, aguarde..."
 					 #Reinicializando o serviço do Rsyslog
 					 sudo service rsyslog restart
+					 echo -e "Reinicialização do serviço feita com sucesso!!!, continuando o script..."
+					 sleep 2
 					 echo
-					 echo -e "Atualização dos arquivos de configuração do Rsyslog feita com sucesso!!!, pressione <Enter> para continuar"
+					 
+					 echo -e "Atualização dos arquivos de configuração do Rsyslog e MySQL feita com sucesso!!!, pressione <Enter> para continuar"
+					 read
+					 sleep 2
+					 clear
+					 
+					 echo -e "Editando o arquivo de configuração do Rsyslog, pressione <Enter> para continuar..."
+					 read
+					 sleep 2
+					 
+					 #Editando o arquivo de configuração
+					 vim /etc/rsyslog.conf
+					 
+					 echo -e "Arquivo editado com successo!!!!, pressione <Enter> para continuar..."
+					 read
+					 sleep 2
+					 clear
+					 
+					 echo -e "Editando o arquivo de configuração do Rsyslog, pressione <Enter> para continuar..."
+					 read
+					 sleep 2
+					 
+					 #Editando o arquivo de configuração
+					 vim /etc/rsyslog.d/mysql.conf
+					 
+					 echo -e "Arquivo editado com successo!!!!, pressione <Enter> para continuar..."
 					 read
 					 sleep 2
 					 clear
 					 
 					 echo -e "Baixando, instalando e configurando o LogAnalyzer, aguarde..."
+					 sleep 2
+					 echo
+					 
+					 echo -e "Download do arquivo do LogAnalyzer, aguarde..."
 					 #Download do LogAnalyzer
 					 wget http://download.adiscon.com/loganalyzer/$LOGANALYZER &>> $LOG
+					 echo -e "Download feito com sucesso!!!, continuando o script..."
+					 sleep 2
+					 echo
+					 
+					 echo -e "Descompactando o arquivo do LogAnalyzer, aguarde..."
 					 #Descompactando LogAnalyzer
 					 tar -xzvf $LOGANALYZER &>> $LOG
+					 echo -e "Descompactação feita com sucesso!!!, continuando o script..."
+					 sleep 2
+					 echo
+					 
+					 echo -e "Criando o diretório do LogAnalyzer, aguarde..."
 					 #Criando o diretório do LogAnalyzer
 					 mkdir -v /var/www/html/loganalyzer/ >> $LOG
+					 echo -e "Diretório criado com sucesso!!!, continuando o script..."
+					 sleep 2
+					 echo
+					 
+					 echo -e "Movendo o diretório do LogAnalyzer, aguarde..."
 					 #Movendo o LogAnalyzer para o diretório /var/www/html/loganalyzer/
 					 mv -v $FILELOGANALYZER/src/* /var/www/html/loganalyzer/ >> $LOG
+					 echo -e "Diretório movido com sucesso!!!, continuando o script..."
+					 sleep 2
+					 echo
+					 
+					 echo -e "Criando o arquivo de configuração do LogAnalyzer, aguarde..."
 					 #Criando o arquivo config.php
 					 touch /var/www/html/loganalyzer/config.php >> $LOG
+					 echo -e "Arquivo criado com sucesso!!!, continuando o script..."
+					 sleep 2
+					 echo
+					 
+					 echo -e "Alterando as permissões do arquivo de configuração do LogAnalyzer, aguarde..."
 					 #Alterando as permissões do arquico config.php
 					 chmod -v 666 /var/www/html/loganalyzer/config.php >> $LOG
+					 echo -e "Permissões alteradas com sucesso!!!, continuando o script..."
+					 sleep 2
+					 echo
+					 
+					 echo -e "Alterando as permissões do diretório do LogAnalyzer, aguarde..."
 					 #Alterando o dono e grupo do diretório loganalyzer
 					 chown -Rv www-data.www-data /var/www/html/loganalyzer/ >> $LOG
+					 echo -e "Permissões alteradas com sucesso!!!, continuando o script..."
+					 sleep 2
+					 echo
+					 
 					 echo -e "Instalação feita com sucesso!!!, pressione <Enter> para continuar com o script"
 					 echo -e "Finaliza a instalaçao acessando a URL: http://`hostname`/loganalyzer/"
 					 read
 					 sleep 2
-					 clear
 					 
 					 echo -e "Fim do Script-24.sh em: `date`" >> $LOG
 					 echo -e "                Finalização da Configuração do LogAnalyzer"
