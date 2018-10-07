@@ -57,15 +57,15 @@ then
 					 clear
 					 echo -e "Usuário é `whoami`, continuando a executar o Script-08.sh"
 					 echo
-					 echo -e "Listando as Portas TCP e UDP do servidor: `hostname`"
-					 echo -e "Aguarde..."
+					 echo -e "Listando as Portas TCP e UDP do servidor: `hostname`, aguarde..."
 					 echo -e "Rodando o Script-08.sh em: `date`" > $LOG
 					 echo ============================================================ >> $LOG
-
+					 
+					 echo
 					 echo -e "Portas  Num.Porta Status        Serviço"
 					 #Executando o comando map para explorar as Portas TCP e UDP abertas
 					 nmap `hostname` -sS -sU | grep open | cat -n
-					 
+					 echo
 					 echo -e "Quantida de portas padrão que devem ser listadas no servidor `hostname`: 33 (portas)"
 					 echo -e "Após todos os serviços instalados e configurados o número de porta aumenta para 34 (portas)"   
 					 echo -e "Caso o número de portas seja diferente, verificar os status dos serviços de rede"
