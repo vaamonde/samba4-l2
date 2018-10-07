@@ -5,8 +5,8 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 31/05/2016
-# Data de atualização: 30/12/2016
-# Versão: 0.8
+# Data de atualização: 07/10/2018
+# Versão: 0.9
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
@@ -188,8 +188,24 @@ then
 					 read
 					 sleep 2
 					 clear
+					 
+ 					 echo -e "19. Status do Serviço RSYSLOG do servidor: `hostname`"
+					 echo
+					 sudo service rsyslog status
+					 echo -e "Pressione <Enter> para continuar"
+					 read
+					 sleep 2
+					 clear
 
-					 echo -e "19. Status de Serviço com SYSTEMCTL do servidor: `hostname`"
+					 echo -e "18. Status do Serviço WINBIND do servidor: `hostname`"
+					 echo
+					 sudo service winbind status
+					 echo -e "Pressione <Enter> para continuar"
+					 read
+					 sleep 2
+					 clear
+
+					 echo -e "20. Status de Serviço com SYSTEMCTL do servidor: `hostname`"
 					 echo -e "Pressione <Enter> para continuar"
 					 read
 					 echo
