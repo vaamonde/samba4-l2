@@ -104,14 +104,17 @@ then
 					 echo -e "Instalando o Webmin, aguarde..."
 					 #Instalando o webmin utilizando o comando dpkg
 					 dpkg -i $VERSAO &>> $LOG
+					 echo -e "Instalação feita com sucesso!!!, continuando o script..."
+					 sleep 2
+					 echo
 					 
 					 echo -e "Remoção do download do Webmin, aguarde..."
 					 #Removendo o arquivo de instalação do webmin
 					 rm -v $VERSAO &>> $LOG
+					 echo -e "Remoção do download feito com sucesso!!!, continuando o script..."
+					 sleep 2
 					 echo
 					 
-					 echo -e "Instalação do Webmin Feito com Sucesso!!!"
-					 echo 
 					 echo ============================================================ >> $LOG
 					 echo -e "Fim do Script-03.sh em: `date`" >> $LOG
 
