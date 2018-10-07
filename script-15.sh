@@ -54,6 +54,8 @@ then
 					 echo -e "Será necessário criar o arquivo ldif (arquivo de modificação) que tem os parâmetros"
 					 echo -e "necessário para a criação das Unidades Organizacionais"
 					 echo
+					 echo -e "No SAMBA-4 versões >=4.9 o comando samba-tool agora tem suporte a criação de OU"
+					 echo
 					 echo -e "Pressione <Enter> para editar o arquivo ou.ldif"
 					 read
 					 #Editando o arquivo de Unidades Organizacionais
