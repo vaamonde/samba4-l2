@@ -79,7 +79,7 @@ then
 					 echo -e "ATTR (Extended Attributes) Atributos Extendidos"
 					 echo -e "Configuração do FSTAB para suporte a ACL e XATTR"
 					 echo
-					 echo -e "Após o término o Servidor será reinicializado"
+					 echo -e "Após o término o Servidor será reinicializado, aguarde..."
 					 echo
 					 echo -e "Rodando o Script-01.sh em: `date`" > $LOG
 					 echo ============================================================ >> $LOG
@@ -87,21 +87,21 @@ then
 					 echo -e "Atualizando as Listas do Apt-Get, aguarde..."
 					 #Atualizando as listas do apt-get
 					 apt-get update &>> $LOG
-					 echo -e "Listas Atualizadas com Sucesso!!!"
+					 echo -e "Listas Atualizadas com Sucesso!!!, continuando o script..."
 					 echo
 					 echo ============================================================ >> $LOG
 
 					 echo -e "Atualizando o Sistema, aguarde..."
 					 #Fazendo a atualização de todos os pacotes instalados no servidor
 					 apt-get -o Dpkg::Options::="--force-confold" upgrade -q -y --force-yes &>> $LOG
-					 echo -e "Sistema Atualizado com Sucesso!!!"
+					 echo -e "Sistema Atualizado com Sucesso!!!, continuando o script..."
 					 echo
 					 echo ============================================================ >> $LOG
 
 					 echo -e "Instalando as Dependências da Parte de Rede, aguarde..."
 					 #Instalando os principais pacotes para o funcionamento correto dos serviços de rede
 					 apt-get -y install ntp ntpdate build-essential libacl1-dev libattr1-dev libblkid-dev libgnutls-dev libreadline-dev python-dev libpam0g-dev python-dnspython gdb pkg-config libpopt-dev libldap2-dev dnsutils libbsd-dev docbook-xsl libcups2-dev nfs-kernel-server nfs-common acl attr debconf-utils screenfetch figlet sysv-rc-conf &>> $LOG
-					 echo -e "Instalação das Dependências Feita com Sucesso!!!"
+					 echo -e "Instalação das Dependências Feita com Sucesso!!!, continuando o script..."
 					 echo
 					 echo ============================================================ >> $LOG
 
@@ -116,21 +116,21 @@ then
 					 echo  >> $LOG
 					 #Exibindo as configurações do Debconf do Kerberos
 					 debconf-show krb5-config >> $LOG
-					 echo -e "Parâmetros configurado com sucesso!!!"
+					 echo -e "Parâmetros configurado com sucesso!!!, continuando o script..."
 					 echo
 					 echo ============================================================ >> $LOG
 					 
 					 echo -e "Instalando o Kerberos, aguarde..."
 					 #Instalando o Kerberos
 					 apt-get -y install krb5-user krb5-config &>> $LOG
-					 echo -e "Kerberos instalado com Sucesso!!!"
+					 echo -e "Kerberos instalado com Sucesso!!!, continuando o script..."
 					 echo
 					 echo ============================================================ >> $LOG
 					 
 					 echo -e "Limpando o Cache do Apt-Get, aguarde..."
 					 #Limpando o diretório de cache do apt-get
 					 apt-get clean &>> $LOG
-					 echo -e "Cache Limpo com Sucesso!!!"
+					 echo -e "Cache Limpo com Sucesso!!!, continuando o script..."
 					 echo
 					 echo ============================================================ >> $LOG
 					 
@@ -147,7 +147,7 @@ then
 					 echo -e "Fazendo o Backup do arquivo ntp.conf, aguarde..."
 					 #Fazendo o backup do arquivos de configuração do NTP Server
 					 mv -v /etc/ntp.conf /etc/ntp.conf.old >> $LOG
-					 echo -e "Backup do arquivo ntp.conf feito com sucesso!!!"
+					 echo -e "Backup do arquivo ntp.conf feito com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
@@ -158,21 +158,21 @@ then
 					 echo 0.0 > /etc/ntp.drift
 					 #Alterando o dono e grupo de arquivo nto.drift
 					 chown -v ntp.ntp /var/lib/ntp/ntp.drift >> $LOG
-					 echo -e "Arquivo ntp.drift criado com sucesso!!!"
+					 echo -e "Arquivo ntp.drift criado com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
 					 echo -e "Atualizando o arquivo ntp.conf, aguarde..."
 					 #Copiando o arquivo de configuração do NTP Server
 					 cp -v conf/ntp.conf /etc/ntp.conf >> $LOG
-					 echo -e "Arquivo atualizado com sucesso!!!"
+					 echo -e "Arquivo atualizado com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
 					 echo -e "Parando o serviço do ntp server, aguarde..."
 					 #Parando o serviço do NTP Server para fazer a sua configuração
 					 sudo service ntp stop
-					 echo -e "Serviço parado com sucesso!!!"
+					 echo -e "Serviço parado com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo 
 					 
@@ -198,7 +198,7 @@ then
 					 #Iniciando o serviço do NTP Server
 					 sudo service ntp start
 					 echo
-					 echo -e "Data/Hora atualizada com sucesso!!!"
+					 echo -e "Data/Hora atualizada com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
@@ -208,7 +208,7 @@ then
 					 #p=print, n=all andress
 					 ntpq -pn
 					 echo
-					 echo -e "Verificação feita com sucesso!!!"
+					 echo -e "Verificação feita com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
@@ -248,7 +248,7 @@ then
 					 echo
 					 echo -e "Informações a serem acrescentadas depois de ext4: defaults,barrier=1"
 					 echo
-					 echo -e "Se tiver utilizando o BTRFS, deixar o padrão"
+					 echo -e "Se estiver utilizando o BTRFS, deixar o padrão"
 					 echo -e "Pressione <Enter> para editar o arquivo"
 					 echo 
 					 read
@@ -257,7 +257,7 @@ then
 					 echo -e "Fazendo o backup do arquivo fstab, aguarde..."
 					 #Fazendo o backup do arquivo fstab
 					 cp -v /etc/fstab /etc/fstab.old >> $LOG
-					 echo -e "Backup feito com sucesso!!!"
+					 echo -e "Backup feito com sucesso!!!, continuando o script..."
 					 sleep 2
 					 
 					 echo -e "Editando o arquivo fstab, aguarde..."
@@ -285,14 +285,14 @@ then
 					 echo -e "Fazendo o Backup do arquivo krb5.conf, aguarde..."
 					 #Fazendo o backup do arquivo de confguração do Kerberos
 					 mv -v /etc/krb5.conf /etc/krb5.conf.old >> $LOG
-					 echo -e "Backup feito com sucesso!!!"
+					 echo -e "Backup feito com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
 					 echo -e "Atualizando o arquivo krb5.conf, aguarde..."
 					 #Atualizando o arquivo de configuração do Kerberos
 					 cp -v conf/krb5.conf /etc/krb5.conf >> $LOG
-					 echo -e "Atualizado com sucesso!!!"
+					 echo -e "Atualizado com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo 
 
