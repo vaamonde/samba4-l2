@@ -11,6 +11,7 @@
 #
 # Desativando o envio de email
 MAILTO=""
+#
 # Agendamento da limpeza da fila do postfix, a cada 2 minutos, todos os dias
 30 23 * * 0 root /usr/sbin/postfix_queue > /dev/null 2>&1 || true
 
