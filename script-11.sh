@@ -197,7 +197,7 @@ then
 					 sleep 2
 					 clear
 
-					 echo -e "18. Status do Serviço WINBIND do servidor: `hostname`"
+					 echo -e "20. Status do Serviço WINBIND do servidor: `hostname`"
 					 echo
 					 sudo service winbind status
 					 echo -e "Pressione <Enter> para continuar"
@@ -205,7 +205,7 @@ then
 					 sleep 2
 					 clear
 
-					 echo -e "20. Status de Serviço com SYSTEMCTL do servidor: `hostname`"
+					 echo -e "21. Status de Serviço com SYSTEMCTL do servidor: `hostname`"
 					 echo -e "Pressione <Enter> para continuar"
 					 read
 					 echo
