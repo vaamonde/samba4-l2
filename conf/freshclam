@@ -11,6 +11,7 @@
 #
 # Desativando o envio de e-mail
 MAILTO=""
+#
 # Agendamento da atualização do Freshclam as 21:30hs, todos os dias
 30 21 * * * root /usr/bin/freshclam --log=/var/log/clamav/atualizacao.log > /dev/null 2>&1 || true
 
