@@ -4,8 +4,8 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 31/05/2016
-# Data de atualização: 26/09/2018
-# Versão: 0.5
+# Data de atualização: 07/10/2018
+# Versão: 0.6
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 
@@ -14,6 +14,6 @@
 /dev/mapper/root-root /                ext4    defaults,barrier=1,errors=remount-ro   0       1
 /dev/mapper/files-arquivos /arquivos   ext4    defaults,barrier=1,grpquota,usrquota   0       2
 /dev/mapper/bkp-backup /backup         ext4    defaults,barrier=1                     0       2
-/dev/mapper/root-tmp /tmp              ext4    defaults,noexec,nodev,nosuid           0       2
+/dev/mapper/root-tmp /tmp              ext4    noexec,noatime,nodiratimenodev,nosuid  0       2
 /dev/mapper/root-var /var              ext4    defaults,barrier=1                     0       2
 /dev/mapper/root-swap none             swap    sw                                     0       0
