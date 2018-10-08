@@ -5,8 +5,8 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 02/10/2018
-# Data de atualização: 07/10/2018
-# Versão: 0.3
+# Data de atualização: 08/10/2018
+# Versão: 0.4
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
@@ -68,7 +68,7 @@ then
 					 echo "rsyslog-mysql rsyslog-mysql/dbconfig-install boolean false" |  debconf-set-selections
 					 #Instalando a dependência do LogAnalyzer
 					 apt-get -y install rsyslog-mysql &>> $LOG
-					 echo -e "Dependências instaladas com sucesso, pressione <Enter> para continuar"
+					 echo -e "Dependências instaladas com sucesso!!!, pressione <Enter> para continuar"
 					 read
 					 sleep 2
 					 clear
@@ -117,7 +117,7 @@ then
 					 #Listando a Base de Dados criada do Rsyslog e LogAnalyzer
 					 mysql -u $USER -p$PASSWORD -e "$SHOWSQL" mysql
 					 echo
-					 echo -e "Base de dados listadas com sucesso!!!"
+					 echo -e "Base de dados listadas com sucesso!!!, continuando o script..."
 					 echo
 					 echo -e "Criação da Base de Dados do Rsyslog e LogAnalyzer feita com sucesso!!!, pressione <Enter> para continuar"
 					 read
@@ -157,7 +157,7 @@ then
 					 sleep 2
 					 echo
 					 
-					 echo -e "Atualizando o arquivo de configuração do mysql, aguarde..."
+					 echo -e "Atualizando o arquivo de configuração do MySQL, aguarde..."
 					 #Atualizando o arquivo de configuração do mysql
 					 cp -v conf/mysql.conf /etc/rsyslog.d/mysql.conf >> $LOG
 					 echo -e "Atualização do arquivo feito com sucesso!!!, continuando o script..."
@@ -188,7 +188,7 @@ then
 					 sleep 2
 					 clear
 					 
-					 echo -e "Editando o arquivo de configuração do Rsyslog, pressione <Enter> para continuar..."
+					 echo -e "Editando o arquivo de configuração do MySQL, pressione <Enter> para continuar..."
 					 read
 					 sleep 2
 					 
@@ -254,7 +254,7 @@ then
 					 echo
 					 
 					 echo -e "Instalação feita com sucesso!!!, pressione <Enter> para continuar com o script"
-					 echo -e "Finaliza a instalaçao acessando a URL: http://`hostname`/loganalyzer/"
+					 echo -e "Finalizar a instalação acessando a URL: http://`hostname`/loganalyzer/"
 					 read
 					 sleep 2
 					 
