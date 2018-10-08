@@ -6,7 +6,7 @@
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 04/10/2018
 # Data de atualização: 08/10/2018
-# Versão: 0.3
+# Versão: 0.4
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
@@ -61,13 +61,20 @@ then
 					 #Executando comando pam-auth-update
 					 pam-auth-update
 					 
-					 echo -e "Atualização feita com sucesso, pressione <Enter> para continuar com o script."
+					 echo -e "Atualização feita com sucesso!!!, pressione <Enter> para continuar com o script."
 					 read
 					 sleep 2
 					 clear
 					 
 					 echo -e "Atualizando os arquivos de configuração do PAM, pressione <Enter> para continuar..."
 					 read
+					 sleep 2
+					 echo
+					 
+					 echo -e "Fazendo o backup do arquivo de configuração COMMON-PASSWORD, aguarde..."
+					 #Backup deve ser feito em outro local o arquivo de configuração
+					 cp -v /etc/pam.d/common-password /var/log/common-password.old >> $LOG
+					 echo -e "Arquivo backupeado com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
