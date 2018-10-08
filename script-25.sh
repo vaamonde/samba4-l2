@@ -5,8 +5,8 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 04/10/2018
-# Data de atualização: 06/10/2018
-# Versão: 0.2
+# Data de atualização: 08/10/2018
+# Versão: 0.3
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
@@ -35,7 +35,7 @@ then
 					 #
 					 #Variaveis de ambiente para o script
 					 #
-					 DOMAIN="PTI"
+					 DOMAIN="PTI\administrator"
 					 USER="root"
 					 PASSWORD="pti@2016"
 					 ADMIN="administrator"
@@ -66,7 +66,7 @@ then
 					 sleep 2
 					 clear
 					 
-					 echo -e "Atualizando os arquivos de configuração do PAM, pressione <Enter> para continuar"
+					 echo -e "Atualizando os arquivos de configuração do PAM, pressione <Enter> para continuar..."
 					 read
 					 sleep 2
 					 echo
@@ -78,6 +78,16 @@ then
 					 sleep 2
 					 echo
 					 
+					 echo -e "Editando o arquivo de configuração COMMON-PASSWORD, pressione <Enter> para continuar..."
+					 read
+					 sleep 2
+					 #Editando o arquivo de configuração
+					 vim /etc/pam.d/common-password
+					 echo -e "Arquivo editado com sucesso!!!, pressione <Enter> para continuando o script..."
+					 read
+					 sleep 2
+					 clear
+					 
 					 echo -e "Reinicializando o serviço do Winbind, aguarde..."
 					 #Reinicializando o serviço
 					 sudo service winbind restart >> $LOG
@@ -87,7 +97,7 @@ then
 					 
 					 echo -e "Adicionando o usuário $ADMIN ao grupo do SUDO, aguarde..."
 					 #Alterando o grupo do usuário administrator
-					 usermod -aG sudo '$DOMAIN\$ADMIN' >> $LOG
+					 usermod -aG sudo $DOMAIN >> $LOG
 					 echo -e "Grupo adicionado com sucesso!!!, continuado com o script..."
 					 echo
 					 
