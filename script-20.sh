@@ -5,8 +5,8 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 31/05/2016
-# Data de atualização: 06/10/2018
-# Versão: 0.12
+# Data de atualização: 09/10/2018
+# Versão: 0.13
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
@@ -91,7 +91,7 @@ then
 					 
 					 echo -e "Instalação das dependências do Netdata, aguarde..."
 					 #Instalando as dependências do Netdata
-					 apt-get -y install zlib1g-dev gcc make git autoconf autogen automake pkg-config uuid-dev python python-pip python-dev python3-dev libmysqlclient-dev &>> $LOG
+					 apt-get -y install zlib1g-dev gcc make git autoconf autogen automake pkg-config uuid-dev python python-pip python-dev python3-dev libmysqlclient-dev python-ipaddress &>> $LOG
 					 echo -e "Instalação das dependêncais do Netdata feita com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
@@ -129,38 +129,28 @@ then
 					 sleep 2
 					 echo
 					 
-					 #EM DESENVOLVIMENTO AS CONFIGURAÇÕES DOS PLUGUINS DO NETDATA 01/10/2018
-					 #echo -e "Instalando os recursos de acesso ao Banco de Dados MySQL, agaurde..."
+					 #EM DESENVOLVIMENTO DAS CONFIGURAÇÕES DOS PLUGUINS DO NETDATA 01/10/2018
+					 #echo -e "Instalando os recursos de acesso ao Banco de Dados MySQL, aguarde..."
 					 #Utilizando o comando pip para instalar os pluguins do Python para acesso ao MySQL
 					 #Atualizando o PIP
-					 #pip2.7 install --upgrade pip >> $LOG
-					 #
-					 #Instalando o MySQLClient
-					 #pip2.7 install mysqlclient >> $LOG
+					 #pip install --upgrade pip &>> $LOG
 					 #
 					 #Instalando o PyMySQL
-					 #pip2.7 install pymysql
+					 #pip2.7 install pymysql &>> $LOG
 					 #
-					 #Fazendo o Backup do Arquivo de Configuração Original
-					 #mv -v &>> $LOG
-					 #mv -v &>> $LOG
-					 #mv -v &>> $LOG
+					 #Instalando o MySQLClient
+					 #pip2.7 install mysqlclient
+					 #
+					 #Fazendo o Backup dos Arquivos de Configuração Original
+					 #mv -v /usr/lib/netdata/conf.d/python.d/isc_dhcpd.conf /usr/lib/netdata/conf.d/python.d/isc_dhcpd.conf.old &>> $LOG
+					 #mv -v /usr/lib/netdata/conf.d/python.d/mysql.conf /usr/lib/netdata/conf.d/python.d/mysql.conf.old &>> $LOG
+					 #mv -v /usr/lib/netdata/conf.d/python.d/bind_rndc.conf /usr/lib/netdata/conf.d/python.d/bind_rndc.conf.old &>> $LOG
 					 #
 					 #Copiando os arquivos de Configuração do MySQL, ISC-DHCPD e Bind
-					 #cp -v conf/mysql.conf &>> $LOG
-					 #cp -v conf/isc_dhcpd.conf &>> $LOG
-					 #cp -v conf/bind_rndc.conf &>> $LOG
-					 #cp -v conf/bind-rndc &>> $LOG
+					 #cp -v conf/mysql.conf /usr/lib/netdata/conf.d/python.d/ &>> $LOG
+					 #cp -v conf/isc_dhcpd.conf /usr/lib/netdata/conf.d/python.d/ &>> $LOG
+					 #cp -v conf/bind_rndc.conf /usr/lib/netdata/conf.d/python.d/ &>> $LOG
 					 #
-					 #Copiando o arquivo do AppArmos do Named.
-					 #cp -v conf/usr.sbin.named &>> $LOG
-					 #
-					 #Copiando o arquivo do Logrotate do Rndc
-					 #cp -v conf/bind-rdc &>> $LOG
-					 #
-					 #Criação do diretório, arquivo de estáticas e alteração das permissões feita no script-.sh
-					 #
-					 #Alterando as permissões do arquivo rndc.keys
 					 
 					 echo -e "Instalação do Netdata feita com sucesso!!!, pressione <Enter> para continuar"
 					 read
@@ -229,6 +219,7 @@ then
 					 #Copiando o agendamento do sincronismo do rsync do samba
 					 cp -v conf/rsyncsamba /etc/cron.d/ >> $LOG
 					 echo -e "Arquivo atualizado com sucesso!!!, continuando o script..."
+					 sleep 2
 					 
 					 #Editando o arquivo do sincronismo
 					 vim /etc/cron.d/rsyncsamba +13
