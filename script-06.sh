@@ -210,6 +210,17 @@ then
 					 echo 
 					 read
 					 
+					 echo -e "Criando o diretório e arquivo de Estatísticas do Bind9 RNDC, aguarde..."
+					 #Criando o diretório para estatísticas do bind9 rndc
+					 mkdir -v /var/log/named >> $LOG
+					 #Criando o arquivo de estatísticas do bind9 rndc
+					 touch /var/log/named/named.stats
+					 #Alterando as permissões do diretório e do arquivo
+					 chown -Rv bind.bind /var/log/named/ >> $LOG
+					 echo -e "Diretório e arquivo criado com sucesso!!!, continuando o script..."
+					 sleep 2
+					 echo
+					 
 					 echo -e "Fazendo o backup do arquivo named.conf.options, aguarde..."
 					 #Fazendo o backup do arquivo de configuração named.conf.options
 					 mv -v /etc/bind/named.conf.options /etc/bind/named.conf.options.old >> $LOG
