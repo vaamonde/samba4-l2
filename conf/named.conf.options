@@ -10,8 +10,14 @@
 // Kernel >= 4.4.x
 
 options {
-	directory "/var/cache/bind";
 
+	// Diretório padrão do cache do Bind
+	directory "/var/cache/bind";
+	
+	// Diretório das estatísica do Bind RNDC
+	statistics-file "/var/log/named/named.stats";
+
+	// Endereços IP de encaminhamento
 	forwarders {
 		// Endereços IP dos DNS do Google para fazer o Forwarders
 		8.8.8.8;
@@ -39,6 +45,7 @@ options {
 		192.168.1.10; 
 	};
 	
+	// Controle de zonas vazias
 	empty-zones-enable no;
 	
 	// Configurações das Chaves de atualização do DNS utilizadas pela SAMBA4
