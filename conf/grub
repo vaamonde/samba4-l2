@@ -4,8 +4,8 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 31/05/2016
-# Data de atualização: 13/03/2017
-# Versão: 0.4
+# Data de atualização: 09/10/2018
+# Versão: 0.5
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 
@@ -21,7 +21,8 @@ GRUB_TIMEOUT=10
 GRUB_DISTRIBUTOR=`lsb_release -i -s 2> /dev/null || echo Debian`
 
 #Opção: net.ifnames=0 para voltar a utilizar placas de rede com nome ETHx
-GRUB_CMDLINE_LINUX_DEFAULT="net.ifnames=0"
+#Opção: consoleblank=0 para desabilitar o screensaver blank em períodos de inatividade
+GRUB_CMDLINE_LINUX_DEFAULT="net.ifnames=0 consoleblank=0"
 GRUB_CMDLINE_LINUX=""
 
 # Uncomment to enable BadRAM filtering, modify to suit your needs
