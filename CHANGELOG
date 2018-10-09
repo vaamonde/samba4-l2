@@ -18,6 +18,7 @@ Script: https://github.com/vaamonde/samba4-l2/blob/master/script-22.sh <-- acré
 Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/named.conf.options <-- adicionado opção de logs e estatísticas do bind
 Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/grub <-- adicionado a opção: consoleblank=0
 Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/firewall <-- adicionado a opção: echo 1 > /sys/block/sda/device/queue_depth
+Script: https://github.com/vaamonde/samba4-l2/blob/master/script-06.sh <-- criação do diretório/arquivo de estatísticas do bind rndc
 
 09/10/2018  - Alteração das configurações de Firewall para liberação das portas TCP/UDP 514 do Rsyslog. Robson Vaamonde
 Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/portslibtcp
