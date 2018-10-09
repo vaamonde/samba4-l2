@@ -5,8 +5,8 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 07/12/2016
-# Data de atualização: 06/10/2018
-# Versão: 0.10
+# Data de atualização: 09/10/2018
+# Versão: 0.11
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
@@ -164,6 +164,14 @@ then
 					 echo -e "Arquivo atualizado com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
+	 
+					 echo -e "Atualizando o arquivo awstats, aguarde..."
+					 #Copiando o arquivo de agendamento das atualizações do awstats
+					 cp -v conf/awstats /etc/cron.d/ >> $LOG
+					 echo -e "Arquivo atualizado com sucesso!!!, continuando o script..."
+					 sleep 2
+					 echo
+
 					 
 					 echo -e "Copia dos arquivos feita com sucesso!!!, pressione <Enter> para continuar."
 					 read
