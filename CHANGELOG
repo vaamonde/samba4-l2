@@ -11,7 +11,7 @@ Testado e homologado para a versão do Ubuntu Server 16.04.5 LTS x64
 Kernel >= 4.4.x
 
 09/10/2018  - Alteração das configurações do AWStats, para desabilitar o envio de email para root. Robson Vaamonde
-Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/awstats <-- desabilitar a variavel: MAILTO="" acréscimo da linha de desvio de mangens para /dev/null
+Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/awstats <-- desabilitar a variável: MAILTO="" acréscimo da linha de desvio de mangens para /dev/null
 Script: https://github.com/vaamonde/samba4-l2/blob/master/script-22.sh <-- acréscimo das linhas de atualização do arquivo awstats
 
 09/10/2018  - Alteração das configurações dos servidores de Bind, Grub e Firewall. Robson Vaamonde
@@ -30,6 +30,7 @@ Comando: sudo service winbind status
 Conf: https://github.com/vaamonde/samba4-l2/blob/master/script-11.sh
 
 06/10/2018  - Correções das falhas dos script-24.sh e script-25.sh, preparação da gravação das vídeos aulas. Robson Vaamonde
+(AULAS GRAVAS E JÁ DISPONIBILIZADA NO AULAEAD.COM NO DIA 08/10/2018)
 
 06/10/2018  - Identificado pelos alunos falha no script-15.sh, erro de execução na linha 84. Robson Vaamonde
 Falha: linha 84 do script: ldbsearch -H $SAMBA4LDB | grep "dn: OU" | | cat -n | less (tinha dois Pipes)
