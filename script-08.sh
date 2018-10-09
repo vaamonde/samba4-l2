@@ -5,8 +5,8 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 31/05/2016
-# Data de atualização: 30/12/2016
-# Versão: 0.8
+# Data de atualização: 09/10/2018
+# Versão: 0.9
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
@@ -34,6 +34,7 @@
 # RPC (Remote Procedure Call - Portas dinâmicas de: TCP 1024 até 5000)
 # Netdata (Sistema de Monitoramento - Porta padrão: TCP/UDP 19999)
 # Postfix SMTP (Simple Mail Transfer Protocol - Porta padrão: TCP 25)
+# RSYSLOG (Standard for message Logging - Portas padrão: TCP/UDP 514)
 # 
 # Utilizar o comando: sudo -i para executar o script
 #
@@ -66,8 +67,8 @@ then
 					 #Executando o comando map para explorar as Portas TCP e UDP abertas
 					 nmap `hostname` -sS -sU | grep open | cat -n
 					 echo
-					 echo -e "Quantida de portas padrão que devem ser listadas no servidor `hostname`: 33 (portas)"
-					 echo -e "Após todos os serviços instalados e configurados o número de porta aumenta para 34 (portas)"   
+					 echo -e "Quantida de portas padrão que devem ser listadas no servidor `hostname`: >=33 (portas)"
+					 echo -e "Após todos os serviços instalados e configurados o número de portas aumenta para >=36 (portas)"   
 					 echo -e "Caso o número de portas seja diferente, verificar os status dos serviços de rede"
 					 echo -e "Rodar esse script novamente no final de todas as configurações do servidor"
 					 echo -e "Pressione <Enter> para verificar as regras de Firewall"
