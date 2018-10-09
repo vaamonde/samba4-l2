@@ -15,7 +15,7 @@ Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/awstats <-- desabil
 Script: https://github.com/vaamonde/samba4-l2/blob/master/script-22.sh <-- acréscimo das linhas de atualização do arquivo awstats
 
 09/10/2018  - Alteração das configurações dos servidores de Bind, Grub e Firewall. Robson Vaamonde
-Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/named.conf.options <-- adicionado opção de logs do bind
+Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/named.conf.options <-- adicionado opção de logs e estatísticas do bind
 Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/grub <-- adicionado a opção: consoleblank=0
 Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/firewall <-- adicionado a opção: echo 1 > /sys/block/sda/device/queue_depth
 
