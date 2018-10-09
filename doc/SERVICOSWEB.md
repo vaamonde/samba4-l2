@@ -22,10 +22,10 @@ ssh.pti.intra<br>
 mysql.pti.intra<br>
 
 #Acesso ao Gerenciador do MySQL PhpMyAdmin<br>
-http://pti.intra/phpmyadmin<br>
+http://ptispo01dc01.pti.intra/phpmyadmin<br>
 
 #Acesso ao Gerenciador de Log LogAnalyzer<br>
-http://pti.intra/loganalyzer<br>
+http://ptispo01dc01.pti.intra/loganalyzer<br>
 
 #Acesso ao Gerenciador de Impressão CUPS<br>
 http://ptispo01dc01.pti.intra:631<br>
