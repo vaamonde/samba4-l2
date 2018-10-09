@@ -1,0 +1,10 @@
+#
+MAILTO=""
+#
+#Atualizando o sistema
+*/10 * * * * www-data [ -x /usr/share/awstats/tools/update.sh ] && /usr/share/awstats/tools/update.sh > /dev/null 2>&1 || true
+
+#Gerando estatísticas e relatórios
+10 03 * * * www-data [ -x /usr/share/awstats/tools/buildstatic.sh ] && /usr/share/awstats/tools/buildstatic.sh > /dev/null 2>&1 || true
+
+#Fim do processo
