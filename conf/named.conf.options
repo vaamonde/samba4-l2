@@ -4,8 +4,8 @@
 // Facebook: facebook.com/BoraParaPratica
 // YouTube: youtube.com/BoraParaPratica
 // Data de criação: 31/05/2016
-// Data de atualização: 30/07/2016
-// Versão: 0.4
+// Data de atualização: 09/10/2018
+// Versão: 0.5
 // Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 // Kernel >= 4.4.x
 
@@ -24,6 +24,7 @@ options {
 	version none;
 	server-id none;
 	
+	// Configuração do IPv6
 	listen-on-v6 { any; };
 	
 	// Alterado para no, padrão auto
@@ -37,11 +38,13 @@ options {
 		127.0.0.1; 
 		192.168.1.10; 
 	};
+	
 	empty-zones-enable no;
 	
 	// Configurações das Chaves de atualização do DNS utilizadas pela SAMBA4
 	tkey-gssapi-keytab "/var/lib/samba/private/dns.keytab";
 	
+	//Liberações de consulta e atualização
 	allow-query {
 		any;
 	};
@@ -58,4 +61,42 @@ options {
 		none;
 	};
 		
+};
+
+//Configuração da auditoria de Logs do Bind, informações enviadas para Syslog
+logging {
+	channel named_log {
+		 syslog local3;
+		 severity info;
+	};
+	category security {
+	   named_log;
+	};
+	category queries {
+	   named_log;
+	};
+	category xfer-out {
+	  "named_log";
+	};
+	category xfer-in {
+	  named_log;
+	};
+	category general {
+	  named_log;
+	};
+	category dnssec {
+	   named_log;
+	};
+	category default {
+	   named_log;
+	};
+	category resolver {
+	   named_log;
+	};
+	category client {
+	   named_log;
+	};
+	category network {
+	   named_log;
+	};
 };
