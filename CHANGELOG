@@ -10,6 +10,10 @@ Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 Testado e homologado para a versão do Ubuntu Server 16.04.5 LTS x64
 Kernel >= 4.4.x
 
+09/10/2018  - Alteração das configurações do AWStats, para desabilitar o envio de email para root. Robson Vaamonde
+Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/awstats <-- desabilitar a variavel: MAILTO="" acréscimo da linha de desvio de mangens para /dev/null
+Script: https://github.com/vaamonde/samba4-l2/blob/master/script-22.sh <-- acréscimo das linhas de atualização do arquivo awstats
+
 09/10/2018  - Alteração das configurações dos servidores de Bind, Grub e Firewall. Robson Vaamonde
 Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/named.conf.options <-- adicionado opção de logs do bind
 Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/grub <-- adicionado a opção: consoleblank=0
