@@ -1,23 +1,23 @@
-# SAMBA-4 Level 2
-Scripts de configuração do SAMBA-4 Level 2 para o projeto do Curso do AulaEAD.com
+# Curso GRÁTIS SAMBA 4 Level 2 (Nível)
+Scripts de configuração do SAMBA 4 Level 2 para o projeto do Curso do AulaEAD.com
 
 <a href="http://www.facebook.com/share.php?u=http://aulaead.com/course/curso-linux-samba-4-level-2/" target="_blank"><img class="aligncenter" src="http://aulaead.com/wp-content/uploads/2016/01/botao-compartilhar-facebook.png" alt="Compartilhar no seu Facebook" width="550" height="88" /></a>
 
 <h3 class="widget-title">O QUE VOCÊ VAI APRENDER?</h3>
 <div class="textwidget" align="justify">
-<p style="text-align: justify;">Durante o curso você aprenderá passo a passo na prática a instalar e configurar o software <strong>SAMBA-4 Level-2. </strong>O SAMBA-4 em sua nova versão, traz todos os recursos que os profissionais de TI precisar para implementar ou migrar redes <strong>Microsoft Windows Server para GNU/Linux</strong>, nessa versão é possivel criar um <strong>AD-DS (Active Directory Domain Services)</strong> completo com os Schema do <strong>Windows Server 2008 R2</strong>, criar e gerenciar Usuários, Grupos, Unidades Organizacionais, Computadores e <strong>GPO/GPP (Group Policy Object/Group Policy Preferences)</strong>, todos os recursos do <strong>FSRM (File Server Resource Manager)</strong> também está disponível para o gerenciamento e auditória de arquivos e diretórios, com uma base de sistema operacional sólida e Open Source, seu projeto de centralização e gerenciamento de usuários na rede será um sucesso!!!.</p>
-<p style="text-align: justify;">Nesse Level-2 você vai expandir os seus conhecimentos, utilizando como base um Cenário Real de um Cliente que está querendo fazer a migração da sua Infraestrutura de TI rodando soluções Microsoft para GNU/Linux, no Level-1 você aprendeu todos os comandos básicos e também os arquivos de configurações principais para o entendimento do serviço do SAMBA-4 como Controlador de Domínio. Agora você irar utilizar o mesmo cenário só com o <strong>GNU/Linux Ubuntu Server em sua nova versão 16.04.1 LTS.</strong></p>
-<p style="text-align: justify;">O grande diferencial do SAMBA-4 Level 2 é que todo o processo de instalação e configuração do Servidor e dos principais Serviços de Redes estão automatizados, serão cerca de <strong>23 (vinte e três) scripts e cerca de 61 (sessenta e um) arquivos conf's</strong> comentados para facilitar o entendimento e implementações dos serviços.</p>
-<p style="text-align: justify;">Nesse Level 2 você vai aprender a implementar o <strong>SAMBA-4 com integração com o Bind DNS e o ISC DHCP Server</strong> utilizando scripts e configurações, iremos implementar serviços como o<strong> APACHE-2, MySQL, ProFTPD, SSH Server, NTP Server, Kerberos, LDAP</strong> e muito mais, estarei mostrando como criar <strong>Unidades Organizacionais, Usuários e Grupos em Lotes</strong> é o principais serviços de compartilhamento do SAMBA-4 como: <strong>Lixeira, Auditória de Arquivos, Veto de Arquivos, Ocultar Arquivos, Quota de Disco, ACL, ATTR</strong> e muito mais.</p>
-<p style="text-align: justify;">Ideal para Estudantes e Profissionais que desejam se aprofundar nos conceitos de servidores GNU/Linux Ubuntu Server e implementação de Solução Open Source de Armazenamento e Gerenciamento de Arquivos e Usuários utilizando o <strong>SAMBA-4 Level 2</strong></p>
+<p style="text-align: justify;">Durante o curso você aprenderá passo a passo na prática a instalar e configurar o software <strong>SAMBA 4 Level-2. </strong>O SAMBA 4 em sua nova versão, traz todos os recursos que os profissionais de TI precisar para implementar ou migrar redes <strong>Microsoft Windows Server para GNU/Linux</strong>, nessa versão é possivel criar um <strong>AD-DS (Active Directory Domain Services)</strong> completo com os Schema do <strong>Windows Server 2008 R2</strong>, criar e gerenciar Usuários, Grupos, Unidades Organizacionais, Computadores e <strong>GPO/GPP (Group Policy Object/Group Policy Preferences)</strong>, todos os recursos do <strong>FSRM (File Server Resource Manager)</strong> também está disponível para o gerenciamento e auditória de arquivos e diretórios, com uma base de sistema operacional sólida e Open Source, seu projeto de centralização e gerenciamento de usuários na rede será um sucesso!!!.</p>
+<p style="text-align: justify;">Nesse Level-2 você vai expandir os seus conhecimentos, utilizando como base um Cenário Real de um Cliente que está querendo fazer a migração da sua Infraestrutura de TI rodando soluções Microsoft para GNU/Linux, no Level-1 você aprendeu todos os comandos básicos e também os arquivos de configurações principais para o entendimento do serviço do SAMBA 4 como Controlador de Domínio. Agora você irar utilizar o mesmo cenário só com o <strong>GNU/Linux Ubuntu Server em sua nova versão 16.04.1 LTS.</strong></p>
+<p style="text-align: justify;">O grande diferencial do SAMBA 4 Level 2 é que todo o processo de instalação e configuração do Servidor e dos principais Serviços de Redes estão automatizados, serão cerca de <strong>23 (vinte e três) scripts e cerca de 61 (sessenta e um) arquivos conf's</strong> comentados para facilitar o entendimento e implementações dos serviços.</p>
+<p style="text-align: justify;">Nesse Level 2 você vai aprender a implementar o <strong>SAMBA 4 com integração com o Bind DNS e o ISC DHCP Server</strong> utilizando scripts e configurações, iremos implementar serviços como o<strong> APACHE-2, MySQL, ProFTPD, SSH Server, NTP Server, Kerberos, LDAP</strong> e muito mais, estarei mostrando como criar <strong>Unidades Organizacionais, Usuários e Grupos em Lotes</strong> é o principais serviços de compartilhamento do SAMBA 4 como: <strong>Lixeira, Auditória de Arquivos, Veto de Arquivos, Ocultar Arquivos, Quota de Disco, ACL, ATTR</strong> e muito mais.</p>
+<p style="text-align: justify;">Ideal para Estudantes e Profissionais que desejam se aprofundar nos conceitos de servidores GNU/Linux Ubuntu Server e implementação de Solução Open Source de Armazenamento e Gerenciamento de Arquivos e Usuários utilizando o <strong>SAMBA 4 Level 2</strong></p>
 
 <h3 class="widget-title">PRÉ-REQUISITO</h3>
-<p style="text-align: justify;">Desejável conhecimentos básicos em Virtualização, GNU/Linux Ubuntu Desktop, Linux Mint, SAMBA-4 Level 1, Debian e Protocolos TCP/IP. Faça <strong>GRATUITAMENTE</strong> o curso abaixo indicado para adquirir a base necessária para este treinamento.</p>
+<p style="text-align: justify;">Desejável conhecimentos básicos em Virtualização, GNU/Linux Ubuntu Desktop, Linux Mint, SAMBA 4 Level 1, Debian e Protocolos TCP/IP. Faça <strong>GRATUITAMENTE</strong> o curso abaixo indicado para adquirir a base necessária para este treinamento.</p>
 
 <strong>IDADE MÍNIMA:</strong> <strong>14 ANOS.</strong></p>
 
 <h3 class="widget-title">PÚBLICO ALVO</h3>
-<p style="text-align: justify;">Qualquer pessoa que queira conhecer o <strong>SAMBA-4</strong> e suas ferramentas de integrações, focado para usuários intermediários em <strong>GNU/Linux</strong> e <strong>Redes de Computadores</strong> que estão buscando conhecimentos e práticas em cenários de redes para migração ou implementação de servidores de centralização de domínio. Esse curso e continuidade do <strong>SAMBA-4 Level 1</strong>.</p>
+<p style="text-align: justify;">Qualquer pessoa que queira conhecer o <strong>SAMBA 4</strong> e suas ferramentas de integrações, focado para usuários intermediários em <strong>GNU/Linux</strong> e <strong>Redes de Computadores</strong> que estão buscando conhecimentos e práticas em cenários de redes para migração ou implementação de servidores de centralização de domínio. Esse curso e continuidade do <strong>SAMBA 4 Level 1</strong>.</p>
 
 <h3 class="widget-title">MATERIAL DIDÁTICO</h3>
 <p style="text-align: justify;">Apostila em formato digital oferecida pelo Site Procedimentos em TI em parceria com AulaEAD.com</p>
@@ -26,42 +26,42 @@ Scripts de configuração do SAMBA-4 Level 2 para o projeto do Curso do AulaEAD.
 <p style="text-align: justify;">O aluno deverá possuir conhecimentos básicos em informática. Os software utilizados pelo aluno, durante o desenvolvimento do curso são de inteira responsabilidade do mesmo.</p>
 
 <h3 class="widget-title">RECOMENDAÇÕES</h3>
-<p style="text-align: justify;">Fazer os cursos: Curso de Virtualização com VirtualBOX, Curso de Ubuntu Desktop Básico, Curso de GNU/Linux Mint Desktop Básico, Curso Primeiros Passos com Servidores GNU/Linux é o já ter feito o SAMBA-4 Level 1.</p>
+<p style="text-align: justify;">Fazer os cursos: Curso de Virtualização com VirtualBOX, Curso de Ubuntu Desktop Básico, Curso de GNU/Linux Mint Desktop Básico, Curso Primeiros Passos com Servidores GNU/Linux é o já ter feito o SAMBA 4 Level 1.</p>
 
 <h3 class="widget-title">CONTEÚDO PROGRAMÁTICO</h3>
 <table style="height: 278px;" border="0" width="1194" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 1</td>
-<td style="text-align: left;" valign="top" width="640">Aula 01 – Abertura do Curso de SAMBA-4 Level 2</td>
+<td style="text-align: left;" valign="top" width="640">Aula 01 – Abertura do Curso de SAMBA 4 Level 2</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 2</td>
-<td style="text-align: left;" valign="top" width="640">Aula 02 – Apresentação do Curso Linux SAMBA-4 Level 2</td>
+<td style="text-align: left;" valign="top" width="640">Aula 02 – Apresentação do Curso Linux SAMBA 4 Level 2</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 3</td>
-<td style="text-align: left;" valign="top" width="640">Aula 03 – Cenário Proposto para Implementação SAMBA-4</td>
+<td style="text-align: left;" valign="top" width="640">Aula 03 – Cenário Proposto para Implementação SAMBA 4</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 4</td>
-<td style="text-align: left;" valign="top" width="640">Aula 04 – Tipos de Instalação do SAMBA-4</td>
+<td style="text-align: left;" valign="top" width="640">Aula 04 – Tipos de Instalação do SAMBA 4</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 5</td>
-<td style="text-align: left;" valign="top" width="640">Aula 05 – Recursos de Armazenamento para o SAMBA-4</td>
+<td style="text-align: left;" valign="top" width="640">Aula 05 – Recursos de Armazenamento para o SAMBA 4</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 6</td>
-<td style="text-align: left;" valign="top" width="640">Aula 06 – Recursos de Serviços do SAMBA-4</td>
+<td style="text-align: left;" valign="top" width="640">Aula 06 – Recursos de Serviços do SAMBA 4</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 7</td>
-<td style="text-align: left;" valign="top" width="640">Aula 07 – Recursos de Compartilhamentos do SAMBA-4</td>
+<td style="text-align: left;" valign="top" width="640">Aula 07 – Recursos de Compartilhamentos do SAMBA 4</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 8</td>
-<td style="text-align: left;" valign="top" width="640">Aula 08 – Integrações de Serviços com o SAMBA-4</td>
+<td style="text-align: left;" valign="top" width="640">Aula 08 – Integrações de Serviços com o SAMBA 4</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 9</td>
@@ -113,7 +113,7 @@ Scripts de configuração do SAMBA-4 Level 2 para o projeto do Curso do AulaEAD.
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 21</td>
-<td style="text-align: left;" valign="top" width="640">Aula 21 – Instalação o SAMBA-4 e seus Recursos – script-02.sh</td>
+<td style="text-align: left;" valign="top" width="640">Aula 21 – Instalação o SAMBA 4 e seus Recursos – script-02.sh</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 22</td>
@@ -133,7 +133,7 @@ Scripts de configuração do SAMBA-4 Level 2 para o projeto do Curso do AulaEAD.
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 26</td>
-<td style="text-align: left;" valign="top" width="640">Aula 26 – Integração do SAMBA-4, DNS e DHCP – script-07.sh</td>
+<td style="text-align: left;" valign="top" width="640">Aula 26 – Integração do SAMBA 4, DNS e DHCP – script-07.sh</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 27</td>
@@ -157,7 +157,7 @@ Scripts de configuração do SAMBA-4 Level 2 para o projeto do Curso do AulaEAD.
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 32</td>
-<td style="text-align: left;" valign="top" width="640">Aula 32 – Script de Backup do SAMBA-4 – script-13.sh</td>
+<td style="text-align: left;" valign="top" width="640">Aula 32 – Script de Backup do SAMBA 4 – script-13.sh</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 33</td>
@@ -193,7 +193,7 @@ Scripts de configuração do SAMBA-4 Level 2 para o projeto do Curso do AulaEAD.
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 41</td>
-<td style="text-align: left;" valign="top" width="640">Aula 41 – Ingressando Máquinas Microosft Windows no Domínio do SAMBA-4</td>
+<td style="text-align: left;" valign="top" width="640">Aula 41 – Ingressando Máquinas Microosft Windows no Domínio do SAMBA 4</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 42</td>
@@ -201,7 +201,7 @@ Scripts de configuração do SAMBA-4 Level 2 para o projeto do Curso do AulaEAD.
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 43</td>
-<td style="text-align: left;" valign="top" width="640"> Aula 43 – Criação dos Atalhos para Administração do SAMBA-4</td>
+<td style="text-align: left;" valign="top" width="640"> Aula 43 – Criação dos Atalhos para Administração do SAMBA 4</td>
 </tr>
 <tr>
 <td style="text-align: left;" valign="top" width="163">AULA 44</td>
@@ -317,7 +317,7 @@ Scripts de configuração do SAMBA-4 Level 2 para o projeto do Curso do AulaEAD.
 <p style="text-align: left;">O certificado tem validade para fins <strong>curriculares</strong> e em <strong>provas de títulos</strong>, como certificado de <strong>atualização/aperfeiçoamento</strong>, respeitando a <em>carga-horária</em> descrita e não podendo ser usado para outros fins. Por isso, destacamos que <strong>NÃO é um certificado técnico profissionalizante</strong> ou de <strong>graduação</strong> ou de <strong>pós-graduação</strong> e não dá direito de assumir responsabilidades técnicas.</p>
 
 <h3 class="widget-title">METODOLOGIA DO CURSO</h3>
-<p style="text-align: justify;">Curso a distância que será desenvolvido no ambiente aulaead.com através de vídeo aulas que ajudarão na compreensão dos conceitos e práticas, fornecendo as habilidades e conhecimentos necessários para o aluno dar os primeiros passos na utilização do SAMBA-4 Level 2 para simulação do ambiente de rede.</p>
+<p style="text-align: justify;">Curso a distância que será desenvolvido no ambiente aulaead.com através de vídeo aulas que ajudarão na compreensão dos conceitos e práticas, fornecendo as habilidades e conhecimentos necessários para o aluno dar os primeiros passos na utilização do SAMBA 4 Level 2 para simulação do ambiente de rede.</p>
 
 <h3 class="widget-title">INFORMAÇÕES GERAIS</h3>
 <ul>
