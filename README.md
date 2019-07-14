@@ -1,8 +1,6 @@
 # Curso GRÁTIS SAMBA 4 Level 2 (Nível)
 Scripts de configuração do SAMBA 4 Level 2 para o projeto do Curso do AulaEAD.com
 
-<a href="http://www.facebook.com/share.php?u=http://aulaead.com/course/curso-linux-samba-4-level-2/" target="_blank"><img class="aligncenter" src="http://aulaead.com/wp-content/uploads/2016/01/botao-compartilhar-facebook.png" alt="Compartilhar no seu Facebook" width="550" height="88" /></a>
-
 <h3 class="widget-title">O QUE VOCÊ VAI APRENDER?</h3>
 <div class="textwidget" align="justify">
 <p style="text-align: justify;">Durante o curso você aprenderá passo a passo na prática a instalar e configurar o software <strong>SAMBA 4 Level-2. </strong>O SAMBA 4 em sua nova versão, traz todos os recursos que os profissionais de TI precisar para implementar ou migrar redes <strong>Microsoft Windows Server para GNU/Linux</strong>, nessa versão é possivel criar um <strong>AD-DS (Active Directory Domain Services)</strong> completo com os Schema do <strong>Windows Server 2008 R2</strong>, criar e gerenciar Usuários, Grupos, Unidades Organizacionais, Computadores e <strong>GPO/GPP (Group Policy Object/Group Policy Preferences)</strong>, todos os recursos do <strong>FSRM (File Server Resource Manager)</strong> também está disponível para o gerenciamento e auditória de arquivos e diretórios, com uma base de sistema operacional sólida e Open Source, seu projeto de centralização e gerenciamento de usuários na rede será um sucesso!!!.</p>
