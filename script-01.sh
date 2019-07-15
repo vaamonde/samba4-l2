@@ -5,8 +5,8 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 31/05/2016
-# Data de atualização: 06/10/2018
-# Versão: 0.11
+# Data de atualização: 15/07/2019
+# Versão: 0.12
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
@@ -100,7 +100,9 @@ then
 
 					 echo -e "Instalando as Dependências da Parte de Rede, aguarde..."
 					 #Instalando os principais pacotes para o funcionamento correto dos serviços de rede
-					 apt-get -y install ntp ntpdate build-essential libacl1-dev libattr1-dev libblkid-dev libgnutls-dev libreadline-dev python-dev libpam0g-dev python-dnspython gdb pkg-config libpopt-dev libldap2-dev dnsutils libbsd-dev docbook-xsl libcups2-dev nfs-kernel-server nfs-common acl attr debconf-utils screenfetch figlet sysv-rc-conf &>> $LOG
+					 apt-get -y install ntp ntpdate build-essential libacl1-dev libattr1-dev libblkid-dev libgnutls-dev libreadline-dev \
+					 python-dev libpam0g-dev python-dnspython gdb pkg-config libpopt-dev libldap2-dev dnsutils libbsd-dev docbook-xsl \
+					 libcups2-dev nfs-kernel-server nfs-common acl attr debconf-utils screenfetch figlet sysv-rc-conf &>> $LOG
 					 echo -e "Instalação das Dependências Feita com Sucesso!!!, continuando o script..."
 					 echo
 					 echo ============================================================ >> $LOG
