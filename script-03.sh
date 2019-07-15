@@ -5,15 +5,15 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 31/05/2016
-# Data de atualização: 06/10/2018
-# Versão: 0.11
+# Data de atualização: 15/07/2019
+# Versão: 0.12
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
 # Instalação dos pacotes principais para a quarta etapa, indicado para a distribuição GNU/Linux Ubuntu Server 16.04 LTS x64
 #
 # Instalando as dependências para Webmin - WebAdmin
-# Baixando o Webmin do site Oficial (versão: 1.890-1)
+# Baixando o Webmin do site Oficial (versão: 1.920)
 # Instalando o Webmin via dpkg
 # Porta padrão de acesso ao Webmin: https://SEU_ENDEREÇO_IP:10000
 #
@@ -45,7 +45,7 @@ then
 				then		
 					 clear
 					 # Versão do Webmin para ser feito download
-					 VERSAO="webmin_1.890_all.deb"
+					 VERSAO="webmin_1.920_all.deb"
 					 TAMANHO="14.8 MB"
 					 #
 					 echo -e "Usuário é `whoami`, continuando a executar o Script-03.sh"
@@ -76,7 +76,8 @@ then
 
 					 echo -e "Instalando as Dependências do Webmin, aguarde..."
 					 #Instalando as dependências do Webmin
-					 apt-get -y install perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions python &>> $LOG
+					 apt-get -y install perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl \
+					 apt-show-versions python &>> $LOG
 					 echo -e "Instalação das Dependências do Webmin Feito com Sucesso!!!, continuando o script..."
 					 echo
 					 echo ============================================================ >> $LOG
