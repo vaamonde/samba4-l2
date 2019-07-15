@@ -5,8 +5,8 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 31/05/2016
-# Data de atualização: 04/10/2018
-# Versão: 0.11
+# Data de atualização: 15/07/2019
+# Versão: 0.12
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
@@ -296,14 +296,14 @@ then
 					 
 					 echo -e "Fazendo o download do arquivo eicar.com, aguarde..."
 					 #Fazendo o download do arquivo eicar.com e armazenando no diretório /arquivos
-					 wget -c -P /arquivos http://www.eicar.org/download/eicar.com &>> $LOG
+					 wget -c -P /arquivos https://www.eicar.org/download/eicar.com &>> $LOG
 					 echo -e "Download feito com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
 					 echo -e "Fazendo o download do arquivo eicar_com.txt, aguarde..."
 					 #Fazendo o download do arquivo eicar_com.txt e armazenando no diretório /arquivos
-					 wget -c -P /arquivos http://www.eicar.org/download/eicar_com.txt &>> $LOG
+					 wget -c -P /arquivos https://www.eicar.org/download/eicar_com.txt &>> $LOG
 					 echo -e "Download feito com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
