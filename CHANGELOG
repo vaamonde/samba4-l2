@@ -4,17 +4,29 @@ Facebook: facebook.com/ProcedimentosEmTI
 Facebook: facebook.com/BoraParaPratica
 YouTube: youtube.com/BoraParaPratica
 Data de criação: 31/05/2016
-Data de atualização: 09/10/2018
-Versão: 0.46
+Data de atualização: 15/07/2019
+Versão: 0.47
 Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 Testado e homologado para a versão do Ubuntu Server 16.04.5 LTS x64
+Testado e homologado para a versão do Ubuntu Server 16.04.6 LTS x64
 Kernel >= 4.4.x
 
-09/10/2018  - Alteração das configurações do AWStats, para desabilitar o envio de email para root. Robson Vaamonde
-Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/awstats <-- desabilitar a variável: MAILTO="" acréscimo da linha de desvio de mangens para /dev/null
-Script: https://github.com/vaamonde/samba4-l2/blob/master/script-22.sh <-- acréscimo das linhas de atualização do arquivo awstats
+15/07/2019 - Robson Vaamonde. Correção do arquivo fstab, erro na linha da partição /tmp, falta de uma vírgula.
+15/07/2019 - Robson Vaamonde. Melhoria no script-01.sh, opção de quebra de linha na instalação de pacotes utilizandoo apt-get
+install \ "contra barra".
+15/07/2019 - Robson Vaamonde. Atualização do script-02.sh, atualização das linhas do wget do EICAR, mudança do protocolo HTTP
+para HTTPS.
+15/07/2019 - Robson Vaamonde. Atualização do script-03.sh, opção de quebra de linha na instalação de pacotes utilizandoo apt-get
+install \ "contra barra", atualização da versão do Webmin para 1.920
+15/07/2019 - Robson Vaamonde. 
 
-09/10/2018  - Alteração das configurações dos servidores de Bind, Grub e Firewall. Robson Vaamonde
+09/10/2018 - Robson Vaamonde. Alteração das configurações do AWStats, para desabilitar o envio de email para root. 
+Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/awstats <-- desabilitar a variável: MAILTO="" acréscimo da linha
+de desvio de mangens para /dev/null
+Script: https://github.com/vaamonde/samba4-l2/blob/master/script-22.sh <-- acréscimo das linhas de atualização do arquivo 
+awstats
+
+09/10/2018 - Robson Vaamonde. Alteração das configurações dos servidores de Bind, Grub e Firewall.
 Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/named.conf.options <-- adicionado opção de logs e estatísticas do bind
 Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/grub <-- adicionado a opção: consoleblank=0
 Conf: https://github.com/vaamonde/samba4-l2/blob/master/conf/firewall <-- adicionado a opção: echo 1 > /sys/block/sda/device/queue_depth
