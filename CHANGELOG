@@ -18,6 +18,7 @@ install \ "contra barra".
 para HTTPS.
 15/07/2019 - Robson Vaamonde. Atualização do script-03.sh, opção de quebra de linha na instalação de pacotes utilizandoo apt-get
 install \ "contra barra", atualização da versão do Webmin para 1.920
+15/07/2019 - Robson Vaamonde. Atualização do script-24.sh, atualização da versão do LogAnalyzer para 4.1.7
 15/07/2019 - Robson Vaamonde. 
 
 09/10/2018 - Robson Vaamonde. Alteração das configurações do AWStats, para desabilitar o envio de email para root. 
