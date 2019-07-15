@@ -5,8 +5,8 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 02/10/2018
-# Data de atualização: 08/10/2018
-# Versão: 0.4
+# Data de atualização: 15/07/2019
+# Versão: 0.5
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
@@ -38,8 +38,8 @@ then
 					 USER="root"
 					 PASSWORD="pti@2016"
 					 RSYSLOG="syslog"
-					 LOGANALYZER="loganalyzer-4.1.6.tar.gz"
-					 FILELOGANALYZER="loganalyzer-4.1.6"
+					 LOGANALYZER="loganalyzer-4.1.7.tar.gz"
+					 FILELOGANALYZER="loganalyzer-4.1.7"
 					 
 					 echo -e "Usuário é `whoami`, continuando a executar o Script-24.sh"
 					 echo
