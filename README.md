@@ -1,5 +1,5 @@
 # Curso GRÁTIS DE SAMBA 4 Level 2 (Nível)
-Scripts de configuração do Curso GRÁTIS de SAMBA 4 Level 2 para o projeto do Curso do AulaEAD.com
+Scripts de configuração do Curso GRÁTIS de SAMBA 4 Active Directory Domain Service Open Source Level 2 para o projeto do Curso do AulaEAD.com
 
 <h3 class="widget-title">O QUE VOCÊ VAI APRENDER?</h3>
 <div class="textwidget" align="justify">
