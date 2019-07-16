@@ -20,6 +20,8 @@ para HTTPS.
 install \ "contra barra", atualização da versão do Webmin para 1.920
 15/07/2019 - Robson Vaamonde. Atualização do script-20.sh, atualização da dependência de monitoramente do Netdata: mysql-client 
 python-pymssql python-mysqldb, criação dos arquivos de monitoramento do MySQL e do DHCP Server.
+15/07/2019 - Robson Vaamonde. Criação dos arquivos de monitoramento do MySQL mysql_srv.conf e DHCP Server isc_dhcpd.conf utilizados
+pelo Netdata.
 15/07/2019 - Robson Vaamonde. Atualização do script-24.sh, atualização da versão do LogAnalyzer para 4.1.7
 
 09/10/2018 - Robson Vaamonde. Alteração das configurações do AWStats, para desabilitar o envio de email para root. 
