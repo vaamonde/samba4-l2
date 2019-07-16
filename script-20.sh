@@ -5,8 +5,8 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 31/05/2016
-# Data de atualização: 09/10/2018
-# Versão: 0.13
+# Data de atualização: 15/07/2019
+# Versão: 0.14
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
@@ -91,7 +91,8 @@ then
 					 
 					 echo -e "Instalação das dependências do Netdata, aguarde..."
 					 #Instalando as dependências do Netdata
-					 apt-get -y install zlib1g-dev gcc make git autoconf autogen automake pkg-config uuid-dev python python-pip python-dev python3-dev libmysqlclient-dev python-ipaddress &>> $LOG
+					 apt-get -y install zlib1g-dev gcc make git autoconf autogen automake pkg-config uuid-dev python python-pip python-dev \
+					 python3-dev libmysqlclient-dev python-ipaddress mysql-client python-pymssql python-mysqldb &>> $LOG
 					 echo -e "Instalação das dependêncais do Netdata feita com sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
@@ -129,28 +130,20 @@ then
 					 sleep 2
 					 echo
 					 
-					 #EM DESENVOLVIMENTO DAS CONFIGURAÇÕES DOS PLUGUINS DO NETDATA 01/10/2018
-					 #echo -e "Instalando os recursos de acesso ao Banco de Dados MySQL, aguarde..."
-					 #Utilizando o comando pip para instalar os pluguins do Python para acesso ao MySQL
-					 #Atualizando o PIP
-					 #pip install --upgrade pip &>> $LOG
+					 echo -e "Instalando os recursos de monitoramente do Banco de Dados MySQL, DHCP e DNS aguarde..."
 					 #
-					 #Instalando o PyMySQL
-					 #pip2.7 install pymysql &>> $LOG
+					 echo -e "Fazendo o Backup dos Arquivos de Configuração Original, aguarde"
+					 mv -v /usr/lib/netdata/conf.d/python.d/isc_dhcpd.conf /usr/lib/netdata/conf.d/python.d/isc_dhcpd.conf.old &>> $LOG
+					 mv -v /usr/lib/netdata/conf.d/python.d/mysql.conf /usr/lib/netdata/conf.d/python.d/mysql.conf.old &>> $LOG
+					 echo -e "Backup feito com sucesso!!!, continuando o script..."
+					 sleep 2
+					 echo
+					 
 					 #
-					 #Instalando o MySQLClient
-					 #pip2.7 install mysqlclient
-					 #
-					 #Fazendo o Backup dos Arquivos de Configuração Original
-					 #mv -v /usr/lib/netdata/conf.d/python.d/isc_dhcpd.conf /usr/lib/netdata/conf.d/python.d/isc_dhcpd.conf.old &>> $LOG
-					 #mv -v /usr/lib/netdata/conf.d/python.d/mysql.conf /usr/lib/netdata/conf.d/python.d/mysql.conf.old &>> $LOG
-					 #mv -v /usr/lib/netdata/conf.d/python.d/bind_rndc.conf /usr/lib/netdata/conf.d/python.d/bind_rndc.conf.old &>> $LOG
-					 #
-					 #Copiando os arquivos de Configuração do MySQL, ISC-DHCPD e Bind
-					 #cp -v conf/mysql.conf /usr/lib/netdata/conf.d/python.d/ &>> $LOG
-					 #cp -v conf/isc_dhcpd.conf /usr/lib/netdata/conf.d/python.d/ &>> $LOG
-					 #cp -v conf/bind_rndc.conf /usr/lib/netdata/conf.d/python.d/ &>> $LOG
-					 #
+					 echo -e "Copiando os arquivos de Configuração do MySQL, ISC-DHCPD e Bind"
+					 cp -v conf/mysql_srv.conf /usr/lib/netdata/conf.d/python.d/mysql.conf &>> $LOG
+					 cp -v conf/isc_dhcpd.conf /usr/lib/netdata/conf.d/python.d/ &>> $LOG
+					 echo -e "Arquivos atualizados com sucesso!!!, continuando o script..."
 					 
 					 echo -e "Instalação do Netdata feita com sucesso!!!, pressione <Enter> para continuar"
 					 read
