@@ -5,42 +5,53 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 31/05/2016
-# Data de atualização: 09/10/2018
-# Versão: 0.11
+# Data de atualização: 17/07/2019
+# Versão: 0.12
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
-# Configuração dos serviços do SAMBA-4 da sétima etapa, indicado para a distribuição GNU/Linux Ubuntu Server 16.04 LTS x64
+# Configuração dos serviços do SAMBA 4 da sétima etapa, indicado para a distribuição GNU/Linux Ubuntu Server 16.04 LTS x64
 #
 # Opções do samba-tool domain provision
 #
-# --option=”interfaces=lo eth0″ --option=”bind interfaces only=yes” – Se seu controlador de domínios tem mais de uma interface de rede essa opção é obrigatória. Isso força o samba escutar e resolver corretamente o DNS para a interface da sua rede local;
+# --option=”interfaces=lo eth0″ --option=”bind interfaces only=yes” – Se seu controlador de domínio tem mais de uma 
+# interface de rede essa opção é obrigatória. Isso força o SAMBA 4 a escutar e resolver corretamente o DNS para a interface
+# da sua rede local;
 #
-# --option="allow dns updates = nonsecure and secure" --option="dns forwarder = 192.168.1.10"
+# --option="allow dns updates = nonsecure and secure" 
+# --option="dns forwarder = 192.168.1.10"
+# --option="winbind use default domain = yes" 
+# --option="winbind enum users  = yes" 
+# --option="winbind enum groups = yes" 
+# --option="winbind refresh tickets = yes" 
+# --option="winbind refresh tickets = rfc2307"
+# --option="server signing = auto" 
+# --option="vfs objects = acl_xattr" 
+# --option="map acl inherit = yes" 
+# --option="store dos attibutes = yes" 
+# --option="client use spnego = no"
 #
-# --option="winbind use default domain = yes" --option="winbind enum users  = yes" --option="winbind enum groups = yes" --option="winbind refresh tickets = yes" --option="winbind refresh tickets = rfc2307"
+# --use-rfc2307 – O uso dessa opção ativa o SAMBA 4 Active Directory para armazenar atributos posix. É também cria
+# informações do NIS (Network Information Service) no AD, permitindo a administração de UIDs/GIDs e outras funções Unix;
 #
-# --option="server signing = auto" --option="vfs objects = acl_xattr" --option="map acl inherit = yes" --option="store dos attibutes = yes" --option="client use spnego = no"
+# --realm=PTI.INTRA – É onde setamos o domínio completo, no caso prefixo mais sufixo, obrigatório ser em MAIUSCULA;
 #
-# --use-rfc2307 – O uso dessa opção ativa o Samba Active Directory para armazenar atributos posix. É também criado informações NIS (Network Information Service) no AD, permitindo a administração de UIDs/GIDs e outras funções Unix;
+# --domain=PTI – Nessa opção, devemos setar apenas o prefixo do domínio, obrigatório ser em MAIUSCULA;
 #
-# --realm=PTI.INTRA – É onde setamos o domínio completo, no caso prefixo mais sufixo;
-#
-# --domain=PTI – Nessa opção, devemos setar apenas o prefixo do domínio;
-#
-# --dns-backend=BIND9_DLZ – Por padrão Samba4 utiliza o seu próprio DNS. Essa opção força o Samba4 utilizar o Bind como DNS Backend.
+# --dns-backend=BIND9_DLZ – Por padrão SAMBA 4 utiliza o seu próprio DNS. Essa opção força o SSAMBA 4 utilizar o Bind como DNS 
+# Backend.
 #
 # --adminpass=’pti@2016’ – Aqui configuramos a senha do usuário “Administrator”, que será o administrador do sistema.
 #
-# --host-ip=192.168.1.10 - 
+# --host-ip=192.168.1.10 - Aqui configuramos o endereço IP do servidor do SAMBA 4
 #
-# Informações sobre tipos de DNS do SAMBA4
-# SAMBA_INTERNAL	= Configurações de DNS interna no SAMBA4
+# Informações sobre tipos de DNS do SAMBA 4
+# SAMBA_INTERNAL	= Configurações de DNS interna no SAMBA 4
 # BIND9_FLATFILE	= Configurações de DNS utilizando arquivos de configurações
-# BIND9_DLZ		= Configurações de DNS integrado em SAMBA4 é o BIND
+# BIND9_DLZ		= Configurações de DNS integrado em SAMBA 4 é o BIND
 # NONE			= Sem configuração de DNS
 #
-#Versões do Schema do Active Directory suportador pelo SAMBA-4: https://wiki.samba.org/index.php/AD_Schema_Version_Support
+# Versões do Schema do Active Directory suportador pelo SAMBA 4
 #
 # Informações sobre o FSMO Roles (Flexible Single Master Operation Roles)
 # 1. Schema Master (Mestre de Esquema);
@@ -49,6 +60,7 @@
 # 4. RID Master (Mestre ID Relativo - SID);
 # 5. Infra-Structure Master (Mestre de Infra-Estrutura);
 # 6. GC Global Catalog (Catalog Global).
+# Mais informações: https://wiki.samba.org/index.php/AD_Schema_Version_Support
 #
 # AppArmor configurações:
 # r = permissões de leitura
@@ -78,7 +90,7 @@ then
 			if [ "$KERNEL" == "4.4" ]
 				then		
 					 clear
-					 # Variáveis de configuração do SAMBA4
+					 # Variáveis de configuração do SAMBA 4
 					 REALM="PTI.INTRA"
 					 DOMAIN="PTI"
 					 ROLE="dc"
@@ -90,11 +102,11 @@ then
 					 #
 					 echo -e "Usuário é `whoami`, continuando a executar o Script-06.sh"
 					 echo
-					 echo -e "Promovendo o SAMBA-4 como Controlador de Domínio"
+					 echo -e "Promovendo o SAMBA 4 como Controlador de Domínio"
 					 echo
-					 echo -e "Configurando o SAMBA-4 integrado com o BIND9-DNS-SERVER e ISC-DHCP-SERVER"
+					 echo -e "Configurando o SAMBA 4 integrado com o BIND9-DNS-SERVER e ISC-DHCP-SERVER"
 					 echo
-					 echo -e "Nível Funcional do SAMBA-4 como Windows Server 2008 R2"
+					 echo -e "Nível Funcional do SAMBA 4 como Windows Server 2008 R2"
 					 echo
 					 echo -e "1. Schema Master (Mestre de Esquema);"
 					 echo -e "2. Domain Name Master (Mestre de Nomeação de Domínio);"
@@ -129,13 +141,13 @@ then
 					 clear
 					 echo ============================================================ >> $LOG
 
-					 echo -e "Promovendo o Servidor SAMBA-4 como AD-DC, pressione <Enter> para iniciar o processo de promoção"
+					 echo -e "Promovendo o Servidor SAMBA 4 como AD-DC, pressione <Enter> para iniciar o processo de promoção"
 					 echo 
 					 read
 					 echo
 					 
-					 echo -e "Parando o serviço do SAMBA-4, aguarde..."
-					 #Parando o serviço do SAMBA-4
+					 echo -e "Parando o serviço do SAMBA 4, aguarde..."
+					 #Parando o serviço do SAMBA 4
 					 sudo service samba stop &>> $LOG
 					 echo -e "Serviço parado com sucesso!!!, continuando o script..."
 					 sleep 2
@@ -148,19 +160,25 @@ then
 					 sleep 2
 					 echo
 					 
-					 echo -e "Promovendo o controlador de domínio do SAMBA-4, aguarde..."
+					 echo -e "Promovendo o controlador de domínio do SAMBA 4, aguarde..."
 					 #Iniciando o processo de promoção do servidor utilizando o comando samba-tool domain provision
-					 samba-tool domain provision --realm=$REALM --domain=$DOMAIN --server-role=$ROLE --dns-backend=$DNS --adminpass=$PASSWORD --function-level=$LEVEL --site=$SITE --host-ip=$IP --option="interfaces = lo eth0" --option="bind interfaces only = yes" --option="allow dns updates = nonsecure and secure" --option="dns forwarder = 192.168.1.10" --option="winbind use default domain = yes" --option="winbind enum users  = yes" --option="winbind enum groups = yes" --option="winbind refresh tickets = yes" --option="server signing = auto" --option="vfs objects = acl_xattr" --option="map acl inherit = yes" --option="store dos attributes = yes" --option="client use spnego = no" --option="use spnego = no" --option="client use spnego principal = no" --use-rfc2307 --use-xattrs=yes &>> $LOG
-					 echo -e "Promoção do Servidor SAMBA-4 feita com Sucesso!!!, continuando o script..."
+					 samba-tool domain provision --realm=$REALM --domain=$DOMAIN --server-role=$ROLE --dns-backend=$DNS --adminpass=$PASSWORD \
+					 --function-level=$LEVEL --site=$SITE --host-ip=$IP --option="interfaces = lo eth0" --option="bind interfaces only = yes" \
+					 --option="allow dns updates = nonsecure and secure" --option="dns forwarder = $IP" \
+					 --option="winbind use default domain = yes" --option="winbind enum users  = yes" --option="winbind enum groups = yes" \
+					 --option="winbind refresh tickets = yes" --option="server signing = auto" --option="vfs objects = acl_xattr" \
+					 --option="map acl inherit = yes" --option="store dos attributes = yes" --option="client use spnego = no" \
+					 --option="use spnego = no" --option="client use spnego principal = no" --use-rfc2307 --use-xattrs=yes &>> $LOG
+					 echo -e "Promoção do Servidor SAMBA 4 feita com Sucesso!!!, continuando o script..."
 					 sleep 2
 					 echo
 					 
-					 echo -e "Verificando as informações do Controlador de Domínio do SAMBA-4, aguarde..."
+					 echo -e "Verificando as informações do Controlador de Domínio do SAMBA 4, aguarde..."
 					 echo
-					 #Verificando informações do domínio.
+					 #Verificando informações do log domínio.
 					 tail -n6 $LOG | head -n6
 					 echo
-					 echo -e "Servidor SAMBA-4 promovido como Controlador de Domínio com Sucesso!!!"
+					 echo -e "Servidor SAMBA 4 promovido como Controlador de Domínio com Sucesso!!!"
 					 echo -e "Pressione <Enter> para continuar com o script"
 					 read
 					 sleep 2
@@ -391,7 +409,7 @@ then
 					 clear
 					 echo ============================================================ >> $LOG
 
-					 echo -e "Editando o arquivo NAMED.CONF do SAMBA-4"
+					 echo -e "Editando o arquivo NAMED.CONF do SAMBA 4"
 					 echo -e "Verificar as linhas referente a versão do BIND instalado"
 					 echo
 					 echo -e "Versão do BIND instalado: `named -v`"
@@ -406,7 +424,7 @@ then
 					 sleep 2
 					 echo
 					 
-					 #Editando o arquivo de configurando do SAMBA-4 named.conf
+					 #Editando o arquivo de configurando do SAMBA 4 named.conf
 					 vim /var/lib/samba/private/named.conf +20
 
 					 echo -e "NAMED.CONF do SAMBA4 atualizado com sucesso!!!, pressione <Enter> para continuando com o script"
@@ -418,7 +436,7 @@ then
 					 echo ============================================================ >> $LOG
 
 					 echo
-					 echo -e "Configuração do SAMBA-4 como Controlador de Domínio feito com Sucesso!!!!!"
+					 echo -e "Configuração do SAMBA 4 como Controlador de Domínio feito com Sucesso!!!!!"
 					 echo
 					 # Script para calcular o tempo gasto para a execução do script-06.sh
 						DATAFINAL=`date +%s`
