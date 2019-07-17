@@ -4,12 +4,14 @@ Facebook: facebook.com/ProcedimentosEmTI
 Facebook: facebook.com/BoraParaPratica
 YouTube: youtube.com/BoraParaPratica
 Data de criação: 31/05/2016
-Data de atualização: 15/07/2019
-Versão: 0.47
+Data de atualização: 17/07/2019
+Versão: 0.48
 Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 Testado e homologado para a versão do Ubuntu Server 16.04.5 LTS x64
 Testado e homologado para a versão do Ubuntu Server 16.04.6 LTS x64
 Kernel >= 4.4.x
+
+17/07/2019 - Robson Vaamonde. Melhoria no script-06.sh, quebra de linhas na promoção do domínio e correções de documentação.
 
 15/07/2019 - Robson Vaamonde. Correção do arquivo fstab, erro na linha da partição /tmp, falta de uma vírgula.
 15/07/2019 - Robson Vaamonde. Melhoria no script-01.sh, opção de quebra de linha na instalação de pacotes utilizandoo apt-get
