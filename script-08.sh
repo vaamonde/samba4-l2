@@ -5,14 +5,14 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 31/05/2016
-# Data de atualização: 09/10/2018
-# Versão: 0.9
+# Data de atualização: 18/07/2019
+# Versão: 0.10
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
 # Verificação das portas de serviços da nona etapa, indicado para a distribuição GNU/Linux Ubuntu Server 16.04 LTS x64
 #
-# Informações de Serviços de Rede integrado com o SAMBA4
+# Informações de Serviços de Rede integrado com o SAMBA 4
 #
 # SSH (Secure Shell - Porta padrão: TCP 22)
 # DNS (Domain Name System - Porta padrão: TCP/UDP 53 UDP 5353)
