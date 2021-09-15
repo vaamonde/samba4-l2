@@ -14,7 +14,7 @@ options {
 	// Diretório padrão do cache do Bind
 	directory "/var/cache/bind";
 	
-	// Diretório das estatísica do Bind RNDC
+	// Diretório das estatística do Bind RNDC
 	statistics-file "/var/log/named/named.stats";
 
 	// Endereços IP de encaminhamento

@@ -11,8 +11,8 @@
 # Kernel >= 4.4.x
 #
 # Configuração das regras de Firewall utilizando o IPTables
-# Usar o script-08.sh para analiar as portas antes da configuração dos arquivos liberação
-# Utilziar o arquivo /etc/firewall/portslibtcp para as portas liberadas do protocolo TCP
+# Usar o script-08.sh para analisar as portas antes da configuração dos arquivos liberação
+# Utilizar o arquivo /etc/firewall/portslibtcp para as portas liberadas do protocolo TCP
 # Utilizar o arquivo /etc/firewall/portslibudp para as portas liberadas do protocolo UDP 
 # Utilizar o arquivo /etc/firewall/portsblo para as portas bloqueadas TCP/UDP
 # Utilizar o arquivo /etc/firewall/dnsseerver para os IP do Servidores de DNS liberados

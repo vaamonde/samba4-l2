@@ -1,3 +1,5 @@
+# REPOSITÓRIO "CONGELADO" - Esse repositório não irá mais receber atualizações.
+
 # Curso GRÁTIS de SAMBA 4 Level 2 (Nível 2)
 
 ## 💰 Ajude o projeto Bora para Prática a continuar fazendo vídeos gratuitos para o Canal, acessando o link de doação do PagSeguro: https://pag.ae/bjlSJcH
@@ -10,6 +12,7 @@ Facebook Procedimentos em TI: https://www.facebook.com/ProcedimentosEmTi<br>
 Facebook Bora para Prática: https://www.facebook.com/boraparapratica<br>
 Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
+LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/<br>
 
 Scripts de configuração do Curso GRÁTIS de SAMBA 4 Active Directory Domain Service Open Source Level 2 para o projeto do Curso do AulaEAD.com
 
